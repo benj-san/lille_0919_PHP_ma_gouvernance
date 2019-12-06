@@ -6,81 +6,92 @@
 }
 
 .container{
-  height: 78vh;
+  height: 72vh;
   overflow: auto;
+  justify-content: center;
 }
+
+
 
 .card-horizontal {
   border: solid 2px #4e555b;
   display: flex;
   flex: 1 1 auto;
   border-radius: 10px;
-  .statut{
+  margin: auto auto 2vh;
+  width: 80%;
+
+  .statut {
     border-right: solid 2px #4e555b;
     align-content: center;
-  }
+    width: 8rem;
 
-}
-
-.new-demande {
-  margin-top: 2vh;
-  height: 5vh;
-}
-
-
-
-.choices {
-  width: 70%;
-  margin: 20px auto 20px auto;
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  border: none;
-  font-size: 42px;
-  font-weight: 500;
-
-  #buttonAdvisors, #buttonBoards {
-    cursor: pointer;
   }
 }
 
-.hidden {
-  display:none !important;
-}
-
-#allCardsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  margin: auto;
-
-  .cardContainer {
-    width: 20%;
-    margin: 20px 0 20px 0;
-
-    .cardAdvisors {
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      background-color: $primary-color;
-      border-radius: 8%;
-      width: 70%;
-      height: 250px;
+  .new-demande {
+    margin-top: 2vh;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;     display: flex;
+      justify-content: center;
       align-items: center;
-      color: white;
+
+  }
+
+
+  .choices {
+    width: 70%;
+    margin: 20px auto 20px auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: none;
+    font-size: 42px;
+    font-weight: 500;
+
+    #buttonAdvisors, #buttonBoards {
       cursor: pointer;
+    }
+  }
 
-      &:hover {
-        background-color: #2149e0;
-      }
+  .hidden {
+    display: none !important;
+  }
 
-      img {
-        border-radius: 50%;
-        height: 80px;
-        width: 80px;
-        margin: 10px auto 0 auto;
-        background-color: black;
+  #allCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+
+    .cardContainer {
+      width: 20%;
+      margin: 20px 0 20px 0;
+
+      .cardAdvisors {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: $primary-color;
+        border-radius: 8%;
+        width: 70%;
+        height: 250px;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #2149e0;
+        }
+
+        img {
+          border-radius: 50%;
+          height: 80px;
+          width: 80px;
+          margin: 10px auto 0 auto;
+          background-color: black;
+        }
       }
     }
   }
-}
