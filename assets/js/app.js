@@ -8,5 +8,23 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('../scss/app.scss');
 
+const advisors = document.getElementById('allCardsContainer');
+const buttonBoards = document.getElementById('buttonBoards');
+const buttonAdvisors = document.getElementById('buttonAdvisors');
+
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
+let boardShowed = true;
+buttonBoards.addEventListener('click', () => {
+    if (boardShowed === false) {
+        advisors.classList.toggle('flex');
+        boardShowed = true;
+    }
+});
+
+buttonAdvisors.addEventListener('click', () => {
+    if (boardShowed === true) {
+        advisors.classList.toggle('flex');
+        boardShowed = false;
+    }
+});

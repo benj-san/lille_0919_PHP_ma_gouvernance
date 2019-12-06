@@ -1,3 +1,47 @@
+* {
+  font-family: 'Montserrat', sans-serif; }
 
+.choices {
+  width: 70%;
+  margin: 20px auto 20px auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border: none;
+  font-size: 42px;
+  font-weight: 500; }
+  .choices #buttonAdvisors, .choices #buttonBoards {
+    cursor: pointer; }
+
+.flex {
+  display: flex !important; }
+
+#allCardsContainer {
+  display: none;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto; }
+  #allCardsContainer .cardContainer {
+    width: 20%;
+    margin: 20px 0 20px 0; }
+    #allCardsContainer .cardContainer .card {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      background-color: #1449cc;
+      border-radius: 8%;
+      width: 70%;
+      height: 250px;
+      align-items: center;
+      color: white;
+      cursor: pointer; }
+      #allCardsContainer .cardContainer .card:hover {
+        background-color: #2149e0; }
+      #allCardsContainer .cardContainer .card img {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        margin: 10px auto 0 auto;
+        background-color: black; }
 
 /*# sourceMappingURL=app.css.map */
