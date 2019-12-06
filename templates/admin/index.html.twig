@@ -3,112 +3,114 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-    <h2>Liste des demandes </h2>
-    <div class="container">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-9 mt-5">
-                    <div class="card">
-                        <div class="card-horizontal ">
-                            <div class="statut bg-danger">
-                               <p>statut</p>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Demande n°</h4>
-                                <p> Entreprise : </p>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-9 mt-5">
-                    <div class="card">
-                        <div class="card-horizontal ">
-                            <div class="statut bg-success">
-                                <p>statut</p>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Demande n°</h4>
-                                <p> Entreprise : </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-9 mt-5">
-                    <div class="card">
-                        <div class="card-horizontal">
-                            <div class="statut bg-success">
-                                <p>statut</p>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Demande n°</h4>
-                                <p> Entreprise : </p>
-                                </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-9 mt-5">
-                    <div class="card">
-                        <div class="card-horizontal">
-                            <div class="statut">
-                                <p>statut</p>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Demande n°</h4>
-                                <p> Entreprise : </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-9 mt-5">
-                    <div class="card">
-                        <div class="card-horizontal">
-                            <div class="statut">
-                                <p>statut</p>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Demande n°</h4>
-                                <p> Entreprise :</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="new-demande">
-        <button class="new-demand">nouvelle demande <a href="" >+</a> </button>
-    </div>
-
-=======
     <section class="choices">
         <div id="buttonBoards">Demandes</div>
         <div id="buttonAdvisors">Advisors</div>
     </section>
+    <section id="Boards">
+        <h2>Liste des demandes </h2>
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-9 mt-5">
+                        <div class="card">
+                            <div class="card-horizontal ">
+                                <div class="statut bg-danger">
+                                   <p>statut</p>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9 mt-5">
+                        <div class="card">
+                            <div class="card-horizontal ">
+                                <div class="statut bg-success">
+                                    <p>statut</p>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9 mt-5">
+                        <div class="card">
+                            <div class="card-horizontal">
+                                <div class="statut bg-success">
+                                    <p>statut</p>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-9 mt-5">
+                        <div class="card">
+                            <div class="card-horizontal">
+                                <div class="statut">
+                                    <p>statut</p>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-9 mt-5">
+                        <div class="card">
+                            <div class="card-horizontal">
+                                <div class="statut">
+                                    <p>statut</p>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise :</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="new-demande">
+            <button class="new-demand">nouvelle demande <a href="" >+</a> </button>
+        </div>
+    </section>
+
+
     <section class="filters">
 
     </section>
-    <section id="allCardsContainer">
-    {% for i in 0..30 %}
+    <section id="allCardsContainer" class="hidden">
+    {% for i in 0..5 %}
             <div class="cardContainer">
-                <div class="card">
+                <div class="cardAdvisors">
                     <img src="" alt=""/>
                     <h4>John Doe</h4>
                     <p>Autres infos utiles</p>
@@ -116,6 +118,5 @@
             </div>
     {% endfor %}
     </section>
->>>>>>> c910247121cc84d030c32dd10de938ce1d990e22
 
 {% endblock %}

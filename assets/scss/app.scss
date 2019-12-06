@@ -1,6 +1,9 @@
 @import "vars";
-<<<<<<< HEAD
 @import "~bootstrap";
+
+* {
+  font-family: 'Montserrat', sans-serif;;
+}
 
 .container{
   height: 78vh;
@@ -19,61 +22,65 @@
 
 }
 
-.new-demande{
+.new-demande {
   margin-top: 2vh;
   height: 5vh;
-
-=======
-
-* {
-  font-family:'Montserrat', sans-serif;;
 }
 
+
+
 .choices {
-  width:70%;
-  margin:20px auto 20px auto;
-  display:flex;
+  width: 70%;
+  margin: 20px auto 20px auto;
+  display: flex;
   justify-content: space-between;
   background-color: white;
-  border:none;
-  font-size:42px;
-  font-weight:500;
-  #buttonAdvisors,#buttonBoards {
-    cursor:pointer;
+  border: none;
+  font-size: 42px;
+  font-weight: 500;
+
+  #buttonAdvisors, #buttonBoards {
+    cursor: pointer;
   }
 }
 
-.flex {display:flex !important;}
+.hidden {
+  display:none !important;
+}
+
 #allCardsContainer {
-  display:none;
+  display: flex;
   flex-wrap: wrap;
-  width:90%;
-  margin:auto;
+  width: 90%;
+  margin: auto;
+
   .cardContainer {
-    width:20%;
-    margin:20px 0 20px 0;
-    .card {
-      margin:auto;
-      display:flex;
+    width: 20%;
+    margin: 20px 0 20px 0;
+
+    .cardAdvisors {
+      margin: auto;
+      display: flex;
       flex-direction: column;
       background-color: $primary-color;
-      border-radius:8%;
-      width:70%;
-      height:250px;
+      border-radius: 8%;
+      width: 70%;
+      height: 250px;
       align-items: center;
-      color:white;
-      cursor:pointer;
+      color: white;
+      cursor: pointer;
+
       &:hover {
         background-color: #2149e0;
       }
+
       img {
-        border-radius:50%;
-        height:80px;
-        width:80px;
-        margin:10px auto 0 auto;
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        margin: 10px auto 0 auto;
         background-color: black;
       }
+    }
   }
-  }
->>>>>>> c910247121cc84d030c32dd10de938ce1d990e22
 }
