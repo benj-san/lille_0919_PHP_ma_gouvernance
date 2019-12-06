@@ -1,1 +1,25 @@
 @import "vars";
+@import "~bootstrap";
+
+.container{
+  height: 78vh;
+  overflow: auto;
+}
+
+.card-horizontal {
+  border: solid 2px #4e555b;
+  display: flex;
+  flex: 1 1 auto;
+  border-radius: 10px;
+  .statut{
+    border-right: solid 2px #4e555b;
+    align-content: center;
+  }
+
+}
+
+.new-demande{
+  margin-top: 2vh;
+  height: 5vh;
+
+}
