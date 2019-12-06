@@ -33,7 +33,8 @@
       width: 70%;
       height: 250px;
       align-items: center;
-      color: white; }
+      color: white;
+      cursor: pointer; }
       #allCardsContainer .cardContainer .card img {
         border-radius: 50%;
         height: 80px;
