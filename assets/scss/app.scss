@@ -2,7 +2,7 @@
 @import "~bootstrap";
 
 * {
-  font-family: 'Montserrat', sans-serif;;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container{
@@ -46,6 +46,7 @@
 
 .hidden {
   display:none !important;
+  transition:2s ease;
 }
 
 #allCardsContainer {
@@ -53,7 +54,7 @@
   flex-wrap: wrap;
   width: 90%;
   margin: auto;
-
+  transition:2s ease;
   .cardContainer {
     width: 20%;
     margin: 20px 0 20px 0;
