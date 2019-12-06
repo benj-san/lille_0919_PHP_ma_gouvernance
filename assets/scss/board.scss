@@ -1,0 +1,77 @@
+@import "vars";
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family:'Montserrat', sans-serif;;
+}
+
+#boardAndBoardAdvisors{
+  display: flex;
+
+  #board{
+    width: 80%;
+    height: 100vh;
+
+    h1{
+      text-align: center;
+      padding-top: 5%;
+      font-size: 3.5vw;
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    #boardEdit{
+      width: 80%;
+      height: 60vh;
+      background-color: #EDF1F4;
+      margin: 5% auto auto auto;
+      border: 1px solid black;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+
+      img{
+        width: 150px;
+        height: 150px;
+        margin: auto auto 0 auto;
+      }
+
+      h2{
+        text-align: center;
+        font-size: 3.5vw;
+        color: #9B9B9B;
+        font-style: normal;
+        font-weight: normal;
+        margin: auto;
+      }
+    }
+  }
+
+  #boardAdvisors{
+    width: 20%;
+    height: 100vh;
+    overflow: auto;
+
+    #cardAdvisor{
+      width: 80%;
+      height: 100px;
+      background-color: $primary-color;
+      margin: 10px auto;
+      border-radius: 10px;
+      display: flex;
+
+      img{
+        width: 80px;
+        height: 80px;
+        background-color: #222222;
+        border-radius: 50%;
+        margin: auto 0 auto 10px;
+      }
+
+      #cardAdvisorInfos{
+        margin: auto;
+      }
+    }
+  }
+}

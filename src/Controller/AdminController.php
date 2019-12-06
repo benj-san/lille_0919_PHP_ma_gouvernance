@@ -16,4 +16,12 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+
+    /**
+     * @Route("/board", name="board")
+     */
+    public function board()
+    {
+        return $this->render('admin/constructBoard.html.twig');
+    }
 }

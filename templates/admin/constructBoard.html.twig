@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Construire le board{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('board') }}
+{% endblock %}
+
+{% block body %}
+
+    <div id="boardAndBoardAdvisors">
+        <div id="board">
+            <h1>Réaliser mon board</h1>
+            <div id="boardEdit" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
+                <h2>Déplacer vos advisors ICI !!!</h2>
+            </div>
+        </div>
+
+        <div id="boardAdvisors" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <form action=""></form>
+            {% for i in 0..20 %}
+                <div id="cardAdvisor" draggable="true" ondragstart="drag(event)">
+                    <img src="" alt="">
+                    <div id="cardAdvisorInfos">
+                        <h4>John Doe</h4>
+                        <p>Autres infos utiles</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('board') }}
+{% endblock %}
