@@ -28,13 +28,15 @@
       margin: auto;
       display: flex;
       flex-direction: column;
-      background-color: #0030CC;
+      background-color: #1449cc;
       border-radius: 8%;
       width: 70%;
       height: 250px;
       align-items: center;
       color: white;
       cursor: pointer; }
+      #allCardsContainer .cardContainer .card:hover {
+        background-color: #2149e0; }
       #allCardsContainer .cardContainer .card img {
         border-radius: 50%;
         height: 80px;
