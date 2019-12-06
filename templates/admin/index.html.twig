@@ -3,5 +3,23 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
+    <section class="choices">
+        <div id="buttonBoards">Demandes</div>
+        <div id="buttonAdvisors">Advisors</div>
+    </section>
+    <section class="filters">
+
+    </section>
+    <section id="allCardsContainer">
+    {% for i in 0..30 %}
+            <div class="cardContainer">
+                    <div class="card">
+                    <img src="" alt="profil"/>
+                    <h4>John Doe</h4>
+                    <p>Autres infos utiles</p>
+                </div>
+            </div>
+    {% endfor %}
+    </section>
 
 {% endblock %}
