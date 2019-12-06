@@ -2,7 +2,7 @@
 @import "~bootstrap";
 
 * {
-  font-family: 'Montserrat', sans-serif;;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container{
@@ -33,9 +33,10 @@
     margin-top: 2vh;
     position: absolute;
     bottom: 30px;
-    width: 100%;     display: flex;
-      justify-content: center;
-      align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+     align-items: center;
 
   }
 
@@ -55,15 +56,18 @@
     }
   }
 
-  .hidden {
-    display: none !important;
-  }
 
-  #allCardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    margin: auto;
+.hidden {
+  display:none !important;
+  transition:2s ease;
+}
+
+#allCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  transition: 2s ease;
 
     .cardContainer {
       width: 20%;
@@ -95,3 +99,4 @@
       }
     }
   }
+
