@@ -30,3 +30,4 @@ buttonAdvisors.addEventListener('click', () => {
         boardShowed = false;
     }
 });
+

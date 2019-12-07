@@ -55,33 +55,26 @@
   width: 90%;
   margin: auto;
   transition:2s ease;
-  .cardContainer {
-    width: 20%;
-    margin: 20px 0 20px 0;
-
-    .cardAdvisors {
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      background-color: $primary-color;
-      border-radius: 8%;
-      width: 70%;
-      height: 250px;
-      align-items: center;
-      color: white;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #2149e0;
-      }
-
-      img {
-        border-radius: 50%;
-        height: 80px;
-        width: 80px;
-        margin: 10px auto 0 auto;
-        background-color: black;
-      }
+  .cardAdvisors {
+    margin: 10px 2.5%;
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color;
+    border-radius: 8%;
+    width: 15%;
+    height: 250px;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: #2149e0;
+    }
+    img {
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      margin: 10px auto 0 auto;
+      background-color: black;
+    }
     }
   }
-}
