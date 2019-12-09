@@ -12,6 +12,10 @@ const advisors = document.getElementById('advisors');
 const buttonBoards = document.getElementById('buttonBoards');
 const buttonAdvisors = document.getElementById('buttonAdvisors');
 const boards = document.getElementById('Boards');
+const buttonDemand = document.getElementById('button-newdemand');
+const demandeFormulaire = document.getElementById('demandeFormulaire');
+const filterContainer = document.getElementById('filterContainer');
+
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 let boardShowed = true;
@@ -31,3 +35,8 @@ buttonAdvisors.addEventListener('click', () => {
     }
 });
 
+buttonDemand.addEventListener('click', () => {
+    demandeFormulaire.classList.toggle('hidden');
+    filterContainer.classList.toggle('hidden');
+    buttonDemand.classList.toggle('hidden');
+});
