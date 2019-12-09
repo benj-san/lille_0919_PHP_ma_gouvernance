@@ -103,19 +103,17 @@
     </section>
 
 
-    <section class="filters">
 
-    </section>
-    <section id="allCardsContainer" class="hidden">
-    {% for i in 0..5 %}
-            <div class="cardContainer">
-                <div class="cardAdvisors">
-                    <img src="" alt=""/>
-                    <h4>John Doe</h4>
-                    <p>Autres infos utiles</p>
-                </div>
-            </div>
-    {% endfor %}
+    <section id="advisors" class="hidden">
+        <section id="allCardsContainer">
+        {% for i in 0..15 %}
+                    <div class="cardAdvisors">
+                        <img src="" alt=""/>
+                        <h4>John Doe</h4>
+                        <p>Autres infos utiles</p>
+                    </div>
+        {% endfor %}
+        </section>
     </section>
 
 {% endblock %}
