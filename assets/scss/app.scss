@@ -40,6 +40,23 @@
 
   }
 
+   .button-newdemand {
+     background-color: #0030cc;
+     padding: .3em 1em;
+     border: 2px solid rgba(0, 0, 0, 0);
+     border-radius: 7px;
+     color: white;
+     text-decoration: none ;
+     font-size: 1.7rem ;
+
+     &:hover {
+       text-decoration: none;
+       color: white;
+     }
+
+   }
+
+
 
   .choices {
     width: 70%;
