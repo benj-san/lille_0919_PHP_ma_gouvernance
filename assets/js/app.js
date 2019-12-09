@@ -8,7 +8,7 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('../scss/app.scss');
 
-const advisors = document.getElementById('allCardsContainer');
+const advisors = document.getElementById('advisors');
 const buttonBoards = document.getElementById('buttonBoards');
 const buttonAdvisors = document.getElementById('buttonAdvisors');
 const boards = document.getElementById('Boards');

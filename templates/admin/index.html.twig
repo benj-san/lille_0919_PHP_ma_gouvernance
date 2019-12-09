@@ -9,12 +9,11 @@
         <div id="buttonAdvisors">Advisors</div>
     </section>
     <section id="Boards">
-        <h2>Liste des demandes </h2>
         <div class="container">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-9 mt-5">
-                        <div class="card">
+                    <div class="col">
+                        <div class="cardClient">
                             <div class="card-horizontal ">
                                 <div class="statut bg-danger">
                                    <p>statut</p>
@@ -29,8 +28,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-9 mt-5">
-                        <div class="card">
+                    <div class="col">
+                        <div class="cardClient">
                             <div class="card-horizontal ">
                                 <div class="statut bg-success">
                                     <p>statut</p>
@@ -45,8 +44,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-9 mt-5">
-                        <div class="card">
+                    <div class="col">
+                        <div class="cardClient">
                             <div class="card-horizontal">
                                 <div class="statut bg-success">
                                     <p>statut</p>
@@ -62,8 +61,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-9 mt-5">
-                        <div class="card">
+                    <div class="col">
+                        <div class="cardClient">
                             <div class="card-horizontal">
                                 <div class="statut">
                                     <p>statut</p>
@@ -79,8 +78,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-9 mt-5">
-                        <div class="card">
+                    <div class="col">
+                        <div class="cardClient">
                             <div class="card-horizontal">
                                 <div class="statut">
                                     <p>statut</p>
@@ -99,22 +98,25 @@
         </div>
 
         <div class="new-demande">
-            <button class="new-demand">nouvelle demande <a href="" >+</a> </button>
+            <a href="" ><button class="new-demand">nouvelle demande +</button></a>
         </div>
     </section>
 
 
-    <section class="filters">
-        <input type="text" id="myInput" placeholder="Chercher un nom..">
-    </section>
-    <section id="allCardsContainer" class="hidden">
-    {% for i in 0..5 %}
-                <div class="cardAdvisors">
-                    <img src="" alt=""/>
-                    <h4>John Doe</h4>
-                    <p>Autres infos utiles</p>
-                </div>
-    {% endfor %}
+
+    <section id="advisors" class="hidden">
+        <section class="filters">
+            <input type="text" id="myInput" placeholder="Chercher un nom..">
+        </section>
+        <section id="allCardsContainer">
+        {% for i in 0..15 %}
+                    <div class="cardAdvisors">
+                        <img src="" alt=""/>
+                        <h4>John Doe</h4>
+                        <p>Autres infos utiles</p>
+                    </div>
+        {% endfor %}
+        </section>
     </section>
 
 {% endblock %}
