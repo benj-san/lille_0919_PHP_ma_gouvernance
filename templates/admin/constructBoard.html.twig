@@ -11,16 +11,20 @@
     <div id="boardAndBoardAdvisors">
         <div id="board">
             <h1>Réaliser mon board</h1>
-            <div id="boardEdit" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+            <div id="boardEdit" class="dropTarget">
                 <img src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
                 <h2>Déplacer vos advisors ICI !!!</h2>
             </div>
+            <button>Valider</button>
         </div>
 
-        <div id="boardAdvisors" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        <div id="boardAdvisors" class="dropTarget">
             <form action=""></form>
             {% for i in 0..20 %}
-                <div id="cardAdvisor" draggable="true" ondragstart="drag(event)">
+                <div id="cardAdvisor" draggable="true">
                     <img src="" alt="">
                     <div id="cardAdvisorInfos">
                         <h4>John Doe</h4>
