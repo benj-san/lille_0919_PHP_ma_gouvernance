@@ -3,23 +3,117 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
+
     <section class="choices">
         <div id="buttonBoards">Demandes</div>
         <div id="buttonAdvisors">Advisors</div>
     </section>
-    <section class="filters">
+    <section id="Boards">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal ">
+                                <div class="statut bg-danger">
 
-    </section>
-    <section id="allCardsContainer">
-    {% for i in 0..30 %}
-            <div class="cardContainer">
-                <div class="card">
-                    <img src="" alt=""/>
-                    <h4>John Doe</h4>
-                    <p>Autres infos utiles</p>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal ">
+                                <div class="statut bg-success">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal">
+                                <div class="statut bg-success">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal">
+                                <div class="statut">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal">
+                                <div class="statut">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise :</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-    {% endfor %}
+        </div>
+
+        <div class="new-demande">
+            <a class="button-newdemand" href="" >nouvelle demande +</a>
+        </div>
+    </section>
+
+
+
+    <section id="advisors" class="hidden">
+        <section id="allCardsContainer">
+        {% for i in 0..15 %}
+                    <div class="cardAdvisors">
+                        <img src="" alt=""/>
+                        <h4>John Doe</h4>
+                        <p>Autres infos utiles</p>
+                    </div>
+        {% endfor %}
+        </section>
     </section>
 
 {% endblock %}
