@@ -38,6 +38,11 @@ class Demand
      */
     private $clientRequest;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $status;
+
     public function __construct()
     {
         $this->boards = new ArrayCollection();
@@ -128,6 +133,18 @@ class Demand
     public function setClientRequest(?string $clientRequest): self
     {
         $this->clientRequest = $clientRequest;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

@@ -17,135 +17,134 @@
 }
 
 .container {
-  height: 72vh;
-  overflow: auto;
-  justify-content: center;
+    height: 72vh;
+    overflow: auto;
+    justify-content: center;
 }
 
 .card-horizontal {
-  border: solid 2px #4e555b;
-  display: flex;
-  flex: 1 1 auto;
-  border-radius: 10px;
-  margin: auto auto 2vh;
-  width: 80%;
-  cursor: pointer;
+    border: solid 2px #4e555b;
+    display: flex;
+    flex: 1 1 auto;
+    border-radius: 10px;
+    margin: auto auto 2vh;
+    width: 80%;
+    cursor: pointer;
 
-  .statut {
-    border-right: solid 2px #4e555b;
-    align-content: center;
-    width: 8rem;
-  }
+    .statut {
+        border-right: solid 2px #4e555b;
+        align-content: center;
+        width: 8rem;
+    }
 }
 
 .new-demande {
-  margin-top: 2vh;
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin-top: 2vh;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #button-newdemand {
-  background-color: #0030cc;
-  padding: .3em 1em;
-  border: 2px solid rgba(0, 0, 0, 0);
-  border-radius: 7px;
-  color: white;
-  text-decoration: none;
-  font-size: 1.7rem;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: none;
+    background-color: #0030cc;
+    padding: .3em 1em;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 7px;
     color: white;
-  }
+    text-decoration: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+        color: white;
+    }
 
 }
 
 .choices {
-  width: 70%;
-  margin: 20px auto 20px auto;
-  display: flex;
-  justify-content: space-between;
-  border: none;
-  font-size: 42px;
-  font-weight: 500;
+    width: 70%;
+    margin: 20px auto 20px auto;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    font-size: 42px;
+    font-weight: 500;
 
-  #buttonAdvisors, #buttonBoards {
-    cursor: pointer;
-  }
+    #buttonAdvisors, #buttonBoards {
+        cursor: pointer;
+    }
 }
 
 .hidden {
-  display: none !important;
-  transition: 2s ease;
+    display: none !important;
+    transition: 2s ease;
 }
 
 #allCardsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  margin: auto;
-  transition: 2s ease;
-
-  .cardAdvisors {
-    margin: 10px 2%;
     display: flex;
-    flex-direction: column;
-    background-color: $primary-color;
-    border-radius: 8%;
-    width: 12.6666%;
-    height: 250px;
-    align-items: center;
-    color: white;
-    cursor: pointer;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    transition: 2s ease;
+
+    .cardAdvisors {
+        margin: 10px 2%;
+        display: flex;
+        flex-direction: column;
+        background-color: $primary-color;
+        border-radius: 8%;
+        width: 12.6666%;
+        height: 250px;
+        align-items: center;
+        color: white;
+        cursor: pointer;
 
     &:hover {
-      background-color: #2149e0;
+        background-color: #2149e0;
     }
 
     img {
-      border-radius: 50%;
-      height: 80px;
-      width: 80px;
-      margin: 10px auto 0 auto;
-      background-color: black;
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        margin: 10px auto 0 auto;
+        background-color: black;
     }
   }
 }
 
 .filters {
-  margin: 50px 0;
+    margin: 50px 0;
 }
 
 #demandeFormulaire {
-  width: 70%;
-  z-index: 1;
-  height: 80%;
-  left: 15%;
-  border-radius: 15px;
-  background-color: #EDF1F4;
-  bottom: 10%;
-  position: absolute;
-  text-align: center;
+    width: 70%;
+    z-index: 1;
+    height: 80%;
+    left: 15%;
+    border-radius: 15px;
+    background-color: #EDF1F4;
+    bottom: 10%;
+    position: absolute;text-align: center;
 
   #demandeFormulaireContent {
-    overflow-y: auto;
-    height: 100%;
-    width: 100%;
+      overflow-y: auto;
+      height: 100%;
+      width: 100%;
 
-    h3 {
-      font-size: 38px;
-      margin: 1% auto 2% auto;
-      font-weight: bold;
-    }
+     h3 {
+        font-size: 38px;
+        margin: 1% auto 2% auto;
+        font-weight: bold;
+     }
 
-    h4 {
-      font-weight: 600;
-    }
+      h4 {
+          font-weight: 600;
+      }
 
     form {
       .categories {
@@ -169,143 +168,143 @@
       }
 
       .formDemande {
-        width: 70%;
-        margin: 1% auto;
+          width: 70%;
+          margin: 1% auto;
       }
 
       .formDemandeTextarea {
-        width: 70%;
-        margin: 1% auto;
-        height: 100px;
-        overflow-y: scroll;
+          width: 70%;
+          margin: 1% auto;
+          height: 100px;
+          overflow-y: scroll;
       }
 
       .buttonsFormulaireDemande {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 4% auto 2% auto;
+          display: flex;
+          justify-content: space-evenly;
+          margin: 4% auto 2% auto;
 
-        .submitDemande {
-          background-color: #0030cc;
-          padding: .15em 1em;
-          border: 2px solid rgba(0, 0, 0, 0);
-          border-radius: 7px;
-          color: white;
-          text-decoration: none;
-          font-size: 1.3rem;
-          width: 30%;
-        }
+          .submitDemande {
+              background-color: #0030cc;
+              padding: .15em 1em;
+              border: 2px solid rgba(0, 0, 0, 0);
+              border-radius: 7px;
+              color: white;
+              text-decoration: none;
+              font-size: 1.3rem;
+              width: 30%;
+          }
       }
     }
   }
 }
 
 .modalDescription {
-  width: 70%;
-  z-index: 1;
-  height: 80%;
-  left: 15%;
-  border-radius: 15px;
-  background-color: #EDF1F4;
-  bottom: 10%;
-  position: absolute;
-  overflow: auto;
+      width: 70%;
+      z-index: 1;
+      height: 80%;
+      left: 15%;
+      border-radius: 15px;
+      background-color: #EDF1F4;
+      bottom: 10%;
+      position: absolute;
+      overflow: auto;
 
-  h4 {
-    font-size: 28px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    width: 35%;
-  }
-
-  h3 {
-    font-size: 38px;
-    margin: 10px auto 4% auto;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  .modalParts {
-    display: flex;
-    margin: 7% 0 7% 10%;
-
-    p {
-      color: blue;
-      text-shadow: black 0.5px 0.5px 0.5px;
-      font-size: 28px;
-      margin: 0 0 0 20px;
-    }
-  }
-
-  .tagsModalDescription {
-    display: flex;
-    flex-wrap: wrap;
-    width: 70%;
-    text-align: center;
-
-    .tags {
-      border: 3px blue solid;
-      padding: 3px;
-      margin: 15px 5%;
-      border-radius: 8px;
-      background-color: white;
-    }
-  }
-
-  .statutsContainer {
-    h4 {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 50px;
-      width: 100%;
-    }
-
-    .statuts {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      font-size: 18px;
-
-      p {
-        padding: 22px;
-        border-radius: 15px;
+      h4 {
+          font-size: 28px;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          width: 35%;
       }
 
-      .proposé {
-        background-color: #FFAB40;
+      h3 {
+          font-size: 38px;
+          margin: 10px auto 4% auto;
+          text-align: center;
+          font-weight: bold;
       }
 
-      .accepté {
-        background-color: #00A84D;
+      .modalParts {
+          display: flex;
+          margin: 7% 0 7% 10%;
+
+          p {
+            color: blue;
+            text-shadow: black 0.5px 0.5px 0.5px;
+            font-size: 28px;
+            margin: 0 0 0 20px;
+          }
       }
 
-      .modifié {
-        background-color: #FF4040;
-      }
+    .tagsModalDescription {
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        text-align: center;
+
+        .tags {
+            border: 3px blue solid;
+            padding: 3px;
+            margin: 15px 5%;
+            border-radius: 8px;
+            background-color: white;
+        }
     }
 
-  }
+    .statutsContainer {
+        h4 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            width: 100%;
+        }
 
-  .containerRedirectButton {
-    margin: 40px auto 20px auto;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+        .statuts {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 18px;
 
-    .redirectButton {
-      font-size: 18px;
-      padding: 10px;
-      border-radius: 10px;
-      background-color: blue;
-      color: white;
+          p {
+              padding: 22px;
+              border-radius: 15px;
+          }
 
-      &:hover {
-        text-decoration: none;
-        color: black;
+          .proposé {
+              background-color: #FFAB40;
+          }
+
+          .accepté {
+             background-color: #00A84D;
+          }
+
+          .modifié {
+              background-color: #FF4040;
+          }
+      }
+
+    }
+
+    .containerRedirectButton {
+        margin: 40px auto 20px auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .redirectButton {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+
+        &:hover {
+            text-decoration: none;
+            color: black;
+        }
       }
     }
-  }
 }
 
