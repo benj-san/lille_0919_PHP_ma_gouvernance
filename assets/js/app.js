@@ -20,7 +20,6 @@ const tagsContainer = document.getElementById('tags');
 const cardsDemande = document.getElementsByClassName('card-horizontal');
 const modalDescription = document.getElementsByClassName('modalDescription');
 const cardClient = document.getElementsByClassName('cardClient');
-const tags = document.getElementsByClassName('tags');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
@@ -61,7 +60,7 @@ cardsDemande.forEach(item => item.addEventListener('click', () => {
     filterContainer.classList.toggle('hidden');
 }));
 
-for (let i = 0; i < cardsDemande.length; i++) {
+for (let i = 0; i < cardsDemande.length; i += i) {
     cardsDemande[i].addEventListener('click', () => {
         modalDescription[i].classList.remove('hidden');
         buttonDemand.classList.add('hidden');
@@ -71,7 +70,7 @@ for (let i = 0; i < cardsDemande.length; i++) {
 
 document.addEventListener('click', (e) => {
     if (e.target.id === 'filterContainer') {
-        for (let i = 0; i < cardsDemande.length; i++) {
+        for (let i = 0; i < cardsDemande.length; i += i) {
             modalDescription[i].classList.add('hidden');
             filterContainer.classList.add('hidden');
             buttonDemand.classList.remove('hidden');
