@@ -60,7 +60,7 @@ cardsDemande.forEach(item => item.addEventListener('click', () => {
     filterContainer.classList.toggle('hidden');
 }));
 
-for (let i = 0; i < cardsDemande.length; i += i) {
+for (let i = 0; i < cardsDemande.length; i += 1) {
     cardsDemande[i].addEventListener('click', () => {
         modalDescription[i].classList.remove('hidden');
         buttonDemand.classList.add('hidden');
@@ -70,7 +70,7 @@ for (let i = 0; i < cardsDemande.length; i += i) {
 
 document.addEventListener('click', (e) => {
     if (e.target.id === 'filterContainer') {
-        for (let i = 0; i < cardsDemande.length; i += i) {
+        for (let i = 0; i < cardsDemande.length; i += 1) {
             modalDescription[i].classList.add('hidden');
             filterContainer.classList.add('hidden');
             buttonDemand.classList.remove('hidden');
