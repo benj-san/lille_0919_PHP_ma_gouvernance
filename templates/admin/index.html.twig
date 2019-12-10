@@ -7,107 +7,188 @@
     <section id="filterContainer" class="hidden">
     </section>
 
-<section class="choices">
-            <div id="buttonBoards">Demandes</div>
-            <div id="buttonAdvisors">Advisors</div>
-        </section>
-        <section id="Boards">
-            <div class="container">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal ">
-                                    <div class="statut bg-danger">
+    <section class="modalDescription hidden">
+        <h3>Demande n°</h3>
+        <div class="modalParts">
+            <h4>Nom entreprise :</h4>
+            <p>Netflix</p>
+        </div>
+        <div class="modalParts">
+        <h4>Besoins :</h4>
+        <p>Ce sont les besoins</p>
+        </div>
 
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal ">
-                                    <div class="statut bg-success">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal">
-                                    <div class="statut bg-success">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                        </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal">
-                                    <div class="statut">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal">
-                                    <div class="statut">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise :</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+        <div class="modalParts">
+            <h4>Tags : </h4>
+            <div class="tagsModalDescription">
+            {% for i in 1..6 %}
+                <div class="tags">Tag {{ i }}</div>
+            {% endfor %}
             </div>
-
-            <div class="new-demande">
-                <div id="button-newdemand" href="" >nouvelle demande +</div>
+        </div>
+        <div class="statutsContainer">
+            <h4>Statut du board</h4>
+            <div class="statuts">
+                <p class="proposé">Simulation proposé</p>
+                <p class="accepté">Board accepté</p>
+                <p class="modifié">Board à modifier</p>
             </div>
-            <div id="demandeFormulaire"class="hidden">
-                <p></p>
-            </div>
-        </section>
+        </div>
+        <div class="containerRedirectButton">
+            <a href="/board" class="redirectButton">Modifier le board</a>
+        </div>
     </section>
+    <section class="modalDescription hidden">
+<p>deuxième</p>
+    </section>
+    <section class="modalDescription hidden">
+<p>troisième</p>
+    </section>
+    <section class="modalDescription hidden">
+        <p>quatrième</p>
+
+    </section>
+    <section class="modalDescription hidden">
+        <p>cinquième</p>
+    </section>
+
+
+    <section class="choices">
+        <div id="buttonBoards">Demandes</div>
+        <div id="buttonAdvisors">Advisors</div>
+    </section>
+    <section id="Boards">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal ">
+                                <div class="statut bg-danger">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal ">
+                                <div class="statut bg-success">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal">
+                                <div class="statut bg-success">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                    </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal">
+                                <div class="statut">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise : </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="cardClient">
+                            <div class="card-horizontal">
+                                <div class="statut">
+
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Demande n°</h4>
+                                    <p> Entreprise :</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="new-demande">
+            <div id="button-newdemand" href="" >Nouvelle demande</div>
+        </div>
+        <section id="demandeFormulaire" class="hidden">
+            <div id="demandeFormulaireContent">
+                <h3>Créer une demande</h3>
+                <form>
+                    <input type="text" placeholder="Nom entreprise" class="formDemande"/>
+                    <br/>
+                    <textarea placeholder="Besoins" class="formDemandeTextarea"></textarea>
+                    <br/>
+                    <h4> Selectionner les tags</h4>
+                    {% for i in 1..5 %}
+                    <label class="categories"> Catégorie {{ i }}
+                        <select name="select_1" class="selectFormulaireDemande">
+                                <option value="2">Option 1</option>
+                                <option value="3">Option 2</option>
+                                <option value="4">Option 3</option>
+                                <option value="5">Option 4</option>
+                                <option value="6">Option 5</option>
+                                <option value="7">Option 6</option>
+                        </select>
+                    </label>
+                    {% endfor %}
+                    <section id="tags">
+
+                    </section>
+                    <div class="buttonsFormulaireDemande">
+                        <input type="submit" value="Créer !" class="submitDemande"/>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </section>
+
+
+
 
 
 
@@ -121,5 +202,6 @@
                     </div>
         {% endfor %}
         </section>
+    </section>
 
 {% endblock %}
