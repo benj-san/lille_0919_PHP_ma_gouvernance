@@ -30,12 +30,13 @@
     margin: auto auto 2vh;
     width: 80%;
     cursor:pointer;
-        .statut {
-          border-right: solid 2px #4e555b;
-          align-content: center;
-          width: 8rem;
-        }
-      }
+
+    .statut {
+        border-right: solid 2px #4e555b;
+        align-content: center;
+        width: 8rem;
+    }
+}
 
 .new-demande {
     margin-top: 2vh;
@@ -72,6 +73,7 @@
     border: none;
     font-size: 42px;
     font-weight: 500;
+
     #buttonAdvisors, #buttonBoards {
         cursor: pointer;
     }
@@ -88,6 +90,7 @@
     width: 90%;
     margin: auto;
     transition:2s ease;
+
     .cardAdvisors {
         margin: 10px 2%;
         display: flex;
@@ -99,9 +102,11 @@
         align-items: center;
         color: white;
         cursor: pointer;
+
         &:hover {
             background-color: #2149e0;
         }
+
         img {
             border-radius: 50%;
             height: 80px;
@@ -126,10 +131,12 @@
     bottom:10%;
     position:absolute;
     text-align: center;
+
     #demandeFormulaireContent {
         overflow-y:auto;
         height:100%;
         width:100%;
+
         h3 {
             font-size: 38px;
             margin:1% auto 2% auto;
@@ -141,14 +148,17 @@
         }
 
         form {
+
             .categories {
                 width:33%;
                 margin:0 auto 30px auto;
             }
+
             #tags {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
+
                 .tags {
                     width: 17.333%;
                     border:3px blue solid;
@@ -158,20 +168,24 @@
                     background-color: white;
                 }
             }
+
             .formDemande {
                 width: 70%;
                 margin: 1% auto;
             }
+
             .formDemandeTextarea {
                 width: 70%;
                 margin: 1% auto;
                 height:100px;
                 overflow-y: scroll;
             }
+
             .buttonsFormulaireDemande {
                 display: flex;
                 justify-content: space-evenly;
                 margin:4% auto 2% auto;
+
                 .submitDemande {
                     background-color: #0030cc;
                     padding: .15em 1em;
@@ -197,6 +211,7 @@
     bottom: 10%;
     position: absolute;
     overflow:auto;
+
     h4 {
         font-size: 28px;
         margin: 0;
@@ -241,6 +256,7 @@
     }
 
     .statutsContainer {
+
         h4 {
             display:flex;
             justify-content: center;
@@ -279,12 +295,14 @@
         display:flex;
         justify-content: center;
         width:100%;
+
         .redirectButton {
             font-size: 18px;
             padding: 10px;
             border-radius: 10px;
             background-color: blue;
             color:white;
+
             &:hover {
                 text-decoration: none;
                 color: black;
