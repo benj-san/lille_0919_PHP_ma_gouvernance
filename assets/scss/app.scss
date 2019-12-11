@@ -11,6 +11,7 @@ header {
     nav {
         height:80px;
         border-bottom: #FFAB40 solid 3px;
+
         .logoContainer {
             height:100%;
             display:flex;
@@ -18,6 +19,7 @@ header {
             align-items: center;
             width:10%;
             margin-left:11%;
+
             img {
                 height: 55%;
                 background-color: white;
@@ -183,6 +185,7 @@ header {
                 margin:5px auto;
                 font-size:20px;
             }
+
             .categories {
                 width:33%;
                 margin:0 auto 30px auto;
@@ -335,7 +338,7 @@ header {
             padding: 10px;
             border-radius: 10px;
             background-color: blue;
-     color: white;
+            color: white;
 
         &:hover {
             text-decoration: none;
