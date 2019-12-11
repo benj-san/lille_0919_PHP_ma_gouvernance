@@ -35,7 +35,9 @@ header {
     top:0;
 }
 
-.container{
+
+.container {
+
     height: 72vh;
     overflow: auto;
     justify-content: center;
@@ -50,12 +52,16 @@ header {
     width: 80%;
     cursor:pointer;
 
+
     .statut {
         border-right: solid 2px #4e555b;
         align-content: center;
         width: 8rem;
     }
+
+
 }
+
 
 .new-demande {
     margin:5vh auto 50px auto;
@@ -75,6 +81,7 @@ header {
     text-decoration: none ;
     font-size: 1.7rem ;
     cursor:pointer;
+
 
     &:hover {
         text-decoration: none;
@@ -98,8 +105,10 @@ header {
 }
 
 .hidden {
+
     display:none !important;
     transition:2s ease;
+
 }
 
 #allCardsContainer {
@@ -132,23 +141,24 @@ header {
             margin: 10px auto 0 auto;
             background-color: black;
         }
+
     }
 }
 
 .filters {
+
     margin:50px 0;
 }
 
 #demandeFormulaire {
-    width:70%;
+    width: 70%;
     z-index: 1;
-    height:80%;
-    left:15%;
+    height: 80%;
+    left: 15%;
     border-radius: 15px;
     background-color: #EDF1F4;
-    bottom:10%;
-    position:absolute;
-    text-align: center;
+    bottom: 10%;
+    position: absolute;text-align: center;
 
     #demandeFormulaireContent {
         overflow-y:auto;
@@ -217,6 +227,7 @@ header {
                 }
             }
         }
+
     }
 }
 
@@ -313,18 +324,19 @@ header {
         justify-content: space-evenly;
         width:100%;
 
+
         .redirectButton {
             font-size: 18px;
             padding: 10px;
             border-radius: 10px;
             background-color: blue;
-            color:white;
+     color: white;
 
-            &:hover {
-                text-decoration: none;
-                color: black;
-          }
+        &:hover {
+            text-decoration: none;
+            color: black;
         }
+      }
     }
 }
 

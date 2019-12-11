@@ -49,96 +49,18 @@
         </section>
         <section id="Boards">
             <div class="container">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal ">
-                                    <div class="statut bg-danger">
 
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                    </div>
+                {% for i in 1..5 %}
 
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal ">
-                                    <div class="statut bg-success">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal">
-                                    <div class="statut bg-success">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                        </div>
-
-                                </div>
-
-                            </div>
+                    <div class="card-horizontal">
+                        <div class="statut "></div>
+                        <div class="card-body">
+                            <p class="card-title">Demande n° {{ i }} </p>
+                            <p> Entreprise : {{ i }}</p>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal">
-                                    <div class="statut">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise : </p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="cardClient">
-                                <div class="card-horizontal">
-                                    <div class="statut">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Demande n°</h4>
-                                        <p> Entreprise :</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                {% endfor %}
             </div>
 
             <div class="new-demande">
@@ -174,13 +96,7 @@
                     </form>
                 </div>
             </section>
-
         </section>
-
-
-
-
-
 
         <section id="advisors" class="hidden">
             <section id="allCardsContainer">
