@@ -49,6 +49,7 @@ header {
     border-radius:15px;
     padding:20px;
     border:black solid 1px;
+
     .containerContent {
         width:98%;
         margin:auto;
@@ -267,11 +268,13 @@ header {
     text-align: center;
     font-weight: bold;
     padding:15px;
+
     .modalDescriptionContainer {
         overflow:auto;
         width:98%;
         margin:auto;
         height:100%;
+
         .modalParts {
             display: flex;
             margin: 6% 0 6% 5%;
