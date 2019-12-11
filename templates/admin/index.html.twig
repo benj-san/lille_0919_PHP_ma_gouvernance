@@ -70,9 +70,15 @@
                 <div id="demandeFormulaireContent">
                     <div class="demandeFormulaireTitles">Créer une demande</div>
                     <form>
-                        <input type="text" placeholder="Nom entreprise" class="formDemande"/>
+                        <label> Entreprise</label>
+                        <br/>
+                            <input type="text" placeholder="Nom entreprise" class="formDemande"/>
+
+                        <br/>
+                        <label> Besoins</label>
                         <br/>
                         <textarea placeholder="Besoins" class="formDemandeTextarea"></textarea>
+
                         <br/>
                         <div class="demandeFormulaireTitles2"> Selectionner les tags</div>
                         {% for i in 1..5 %}

@@ -174,10 +174,15 @@ header {
         .demandeFormulaireTitles2 {
             font-weight:600;
             font-size:28px;
+            margin-bottom: 35px;
         }
 
         form {
 
+            label {
+                margin:5px auto;
+                font-size:20px;
+            }
             .categories {
                 width:33%;
                 margin:0 auto 30px auto;
