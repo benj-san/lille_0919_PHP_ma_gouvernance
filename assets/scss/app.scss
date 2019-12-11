@@ -7,6 +7,25 @@
     padding:0;
 }
 
+header {
+    nav {
+        height:80px;
+        border-bottom: #FFAB40 solid 3px;
+        .logoContainer {
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            width:17%;
+            margin-left:0.85%;
+            img {
+                height: 55%;
+                background-color: white;
+            }
+        }
+    }
+}
+
 #filterContainer {
     width:100%;
     height:100%;
@@ -39,8 +58,7 @@
 }
 
 .new-demande {
-    margin-top: 2vh;
-    position: absolute;
+    margin:5vh auto 50px auto;
     bottom: 30px;
     width: 100%;
     display: flex;
@@ -67,7 +85,7 @@
 
 .choices {
     width: 70%;
-    margin: 20px auto 20px auto;
+    margin: 50px auto 50px auto;
     display: flex;
     justify-content: space-between;
     border: none;
@@ -137,14 +155,15 @@
         height:100%;
         width:100%;
 
-        h3 {
+        .demandeFormulaireTitles {
             font-size: 38px;
             margin:1% auto 2% auto;
             font-weight:bold;
         }
 
-        h4 {
+        .demandeFormulaireTitles2 {
             font-weight:600;
+            font-size:28px;
         }
 
         form {
@@ -211,31 +230,27 @@
     bottom: 10%;
     position: absolute;
     overflow:auto;
-
-    h4 {
-        font-size: 28px;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        width:35%;
-    }
-
-    h3 {
-        font-size: 38px;
-        margin: 10px auto 4% auto;
-        text-align: center;
-        font-weight: bold;
-    }
+    font-size: 38px;
+    text-align: center;
+    font-weight: bold;
 
     .modalParts {
         display: flex;
-        margin: 7% 0 7% 10%;
+        margin: 6% 0 6% 5%;
+
+        .modalTitles {
+            font-size: 28px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            width:35%;
+        }
 
         p {
             color: blue;
             text-shadow: black 0.5px 0.5px 0.5px;
-            font-size: 28px;
+            font-size: 25px;
             margin: 0 0 0 20px;
         }
     }
@@ -252,12 +267,14 @@
             margin: 15px 5%;
             border-radius: 8px;
             background-color: white;
+            font-size:18px;
+            font-weight:500;
         }
     }
 
     .statutsContainer {
 
-        h4 {
+        .modalTitles {
             display:flex;
             justify-content: center;
             margin-bottom: 50px;
@@ -291,9 +308,9 @@
     }
 
     .containerRedirectButton {
-        margin:40px auto 20px auto;
+        margin:80px auto 20px auto;
         display:flex;
-        justify-content: center;
+        justify-content: space-evenly;
         width:100%;
 
         .redirectButton {
