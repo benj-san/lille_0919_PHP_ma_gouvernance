@@ -60,19 +60,19 @@ class Advisor
     private $presentation;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisor")
+     * @ORM\ManyToMany(stargetEntity="App\Entity\Tag", mappedBy="advisors")
      */
     private $tags;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Board", inversedBy="advisors")
      */
-    private $board;
+    private $boards;
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
-        $this->board = new ArrayCollection();
+        $this->boards = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -210,13 +210,13 @@ class Advisor
      */
     public function getBoard(): Collection
     {
-        return $this->board;
+        return $this->boards;
     }
 
     public function addBoard(Board $board): self
     {
-        if (!$this->board->contains($board)) {
-            $this->board[] = $board;
+        if (!$this->boards->contains($board)) {
+            $this->boards[] = $board;
         }
 
         return $this;
@@ -224,8 +224,8 @@ class Advisor
 
     public function removeBoard(Board $board): self
     {
-        if ($this->board->contains($board)) {
-            $this->board->removeElement($board);
+        if ($this->boards->contains($board)) {
+            $this->boards->removeElement($board);
         }
 
         return $this;

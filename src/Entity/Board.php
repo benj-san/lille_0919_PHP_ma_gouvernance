@@ -34,7 +34,7 @@ class Board
     private $dateEnd;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", mappedBy="board")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", mappedBy="boards")
      */
     private $advisors;
 

@@ -31,7 +31,7 @@ class Tag
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", inversedBy="tags")
      */
-    private $advisor;
+    private $advisors;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Demand", inversedBy="tags")
@@ -40,7 +40,7 @@ class Tag
 
     public function __construct()
     {
-        $this->advisor = new ArrayCollection();
+        $this->advisors = new ArrayCollection();
         $this->demand = new ArrayCollection();
     }
 
@@ -78,13 +78,13 @@ class Tag
      */
     public function getAdvisor(): Collection
     {
-        return $this->advisor;
+        return $this->advisors;
     }
 
     public function addAdvisor(Advisor $advisor): self
     {
-        if (!$this->advisor->contains($advisor)) {
-            $this->advisor[] = $advisor;
+        if (!$this->advisors->contains($advisor)) {
+            $this->advisors[] = $advisor;
         }
 
         return $this;
@@ -92,8 +92,8 @@ class Tag
 
     public function removeAdvisor(Advisor $advisor): self
     {
-        if ($this->advisor->contains($advisor)) {
-            $this->advisor->removeElement($advisor);
+        if ($this->advisors->contains($advisor)) {
+            $this->advisors->removeElement($advisor);
         }
 
         return $this;
