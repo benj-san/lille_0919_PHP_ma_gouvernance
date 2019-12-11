@@ -6,8 +6,7 @@
 
     <section id="filterContainer" class="hidden">
     </section>
-
-    <section class="modalDescription hidden">
+        <section class="modalDescription hidden">
         <h3>Demande n°</h3>
         <div class="modalParts">
             <h4>Nom entreprise :</h4>
@@ -59,96 +58,18 @@
     </section>
     <section id="Boards">
         <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <div class="cardClient">
+
+                {% for demand in demands %}
+
                             <div class="card-horizontal ">
-                                <div class="statut bg-danger">
-
-                                </div>
+                                <div class="statut "></div>
                                 <div class="card-body">
-                                    <h4 class="card-title">Demande n°</h4>
-                                    <p> Entreprise : </p>
+                                    <p class="card-title">Demande n° {{ demand.id }} </p>
+                                    <p> Entreprise : {{ demand.client }}</p>
                                 </div>
-
                             </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="cardClient">
-                            <div class="card-horizontal ">
-                                <div class="statut bg-success">
-
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Demande n°</h4>
-                                    <p> Entreprise : </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="cardClient">
-                            <div class="card-horizontal">
-                                <div class="statut bg-success">
-
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Demande n°</h4>
-                                    <p> Entreprise : </p>
-                                    </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <div class="cardClient">
-                            <div class="card-horizontal">
-                                <div class="statut">
-
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Demande n°</h4>
-                                    <p> Entreprise : </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <div class="cardClient">
-                            <div class="card-horizontal">
-                                <div class="statut">
-
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Demande n°</h4>
-                                    <p> Entreprise :</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+                {% endfor %}
         </div>
 
         <div class="new-demande">
@@ -175,6 +96,7 @@
                         </select>
                     </label>
                     {% endfor %}
+
                     <section id="tags">
 
                     </section>
@@ -194,10 +116,10 @@
 
     <section id="advisors" class="hidden">
         <section id="allCardsContainer">
-        {% for i in 0..15 %}
+        {% for advisor in advisors %}
                     <div class="cardAdvisors">
                         <img src="" alt=""/>
-                        <h4>John Doe</h4>
+                        <h4>{{ advisor.firstname }} {{ advisor.name }}</h4>
                         <p>Autres infos utiles</p>
                     </div>
         {% endfor %}
