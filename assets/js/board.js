@@ -24,6 +24,8 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
             commentAdvisor.classList.remove('display');
 
             if (cardAdvisorJS[i].parentNode.id === 'boardEdit') {
+                cardAdvisorJS[i].removeEventListener('click', () => {});
+                boardEdit.classList.add('displayAdvisor');
                 cardAdvisorJS[i].addEventListener('click', () => {
                     behind.classList.add('display');
                     commentAdvisor.classList.remove('display');
@@ -36,7 +38,5 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
                 });
             }
         });
-    });
-    cardAdvisorJS[i].removeEventListener('click', () => {
     });
 }

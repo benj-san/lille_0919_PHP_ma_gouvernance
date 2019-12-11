@@ -98,6 +98,12 @@
         font-weight: normal;
       }
 
+      #boardEdit.displayAdvisor{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
       #boardEdit {
         width: 80%;
         height: 60vh;
@@ -137,7 +143,7 @@
           width: 20%;
           height: 250px;
           background-color: $primary-color;
-          margin: 10px auto;
+          margin: 10px 30px;
           border-radius: 10px;
           display: flex;
           flex-direction: column;
@@ -152,6 +158,16 @@
 
           #cardAdvisorInfos {
             margin: auto;
+
+            .nameAdvisor{
+              font-weight: bold;
+              color: white;
+              font-size: 20px;
+            }
+
+            .infosAdvisor{
+              color: white;
+            }
           }
         }
       }
@@ -200,6 +216,16 @@
 
           #cardAdvisorInfos {
             margin: auto;
+
+            .nameAdvisor{
+              font-weight: bold;
+              font-size: 20px;
+              color: white;
+            }
+
+            .infosAdvisor{
+              color: white;
+            }
           }
         }
       }
