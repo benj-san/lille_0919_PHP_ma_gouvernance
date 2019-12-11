@@ -44,6 +44,8 @@ buttonDemand.addEventListener('click', () => {
     demandeFormulaire.classList.toggle('hidden');
     filterContainer.classList.toggle('hidden');
     buttonDemand.classList.toggle('hidden');
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 });
 
 selectFormulaireDemande.forEach(item => item.addEventListener('change', () => {
@@ -61,19 +63,18 @@ cardsDemande.forEach(item => item.addEventListener('click', () => {
 }));
 
 for (let i = 0; i < cardsDemande.length; i += 1) {
-
     cardsDemande[i].addEventListener('click', () => {
         modalDescription[i].classList.remove('hidden');
         buttonDemand.classList.add('hidden');
         cardClient.forEach(item => item.classList.add('hidden'));
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     });
 }
 
 document.addEventListener('click', (e) => {
     if (e.target.id === 'filterContainer') {
-
         for (let i = 0; i < cardsDemande.length; i += 1) {
-
             modalDescription[i].classList.add('hidden');
             filterContainer.classList.add('hidden');
             buttonDemand.classList.remove('hidden');
