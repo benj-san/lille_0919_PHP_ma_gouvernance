@@ -7,6 +7,10 @@
     padding:0;
 }
 
+html {
+    scrollbar-color: #bebebe #d9dde0;
+}
+
 header {
     nav {
         height:80px;
@@ -39,11 +43,20 @@ header {
 
 
 .container {
-
     height: 72vh;
-    overflow: auto;
     justify-content: center;
+    background-color: #f3f7fa;
+    border-radius:15px;
+    padding:20px;
+    border:black solid 1px;
+    .containerContent {
+        width:98%;
+        margin:auto;
+        height:100%;
+        overflow:auto;
+    }
 }
+
 
 .card-horizontal {
     border: solid 2px #4e555b;
@@ -52,17 +65,16 @@ header {
     border-radius: 10px;
     margin: auto auto 2vh;
     width: 80%;
-    cursor:pointer;
-
+    cursor: pointer;
+    background-color: white;
 
     .statut {
         border-right: solid 2px #4e555b;
         align-content: center;
         width: 8rem;
     }
-
-
 }
+
 
 
 .new-demande {
@@ -160,12 +172,15 @@ header {
     border-radius: 15px;
     background-color: #EDF1F4;
     bottom: 10%;
-    position: absolute;text-align: center;
+    position: absolute;
+    text-align: center;
+    padding:15px;
 
     #demandeFormulaireContent {
-        overflow-y:auto;
+        overflow: auto;
+        width:98%;
+        margin:auto;
         height:100%;
-        width:100%;
 
         .demandeFormulaireTitles {
             font-size: 38px;
@@ -248,103 +263,108 @@ header {
     background-color: #EDF1F4;
     bottom: 10%;
     position: absolute;
-    overflow:auto;
     font-size: 38px;
     text-align: center;
     font-weight: bold;
-
-    .modalParts {
-        display: flex;
-        margin: 6% 0 6% 5%;
-
-        .modalTitles {
-            font-size: 28px;
-            margin: 0;
+    padding:15px;
+    .modalDescriptionContainer {
+        overflow:auto;
+        width:98%;
+        margin:auto;
+        height:100%;
+        .modalParts {
             display: flex;
-            align-items: center;
-            font-weight: 600;
-            width:35%;
-        }
+            margin: 6% 0 6% 5%;
 
-        p {
-            color: blue;
-            text-shadow: black 0.5px 0.5px 0.5px;
-            font-size: 25px;
-            margin: 0 0 0 20px;
-        }
-    }
-
-    .tagsModalDescription {
-        display: flex;
-        flex-wrap: wrap;
-        width: 70%;
-        text-align: center;
-
-        .tags {
-            border: 3px blue solid;
-            padding: 3px;
-            margin: 15px 5%;
-            border-radius: 8px;
-            background-color: white;
-            font-size:18px;
-            font-weight:500;
-        }
-    }
-
-    .statutsContainer {
-
-        .modalTitles {
-            display:flex;
-            justify-content: center;
-            margin-bottom: 50px;
-            width:100%;
-        }
-
-        .statuts {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            font-size: 18px;
+            .modalTitles {
+                font-size: 28px;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                width: 35%;
+            }
 
             p {
-                padding: 22px;
-                border-radius: 15px;
-            }
-
-            .proposé {
-                background-color: #FFAB40;
-            }
-
-            .accepté {
-                background-color: #00A84D;
-            }
-
-            .modifié {
-                background-color: #FF4040;
+                color: blue;
+                text-shadow: black 0.5px 0.5px 0.5px;
+                font-size: 25px;
+                margin: 0 0 0 20px;
             }
         }
 
-    }
+        .tagsModalDescription {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            text-align: center;
 
-    .containerRedirectButton {
-        margin:80px auto 20px auto;
-        display:flex;
-        justify-content: space-evenly;
-        width:100%;
-
-
-        .redirectButton {
-            font-size: 18px;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: blue;
-            color: white;
-
-            &:hover {
-                text-decoration: none;
-                color: black;
+            .tags {
+                border: 3px blue solid;
+                padding: 3px;
+                margin: 15px 5%;
+                border-radius: 8px;
+                background-color: white;
+                font-size: 18px;
+                font-weight: 500;
+            }
         }
-      }
+
+        .statutsContainer {
+
+            .modalTitles {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 50px;
+                width: 100%;
+            }
+
+            .statuts {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                font-size: 18px;
+
+                p {
+                    padding: 22px;
+                    border-radius: 15px;
+                }
+
+                .proposé {
+                    background-color: #FFAB40;
+                }
+
+                .accepté {
+                    background-color: #00A84D;
+                }
+
+                .modifié {
+                    background-color: #FF4040;
+                }
+            }
+
+        }
+
+        .containerRedirectButton {
+            margin: 80px auto 20px auto;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+
+
+            .redirectButton {
+                font-size: 18px;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: blue;
+                color: white;
+
+                &:hover {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
     }
 }
 

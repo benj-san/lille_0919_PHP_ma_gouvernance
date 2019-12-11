@@ -10,34 +10,36 @@
 
         {% for i in 1..5 %}
         <section class="modalDescription hidden">
-            Demande n° 1
-            <div class="modalParts">
-                <div class="modalTitles">Nom entreprise :</div>
-                <p>Netflix{{ i }}</p>
-            </div>
-            <div class="modalParts">
-                <div class="modalTitles">Besoins :</div>
-                <p>Ce sont les besoins</p>
-            </div>
+            <div class="modalDescriptionContainer">
+                Demande n° 1
+                <div class="modalParts">
+                    <div class="modalTitles">Nom entreprise :</div>
+                    <p>Netflix{{ i }}</p>
+                </div>
+                <div class="modalParts">
+                    <div class="modalTitles">Besoins :</div>
+                    <p>Ce sont les besoins</p>
+                </div>
 
-            <div class="modalParts">
-                <div class="modalTitles">Tags :</div>
-                <div class="tagsModalDescription">
-                {% for i in 1..6 %}
-                    <div class="tags">Tag {{ i }}</div>
-                {% endfor %}
+                <div class="modalParts">
+                    <div class="modalTitles">Tags :</div>
+                    <div class="tagsModalDescription">
+                    {% for i in 1..6 %}
+                        <div class="tags">Tag {{ i }}</div>
+                    {% endfor %}
+                    </div>
                 </div>
-            </div>
-            <div class="statutsContainer">
-                <div class="modalTitles">Statut du board</div>
-                <div class="statuts">
-                    <p class="proposé">Simulation proposé</p>
-                    <p class="accepté">Board accepté</p>
-                    <p class="modifié">Board à modifier</p>
+                <div class="statutsContainer">
+                    <div class="modalTitles">Statut du board</div>
+                    <div class="statuts">
+                        <p class="proposé">Simulation proposé</p>
+                        <p class="accepté">Board accepté</p>
+                        <p class="modifié">Board à modifier</p>
+                    </div>
                 </div>
-            </div>
-            <div class="containerRedirectButton">
-                <a href="/board" class="redirectButton">Modifier le board</a>
+                <div class="containerRedirectButton">
+                    <a href="/board" class="redirectButton">Modifier le board</a>
+                </div>
             </div>
         </section>
         {% endfor %}
@@ -49,11 +51,12 @@
         </section>
         <section id="Boards">
             <div class="container">
+                <div class="containerContent">
 
                 {% for i in 1..5 %}
 
                     <div class="card-horizontal">
-                        <div class="statut "></div>
+                        <div class="statut" style="background-color: red;"></div>
                         <div class="card-body">
                             <p class="card-title">Demande n° {{ i }} </p>
                             <p> Entreprise : {{ i }}</p>
@@ -61,6 +64,7 @@
                     </div>
 
                 {% endfor %}
+                </div>
             </div>
 
             <div class="new-demande">
