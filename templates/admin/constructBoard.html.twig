@@ -6,28 +6,48 @@
     {{ encore_entry_link_tags('board') }}
 {% endblock %}
 
-{% block body %}
+{% block main %}
+
+    <div id="behind">
+    </div>
 
     <div id="boardAndBoardAdvisors">
         <div id="board">
-            <h1>Réaliser mon board</h1>
-
-
-            <div id="boardEdit" class="dropTarget">
-                <img src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
-                <h2>Déplacer vos advisors ICI !!!</h2>
+            <div id="commentAdvisor">
+                <p>Résumé</p>
+                <label>
+                    <textarea placeholder="Entrez le résumé" rows="10" cols="35"></textarea>
+                </label>
+                <button id="buttonValidateSynopsis">Valider</button>
             </div>
-            <button>Valider</button>
+            {% for j in 0..20 %}
+
+                <div class="deleteAdvisor">
+                    <p>Retirer John Doe {{ j }} ?</p>
+                    <button class="definitiveDeleteAdvisor">Retirer du board</button>
+                </div>
+
+            {% endfor %}
+            <h1>Réaliser mon board</h1>
+            <div id="boardEdit">
+                <img id="boardEditImg" src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
+                <h2 id="boardEditH2">Ajoutez vos advisors</h2>
+            </div>
+            <div id="submit">
+                <button>Valider</button>
+            </div>
         </div>
 
 
-        <div id="boardAdvisors" class="dropTarget">
-            <form action=""></form>
+        <div id="boardAdvisors">
+            <label id="research">
+                <input placeholder="Rechercher">
+            </label>
             {% for i in 0..20 %}
-                <div id="cardAdvisor" draggable="true">
+                <div id="cardAdvisor_{{ i }}" class="cardAdvisorJS">
                     <img src="" alt="">
                     <div id="cardAdvisorInfos">
-                        <h4>John Doe</h4>
+                        <p>John Doe {{ i }}</p>
                         <p>Autres infos utiles</p>
                     </div>
                 </div>
