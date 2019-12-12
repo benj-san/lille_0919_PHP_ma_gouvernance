@@ -1,0 +1,89 @@
+@import "vars";
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family:'Montserrat', sans-serif;;
+}
+
+#cvAdvisor{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  border: 1px solid black;
+
+  #pitch {
+    width: 100%;
+    background-color: $primary-color;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+
+    h1 {
+      margin: 20px 3% 0 3%;
+    }
+
+    p {
+      width: 60%;
+      margin: 20px 3%;
+    }
+    img{
+      background-color: black;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: relative;
+    }
+  }
+
+  #allInfosAdvisor{
+    padding: 50px;
+    display: flex;
+
+    #infosAdvisor{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: calc(50% - 100px);
+
+      .blocInfo:first-child{
+        margin-top: 0;
+      }
+
+      .blocInfo{
+        margin-top: 50px;
+
+        h2{
+          color: gray;
+        }
+
+        h3{
+          margin-top: 15px;
+        }
+
+        p{
+          margin-top: 10px;
+        }
+
+        .tags{
+          display: flex;
+          flex-wrap: wrap;
+
+          p{
+            margin-left: 10px;
+            border: 1px solid black;
+            border-radius: 7px;
+            padding: 10px;
+          }
+        }
+      }
+
+      #civilStatus{
+        h2{
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
