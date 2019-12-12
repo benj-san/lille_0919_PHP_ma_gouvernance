@@ -58,30 +58,19 @@
     </section>
     <section id="Boards">
         <div class="container">
-            <div class="container-fluid">
-                {% for demand in demands %}
-                <div class="row">
-                    <div class="col">
+            <div class="containerContent">
 
+                {% for i in 1..5 %}
 
-
-                        <div class="cardClient">
-                            <div class="card-horizontal ">
-                                <div class="statut ">
-
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Demande n° {{ demand.id }} </h4>
-                                    <p> Entreprise : {{ demand.client }}</p>
-                                </div>
-
-                            </div>
-
+                    <div class="card-horizontal">
+                        <div class="statut" style="background-color: red;"></div>
+                        <div class="card-body">
+                            <p class="card-title">Demande n° {{ i }} </p>
+                            <p> Entreprise : {{ i }}</p>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
 
+                {% endfor %}
             </div>
         </div>
 
@@ -97,22 +86,22 @@
                     <textarea placeholder="Besoins" class="formDemandeTextarea"></textarea>
                     <br/>
                     <h4> Selectionner les tags</h4>
-                    {% for i in 1..5 %}
-                    <label class="categories"> Catégorie {{ i }}
-                        <select name="select_1" class="selectFormulaireDemande">
-                                <option value="2">Option 1</option>
-                                <option value="3">Option 2</option>
-                                <option value="4">Option 3</option>
-                                <option value="5">Option 4</option>
-                                <option value="6">Option 5</option>
-                                <option value="7">Option 6</option>
+                    <label class="categories">
+                        <select class="selectpicker" multiple data-live-search="true">
+                        {% for categories in tags %}
+                                {% for tag in categories.name  %}
+                                    <option>{{ tag }}</option>
+                                {% endfor %}
+                            {% endfor %}
                         </select>
                     </label>
-                    {% endfor %}
-
                     <section id="tags">
 
                     </section>
+                    <label>Date butoir
+                        <br/>
+                        <input type="date" name="dateMax">
+                    </label>
                     <div class="buttonsFormulaireDemande">
                         <input type="submit" value="Créer !" class="submitDemande"/>
                     </div>

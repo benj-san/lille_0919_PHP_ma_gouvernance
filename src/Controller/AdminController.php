@@ -24,10 +24,8 @@ class AdminController extends AbstractController
         TagRepository $tagRepository
     ) {
         $demands = $demandRepository ->findAll();
-
         $advisors = $advisorRepository->findAll();
         $tags = $tagRepository->findAll();
-
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'advisors' => $advisors,
