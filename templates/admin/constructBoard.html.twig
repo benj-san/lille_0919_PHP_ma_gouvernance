@@ -14,7 +14,7 @@
     <div id="boardAndBoardAdvisors">
         <div id="board">
             <div id="commentAdvisor">
-                <p>Résumé</p>
+                <p>Justification de candidature</p>
                 <label>
                     <textarea placeholder="Entrez le résumé" rows="10" cols="35"></textarea>
                 </label>
@@ -44,12 +44,15 @@
                 <input placeholder="Rechercher">
             </label>
             {% for i in 0..20 %}
-                <div id="cardAdvisor_{{ i }}" class="cardAdvisorJS">
-                    <img src="" alt="">
-                    <div id="cardAdvisorInfos">
-                        <p class="nameAdvisor">John Doe {{ i }}</p>
-                        <p class="infosAdvisor">Autres infos utiles</p>
+                <div class="cardAdvisorAndAdd">
+                    <div id="cardAdvisor_{{ i }}" class="cardAdvisorJS">
+                        <img src="" alt="">
+                        <div id="cardAdvisorInfos">
+                            <p class="nameAdvisor">John Doe {{ i }}</p>
+                            <p class="infosAdvisor">Autres infos utiles</p>
+                        </div>
                     </div>
+                    <div class="addCardAdvisor">+</div>
                 </div>
             {% endfor %}
         </div>
