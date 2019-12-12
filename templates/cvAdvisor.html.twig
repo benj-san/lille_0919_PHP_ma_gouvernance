@@ -6,53 +6,55 @@
 
 {% block main %}
 
-    <div id="cvAdvisor">
-        <div id="pitch">
-            <h1>Son pitch en quelques mots</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi debitis dignissimos,
-                dolore in iste nihil pariatur quia reiciendis repellendus, sed veniam vitae.
-                Asperiores debitis dignissimos hic obcaecati odit, quos totam?</p>
-            <img src="" alt="">
-        </div>
-        <div id="allInfosAdvisor">
-            <div id="infosAdvisor">
-                <div class="blocInfo" id="civilStatus">
-                    <h2>John Doe</h2>
-                    <h3>Lille</h3>
-                    <p>Mobilité France</p>
-                    <p>Disponible 1 journée par mois</p>
-                </div>
-                <div class="blocInfo" id="competences">
-                    <h2>Comptétences clés</h2>
-                    <p>Marketing / Communication & réseaux sociaux, Stratégie / Business Developpement / Vision stratégique</p>
-                </div>
-                <div class="blocInfo" id="expertises">
-                    <h2>Expertises sectorielles</h2>
-                    <div class="tags">
-                        {% for i in 1..8 %}
-                                <p>Tag {{ i }}</p>
-                        {% endfor %}
+    {% for i in 0..20 %}
+        <div class="cvAdvisor">
+            <div id="pitch">
+                <h1>Son pitch en quelques mots</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi debitis dignissimos,
+                    dolore in iste nihil pariatur quia reiciendis repellendus, sed veniam vitae.
+                    Asperiores debitis dignissimos hic obcaecati odit, quos totam?</p>
+                <img src="" alt="">
+            </div>
+            <div id="allInfosAdvisor">
+                <div id="infosAdvisor">
+                    <div class="blocInfo" id="civilStatus">
+                        <h2>John Doe {{ i }}</h2>
+                        <h3>Lille</h3>
+                        <p>Mobilité France</p>
+                        <p>Disponible 1 journée par mois</p>
                     </div>
+                    <div class="blocInfo" id="competences">
+                        <h2>Comptétences clés</h2>
+                        <p>Marketing / Communication & réseaux sociaux, Stratégie / Business Developpement / Vision stratégique</p>
+                    </div>
+                    <div class="blocInfo" id="expertises">
+                        <h2>Expertises sectorielles</h2>
+                        <div class="tags">
+                            {% for i in 1..8 %}
+                                    <p>Tag {{ i }}</p>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <div class="blocInfo" id="contexts">
+                        <h2>Contextes expérimentés</h2>
+                        <div class="tags">
+                            {% for j in 1..11 %}
+                                    <p>Tag {{ j }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="blocInfo" id="experiences">
+                        <h2>Expérience de mandat</h2>
+                        <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
+                    </div>
+                </div>
+                <div id="summaryAdvisor">
 
                 </div>
-                <div class="blocInfo" id="contexts">
-                    <h2>Contextes expérimentés</h2>
-                    <div class="tags">
-                        {% for j in 1..11 %}
-                                <p>Tag {{ j }}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="blocInfo" id="experiences">
-                    <h2>Expérience de mandat</h2>
-                    <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
-                </div>
-            </div>
-            <div id="summaryAdvisor">
-
             </div>
         </div>
-    </div>
+    {% endfor %}
 
 {% endblock %}
 

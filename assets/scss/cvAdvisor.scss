@@ -6,12 +6,20 @@
   font-family:'Montserrat', sans-serif;;
 }
 
-#cvAdvisor{
-  width: 70%;
+.cvAdvisor.display{
+  position: absolute;
   display: flex;
+  z-index: 7;
+  left: 15%;
+}
+
+.cvAdvisor{
+  width: 70%;
+  display: none;
   flex-direction: column;
   margin: 50px auto;
   border: 1px solid black;
+  background-color: white;
 
   #pitch {
     width: 100%;

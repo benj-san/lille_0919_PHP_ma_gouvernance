@@ -8,26 +8,30 @@
 
 {% block main %}
 
+    <div id="displayCvAdvisor">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
+
+    <div id="commentAdvisor">
+        <p>Justification de candidature</p>
+        <label>
+            <textarea placeholder="Entrez le résumé" rows="10" cols="35"></textarea>
+        </label>
+        <button id="buttonValidateSynopsis">Valider</button>
+    </div>
+
+    {% for j in 0..20 %}
+        <div class="deleteAdvisor">
+            <p>Retirer John Doe {{ j }} ?</p>
+            <button class="definitiveDeleteAdvisor">Retirer du board</button>
+        </div>
+    {% endfor %}
+
     <div id="behind">
     </div>
 
     <div id="boardAndBoardAdvisors">
         <div id="board">
-            <div id="commentAdvisor">
-                <p>Justification de candidature</p>
-                <label>
-                    <textarea placeholder="Entrez le résumé" rows="10" cols="35"></textarea>
-                </label>
-                <button id="buttonValidateSynopsis">Valider</button>
-            </div>
-            {% for j in 0..20 %}
-
-                <div class="deleteAdvisor">
-                    <p>Retirer John Doe {{ j }} ?</p>
-                    <button class="definitiveDeleteAdvisor">Retirer du board</button>
-                </div>
-
-            {% endfor %}
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
                 <img id="boardEditImg" src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
