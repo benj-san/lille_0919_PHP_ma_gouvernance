@@ -60,7 +60,7 @@ class Advisor
     private $presentation;
 
     /**
-     * @ORM\ManyToMany(stargetEntity="App\Entity\Tag", mappedBy="advisors")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
      */
     private $tags;
 
@@ -68,6 +68,17 @@ class Advisor
      * @ORM\ManyToMany(targetEntity="App\Entity\Board", inversedBy="advisors")
      */
     private $boards;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $commentary;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="advisor")
+     */
+    private $resume;
+
 
     public function __construct()
     {
@@ -227,6 +238,30 @@ class Advisor
         if ($this->boards->contains($board)) {
             $this->boards->removeElement($board);
         }
+
+        return $this;
+    }
+
+    public function getCommentary(): ?string
+    {
+        return $this->commentary;
+    }
+
+    public function setCommentary(?string $commentary): self
+    {
+        $this->commentary = $commentary;
+
+        return $this;
+    }
+
+    public function getResume(): ?Resume
+    {
+        return $this->resume;
+    }
+
+    public function setResume(?Resume $resume): self
+    {
+        $this->resume = $resume;
 
         return $this;
     }
