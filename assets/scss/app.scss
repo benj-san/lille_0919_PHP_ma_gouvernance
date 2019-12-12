@@ -1,9 +1,373 @@
 @import "vars";
+@import "~bootstrap";
 
-body {
-    background-color: $secondary-color;
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+    padding:0;
 }
 
-a {
-    color: $warm-color;
+html {
+    scrollbar-color: #bebebe #d9dde0;
 }
+
+header {
+    nav {
+        height:80px;
+        border-bottom: #FFAB40 solid 3px;
+
+        .logoContainer {
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            width:10%;
+            margin-left:11%;
+
+            img {
+                height: 55%;
+                background-color: white;
+            }
+        }
+    }
+}
+
+#filterContainer {
+    width:150%;
+    height:150%;
+    position:absolute;
+    background-color: grey;
+    opacity: 0.8;
+    top:0;
+}
+
+
+.container {
+    height: 72vh;
+    justify-content: center;
+    background-color: #f3f7fa;
+    border-radius:15px;
+    padding:20px;
+    border:black solid 1px;
+
+    .containerContent {
+        width:98%;
+        margin:auto;
+        height:100%;
+        overflow:auto;
+    }
+}
+
+
+.card-horizontal {
+    border: solid 2px #4e555b;
+    display: flex;
+    flex: 1 1 auto;
+    border-radius: 10px;
+    margin: auto auto 2vh;
+    width: 80%;
+    cursor: pointer;
+    background-color: white;
+
+    .statut {
+        border-right: solid 2px #4e555b;
+        align-content: center;
+        width: 8rem;
+    }
+}
+
+
+
+.new-demande {
+    margin:5vh auto 50px auto;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-newdemand {
+    background-color: #0030cc;
+    padding: .3em 1em;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 7px;
+    color: white;
+    text-decoration: none ;
+    font-size: 1.7rem ;
+    cursor:pointer;
+
+
+    &:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+}
+
+.choices {
+    width: 70%;
+    margin: 50px auto 50px auto;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    font-size: 42px;
+    font-weight: 500;
+
+    #buttonAdvisors, #buttonBoards {
+        cursor: pointer;
+    }
+}
+
+.hidden {
+
+    display:none !important;
+    transition:2s ease;
+
+}
+
+#allCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    transition:2s ease;
+
+    .cardAdvisors {
+        margin: 10px 2%;
+        display: flex;
+        flex-direction: column;
+        background-color: $primary-color;
+        border-radius: 8%;
+        width: 12.6666%;
+        height: 250px;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #2149e0;
+        }
+
+        img {
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            margin: 10px auto 0 auto;
+            background-color: black;
+        }
+
+    }
+}
+
+.filters {
+
+    margin:50px 0;
+}
+
+#demandeFormulaire {
+    width: 70%;
+    z-index: 1;
+    height: 80%;
+    left: 15%;
+    border-radius: 15px;
+    background-color: #EDF1F4;
+    bottom: 10%;
+    position: absolute;
+    text-align: center;
+    padding:15px;
+
+    #demandeFormulaireContent {
+        overflow: auto;
+        width:98%;
+        margin:auto;
+        height:100%;
+
+        .demandeFormulaireTitles {
+            font-size: 38px;
+            margin:1% auto 2% auto;
+            font-weight:bold;
+        }
+
+        .demandeFormulaireTitles2 {
+            font-weight:600;
+            font-size:28px;
+            margin-bottom: 35px;
+        }
+
+        form {
+
+            label {
+                margin:5px auto;
+                font-size:20px;
+            }
+
+            .categories {
+                width:33%;
+                margin:0 auto 30px auto;
+            }
+
+            #tags {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+
+                .tags {
+                    width: 17.333%;
+                    border:3px blue solid;
+                    margin: 15px 8%;
+                    border-radius: 8px;
+                    cursor:pointer;
+                    background-color: white;
+                }
+            }
+
+            .formDemande {
+                width: 70%;
+                margin: 1% auto;
+            }
+
+            .formDemandeTextarea {
+                width: 70%;
+                margin: 1% auto;
+                height:100px;
+                overflow-y: scroll;
+            }
+
+            .buttonsFormulaireDemande {
+                display: flex;
+                justify-content: space-evenly;
+                margin:4% auto 2% auto;
+
+                .submitDemande {
+                    background-color: #0030cc;
+                    padding: .15em 1em;
+                    border: 2px solid rgba(0, 0, 0, 0);
+                    border-radius: 7px;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.3rem;
+                    width:30%;
+                }
+            }
+        }
+
+    }
+}
+
+.modalDescription {
+    width: 70%;
+    z-index: 1;
+    height: 80%;
+    left: 15%;
+    border-radius: 15px;
+    background-color: #EDF1F4;
+    bottom: 10%;
+    position: absolute;
+    font-size: 38px;
+    text-align: center;
+    font-weight: bold;
+    padding:15px;
+
+    .modalDescriptionContainer {
+        overflow:auto;
+        width:98%;
+        margin:auto;
+        height:100%;
+
+        .modalParts {
+            display: flex;
+            margin: 6% 0 6% 5%;
+
+            .modalTitles {
+                font-size: 28px;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                width: 35%;
+            }
+
+            p {
+                color: blue;
+                text-shadow: black 0.5px 0.5px 0.5px;
+                font-size: 25px;
+                margin: 0 0 0 20px;
+            }
+        }
+
+        .tagsModalDescription {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            text-align: center;
+
+            .tags {
+                border: 3px blue solid;
+                padding: 3px;
+                margin: 15px 5%;
+                border-radius: 8px;
+                background-color: white;
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+
+        .statutsContainer {
+
+            .modalTitles {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 50px;
+                width: 100%;
+            }
+
+            .statuts {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                font-size: 18px;
+
+                p {
+                    padding: 22px;
+                    border-radius: 15px;
+                }
+
+                .proposé {
+                    background-color: #FFAB40;
+                }
+
+                .accepté {
+                    background-color: #00A84D;
+                }
+
+                .modifié {
+                    background-color: #FF4040;
+                }
+            }
+
+        }
+
+        .containerRedirectButton {
+            margin: 80px auto 20px auto;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+
+
+            .redirectButton {
+                font-size: 18px;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: blue;
+                color: white;
+
+                &:hover {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
