@@ -46,20 +46,24 @@ header {
     height: 72vh;
     justify-content: center;
     background-color: #f3f7fa;
-    border-radius:15px;
+   border-radius:15px;
     padding:20px;
     border:black solid 1px;
+    margin: 0 auto;
+    max-width: 960px;
+
+
 
     .containerContent {
-        width:98%;
-        margin:auto;
-        height:100%;
-        overflow:auto;
-    }
+          width:98%;
+          margin:auto;
+          height:100%;
+          overflow:auto;
+      }
 }
 
 
-.card-horizontal {
+.cardHorizontal {
     border: solid 2px #4e555b;
     display: flex;
     flex: 1 1 auto;
@@ -68,11 +72,23 @@ header {
     width: 80%;
     cursor: pointer;
     background-color: white;
+    height: 120px;
+
 
     .statut {
         border-right: solid 2px #4e555b;
         align-content: center;
         width: 8rem;
+    }
+
+    p{
+      padding-left: 10px ;
+      padding-bottom: 10px;
+    }
+    .cardTitle{
+      font-size: 20px;
+
+      padding-top: 1rem;
     }
 }
 
