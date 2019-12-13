@@ -34,9 +34,17 @@ class Demand
     private $clientRequest;
 
     /**
+
      * @ORM\Column(type="date", nullable=true)
      */
     private $deadline;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $status;
+
+
     public function __construct()
     {
         $this->boards = new ArrayCollection();
@@ -122,6 +130,18 @@ class Demand
     public function setDeadline(?\DateTimeInterface $deadline): self
     {
         $this->deadline = $deadline;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
