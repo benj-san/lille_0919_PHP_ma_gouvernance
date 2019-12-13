@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -17,50 +16,45 @@ class Demand
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $client;
-
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Board", mappedBy="demand")
      */
     private $boards;
-
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="demand")
      */
     private $tags;
-
     /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $clientRequest;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $deadline;
     public function __construct()
     {
         $this->boards = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getClient(): ?string
     {
         return $this->client;
     }
-
     public function setClient(string $client): self
     {
         $this->client = $client;
-
         return $this;
     }
-
     /**
      * @return Collection|Board[]
      */
@@ -68,17 +62,14 @@ class Demand
     {
         return $this->boards;
     }
-
     public function addBoard(Board $board): self
     {
         if (!$this->boards->contains($board)) {
             $this->boards[] = $board;
             $board->setDemand($this);
         }
-
         return $this;
     }
-
     public function removeBoard(Board $board): self
     {
         if ($this->boards->contains($board)) {
@@ -88,10 +79,8 @@ class Demand
                 $board->setDemand(null);
             }
         }
-
         return $this;
     }
-
     /**
      * @return Collection|Tag[]
      */
@@ -99,35 +88,40 @@ class Demand
     {
         return $this->tags;
     }
-
     public function addTag(Tag $tag): self
     {
         if (!$this->tags->contains($tag)) {
             $this->tags[] = $tag;
             $tag->addDemand($this);
         }
-
         return $this;
     }
-
     public function removeTag(Tag $tag): self
     {
         if ($this->tags->contains($tag)) {
             $this->tags->removeElement($tag);
             $tag->removeDemand($this);
         }
-
         return $this;
     }
-
     public function getClientRequest(): ?string
     {
         return $this->clientRequest;
     }
-
     public function setClientRequest(?string $clientRequest): self
     {
         $this->clientRequest = $clientRequest;
+        return $this;
+    }
+
+    public function getDeadline(): ?\DateTimeInterface
+    {
+        return $this->deadline;
+    }
+
+    public function setDeadline(?\DateTimeInterface $deadline): self
+    {
+        $this->deadline = $deadline;
 
         return $this;
     }
