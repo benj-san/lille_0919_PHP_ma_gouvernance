@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block title %}Hello AdminController!{% endblock %}
 
-{% block body %}
+
+{% block title %}Ma Gouvernance{% endblock %}
+
+{% block main %}
 
     <section id="filterContainer" class="hidden">
     </section>
@@ -9,34 +11,36 @@
     {% for demand in demands %}
 
         <section class="modalDescription hidden">
-            <h3>Demande n° {{ demand.id }}</h3>
-            <div class="modalParts">
-                <h4>Nom client :</h4>
-                <p>{{demand.client}}</p>
-            </div>
-            <div class="modalParts">
-                <h4>Besoins :</h4>
-                <p>{{ demand.clientRequest }}</p>
-            </div>
+            <div class="modalDescriptionContainer">
+                Demande n° {{ demand.id }} :
+                <div class="modalParts">
+                    <div class="modalTitles">Nom entreprise :</div>
+                    <p>{{demand.client}}</p>
+                </div>
+                <div class="modalParts">
+                    <div class="modalTitles">Besoins :</div>
+                    <p>{{ demand.clientRequest }}</p>
+                </div>
 
-            <div class="modalParts">
-                <h4>Tags : </h4>
-                <div class="tagsModalDescription">
-                    {% for tags in demand.tags %}
-                        <div class="tags">{{ tags.category }}</div>
-                    {% endfor %}
+                <div class="modalParts">
+                    <div class="modalTitles">Tags :</div>
+                    <div class="tagsModalDescription">
+                        {% for tags in demand.tags %}
+                            <div class="tags">{{ tags.category }}</div>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-            <div class="statutsContainer">
-                <h4>Statut du board</h4>
-                <div class="statuts">
-                    <p class="proposé">Simulation proposé</p>
-                    <p class="accepté">Board accepté</p>
-                    <p class="modifié">Board à modifier</p>
+                <div class="statutsContainer">
+                    <div class="modalTitles">Statut du board</div>
+                    <div class="statuts">
+                        <p class="proposé">Simulation proposé</p>
+                        <p class="accepté">Board accepté</p>
+                        <p class="modifié">Board à modifier</p>
+                    </div>
                 </div>
-            </div>
-            <div class="containerRedirectButton">
-                <a href="/board" class="redirectButton">Modifier le board</a>
+                <div class="containerRedirectButton">
+                    <a href="/board" class="redirectButton">Modifier le board</a>
+                </div>
             </div>
         </section>
     {% endfor %}
@@ -54,10 +58,10 @@
 
                 {% for demand in demands %}
 
-                    <div class="card-horizontal">
+                    <div class="cardHorizontal">
                         <div class="statut" style="background-color: red;"></div>
-                        <div class="card-body">
-                            <p class="card-title">Demande n° {{ demand.id }} </p>
+                        <div class="cardBody">
+                            <p class="cardTitle">Demande n° {{demand.id}} </p>
                             <p> Entreprise : {{ demand.client }}</p>
                         </div>
                     </div>
@@ -71,32 +75,31 @@
         </div>
         <section id="demandeFormulaire" class="hidden">
             <div id="demandeFormulaireContent">
-                <h3>Créer une demande</h3>
+                <div class="demandeFormulaireTitles">Créer une demande</div>
                 {{ form_start(formDemand, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_widget(formDemand) }}
-                <button class="submitDemande">{{ button_label|default('Créer') }}</button>
+                <button class="submitDemand">{{ button_label|default('Créer') }}</button>
                 {{ form_end(formDemand) }}
             </div>
         </section>
-
     </section>
 
 
 
 
 
-
-    <section id="advisors" class="hidden">
-        <section id="allCardsContainer">
-        {% for advisor in advisors %}
-                    <div class="cardAdvisors">
-                        <img src="" alt=""/>
-                        <h4>{{ advisor.firstname }} {{ advisor.name }}</h4>
-                        <p>Autres infos utiles</p>
-                    </div>
-        {% endfor %}
+        <section id="advisors" class="hidden">
+            <section id="allCardsContainer">
+            {% for advisor in advisors %}
+                        <div class="cardAdvisors">
+                            <img src="" alt=""/>
+                            <h4>{{ advisor.firstname }} {{ advisor.name }}</h4>
+                            <p>Autres infos utiles</p>
+                        </div>
+            {% endfor %}
+            </section>
         </section>
-    </section>
+
 
 {% endblock %}
 

@@ -17,7 +17,7 @@ const demandeFormulaire = document.getElementById('demandeFormulaire');
 const filterContainer = document.getElementById('filterContainer');
 const selectFormulaireDemande = document.getElementsByClassName('selectFormulaireDemande');
 const tagsContainer = document.getElementById('tags');
-const cardsDemande = document.getElementsByClassName('card-horizontal');
+const cardsDemande = document.getElementsByClassName('cardHorizontal');
 const modalDescription = document.getElementsByClassName('modalDescription');
 const cardClient = document.getElementsByClassName('cardClient');
 
@@ -46,6 +46,8 @@ buttonDemand.addEventListener('click', () => {
     demandeFormulaire.classList.toggle('hidden');
     filterContainer.classList.toggle('hidden');
     buttonDemand.classList.toggle('hidden');
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 });
 
 selectFormulaireDemande.forEach(item => item.addEventListener('change', () => {
@@ -67,6 +69,8 @@ for (let i = 0; i < cardsDemande.length; i += 1) {
         modalDescription[i].classList.remove('hidden');
         buttonDemand.classList.add('hidden');
         cardClient.forEach(item => item.classList.add('hidden'));
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     });
 }
 

@@ -15,6 +15,7 @@ class DemandType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
+        $options = '?';
         $builder
             ->add('client')
             ->add(
@@ -31,8 +32,7 @@ class DemandType extends AbstractType
                 'multiple' => true,
                 'expanded' => false,
                 'by_reference' => false
-            ])
-            ->add('status');
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
