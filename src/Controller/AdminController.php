@@ -16,7 +16,6 @@ class AdminController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin")
-<<<<<<< HEAD
      * @param AdvisorRepository $advisorRepository
      * @param DemandRepository $demandRepository
      * @param TagRepository $tagRepository
@@ -29,6 +28,14 @@ class AdminController extends AbstractController
         TagRepository $tagRepository,
         Request $request
     ) {
+        if (isset($_POST['statutSubmitted'])) {
+            $values = explode("-", $_POST['radio']);
+            $demand = $demandRepository->findOneBy(['id' => $values[1]]);
+            $entityManager = $this->getDoctrine()->getManager();
+            $demand->setStatus($values[0]);
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('admin');
+        }
         $demands = $demandRepository ->findAll();
         $advisors = $advisorRepository->findAll();
         $tags = $tagRepository->findAll();
@@ -43,12 +50,13 @@ class AdminController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('admin');
         }
+
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'advisors' => $advisors,
             'demands'=>$demands,
             'tags' => $tags,
-            'formDemand' =>$form->createView()
+            'formDemand' =>$form->createView(),
         ]);
     }
 }

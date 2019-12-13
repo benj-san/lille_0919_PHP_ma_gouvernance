@@ -21,7 +21,6 @@
                     <div class="modalTitles">Besoins :</div>
                     <p>{{ demand.clientRequest }}</p>
                 </div>
-
                 <div class="modalParts">
                     <div class="modalTitles">Tags :</div>
                     <div class="tagsModalDescription">
@@ -30,18 +29,30 @@
                         {% endfor %}
                     </div>
                 </div>
+                <form method="POST" >
                 <div class="statutsContainer">
                     <div class="modalTitles">Statut du board</div>
                     <div class="statuts">
-                        <p class="proposé">Simulation proposé</p>
-                        <p class="accepté">Board accepté</p>
-                        <p class="modifié">Board à modifier</p>
+                        <p class="proposé input-radio">
+                            <input type="radio" name="radio" value="0-{{ demand.id }}"/>
+                            <label class="radioProposé">Simulation proposé</label>
+                        </p>
+                        <p class="accepté input-radio">
+                            <input type="radio" name="radio" value="1-{{ demand.id }}"/>
+                            <label class="radioAccepté">Board accepté</label></p>
+                        <p class="modifié input-radio">
+                            <input type="radio" name="radio" value="2-{{ demand.id }}"/>
+                            <label class="radioModifié">Board à modifier</label>
+                        </p>
                     </div>
                 </div>
                 <div class="containerRedirectButton">
+                    <input type="submit" class="redirectButton" name="statutSubmitted" value="Modifier le statut" />
                     <a href="/board" class="redirectButton">Modifier le board</a>
                 </div>
+                </form>
             </div>
+
         </section>
     {% endfor %}
 
