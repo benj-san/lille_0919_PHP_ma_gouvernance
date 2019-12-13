@@ -164,9 +164,22 @@
       }
 
     form {
-      .categories {
-        width:100%;
-        margin: 0 auto 30px auto;
+      input {
+        height:30px;
+        font-size:16px;
+      }
+      input,textarea,.bootstrap-select {
+        width: 65%;
+        margin: 2% auto;
+        font-size:16px;
+
+
+      }
+
+      .bootstrap-select {
+        input {
+          width:100%;
+        }
       }
 
       .bootstrap-select {
@@ -212,21 +225,16 @@
           overflow-y: scroll;
       }
 
-      .buttonsFormulaireDemande {
-          display: flex;
-          justify-content: space-evenly;
-          margin: 4% auto 2% auto;
 
-          .submitDemande {
-              background-color: #0030cc;
-              padding: .15em 1em;
-              border: 2px solid rgba(0, 0, 0, 0);
-              border-radius: 7px;
-              color: white;
-              text-decoration: none;
-              font-size: 16px;
-              width: 30%;
-          }
+      .submitDemande {
+          background-color: #0030cc;
+          padding: .15em 1em;
+          border: 2px solid rgba(0, 0, 0, 0);
+          border-radius: 7px;
+          color: white;
+          text-decoration: none;
+          font-size: 16px;
+          width: 30%;
       }
     }
   }

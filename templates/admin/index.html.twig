@@ -1,55 +1,47 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
 
     <section id="filterContainer" class="hidden">
     </section>
+
+    {% for demand in demands %}
+
         <section class="modalDescription hidden">
-        <h3>Demande n°</h3>
-        <div class="modalParts">
-            <h4>Nom entreprise :</h4>
-            <p>Netflix</p>
-        </div>
-        <div class="modalParts">
-        <h4>Besoins :</h4>
-        <p>Ce sont les besoins</p>
-        </div>
-
-        <div class="modalParts">
-            <h4>Tags : </h4>
-            <div class="tagsModalDescription">
-            {% for i in 1..6 %}
-                <div class="tags">Tag {{ i }}</div>
-            {% endfor %}
+            <h3>Demande n° {{ demand.id }}</h3>
+            <div class="modalParts">
+                <h4>Nom client :</h4>
+                <p>{{demand.client}}</p>
             </div>
-        </div>
-        <div class="statutsContainer">
-            <h4>Statut du board</h4>
-            <div class="statuts">
-                <p class="proposé">Simulation proposé</p>
-                <p class="accepté">Board accepté</p>
-                <p class="modifié">Board à modifier</p>
+            <div class="modalParts">
+                <h4>Besoins :</h4>
+                <p>{{ demand.clientRequest }}</p>
             </div>
-        </div>
-        <div class="containerRedirectButton">
-            <a href="/board" class="redirectButton">Modifier le board</a>
-        </div>
-    </section>
-    <section class="modalDescription hidden">
-<p>deuxième</p>
-    </section>
-    <section class="modalDescription hidden">
-<p>troisième</p>
-    </section>
-    <section class="modalDescription hidden">
-        <p>quatrième</p>
 
-    </section>
-    <section class="modalDescription hidden">
-        <p>cinquième</p>
-    </section>
+            <div class="modalParts">
+                <h4>Tags : </h4>
+                <div class="tagsModalDescription">
+                    {% for tags in demand.tags %}
+                        <div class="tags">{{ tags.category }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="statutsContainer">
+                <h4>Statut du board</h4>
+                <div class="statuts">
+                    <p class="proposé">Simulation proposé</p>
+                    <p class="accepté">Board accepté</p>
+                    <p class="modifié">Board à modifier</p>
+                </div>
+            </div>
+            <div class="containerRedirectButton">
+                <a href="/board" class="redirectButton">Modifier le board</a>
+            </div>
+        </section>
+    {% endfor %}
+
+
 
 
     <section class="choices">
@@ -60,13 +52,13 @@
         <div class="container">
             <div class="containerContent">
 
-                {% for i in 1..5 %}
+                {% for demand in demands %}
 
                     <div class="card-horizontal">
                         <div class="statut" style="background-color: red;"></div>
                         <div class="card-body">
-                            <p class="card-title">Demande n° {{ i }} </p>
-                            <p> Entreprise : {{ i }}</p>
+                            <p class="card-title">Demande n° {{ demand.id }} </p>
+                            <p> Entreprise : {{ demand.client }}</p>
                         </div>
                     </div>
 
@@ -80,32 +72,10 @@
         <section id="demandeFormulaire" class="hidden">
             <div id="demandeFormulaireContent">
                 <h3>Créer une demande</h3>
-                <form>
-                    <input type="text" placeholder="Nom entreprise" class="formDemande"/>
-                    <br/>
-                    <textarea placeholder="Besoins" class="formDemandeTextarea"></textarea>
-                    <br/>
-                    <h4> Selectionner les tags</h4>
-                    <label class="categories">
-                        <select class="selectpicker" multiple data-live-search="true">
-                        {% for categories in tags %}
-                                {% for tag in categories.name  %}
-                                    <option>{{ tag }}</option>
-                                {% endfor %}
-                            {% endfor %}
-                        </select>
-                    </label>
-                    <section id="tags">
-
-                    </section>
-                    <label>Date butoir
-                        <br/>
-                        <input type="date" name="dateMax">
-                    </label>
-                    <div class="buttonsFormulaireDemande">
-                        <input type="submit" value="Créer !" class="submitDemande"/>
-                    </div>
-                </form>
+                {{ form_start(formDemand, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_widget(formDemand) }}
+                <button class="submitDemande">{{ button_label|default('Créer') }}</button>
+                {{ form_end(formDemand) }}
             </div>
         </section>
 
@@ -129,3 +99,6 @@
     </section>
 
 {% endblock %}
+
+{% form_theme formDemand 'bootstrap_4_layout.html.twig' %}
+
