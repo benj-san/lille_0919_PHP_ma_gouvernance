@@ -70,7 +70,15 @@
                 {% for demand in demands %}
 
                     <div class="cardHorizontal">
-                        <div class="statut" style="background-color: red;"></div>
+                        {% if demand.status ==0 %}
+                            <div class="statut" style="background-color: red;"></div>
+                            {% elseif demand.status ==1 %}
+                                <div class="statut" style="background-color: orange;"></div>
+                            {% else %}
+                                <div class="statut" style="background-color: green;"></div
+                        {% endif %}
+
+
                         <div class="cardBody">
                             <p class="cardTitle">Demande n° {{demand.id}} </p>
                             <p> Entreprise : {{ demand.client }}</p>
