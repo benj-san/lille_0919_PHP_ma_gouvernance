@@ -75,15 +75,16 @@ class Advisor
     private $commentary;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="advisor")
+     * @ORM\OneToMany(targetEntity="App\Entity\Resume", mappedBy="advisor")
      */
-    private $resume;
+    private $resumes;
 
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->boards = new ArrayCollection();
+        $this->resumes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -254,14 +255,34 @@ class Advisor
         return $this;
     }
 
-    public function getResume(): ?Resume
+
+    /**
+     * @return Collection|Resume[]
+     */
+    public function getResumes(): Collection
     {
-        return $this->resume;
+        return $this->resumes;
     }
 
-    public function setResume(?Resume $resume): self
+    public function addResume(Resume $resume): self
     {
-        $this->resume = $resume;
+        if (!$this->resumes->contains($resume)) {
+            $this->resumes[] = $resume;
+            $resume->setAdvisor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResume(Resume $resume): self
+    {
+        if ($this->resumes->contains($resume)) {
+            $this->resumes->removeElement($resume);
+            // set the owning side to null (unless already changed)
+            if ($resume->getAdvisor() === $this) {
+                $resume->setAdvisor(null);
+            }
+        }
 
         return $this;
     }

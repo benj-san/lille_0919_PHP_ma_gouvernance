@@ -23,15 +23,16 @@ class Resume
      */
     private $content;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Advisor", mappedBy="resume")
-     */
-    private $advisor;
-
-    /**
+     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Demand", inversedBy="resumes")
      */
     private $demand;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Advisor", inversedBy="resumes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $advisor;
 
     public function __construct()
     {
@@ -55,37 +56,6 @@ class Resume
         return $this;
     }
 
-    /**
-     * @return Collection|Advisor[]
-     */
-    public function getAdvisor(): Collection
-    {
-        return $this->advisor;
-    }
-
-    public function addAdvisor(Advisor $advisor): self
-    {
-        if (!$this->advisor->contains($advisor)) {
-            $this->advisor[] = $advisor;
-            $advisor->setResume($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAdvisor(Advisor $advisor): self
-    {
-        if ($this->advisor->contains($advisor)) {
-            $this->advisor->removeElement($advisor);
-            // set the owning side to null (unless already changed)
-            if ($advisor->getResume() === $this) {
-                $advisor->setResume(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getDemand(): ?Demand
     {
         return $this->demand;
@@ -94,6 +64,18 @@ class Resume
     public function setDemand(?Demand $demand): self
     {
         $this->demand = $demand;
+
+        return $this;
+    }
+
+    public function getAdvisor(): ?Advisor
+    {
+        return $this->advisor;
+    }
+
+    public function setAdvisor(?Advisor $advisor): self
+    {
+        $this->advisor = $advisor;
 
         return $this;
     }

@@ -44,6 +44,13 @@ class Demand
      */
     private $status;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Resume", mappedBy="demand")
+     */
+    private $resumes;
+
+
+
 
     public function __construct()
     {
@@ -143,6 +150,33 @@ class Demand
     {
         $this->status = $status;
 
+        return $this;
+    }
+
+    /**
+     * @return Collection|Resume[]
+     */
+    public function getResumes(): Collection
+    {
+        return $this->resumes;
+    }
+    public function addResume(Resume $resume): self
+    {
+        if (!$this->resumes->contains($resume)) {
+            $this->resumes[] = $resume;
+            $resume->setDemand($this);
+        }
+        return $this;
+    }
+    public function removeResume(Resume $resume): self
+    {
+        if ($this->resumes->contains($resume)) {
+            $this->resumes->removeElement($resume);
+            // set the owning side to null (unless already changed)
+            if ($resume->getDemand() === $this) {
+                $resume->setDemand(null);
+            }
+        }
         return $this;
     }
 }
