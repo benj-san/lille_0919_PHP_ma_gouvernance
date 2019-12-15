@@ -34,7 +34,7 @@ final class Version20191215204505 extends AbstractMigration
     }
 
     public function down(Schema $schema) : void
-    {ma_gouvernance
+    {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
