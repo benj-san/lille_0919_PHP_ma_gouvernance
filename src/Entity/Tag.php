@@ -23,10 +23,6 @@ class Tag
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $category;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", inversedBy="tags")
@@ -37,6 +33,11 @@ class Tag
      * @ORM\ManyToMany(targetEntity="App\Entity\Demand", inversedBy="tags")
      */
     private $demand;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="tags")
+     */
+    private $category;
 
     public function __construct()
     {
@@ -61,17 +62,6 @@ class Tag
         return $this;
     }
 
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Advisor[]
@@ -121,6 +111,18 @@ class Tag
         if ($this->demand->contains($demand)) {
             $this->demand->removeElement($demand);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

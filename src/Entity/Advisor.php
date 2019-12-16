@@ -60,7 +60,7 @@ class Advisor
     private $presentation;
 
     /**
-     * @ORM\ManyToMany(stargetEntity="App\Entity\Tag", mappedBy="advisors")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
      */
     private $tags;
 
@@ -69,10 +69,22 @@ class Advisor
      */
     private $boards;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $commentary;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Resume", mappedBy="advisor")
+     */
+    private $resumes;
+
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->boards = new ArrayCollection();
+        $this->resumes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -226,6 +238,50 @@ class Advisor
     {
         if ($this->boards->contains($board)) {
             $this->boards->removeElement($board);
+        }
+
+        return $this;
+    }
+
+    public function getCommentary(): ?string
+    {
+        return $this->commentary;
+    }
+
+    public function setCommentary(?string $commentary): self
+    {
+        $this->commentary = $commentary;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|Resume[]
+     */
+    public function getResumes(): Collection
+    {
+        return $this->resumes;
+    }
+
+    public function addResume(Resume $resume): self
+    {
+        if (!$this->resumes->contains($resume)) {
+            $this->resumes[] = $resume;
+            $resume->setAdvisor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResume(Resume $resume): self
+    {
+        if ($this->resumes->contains($resume)) {
+            $this->resumes->removeElement($resume);
+            // set the owning side to null (unless already changed)
+            if ($resume->getAdvisor() === $this) {
+                $resume->setAdvisor(null);
+            }
         }
 
         return $this;
