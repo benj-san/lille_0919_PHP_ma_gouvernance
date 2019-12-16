@@ -13,7 +13,10 @@ html {
     scrollbar-color: #bebebe #d9dde0;
 }
 
+/* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
+
 header {
+    margin-bottom: 5%;
     nav {
         height:80px;
         border-bottom: #FFAB40 solid 3px;
@@ -24,14 +27,33 @@ header {
             justify-content: center;
             align-items: center;
             width:10%;
-            margin-left:11%;
+            margin-left:1%;
 
             img {
                 height: 55%;
                 background-color: white;
             }
         }
+
+        display:flex;
+        align-items: center;
+            .linksContainer {
+                height:100%;
+                display:flex;
+                align-items: center;
+                width:25%;
+                .links {
+                    width:50%;
+                    text-align: center;
+                    font-size:22px;
+                    text-decoration: none;
+                    color:black;
+                    font-weight:600;
+                }
+      }
+
     }
+
 }
 
 #filterContainer {
@@ -45,7 +67,7 @@ header {
 
 
 .container {
-    height: 72vh;
+    height: 65vh;
     justify-content: center;
     background-color: #f3f7fa;
    border-radius:15px;
@@ -123,19 +145,6 @@ header {
 
 }
 
-.choices {
-    width: 70%;
-    margin: 50px auto 50px auto;
-    display: flex;
-    justify-content: space-between;
-    border: none;
-    font-size: 42px;
-    font-weight: 500;
-
-    #buttonAdvisors, #buttonBoards {
-        cursor: pointer;
-    }
-}
 
 .hidden {
 
@@ -143,6 +152,9 @@ header {
     transition:2s ease;
 
 }
+
+
+/* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
 
 #allCardsContainer {
     display: flex;
@@ -182,6 +194,9 @@ header {
 
     margin:50px 0;
 }
+
+
+/* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 
 #demandeFormulaire {
   width: 70%;
@@ -259,6 +274,7 @@ header {
   }
 }
 
+/* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 
 .modalDescription {
   width: 70%;

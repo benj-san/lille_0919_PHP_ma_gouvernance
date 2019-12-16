@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ma Gouvernance{% endblock %}
+
+{% block main %}
+
+    <section id="filterContainer" class="hidden">
+    </section>
+
+    <section id="advisors" >
+        <section id="allCardsContainer">
+            {% for advisor in advisors %}
+                <div class="cardAdvisors">
+                    <img src="" alt=""/>
+                    <h4>{{ advisor.firstname }} {{ advisor.name }}</h4>
+                    <p>Autres infos utiles</p>
+                </div>
+            {% endfor %}
+        </section>
+    </section>
+
+{% endblock %}
+

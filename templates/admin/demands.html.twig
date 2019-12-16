@@ -48,7 +48,7 @@
                 </div>
                 <div class="containerRedirectButton">
                     <input type="submit" class="redirectButton" name="statutSubmitted" value="Modifier le statut" />
-                    <a href="/board" class="redirectButton">Modifier le board</a>
+                    <a href="" class="redirectButton">Modifier le board</a>
                 </div>
                 </form>
             </div>
@@ -56,13 +56,6 @@
         </section>
     {% endfor %}
 
-
-
-
-    <section class="choices">
-        <div id="buttonBoards">Demandes</div>
-        <div id="buttonAdvisors">Advisors</div>
-    </section>
     <section id="Boards">
         <div class="container">
             <div class="containerContent">
@@ -94,22 +87,6 @@
             </div>
         </section>
     </section>
-
-
-
-
-
-        <section id="advisors" class="hidden">
-            <section id="allCardsContainer">
-            {% for advisor in advisors %}
-                        <div class="cardAdvisors">
-                            <img src="" alt=""/>
-                            <h4>{{ advisor.firstname }} {{ advisor.name }}</h4>
-                            <p>Autres infos utiles</p>
-                        </div>
-            {% endfor %}
-            </section>
-        </section>
 
 
 {% endblock %}

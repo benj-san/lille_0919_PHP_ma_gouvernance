@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Advisor;
 use App\Entity\Demand;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
@@ -15,15 +16,13 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
-     * @param AdvisorRepository $advisorRepository
+     * @Route("/admin/demands", name="demands")
      * @param DemandRepository $demandRepository
      * @param TagRepository $tagRepository
      * @param Request $request
      * @return Response
      */
     public function index(
-        AdvisorRepository $advisorRepository,
         DemandRepository $demandRepository,
         TagRepository $tagRepository,
         Request $request
@@ -31,13 +30,11 @@ class AdminController extends AbstractController
         if (isset($_POST['statutSubmitted'])) {
             $values = explode("-", $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
-            $entityManager = $this->getDoctrine()->getManager();
             $demand->setStatus($values[0]);
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('admin');
         }
         $demands = $demandRepository ->findAll();
-        $advisors = $advisorRepository->findAll();
         $tags = $tagRepository->findAll();
 
         $demand = new Demand();
@@ -51,12 +48,24 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin');
         }
 
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/demands.html.twig', [
             'controller_name' => 'AdminController',
-            'advisors' => $advisors,
             'demands'=>$demands,
             'tags' => $tags,
             'formDemand' =>$form->createView(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/advisors", name="advisors")
+     * @return Response
+     */
+    public function advisor(AdvisorRepository $advisorRepository)
+    {
+        $advisors = $advisorRepository->findAll();
+        return $this->render('admin/advisors.html.twig', [
+            'advisors' => $advisors
         ]);
     }
 }
