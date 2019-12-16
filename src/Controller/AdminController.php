@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\AdvisorRepository;
+use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,9 +24,14 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/board", name="board")
+     * @param AdvisorRepository $advisorRepository
+     * @return Response
      */
-    public function board()
+    public function board(AdvisorRepository $advisorRepository)
     {
-        return $this->render('admin/constructBoard.html.twig');
+        $advisor = $advisorRepository->findAll();
+        return $this->render('admin/constructBoard.html.twig', [
+            'advisors' => $advisor,
+        ]);
     }
 }

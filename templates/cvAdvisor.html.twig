@@ -4,20 +4,19 @@
 
 {% block main %}
 
-    {% for i in 0..20 %}
+    {% for advisor in advisors %}
         <div class="cvAdvisor">
             <div id="pitch">
                 <h1>Son pitch en quelques mots</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi debitis dignissimos,
-                    dolore in iste nihil pariatur quia reiciendis repellendus, sed veniam vitae.
-                    Asperiores debitis dignissimos hic obcaecati odit, quos totam?</p>
+                <p>{{ advisor.presentation }}</p>
                 <img src="" alt="">
             </div>
             <div id="allInfosAdvisor">
                 <div id="infosAdvisor">
                     <div class="blocInfo" id="civilStatus">
-                        <h2>John Doe {{ i }}</h2>
-                        <h3>Lille</h3>
+                        <h2>{{ advisor.firstname }} {{ advisor.name }}</h2>
+                        <h3>{{ advisor.place }}</h3>
+                        <h3>{{ advisor.email }}</h3>
                         <p>Mobilité France</p>
                         <p>Disponible 1 journée par mois</p>
                     </div>

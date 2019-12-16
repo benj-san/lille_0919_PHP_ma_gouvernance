@@ -21,9 +21,9 @@
         <button id="buttonValidateSynopsis">Valider</button>
     </div>
 
-    {% for j in 0..20 %}
+    {% for advisor in advisors %}
         <div class="deleteAdvisor">
-            <p>Retirer John Doe {{ j }} ?</p>
+            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
             <button class="definitiveDeleteAdvisor">Retirer du board</button>
         </div>
     {% endfor %}
@@ -48,12 +48,12 @@
             <label id="research">
                 <input placeholder="Rechercher">
             </label>
-            {% for i in 0..20 %}
+            {% for advisor in advisors %}
                 <div class="cardAdvisorAndAdd">
-                    <div id="cardAdvisor_{{ i }}" class="cardAdvisorJS">
+                    <div id="cardAdvisor" class="cardAdvisorJS">
                         <img src="" alt="">
                         <div id="cardAdvisorInfos">
-                            <p class="nameAdvisor">John Doe {{ i }}</p>
+                            <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
                             <p class="infosAdvisor">Autres infos utiles</p>
                         </div>
                     </div>

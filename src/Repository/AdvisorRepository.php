@@ -14,6 +14,8 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class AdvisorRepository extends ServiceEntityRepository
 {
+    public $takeAdvisorForBoard;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Advisor::class);
@@ -47,4 +49,14 @@ class AdvisorRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function takeAdvisorForBoard(): array
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'select * 
+                from advisor'
+        );
+
+        return $query->getResult();
+    }
 }
