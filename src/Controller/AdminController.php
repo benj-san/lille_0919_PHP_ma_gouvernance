@@ -24,12 +24,4 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/constructBoard.html.twig');
     }
-
-    /**
-     * @Route("/cvAdvisor", name="cvAdvisor")
-     */
-    public function cvAdvisor()
-    {
-        return $this->render('cvAdvisor.html.twig');
-    }
 }
