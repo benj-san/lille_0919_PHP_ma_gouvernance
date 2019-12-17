@@ -141,15 +141,17 @@ header {
         width: 12rem;
       }
 
-      p {
-        padding-left: 10px;
-        padding-bottom: 10px;
-      }
+
 
       .cardTitle {
         font-size: 20px;
 
         padding-top: 1rem;
+      }
+
+      .clientName {
+        font-size: 28px;
+        font-weight: 600;
       }
     }
 
@@ -227,6 +229,8 @@ header {
             margin: 10px auto 0 auto;
             background-color: black;
         }
+
+
 
     }
 }
