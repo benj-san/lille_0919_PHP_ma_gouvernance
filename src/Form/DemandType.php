@@ -28,7 +28,7 @@ class DemandType extends AbstractType
                     'data-live-search' => 'true'
                     ],
                 'class' => Tag::class,
-                'choice_label' => 'category',
+                'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => false,
                 'by_reference' => false

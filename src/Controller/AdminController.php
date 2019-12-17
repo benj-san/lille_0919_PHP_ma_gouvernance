@@ -52,9 +52,7 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('demands');
         }
-
         return $this->render('admin/demands.html.twig', [
-            'controller_name' => 'AdminController',
             'demands'=>$demands,
             'tags' => $tags,
             'formDemand' =>$form->createView(),
@@ -64,6 +62,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/advisors", name="advisors")
+     * @param AdvisorRepository $advisorRepository
      * @return Response
      */
     public function advisor(AdvisorRepository $advisorRepository)

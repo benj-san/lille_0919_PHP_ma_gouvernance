@@ -19,7 +19,7 @@ class Tag
     private $id;
 
     /**
-     * @ORM\Column(type="simple_array")
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
@@ -50,12 +50,12 @@ class Tag
         return $this->id;
     }
 
-    public function getName(): ?array
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName(array $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
