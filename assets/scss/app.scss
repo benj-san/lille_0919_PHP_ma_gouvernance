@@ -124,35 +124,44 @@ header {
 
 
     .cardHorizontal {
-      border: solid 2px #4e555b;
-      display: flex;
-      flex: 1 1 auto;
-      margin: auto auto 2vh;
-      width: 85%;
-      cursor: pointer;
-      background-color: white;
-      height: 120px;
+        border: solid 2px #4e555b;
+        display: flex;
+        flex: 1 1 auto;
+        margin: auto auto 2vh;
+        width: 85%;
+        cursor: pointer;
+        background-color: white;
+        height: 120px;
+        .cardBody{
+            display:flex;
+            align-items: center;
+            margin-left:2%;
+          .cardTitle {
+            font-size: 54px;
+            width:300px;
+          }
 
 
-      .statut {
-        border-right: solid 2px #4e555b;
-        background-color: #FF4040;
-        align-content: center;
-        width: 12rem;
-      }
+          .deadline {
+            font-size: 32px;
+            align-self: flex-end;
+            margin-left:300px;
+          }
+        }
+
+
+        .statut {
+          border-right: solid 2px #4e555b;
+          background-color: #FF4040;
+          align-content: center;
+          width: 12rem;
+        }
 
 
 
-      .cardTitle {
-        font-size: 20px;
 
-        padding-top: 1rem;
-      }
 
-      .clientName {
-        font-size: 28px;
-        font-weight: 600;
-      }
+
     }
 
 
@@ -178,6 +187,7 @@ header {
       display:flex;
       justify-content: center;
       align-items: center;
+      margin:200px auto 0 auto;
 
 
       &:hover {

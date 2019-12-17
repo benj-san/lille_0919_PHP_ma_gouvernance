@@ -69,8 +69,9 @@
                     <div class="cardHorizontal">
                         <div class="statut" ></div>
                         <div class="cardBody">
-                            <p class="cardTitle">Demande n° {{demand.id}} </p>
-                            <p> Entreprise : <div class="clientName">{{ demand.client }}</div></p>
+                            <p class="cardTitle">{{demand.client}}</p>
+                            <p class="deadline">{{ demand.deadline|date("m/d/Y") }}</p>
+
                         </div>
                     </div>
 
@@ -90,7 +91,7 @@
                 <a href="{{ path ('demands',{}) }}">Board accepté</a>
                 <a href="{{ path ('demands',{}) }}">Deadline</a>
             </div>
-            <div id ="button-newdemand"></div>
+            <div id ="button-newdemand">+</div>
         </section>
 
 

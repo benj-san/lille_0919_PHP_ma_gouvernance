@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\Demand;
 use App\Entity\Tag;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -17,7 +19,7 @@ class DemandType extends AbstractType
 
         $options = '?';
         $builder
-            ->add('client')
+            ->add('client', TextType::class)
             ->add(
                 'clientRequest',
                 TextareaType::class,
@@ -32,7 +34,8 @@ class DemandType extends AbstractType
                 'multiple' => true,
                 'expanded' => false,
                 'by_reference' => false
-            ]);
+            ])
+            ->add('deadline', DateType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

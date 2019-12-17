@@ -71,8 +71,8 @@ myInput.addEventListener('keyup', () => {
     const filter = myInput.value.toUpperCase();
     const cardHorizontal = document.getElementsByClassName('cardHorizontal');
     for (let i = 0; i < cardHorizontal.length; i += 1) {
-        const clientName = cardHorizontal[i].getElementsByClassName('clientName')[0];
-        const txtValue = clientName.textContent || clientName.innerText;
+        const cardTitle = cardHorizontal[i].getElementsByClassName('cardTitle')[0];
+        const txtValue = cardTitle.textContent || cardTitle.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             cardHorizontal[i].style.display = '';
         } else {
