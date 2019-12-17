@@ -65,3 +65,18 @@ document.addEventListener('click', (e) => {
         demandeFormulaire.classList.add('hidden');
     }
 });
+
+const myInput = document.getElementById('myInput');
+myInput.addEventListener('keyup', () => {
+    const filter = myInput.value.toUpperCase();
+    const cardHorizontal = document.getElementsByClassName('cardHorizontal');
+    for (let i = 0; i < cardHorizontal.length; i += 1) {
+        const clientName = cardHorizontal[i].getElementsByClassName('clientName')[0];
+        const txtValue = clientName.textContent || clientName.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            cardHorizontal[i].style.display = '';
+        } else {
+            cardHorizontal[i].style.display = 'none';
+        }
+    }
+});

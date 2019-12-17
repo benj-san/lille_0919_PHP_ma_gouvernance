@@ -33,17 +33,18 @@
                 <div class="statutsContainer">
                     <div class="modalTitles">Statut du board</div>
                     <div class="statuts">
-                        <p class="proposé input-radio">
-                            <input type="radio" name="radio" value="0-{{ demand.id }}"/>
-                            <label class="radioProposé">Simulation proposé</label>
-                        </p>
-                        <p class="accepté input-radio">
-                            <input type="radio" name="radio" value="1-{{ demand.id }}"/>
-                            <label class="radioAccepté">Board accepté</label></p>
-                        <p class="modifié input-radio">
-                            <input type="radio" name="radio" value="2-{{ demand.id }}"/>
-                            <label class="radioModifié">Board à modifier</label>
-                        </p>
+                        <div class="proposé input-radio">
+                            <input type="radio" name="radio" value="0-{{ demand.id }}" id="0-{{ demand.id }}"/>
+                            <label for="0-{{ demand.id }}" class="radioProposé">Simulation proposé</label>
+                        </div>
+                        <div class="accepté input-radio">
+                            <input type="radio" name="radio" value="1-{{ demand.id }}" id="1-{{ demand.id }}"/>
+                            <label for="1-{{ demand.id }}" class="radioAccepté">Board accepté</label>
+                        </div>
+                        <div class="modifié input-radio">
+                            <input type="radio" name="radio" value="2-{{ demand.id }}" id="2-{{ demand.id }}"/>
+                            <label for="2-{{ demand.id }}" class="radioModifié">Board à modifier</label>
+                        </div>
                     </div>
                 </div>
                 <div class="containerRedirectButton">
@@ -57,26 +58,42 @@
     {% endfor %}
 
     <section id="Boards">
+
+
+
         <div class="container">
             <div class="containerContent">
 
                 {% for demand in demands %}
 
                     <div class="cardHorizontal">
-                        <div class="statut" style="background-color: red;"></div>
+                        <div class="statut" ></div>
                         <div class="cardBody">
                             <p class="cardTitle">Demande n° {{demand.id}} </p>
-                            <p> Entreprise : {{ demand.client }}</p>
+                            <p> Entreprise : <div class="clientName">{{ demand.client }}</div></p>
                         </div>
                     </div>
 
                 {% endfor %}
             </div>
         </div>
+        <section class="filterBoards">
+            <div class="filterTitle">Filtres :</div>
+            <section class="filters">
+                <input type="text" id="myInput" placeholder="Chercher un nom..">
+            </section>
+            <div class="order">
+                Filtré par :
+                <a href="{{ path('demands') }}">Tous</a>
+                <a href="{{ path ('demands',{}) }}">Board proposé</a>
+                <a href="{{ path ('demands',{}) }}">Board à modifier</a>
+                <a href="{{ path ('demands',{}) }}">Board accepté</a>
+                <a href="{{ path ('demands',{}) }}">Deadline</a>
+            </div>
+        </section>
 
-        <div class="new-demande">
-            <div id="button-newdemand" href="" >Nouvelle demande</div>
-        </div>
+
+
         <section id="demandeFormulaire" class="hidden">
             <div id="demandeFormulaireContent">
                 <div class="demandeFormulaireTitles">Créer une demande</div>
@@ -86,6 +103,7 @@
                 {{ form_end(formDemand) }}
             </div>
         </section>
+
     </section>
 
 

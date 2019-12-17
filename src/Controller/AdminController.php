@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Advisor;
+use App\Entity\Board;
 use App\Entity\Demand;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
@@ -16,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin/demands", name="demands")
+     * @Route("/admin/demands/", name="demands")
      * @param DemandRepository $demandRepository
      * @param TagRepository $tagRepository
      * @param Request $request
@@ -32,7 +33,7 @@ class AdminController extends AbstractController
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
             $demand->setStatus($values[0]);
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('demands');
         }
         $demands = $demandRepository ->findAll();
         $tags = $tagRepository->findAll();
@@ -43,9 +44,13 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $demand->setStatus(1);
+            $board = new Board();
+            $board->setDemand($demand);
             $entityManager->persist($demand);
+            $entityManager->persist($board);
             $entityManager->flush();
-            return $this->redirectToRoute('admin');
+
+            return $this->redirectToRoute('demands');
         }
 
         return $this->render('admin/demands.html.twig', [
