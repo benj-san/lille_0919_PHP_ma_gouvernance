@@ -37,9 +37,12 @@
             <div id="boardEdit">
                 <img id="boardEditImg" src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
                 <h2 id="boardEditH2">Ajoutez vos advisors</h2>
+                {{ form_start(formBoard) }}
+                {{ form_widget(formBoard) }}
             </div>
             <div id="submit">
-                <button>Valider</button>
+                <button>{{ button_label|default('Valider') }}</button>
+                {{ form_end(formBoard) }}
             </div>
         </div>
 
@@ -55,6 +58,7 @@
                         <div id="cardAdvisorInfos">
                             <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
                             <p class="infosAdvisor">Autres infos utiles</p>
+                            <p class="idAdvisor">{{ advisor.id }}</p>
                         </div>
                     </div>
                     <div class="addCardAdvisor">+</div>

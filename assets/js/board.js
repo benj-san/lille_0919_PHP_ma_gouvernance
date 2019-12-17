@@ -13,6 +13,8 @@ const deleteAdvisor = document.querySelectorAll('div.deleteAdvisor');
 const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDeleteAdvisor');
 const boardAdvisors = document.getElementById('boardAdvisors');
 const cardAdvisorAndAdd = document.querySelectorAll('div.cardAdvisorAndAdd');
+const idAdvisor = document.querySelectorAll('p.idAdvisor');
+const checkboxAdvisor = document.querySelectorAll('input');
 
 for (let i = 0; i < cardAdvisorJS.length; i++) {
     // To click to display the window to add an advisor
@@ -27,11 +29,18 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
         });
         // To click to add an advisor
         buttonValidateSynopsis.addEventListener('click', () => {
-            boardEdit.appendChild(cardAdvisorAndAdd[i]);
-            boardEditImg.classList.add('none');
-            boardEditH2.classList.add('none');
-            behind.classList.remove('display');
-            commentAdvisor.classList.remove('display');
+            for (let j = 0; j < checkboxAdvisor.length; j++) {
+                if (checkboxAdvisor[j].type === 'checkbox') {
+                    if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
+                        checkboxAdvisor[j].checked = true;
+                        boardEdit.appendChild(cardAdvisorAndAdd[i]);
+                        boardEditImg.classList.add('none');
+                        boardEditH2.classList.add('none');
+                        behind.classList.remove('display');
+                        commentAdvisor.classList.remove('display');
+                    }
+                }
+            }
             // Modify the css if an advisor goes into the board
             if (cardAdvisorAndAdd[i].parentNode.id === 'boardEdit') {
                 boardEdit.classList.add('displayAdvisor');
@@ -41,14 +50,46 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
                     cvAdvisor[i].classList.remove('display');
                     commentAdvisor.classList.remove('display');
                     deleteAdvisor[i].classList.add('display');
-                    // To click to remove an advisor
-                    definitiveDeleteAdvisor[i].addEventListener('click', () => {
+                });
+            }
+        });
+        // To click to remove an advisor
+        definitiveDeleteAdvisor[i].addEventListener('click', () => {
+            for (let j = 0; j < checkboxAdvisor.length; j++) {
+                if (checkboxAdvisor[j].type === 'checkbox') {
+                    if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
+                        checkboxAdvisor[j].checked = false;
                         boardAdvisors.appendChild(cardAdvisorAndAdd[i]);
                         behind.classList.remove('display');
                         deleteAdvisor[i].classList.remove('display');
-                    });
-                });
+                    }
+                }
             }
+            buttonValidateSynopsis.removeEventListener('click', () => {
+                for (let j = 0; j < checkboxAdvisor.length; j++) {
+                    if (checkboxAdvisor[j].type === 'checkbox') {
+                        if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
+                            checkboxAdvisor[j].checked = true;
+                            boardEdit.appendChild(cardAdvisorAndAdd[i]);
+                            boardEditImg.classList.add('none');
+                            boardEditH2.classList.add('none');
+                            behind.classList.remove('display');
+                            commentAdvisor.classList.remove('display');
+                        }
+                    }
+                }
+                // Modify the css if an advisor goes into the board
+                if (cardAdvisorAndAdd[i].parentNode.id === 'boardEdit') {
+                    boardEdit.classList.add('displayAdvisor');
+                    // To click to display the window to remove an advisor
+                    cardAdvisorJS[i].addEventListener('click', () => {
+                        behind.classList.add('display');
+                        cvAdvisor[i].classList.remove('display');
+                        commentAdvisor.classList.remove('display');
+                        deleteAdvisor[i].classList.add('display');
+                    });
+                }
+            });
         });
     });
     // To click to display the advisors' CV
