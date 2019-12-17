@@ -58,10 +58,11 @@
                         <div id="cardAdvisorInfos">
                             <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
                             <p class="infosAdvisor">Autres infos utiles</p>
-                            <p class="idAdvisor">{{ advisor.id }}</p>
                         </div>
                     </div>
-                    <div class="addCardAdvisor">+</div>
+                    <div class="addCardAdvisor" value="">+
+                        <p class="idAdvisor">{{ advisor.id }}</p>
+                    </div>
                 </div>
             {% endfor %}
         </div>

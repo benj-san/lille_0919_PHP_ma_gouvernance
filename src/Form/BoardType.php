@@ -22,7 +22,7 @@ class BoardType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false
-                ])
+            ])
         ;
     }
 
