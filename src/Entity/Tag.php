@@ -23,24 +23,25 @@ class Tag
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $category;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", inversedBy="tags")
      */
-    private $advisor;
+    private $advisors;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Demand", inversedBy="tags")
      */
     private $demand;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="tags")
+     */
+    private $category;
+
     public function __construct()
     {
-        $this->advisor = new ArrayCollection();
+        $this->advisors = new ArrayCollection();
         $this->demand = new ArrayCollection();
     }
 
@@ -61,30 +62,19 @@ class Tag
         return $this;
     }
 
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Advisor[]
      */
     public function getAdvisor(): Collection
     {
-        return $this->advisor;
+        return $this->advisors;
     }
 
     public function addAdvisor(Advisor $advisor): self
     {
-        if (!$this->advisor->contains($advisor)) {
-            $this->advisor[] = $advisor;
+        if (!$this->advisors->contains($advisor)) {
+            $this->advisors[] = $advisor;
         }
 
         return $this;
@@ -92,8 +82,8 @@ class Tag
 
     public function removeAdvisor(Advisor $advisor): self
     {
-        if ($this->advisor->contains($advisor)) {
-            $this->advisor->removeElement($advisor);
+        if ($this->advisors->contains($advisor)) {
+            $this->advisors->removeElement($advisor);
         }
 
         return $this;
@@ -121,6 +111,18 @@ class Tag
         if ($this->demand->contains($demand)) {
             $this->demand->removeElement($demand);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
