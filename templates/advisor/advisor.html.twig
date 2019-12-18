@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Gouvernance{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('advisor') }}
+            {{ encore_entry_link_tags('app') }}
+            <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        {% endblock %}
+{% block main %}
+    <div id="connectContainer">
+        <h1>REJOINDRE COMME ADVISOR</h1>
+        <a class="linkedinlogo" href="https://www.linkedin.com/m/logout/"><img src="{{ asset('build/linkedin.png') }}"/></a>
+    </div>
+{% endblock %}
+

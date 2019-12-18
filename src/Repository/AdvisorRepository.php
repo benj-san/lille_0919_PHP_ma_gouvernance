@@ -20,7 +20,7 @@ class AdvisorRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Advisor[] Returns an array of Advisor objects
+    //  * @return advisor[] Returns an array of advisor objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class AdvisorRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Advisor
+    public function findOneBySomeField($value): ?advisor
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')
