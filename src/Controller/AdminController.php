@@ -35,9 +35,22 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-        $demands = $demandRepository ->findAll();
-        $tags = $tagRepository->findAll();
 
+        if (isset($_GET['filter'])) {
+            if ($_GET['filter']  === 'proposé') {
+                $demands = $demandRepository ->findBy(array('status' => 1));
+            } elseif ($_GET['filter']  === 'modifier') {
+                $demands = $demandRepository ->findBy(array('status' => 0));
+            } elseif ($_GET['filter']  === 'accepté') {
+                $demands = $demandRepository ->findBy(array('status' => 2));
+            } else {
+                $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'DESC'));
+            }
+        } else {
+            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'DESC'));
+        }
+
+        $tags = $tagRepository->findAll();
         $demand = new Demand();
         $form = $this->createForm(DemandType::class, $demand);
         $form->handleRequest($request);
@@ -56,6 +69,7 @@ class AdminController extends AbstractController
             'demands'=>$demands,
             'tags' => $tags,
             'formDemand' =>$form->createView(),
+
         ]);
     }
 

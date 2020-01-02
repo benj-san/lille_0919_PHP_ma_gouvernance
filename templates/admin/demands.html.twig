@@ -57,6 +57,7 @@
         </section>
     {% endfor %}
 
+
     <section id="Boards">
 
 
@@ -71,7 +72,7 @@
                             <div class="statut" style="background-color: red;"></div>
                         {% elseif demand.status ==1 %}
                             <div class="statut" style="background-color: orange;"></div>
-                        {% else %}
+                        {% elseif demand.status ==2 %}
                             <div class="statut" style="background-color: green;"></div>
                         {% endif %}
 
@@ -83,6 +84,7 @@
                     </div>
 
                 {% endfor %}
+
             </div>
         </div>
         <section class="filterBoards">
@@ -92,11 +94,10 @@
             </section>
             <div class="order">
                 Filtré par :
-                <a href="{{ path('demands') }}">Tous</a>
-                <a href="{{ path ('demands',{}) }}">Board proposé</a>
-                <a href="{{ path ('demands',{}) }}">Board à modifier</a>
-                <a href="{{ path ('demands',{}) }}">Board accepté</a>
-                <a href="{{ path ('demands',{}) }}">Deadline</a>
+                <a href="{{ path('demands') }}">En cours</a>
+                <a href="../demands/?filter=proposé">Board proposé</a>
+                <a href="../demands/?filter=modifier">Board à modifier</a>
+                <a href="../demands/?filter=accepté">Board accepté</a>
             </div>
             <div id ="button-newdemand">+</div>
         </section>
