@@ -188,12 +188,19 @@
             .infosAdvisor {
               color: white;
             }
+
+            .idAdvisor {
+              display: none;
+            }
           }
         }
 
         .addCardAdvisor{
           display: none;
         }
+      }
+      form {
+        display: none;
       }
     }
 
@@ -254,6 +261,10 @@
 
           .infosAdvisor {
             color: white;
+          }
+
+          .idAdvisor {
+            display: none;
           }
         }
       }
