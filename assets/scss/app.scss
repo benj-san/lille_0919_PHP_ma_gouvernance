@@ -17,9 +17,12 @@ html {
 
 header {
     margin-bottom: 5%;
+
     nav {
         height:80px;
         border-bottom: #FFAB40 solid 3px;
+        display:flex;
+        align-items: center;
 
         .logoContainer {
             height:100%;
@@ -35,165 +38,158 @@ header {
             }
         }
 
-        display:flex;
-        align-items: center;
-            .linksContainer {
-                height:100%;
-                display:flex;
-                align-items: center;
-                width:25%;
-                .links {
-                    width:50%;
-                    text-align: center;
-                    font-size:22px;
-                    text-decoration: none;
-                    color:black;
-                    font-weight:600;
-                }
-      }
+        .linksContainer {
+            height:100%;
+            display:flex;
+            align-items: center;
+            width:25%;
+
+            .links {
+                width:50%;
+                text-align: center;
+                font-size:22px;
+                text-decoration: none;
+                color:black;
+                font-weight:600;
+            }
+        }
 
     }
 
 }
 
 #filterContainer {
-  width:150%;
-  height:150%;
-  position:absolute;
-  background-color: grey;
-  opacity: 0.8;
-  top:0;
+    width:150%;
+    height:150%;
+    position:absolute;
+    background-color: grey;
+    opacity: 0.8;
+    top:0;
 }
 
 
 #Boards {
-  display: flex;
-  flex-wrap: wrap;
-
-  .filterBoards {
     display: flex;
-    flex-direction: column;
-    width: 15%;
+    flex-wrap: wrap;
 
-    .filterTitle {
-      font-size: 28px;
-      font-weight: 500;
-      text-align: center;
-      margin-bottom: 20px;
+    .filterBoards {
+        display: flex;
+        flex-direction: column;
+        width: 15%;
 
-    }
+        .filterTitle {
+            font-size: 28px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
 
-    .filters {
-      width: 90%;
-      margin: 0 auto 20px auto;
+        }
 
-      #myInput {
-        width: 100%;
-        font-size: 16px;
-      }
-    }
+        .filters {
+            width: 90%;
+            margin: 0 auto 20px auto;
 
-    .order {
-      width: 90%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      font-size: 16px;
+            #myInput {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
 
-      input {
-        margin: 5px 0 5px 30px;
-      }
-    }
-  }
+        .order {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
 
-
-  .container {
-    height: 65vh;
-    justify-content: center;
-    max-width: 80%;
-    margin: 0 0 0 0;
-
-
-    .containerContent {
-      width: 98%;
-      margin: auto;
-      height: 100%;
-      overflow: auto;
-    }
-  }
-
-
-  .cardHorizontal {
-    border: solid 2px #4e555b;
-    display: flex;
-    flex: 1 1 auto;
-    margin: auto auto 2vh;
-    width: 85%;
-    cursor: pointer;
-    background-color: white;
-    height: 120px;
-
-    .cardBody {
-      display: flex;
-      align-items: center;
-      margin-left: 2%;
-
-      .cardTitle {
-        font-size: 54px;
-        width: 300px;
-      }
-
-
-      .deadline {
-        font-size: 32px;
-        align-self: flex-end;
-        margin-left: 300px;
-      }
+            input {
+                margin: 5px 0 5px 30px;
+            }
+        }
     }
 
 
-    .statut {
-      border-right: solid 2px #4e555b;
-      align-content: center;
-      width: 12rem;
+    .container {
+        height: 65vh;
+        justify-content: center;
+        max-width: 80%;
+        margin: 0 0 0 0;
+
+
+        .containerContent {
+            width: 98%;
+            margin: auto;
+            height: 100%;
+            overflow: auto;
+        }
     }
 
 
-  }
+    .cardHorizontal {
+        border: solid 2px #4e555b;
+        display: flex;
+        flex: 1 1 auto;
+        margin: auto auto 2vh;
+        width: 85%;
+        cursor: pointer;
+        background-color: white;
+        height: 120px;
+
+        .cardBody {
+            display: flex;
+            align-items: center;
+            margin-left: 2%;
+
+            .cardTitle {
+                font-size: 54px;
+                width: 300px;
+            }
+
+
+            .deadline {
+                font-size: 32px;
+                align-self: flex-end;
+                margin-left: 300px;
+            }
+        }
+
+
+        .statut {
+            border-right: solid 2px #4e555b;
+            align-content: center;
+            width: 12rem;
+        }
+    }
 }
 
+.new-demande {
+    margin: 5vh auto 50px auto;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .new-demande {
-        margin: 5vh auto 50px auto;
-        width: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #button-newdemand {
-      background-color: #343434;
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-      border-radius:50%;
-      height:80px;
-      width:80px;
-      font-size:64px;
-      font-weight:bold;
-      text-align: center;
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      margin:200px auto 0 auto;
+#button-newdemand {
+    background-color: #343434;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius:50%;
+    height:80px;
+    width:80px;
+    font-size:64px;
+    font-weight:bold;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:200px auto 0 auto;
 
 
-      &:hover {
+    &:hover {
         text-decoration: none;
-
         color: white;
-        text-decoration: none;
-        cursor: pointer;
         border-radius:50%;
         height:80px;
         width:80px;
@@ -208,8 +204,7 @@ header {
         &:hover {
             text-decoration: none;
             color: white;
-          }
-
+        }
     }
 }
 
@@ -285,10 +280,8 @@ header {
 
 
             }
-
         }
      }
-
 }
 
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
@@ -325,7 +318,7 @@ header {
             font-size: 38px;
             margin: 1% auto 2% auto;
             font-weight: bold;
-          }
+        }
 
         .demandeFormulaireTitles2 {
             font-weight: 600;
@@ -372,147 +365,144 @@ header {
 /* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 
 .modalDescription {
-  width: 70%;
-  z-index: 1;
-  height: 80%;
-  left: 15%;
-  border-radius: 15px;
-  background-color: #EDF1F4;
-  bottom: 10%;
-  position: absolute;
-  font-size: 38px;
-  text-align: center;
-  font-weight: bold;
-  padding: 15px;
+    width: 70%;
+    z-index: 1;
+    height: 80%;
+    left: 15%;
+    border-radius: 15px;
+    background-color: #EDF1F4;
+    bottom: 10%;
+    position: absolute;
+    font-size: 38px;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
 
-  .modalDescriptionContainer {
-    overflow: auto;
-    width: 98%;
-    margin: auto;
-    height: 100%;
+    .modalDescriptionContainer {
+        overflow: auto;
+        width: 98%;
+        margin: auto;
+        height: 100%;
 
-    .modalParts {
-      display: flex;
-      margin: 6% 0 6% 5%;
+        .modalParts {
+            display: flex;
+            margin: 6% 0 6% 5%;
 
-      .modalTitles {
-        font-size: 28px;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        width: 35%;
-      }
+            .modalTitles {
+                font-size: 28px;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                width: 35%;
+            }
 
-      p {
-        color: blue;
-        text-shadow: black 0.5px 0.5px 0.5px;
-        font-size: 25px;
-        margin: 0 0 0 20px;
-      }
+            p {
+                color: blue;
+                text-shadow: black 0.5px 0.5px 0.5px;
+                font-size: 25px;
+                margin: 0 0 0 20px;
+            }
+        }
+
+        .tagsModalDescription {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            text-align: center;
+
+            .tags {
+                border: 3px blue solid;
+                padding: 3px;
+                margin: 15px 5%;
+                border-radius: 8px;
+                background-color: white;
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+
+        .statutsContainer {
+
+            .modalTitles {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 50px;
+                width: 100%;
+            }
+
+            .statuts {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                font-size: 18px;
+
+                .input-radio {
+                    margin: 0 5px 0 0;
+                    position: relative;
+                    width: 200px;
+                    height: 70px;
+                }
+
+                input[type=radio] {
+                    opacity: 0.001;
+                    z-index: 100;
+                }
+
+                input[type=radio] + label {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                label {
+                    cursor: pointer;
+                    z-index: 90;
+                    border-radius: 15px;
+                }
+
+                input[type=radio]:checked + label {
+                    border: 1px solid red;
+                }
+
+                .radioProposé {
+                    background-color: #FFAB40;
+
+                }
+
+                .radioAccepté {
+                    background-color: #00A84D;
+                }
+
+                .radioModifié {
+                    background-color: #FF4040;
+                }
+            }
+        }
+
+        .containerRedirectButton {
+            margin: 80px auto 20px auto;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+
+            .redirectButton {
+                font-size: 18px;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: blue;
+                color: white;
+
+                &:hover {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
     }
-
-    .tagsModalDescription {
-      display: flex;
-      flex-wrap: wrap;
-      width: 70%;
-      text-align: center;
-
-      .tags {
-        border: 3px blue solid;
-        padding: 3px;
-        margin: 15px 5%;
-        border-radius: 8px;
-        background-color: white;
-        font-size: 18px;
-        font-weight: 500;
-      }
-    }
-
-    .statutsContainer {
-
-      .modalTitles {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 50px;
-        width: 100%;
-      }
-
-      .statuts {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        font-size: 18px;
-
-        .input-radio {
-          margin: 0 5px 0 0;
-          position: relative;
-          width: 200px;
-          height: 70px;
-
-        }
-
-        input[type=radio] {
-          opacity: 0.001;
-          z-index: 100;
-        }
-
-        input[type=radio] + label {
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-        }
-
-        label {
-          cursor: pointer;
-          z-index: 90;
-          border-radius: 15px;
-        }
-
-        input[type=radio]:checked + label {
-          border: 1px solid red;
-        }
-
-        .radioProposé {
-          background-color: #FFAB40;
-
-        }
-
-        .radioAccepté {
-          background-color: #00A84D;
-        }
-
-        .radioModifié {
-          background-color: #FF4040;
-        }
-      }
-
-    }
-
-    .containerRedirectButton {
-      margin: 80px auto 20px auto;
-      display: flex;
-      justify-content: space-evenly;
-      width: 100%;
-
-      .redirectButton {
-        font-size: 18px;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: blue;
-        color: white;
-
-        &:hover {
-          text-decoration: none;
-          color: black;
-        }
-      }
-    }
-  }
-
 }
 
 
