@@ -218,7 +218,7 @@
 
   #boardAdvisors {
     width: 20%;
-    height: 100vh;
+    height: calc(100vh - 83px);
     overflow: auto;
     justify-content: center;
 
