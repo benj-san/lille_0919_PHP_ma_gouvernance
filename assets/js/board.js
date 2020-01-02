@@ -8,7 +8,6 @@ const boardEditImg = document.getElementById('boardEditImg');
 const boardEditH2 = document.getElementById('boardEditH2');
 const behind = document.getElementById('behind');
 const commentAdvisor = document.getElementById('commentAdvisor');
-const buttonValidateSynopsis = document.getElementById('buttonValidateSynopsis');
 const deleteAdvisor = document.querySelectorAll('div.deleteAdvisor');
 const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDeleteAdvisor');
 const boardAdvisors = document.getElementById('boardAdvisors');
@@ -16,8 +15,8 @@ const cardAdvisorAndAdd = document.querySelectorAll('div.cardAdvisorAndAdd');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
 
-for (let i = 0; i < cardAdvisorJS.length; i++) {
-    for (let j = 0; j < checkboxAdvisor.length; j++) {
+for (let i = 0; i < cardAdvisorJS.length; i += 1) {
+    for (let j = 0; j < checkboxAdvisor.length; j += 1) {
         if (checkboxAdvisor[j].type === 'checkbox' && idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
             if (checkboxAdvisor[j].checked) {
                 boardEdit.appendChild(cardAdvisorAndAdd[i]);
@@ -36,10 +35,10 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
                     behind.removeEventListener('click', () => {});
                 });
                 definitiveDeleteAdvisor[i].addEventListener('click', () => {
-                    for (let j = 0; j < checkboxAdvisor.length; j++) {
-                        if (checkboxAdvisor[j].type === 'checkbox') {
-                            if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
-                                checkboxAdvisor[j].checked = false;
+                    for (let k = 0; k < checkboxAdvisor.length; k += 1) {
+                        if (checkboxAdvisor[k].type === 'checkbox') {
+                            if (idAdvisor[i].innerHTML === checkboxAdvisor[k].value) {
+                                checkboxAdvisor[k].checked = false;
                                 boardAdvisors.appendChild(cardAdvisorAndAdd[i]);
                                 behind.classList.remove('display');
                                 deleteAdvisor[i].classList.remove('display');
@@ -61,7 +60,7 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
             deleteAdvisor[i].classList.remove('display');
         });
         // To click to add an advisor
-        let button = document.createElement('button');
+        const button = document.createElement('button');
         button.id = 'buttonValidateSynopsis';
         button.innerHTML = 'Valider';
         commentAdvisor.appendChild(button);
@@ -73,7 +72,7 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
         });
         button.addEventListener('click', () => {
             commentAdvisor.removeChild(button);
-            for (let j = 0; j < checkboxAdvisor.length; j++) {
+            for (let j = 0; j < checkboxAdvisor.length; j += 1) {
                 if (checkboxAdvisor[j].type === 'checkbox') {
                     if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
                         checkboxAdvisor[j].checked = true;
@@ -98,7 +97,7 @@ for (let i = 0; i < cardAdvisorJS.length; i++) {
         });
         // To click to remove an advisor
         definitiveDeleteAdvisor[i].addEventListener('click', () => {
-            for (let j = 0; j < checkboxAdvisor.length; j++) {
+            for (let j = 0; j < checkboxAdvisor.length; j += 1) {
                 if (checkboxAdvisor[j].type === 'checkbox') {
                     if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
                         checkboxAdvisor[j].checked = false;
