@@ -234,6 +234,7 @@ header {
             font-size: 22px;
         }
     }
+
     #allCardsContainer {
         display: flex;
         flex-flow: row wrap;
@@ -253,15 +254,15 @@ header {
             cursor: pointer;
             border: #3d4b80 1px solid ;
 
-             .cardTitle{
-                 font-size: 2rem;
-                 text-align: center;
-             }
+            .cardTitle{
+                font-size: 2rem;
+                text-align: center;
+            }
 
-              p{
-                  font-size: 1.7rem;
-                  margin-bottom: 5px;
-              }
+            p{
+                font-size: 1.7rem;
+                margin-bottom: 5px;
+            }
 
             img {
                 height: 250px;
