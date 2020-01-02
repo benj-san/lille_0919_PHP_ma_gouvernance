@@ -35,15 +35,15 @@
                     <div class="statuts">
                         <div class="proposé input-radio">
                             <input type="radio" name="radio" value="0-{{ demand.id }}" id="0-{{ demand.id }}"/>
-                            <label for="0-{{ demand.id }}" class="radioProposé">Simulation proposé</label>
+                            <label for="0-{{ demand.id }}" class="radioModifié">Board à modifier</label>
                         </div>
                         <div class="accepté input-radio">
                             <input type="radio" name="radio" value="1-{{ demand.id }}" id="1-{{ demand.id }}"/>
-                            <label for="1-{{ demand.id }}" class="radioAccepté">Board accepté</label>
+                            <label for="1-{{ demand.id }}" class="radioProposé">Simulation proposé</label>
                         </div>
                         <div class="modifié input-radio">
                             <input type="radio" name="radio" value="2-{{ demand.id }}" id="2-{{ demand.id }}"/>
-                            <label for="2-{{ demand.id }}" class="radioModifié">Board à modifier</label>
+                            <label for="2-{{ demand.id }}" class="radioAccepté">Board accepté</label>
                         </div>
                     </div>
                 </div>
@@ -67,10 +67,17 @@
                 {% for demand in demands %}
 
                     <div class="cardHorizontal">
-                        <div class="statut" ></div>
+                        {% if demand.status ==0 %}
+                            <div class="statut" style="background-color: red;"></div>
+                        {% elseif demand.status ==1 %}
+                            <div class="statut" style="background-color: orange;"></div>
+                        {% else %}
+                            <div class="statut" style="background-color: green;"></div>
+                        {% endif %}
+
                         <div class="cardBody">
                             <p class="cardTitle">{{demand.client}}</p>
-                            <p class="deadline">{{ demand.deadline|date("m/d/Y") }}</p>
+                            <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
 
                         </div>
                     </div>
