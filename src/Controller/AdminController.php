@@ -28,6 +28,7 @@ class AdminController extends AbstractController
         TagRepository $tagRepository,
         Request $request
     ) {
+        /* Changement de statut de la demande */
         if (isset($_POST['statutSubmitted'])) {
             $values = explode("-", $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
@@ -38,6 +39,7 @@ class AdminController extends AbstractController
         $demands = $demandRepository ->findAll();
         $tags = $tagRepository->findAll();
 
+        /* Création d'une demande */
         $demand = new Demand();
         $form = $this->createForm(DemandType::class, $demand);
         $form->handleRequest($request);
