@@ -223,64 +223,55 @@ header {
     display:flex;
     flex-wrap: wrap;
 
+    .filterAdvisors {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        margin: 0 auto;
 
-  .filterAdvisors {
-      display: flex;
-      flex-direction: column;
-      width: 25%;
-      margin: 0 auto;
-          #myInput {
-              width: 90%;
-              font-size: 22px;
-          }
-
-  }
+        #myInput {
+            width: 90%;
+            font-size: 22px;
+        }
+    }
 
 
      #allCardsContainer {
-        display: flex;
-        flex-flow: row wrap;
-        width: 70%;
-        height: 70vh;
-        padding: 2rem 5em;
-        overflow: auto;
+          display: flex;
+          flex-flow: row wrap;
+          width: 70%;
+          height: 70vh;
+          padding: 2rem 5em;
+          overflow: auto;
 
+          .cardAdvisors {
+              display: flex;
+              flex-direction: column;
+              margin: 2.7rem 2rem 2.7rem;
+              min-width: 200px;
+              height: 320px;
+              align-items: center;
+              color: black;
+              cursor: pointer;
+              border: #3d4b80 1px solid ;
 
+               .cardTitle{
+                   font-size: 2rem;
+                   text-align: center;
+               }
 
-        .cardAdvisors {
+                p{
+                    font-size: 1.7rem;
+                    margin-bottom: 5px;
+                }
 
-            display: flex;
-            flex-direction: column;
-            margin: 2.7rem 2rem 2.7rem;
-            min-width: 200px;
-            height: 320px;
-            align-items: center;
-            color: black;
-            cursor: pointer;
-            border: #3d4b80 1px solid ;
-
-
-             .cardTitle{
-               font-size: 2rem;
-               text-align: center;
-             }
-
-              p{
-                font-size: 1.7rem;
-                margin-bottom: 5px;
+              img {
+                  height: 250px;
+                  width: 200px;
+                  background-color: lightgray;
+                  border-bottom: #FFAB40 solid 3px;
               }
-
-
-
-            img {
-                height: 250px;
-                width: 200px;
-                background-color: lightgray;
-                border-bottom: #FFAB40 solid 3px;
-
-
-            }
-        }
+          }
      }
 }
 
