@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif; }
+
+.cvAdvisor.display {
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  top: 5%;
+  left: 15%;
+  height: 90%;
+  overflow: auto; }
+
+.cvAdvisor {
+  width: 70%;
+  display: none;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: white; }
+  .cvAdvisor #pitch {
+    width: 100%;
+    background-color: #1449cc;
+    color: white;
+    font-size: 20px;
+    height: 100%; }
+    .cvAdvisor #pitch h1 {
+      margin: 20px 3% 0 3%; }
+    .cvAdvisor #pitch p {
+      width: 60%;
+      margin: 20px 3%; }
+    .cvAdvisor #pitch img {
+      background-color: black;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: relative; }
+  .cvAdvisor #allInfosAdvisor {
+    padding: 50px;
+    display: flex; }
+    .cvAdvisor #allInfosAdvisor #infosAdvisor {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: calc(50% - 100px); }
+      .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo:first-child {
+        margin-top: 0; }
+      .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo {
+        margin-top: 50px; }
+        .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo h2 {
+          color: gray; }
+        .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo h3 {
+          margin-top: 15px; }
+        .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo p {
+          margin-top: 10px; }
+        .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo .tags {
+          display: flex;
+          flex-wrap: wrap; }
+          .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo .tags p {
+            margin-left: 10px;
+            border: 1px solid black;
+            border-radius: 7px;
+            padding: 10px; }
+      .cvAdvisor #allInfosAdvisor #infosAdvisor #civilStatus h2 {
+        color: #1449cc; }
+
+/*# sourceMappingURL=cvAdvisor.css.map */
