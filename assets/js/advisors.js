@@ -4,10 +4,9 @@ const cvAdvisor = document.querySelectorAll('div.cvAdvisor');
 const cardAdvisorJS = document.querySelectorAll('div.cardAdvisors');
 const myInput = document.getElementById('myInput');
 const filterContainer = document.getElementById('filterContainer');
-const commentary = document.getElementById('commentary')
-const edit = commentary.querySelectorAll('img');
-const commentaryP = commentary.querySelectorAll('p');
-const commentaryForm = commentary.querySelectorAll('form');
+const edit = document.querySelectorAll('img.edit');
+const commentaryP = document.querySelectorAll('p.commentaryP');
+const commentaryForm = document.querySelectorAll('form.formCommentary');
 
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
@@ -36,6 +35,8 @@ myInput.addEventListener('keyup', () => {
     }
 });
 
+// eslint-disable-next-line no-console
+console.log(edit);
 for (let i = 0; i < edit.length; i += 1) {
     edit[i].addEventListener('click', () => {
         commentaryP[i].classList.add('hidden');
