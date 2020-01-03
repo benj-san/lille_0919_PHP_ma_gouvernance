@@ -3,10 +3,21 @@ var Encore = require('@symfony/webpack-encore');
 Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
+
+    .copyFiles({
+        from: './assets/images',
+        // optional target path, relative to the output dir
+        // to: 'images/[path][name].[ext]',
+        // if versioning is enabled, add the file hash too
+        // to: 'images/[path][name].[hash:8].[ext]',
+        // only copy files matching this pattern
+        // pattern: /\.(png|jpg|jpeg)$/
+    })
+
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    //.setManifestKeyPrefix('build/')
+    // .setManifestKeyPrefix('build/')
 
     /*
      * ENTRY CONFIG
@@ -19,7 +30,9 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('advisors', './assets/js/advisors.js')
-    //.addEntry('page2', './assets/js/page2.js')
+    .addEntry('board', './assets/js/board.js')
+    .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
+    // .addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -51,7 +64,7 @@ Encore
     .enableSassLoader()
 
     // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
+    // .enableTypeScriptLoader()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
