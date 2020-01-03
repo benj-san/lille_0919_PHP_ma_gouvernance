@@ -1,14 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-<p>board {{ board.id }}</p>
-<p> date{{ board.dateStart }}</p>
+
+<p>le client {{ board.demand.client }}</p>
+<p> date</p>
+    <div class="bordContent">
     {% for advisor in board.advisors  %}
         <div class="cardAdvisors">
             <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
             <h4 class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</h4>
+            <p></p>
             <p>{{ advisor.place }}</p>
         </div>
+    </div>
     {% endfor %}
 
 

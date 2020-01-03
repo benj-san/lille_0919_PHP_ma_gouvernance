@@ -2,9 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Advisor;
-use App\Repository\AdvisorRepository;
-use App\Repository\BoardRepository;
+
+use App\Entity\Board;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,16 +21,13 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @param $id
-     * @param BoardRepository $boardRepository
-     * @param AdvisorRepository $advisorRepository
+     * @param Board $board
      * @return Response
      * * @Route("/client/board/{id}", name="client_board")
      */
 
-    public function board($id, BoardRepository $boardRepository): Response
+    public function board(Board $board): Response
     {
-        $board = $boardRepository->findOneBy(['id' => $id]);
         return $this->render('client/show.html.twig', ['board' => $board]);
     }
 }
