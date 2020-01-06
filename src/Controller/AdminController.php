@@ -38,16 +38,16 @@ class AdminController extends AbstractController
 
         if (isset($_GET['filter'])) {
             if ($_GET['filter']  === 'proposé') {
-                $demands = $demandRepository ->findBy(array('status' => 1));
+                $demands = $demandRepository ->findByOneStatus(1);
             } elseif ($_GET['filter']  === 'modifier') {
-                $demands = $demandRepository ->findBy(array('status' => 0));
+                $demands = $demandRepository ->findByOneStatus(0);
             } elseif ($_GET['filter']  === 'accepté') {
-                $demands = $demandRepository ->findBy(array('status' => 2));
+                $demands = $demandRepository ->findByOneStatus(2);
             } else {
-                $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'DESC'));
+                $demands = $demandRepository ->findByTwoStatus(0,1);
             }
         } else {
-            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'DESC'));
+            $demands = $demandRepository ->findByTwoStatus(0,1);
         }
 
         $tags = $tagRepository->findAll();

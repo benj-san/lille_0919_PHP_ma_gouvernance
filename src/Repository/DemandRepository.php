@@ -19,6 +19,28 @@ class DemandRepository extends ServiceEntityRepository
         parent::__construct($registry, Demand::class);
     }
 
+    public function findByOneStatus($value)
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.status = :val')
+            ->setParameter('val', $value)
+            ->orderBy('d.deadline', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findByTwoStatus($value1, $value2)
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.status = :val1', 'd.status = :val2')
+            ->setParameter('val1', $value1)
+            ->setParameter('val2', $value2)
+            ->orderBy('d.deadline', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Demand[] Returns an array of Demand objects
     //  */
