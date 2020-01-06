@@ -1,25 +1,31 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('board') }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
 
 {% block main %}
 
-<p>le client {{ board.demand.client }}</p>
-<p> date</p>
-    <div class="bordContent">
-    {% for advisor in board.advisors  %}
-        <div class="cardAdvisors">
-            <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
-            <h4 class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</h4>
-            <p></p>
-            <p>{{ advisor.place }}</p>
-        </div>
-    </div>
+
+<h1>{{ board.demand.client }}</h1>
+    <h2>Proposition de board:</h2>
+
+    <div class="boardContent">
+            {% for advisor in board.advisors  %}
+                 <div class="cardAdvisors">
+                     <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                        <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p>{{ advisor.place }}</p>
+                 </div>
+
     {% endfor %}
+       </div>
+    <div id="behind">
+    </div>
 
-
-
+      <p id="deadline"> deadline {{ board.demand.deadline|date('d-m-Y') }}</p>
 {% endblock %}
 
-{% block title %}
-
+{% block javascripts %}
+    {{ encore_entry_script_tags('board') }}
 {% endblock %}
-
