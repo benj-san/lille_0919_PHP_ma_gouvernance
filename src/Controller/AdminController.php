@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Board;
+use App\Entity\Resume;
 use App\Form\BoardType;
 use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,6 +43,8 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('admin');
         }
+
+
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $advisor,
             'formBoard' => $form->createView(),
