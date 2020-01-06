@@ -20,6 +20,9 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "boostrap": "^2.0.0",
+        "bootstrap-select": "^1.13.12",
+        "jquery": "^3.4.1",
         "node-sass": "^4.12.0",
         "sass-loader": "^7.1.0"
     }
