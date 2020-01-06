@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% block main %}
+    <div id="behind">
+    </div>
+    <div id="">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
 
 
-<h1>{{ board.demand.client }}</h1>
+    <h1 id="clientName">{{ board.demand.client }}</h1>
     <h2>Proposition de board:</h2>
 
-    <div class="boardContent">
+    <div id="boardContent">
             {% for advisor in board.advisors  %}
                  <div class="cardAdvisors">
                      <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
@@ -20,12 +25,11 @@
 
     {% endfor %}
        </div>
-    <div id="behind">
-    </div>
 
-      <p id="deadline"> deadline {{ board.demand.deadline|date('d-m-Y') }}</p>
+
+      <p id="deadline"> deadline {{ board.demand.deadline|date('d/m/Y') }}</p>
 {% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('board') }}
+    {{ encore_entry_script_tags('clientBoard') }}
 {% endblock %}

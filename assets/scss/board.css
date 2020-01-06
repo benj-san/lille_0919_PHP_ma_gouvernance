@@ -5,21 +5,29 @@
 }
 
 /*style for boardclient*/
+/*.displayclientAdvisor{
+ display : flex;
+}*/
+#clientName {
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
 h2 {
   margin: 1.6em;
 }
 
-.boardContent {
+#boardContent {
   display: flex;
   width: 90%;
   min-height: 50vh;
   flex-wrap: wrap;
   border: #3d4b80 2px solid;
   margin: auto;
-  padding: 0.5em;
+  padding: 0.2em;
   justify-content: center;
 }
-.boardContent .cardAdvisors {
+#boardContent .cardAdvisors {
   display: flex;
   flex-direction: column;
   margin: 2.7rem 2rem 2.7rem;
@@ -30,15 +38,15 @@ h2 {
   cursor: pointer;
   border: #3d4b80 1px solid;
 }
-.boardContent .cardAdvisors .cardTitle {
+#boardContent .cardAdvisors .cardTitle {
   font-size: 1.2rem;
   text-align: center;
 }
-.boardContent .cardAdvisors p {
+#boardContent .cardAdvisors p {
   font-size: 1rem;
   margin-bottom: 5px;
 }
-.boardContent .cardAdvisors img {
+#boardContent .cardAdvisors img {
   height: 250px;
   width: 210px;
   background-color: lightgray;

@@ -30,6 +30,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('board', './assets/js/board.js')
+    .addEntry('clientBoard', './assets/js/clientBoard.js')
     .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
     // .addEntry('page2', './assets/js/page2.js')
 
