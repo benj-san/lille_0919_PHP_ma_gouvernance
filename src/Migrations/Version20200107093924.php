@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191212204902 extends AbstractMigration
+final class Version20200107093924 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,8 @@ final class Version20191212204902 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE demand ADD deadline DATE DEFAULT NULL');
+        $this->addSql('ALTER TABLE board ADD uuid CHAR(36) NULL COMMENT \'(DC2Type:guid)\'');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_58562B47D17F50A6 ON board (uuid)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +31,7 @@ final class Version20191212204902 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE demand DROP deadline');
+        $this->addSql('DROP INDEX UNIQ_58562B47D17F50A6 ON board');
+        $this->addSql('ALTER TABLE board DROP uuid');
     }
 }

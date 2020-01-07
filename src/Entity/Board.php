@@ -11,12 +11,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Board
 {
+
+    /**
+     * @ORM\GeneratedValue()
+     * @ORM\Column()
+     */
+    private $uuid;
+
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer" )
      */
     private $id;
+
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Demand", inversedBy="boards")
@@ -38,14 +46,20 @@ class Board
      */
     private $advisors;
 
-    public function __construct()
-    {
-        $this->advisors = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid($uuid): void
+    {
+        $this->uuid = $uuid;
     }
 
     public function getDemand(): ?Demand
