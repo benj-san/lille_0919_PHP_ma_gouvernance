@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ma Gouvernance{% endblock %}
+
+{% block main %}
+
+    <section id="advisors" >
+        <section id="allCardsContainer">
+            {% for advisor in advisors %}
+                <div class="cardAdvisors">
+                    <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                    <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
+                    <p>{{ advisor.place }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    <section id="filterContainer" class="hidden">
+    </section>
+    <section class="filterAdvisors">
+        <input type="text" id="myInput" placeholder="Chercher un nom..">
+    </section>
+    </section>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('advisors') }}
+    {% endblock %}
+{% endblock %}
+
