@@ -10,7 +10,6 @@ use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,7 +51,8 @@ class AdminController extends AbstractController
             $demand->setStatus(1);
             $board = new Board();
             $board->setDemand($demand);
-            $board->setUuid(Uuid::uuid4());
+            $uuid = uuid_create(UUID_TYPE_RANDOM);
+            $board->setUuid($uuid);
             $entityManager->persist($demand);
             $entityManager->persist($board);
             $entityManager->flush();

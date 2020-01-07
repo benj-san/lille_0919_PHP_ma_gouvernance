@@ -13,17 +13,16 @@ class Board
 {
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column()
-     */
-    private $uuid;
-
-    /**
      * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer" )
      */
     private $id;
 
+    /**
+    * @ORM\Column(type="string" , length=255 , nullable=true)
+     */
+    private $uuid;
 
 
     /**
