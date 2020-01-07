@@ -3,6 +3,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Advisor;
+use App\Form\AdvisorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +18,12 @@ class FromAdvisorController extends AbstractController
 
     public function advisor() : Response
     {
+        $advisor = new Advisor();
+        $form = $this->createForm(AdvisorType::class, $advisor);
+
+
         return $this->render('formAdvisor/formAdvisor.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }

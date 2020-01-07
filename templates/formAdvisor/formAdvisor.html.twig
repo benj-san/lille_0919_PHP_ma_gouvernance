@@ -1,0 +1,26 @@
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('advisor') }}
+{% endblock %}
+
+{% block title %}
+  Inscription via :
+{% endblock title %}
+
+{% block main %}
+  <main>
+  
+      {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+      {{ form_widget(form) }}
+
+     <div>
+        <button class="btn btn-primary"> Envoyer </button>
+    </div>
+      {{ form_end(form) }}
+      {{ form_rest(form) }}
+</main>
+{% endblock main %}
+
+
