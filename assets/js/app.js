@@ -21,7 +21,6 @@ const cardClient = document.getElementsByClassName('cardClient');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 
-
 buttonDemand.addEventListener('click', () => {
     demandeFormulaire.classList.toggle('hidden');
     filterContainer.classList.toggle('hidden');

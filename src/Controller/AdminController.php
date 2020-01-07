@@ -9,6 +9,7 @@ use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,18 +22,21 @@ class AdminController extends AbstractController
      * @param DemandRepository $demandRepository
      * @param TagRepository $tagRepository
      * @param Request $request
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function index(
         DemandRepository $demandRepository,
         TagRepository $tagRepository,
-        Request $request
+        Request $request,
+        EntityManagerInterface $entityManager
     ) {
+        /* Changement de statut de la demande */
         if (isset($_POST['statutSubmitted'])) {
             $values = explode("-", $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
             $demand->setStatus($values[0]);
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
 
@@ -51,11 +55,11 @@ class AdminController extends AbstractController
         }
 
         $tags = $tagRepository->findAll();
+        /* Création d'une demande */
         $demand = new Demand();
         $form = $this->createForm(DemandType::class, $demand);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $demand->setStatus(1);
             $board = new Board();
             $board->setDemand($demand);
