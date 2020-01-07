@@ -14,7 +14,6 @@ class BoardType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $options = '?';
         $builder
             ->add('advisors', EntityType::class, [
                 'class' => Advisor::class,
