@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Advisor;
 use App\Entity\Board;
 use App\Entity\Demand;
+use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
