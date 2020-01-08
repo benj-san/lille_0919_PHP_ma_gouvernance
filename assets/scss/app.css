@@ -159,7 +159,7 @@ header nav {
         width: 17.333%;
         border: 3px blue solid;
         margin: 15px 8%;
-        border-radius: 8px;
+        border-radius>>>>>>> dev: 8px;
         cursor: pointer;
         background-color: white; }
     #demandeFormulaire #demandeFormulaireContent form .formDemande {
@@ -217,7 +217,7 @@ header nav {
         text-shadow: black 0.5px 0.5px 0.5px;
         font-size: 25px;
         margin: 0 0 0 20px; }
-    .modalDescription .modalDescriptionContainer .tagsModalDescription {
+    .modalDescription .modalDescriptioDemandnContainer .tagsModalDescription {
       display: flex;
       flex-wrap: wrap;
       width: 70%;
@@ -265,3 +265,18 @@ header nav {
           color: black; }
 
 /*# sourceMappingURL=app.css.map */
+/*  2 | @import "~bootstrap";
+ *   |         ^^^^^^^^^^^^
+ *   '
+ *   app.scss 2:9  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 2 \2502  @import \"~bootstrap\";\a   \2502          ^^^^^^^^^^^^\a   \2575 \a   app.scss 2:9  root stylesheet";
+}
