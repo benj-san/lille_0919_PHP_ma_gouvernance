@@ -29,10 +29,14 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('board', './assets/js/board.js')
+    .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
     .addEntry('advisors', './assets/js/advisors.js')
     .addEntry('board', './assets/js/board.js')
     .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
     // .addEntry('page2', './assets/js/page2.js')
+
+
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -68,14 +72,14 @@ Encore
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes()
+    // .enableIntegrityHashes()
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    // .autoProvidejQuery()
 
     // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
+    // .enableReactPreset()
+    // .addEntry('admin', './assets/js/admin.js')
 ;
 
 module.exports = Encore.getWebpackConfig();

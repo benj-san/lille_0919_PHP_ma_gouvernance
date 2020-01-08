@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+@import "~bootstrap";
+
 * {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -57,19 +60,8 @@ header nav {
     width: 8rem; }
 
 .new-demande {
-  margin: 5vh auto 50px auto;=======
-270
- 
-/*  2 | @import "~bootstrap";
-271
- 
- *   |         ^^^^^^^^^^^^
-272
- 
- *   '
-273
- 
- *   app.scss 2:9  root stylesheet 
+  margin: 5vh auto 50px auto;
+  margin: 5vh auto 50px auto;
   bottom: 30px;
   width: 100%;
   display: flex;
