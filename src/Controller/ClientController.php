@@ -11,15 +11,14 @@ class ClientController extends AbstractController
 {
     /**
      * @Route("/client", name="client")
-     * @param Board $board
+
      * @return Response
      */
-    public function index(Board $board): Response
+    public function index(): Response
     {
 
         return $this->render('client/index.html.twig', [
-            'controller_name' => 'ClientController',
-            'board' => $board,
+            'controller_name' => 'ClientController'
                     ]);
     }
 
