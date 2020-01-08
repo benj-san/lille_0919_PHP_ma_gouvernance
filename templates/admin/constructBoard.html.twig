@@ -30,7 +30,7 @@
     <div id="behind">
     </div>
 
-    <div id="boardAndBoardAdvisors">
+    <p id="boardAndBoardAdvisors">
         <div id="board">
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
@@ -64,7 +64,8 @@
                 </div>
             {% endfor %}
         </div>
-    </div>
+        <a href="{{ path('client_board', {'uuid': board.uuid}) }}">Voir le board du client</a>
+
 
 {% endblock %}
 

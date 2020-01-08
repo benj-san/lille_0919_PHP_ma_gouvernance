@@ -3,7 +3,14 @@
     {{ encore_entry_link_tags('board') }}
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
+    {% block header %}
+<header>
+    <nav>
+        <a class="logoContainer" href=""><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
 
+    </nav>
+</header>
+{% endblock %}
 {% block main %}
     <div id="behind">
     </div>
@@ -26,8 +33,6 @@
     {% endfor %}
        </div>
 
-
-      <p id="deadline"> deadline {{ board.demand.deadline|date('d/m/Y') }}</p>
 {% endblock %}
 
 {% block javascripts %}

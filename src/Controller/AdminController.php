@@ -11,6 +11,8 @@ use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManager;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,9 +44,27 @@ class AdminController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
-        $demands = $demandRepository ->findAll();
-        $tags = $tagRepository->findAll();
 
+        if (isset($_GET['filter'])) {
+            switch ($_GET['filter']) {
+                case 'proposé':
+                    $demands = $demandRepository->findBy(array('status' => 1), array('deadline' => 'ASC'));
+                    break;
+                case 'modifier':
+                    $demands = $demandRepository->findBy(array('status' => 0), array('deadline' => 'ASC'));
+                    break;
+                case 'accepté':
+                    $demands = $demandRepository->findBy(array('status' => 2), array('deadline' => 'ASC'));
+                    break;
+                default:
+                    $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+                    break;
+            }
+        } else {
+            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+        }
+
+        $tags = $tagRepository->findAll();
         /* Création d'une demande */
         $demand = new Demand();
         $form = $this->createForm(DemandType::class, $demand);
@@ -65,6 +85,7 @@ class AdminController extends AbstractController
             'demands'=>$demands,
             'tags' => $tags,
             'formDemand' =>$form->createView(),
+
         ]);
     }
 
@@ -72,13 +93,20 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/advisors", name="advisors")
      * @param AdvisorRepository $advisorRepository
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function advisor(AdvisorRepository $advisorRepository)
+    public function advisor(AdvisorRepository $advisorRepository, EntityManagerInterface $entityManager)
     {
+        if (isset($_POST['commentChanged'])) {
+            $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
+            $advisor->setCommentary($_POST['commentaryAdvisor']);
+            $entityManager->flush();
+        }
         $advisors = $advisorRepository->findAll();
         return $this->render('admin/advisors.html.twig', [
-            'advisors' => $advisors
+            'advisors' => $advisors,
+            'pageAdvisor' => 'page advisor'
         ]);
     }
 
@@ -101,6 +129,7 @@ class AdminController extends AbstractController
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $advisor,
             'formBoard' => $form->createView(),
+            'board' => $board
         ]);
     }
 }
