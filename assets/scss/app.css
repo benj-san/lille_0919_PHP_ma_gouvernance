@@ -1,6 +1,4 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 2 | @import "~bootstrap";
+/*  2 | @import "~bootstrap";
  *   |         ^^^^^^^^^^^^
  *   '
  *   app.scss 2:9  root stylesheet */
