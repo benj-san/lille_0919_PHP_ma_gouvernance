@@ -41,14 +41,19 @@ class AdminController extends AbstractController
         }
 
         if (isset($_GET['filter'])) {
-            if ($_GET['filter']  === 'proposé') {
-                $demands = $demandRepository ->findBy(array('status' => 1), array('deadline' => 'ASC'));
-            } elseif ($_GET['filter']  === 'modifier') {
-                $demands = $demandRepository ->findBy(array('status' => 0), array('deadline' => 'ASC'));
-            } elseif ($_GET['filter']  === 'accepté') {
-                $demands = $demandRepository ->findBy(array('status' => 2), array('deadline' => 'ASC'));
-            } else {
-                $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+            switch ($_GET['filter']) {
+                case 'proposé':
+                    $demands = $demandRepository->findBy(array('status' => 1), array('deadline' => 'ASC'));
+                    break;
+                case 'modifier':
+                    $demands = $demandRepository->findBy(array('status' => 0), array('deadline' => 'ASC'));
+                    break;
+                case 'accepté':
+                    $demands = $demandRepository->findBy(array('status' => 2), array('deadline' => 'ASC'));
+                    break;
+                default:
+                    $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+                    break;
             }
         } else {
             $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
