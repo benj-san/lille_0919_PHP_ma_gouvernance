@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
         <title>{% block title %}Ma Gouvernance{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -10,16 +12,28 @@
     </head>
     <body>
     <header>
+        {% block header %}
         <nav>
-            <a class="logoContainer" href="/admin"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+            <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+            <div class="linksContainer">
+                <a href="{{ path('demands') }}" class="links">Demandes</a>
+                <a href="{{ path('advisors') }}" class="links">Advisors</a>
+            </div>
         </nav>
+        {% endblock %}
     </header>
+    <main>
         {% block main %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-        <footer>
-            {% block footer %}{% endblock %}
-        </footer>
+    </main>
+
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
     </body>
 </html>

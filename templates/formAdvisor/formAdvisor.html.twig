@@ -4,12 +4,27 @@
     {{ encore_entry_link_tags('advisorForm') }}
 {% endblock %}
 
+{% block header %}
+    <nav>
+        <a class="logoContainer" href="http://www.magouvernance.fr"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+        <div class="linksContainer">
+            <a class="links" href="http://www.magouvernance.fr">Accueil</a>
+            <a class="links" href="http://magouvernance.fr/index.php/entreprises/">Entreprises</a>
+            <a class="links" href="http://magouvernance.fr/index.php/blog/">Blog</a>
+            <a class="links" href="http://magouvernance.fr/index.php/435-2/">Nous contacter</a>
+            <a class="links" href="http://magouvernance.fr/index.php/faq/">FAQ</a>
+        </div>
+    </nav>
+{% endblock %}
 
 
 {% block main %}
   <main>
-      <section class="container">
-          <div id="presentation" >Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
+      <section class="containerCandidature">
+          <div id="introduction">
+              <div id="presentation" >Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
+              <button>Commencer</button>
+          </div>
       </section>
 
 
