@@ -1,0 +1,27 @@
+@import "vars";
+
+{%}
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family:'Montserrat', sans-serif;;
+}
+
+.container {
+    width: 70%;
+    z-index: 1;
+    height: 80%;
+    left: 15%;
+    border-radius: 15px;
+    background-color: #EDF1F4;
+    bottom: 10%;
+    font-size: 32px;
+    text-align: center;
+    padding:15px;
+
+    #presentation {
+      width:90%;
+      margin:auto;
+    }
+}

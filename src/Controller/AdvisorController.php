@@ -12,18 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdvisorController extends AbstractController
 {
     /**
-     * @Route("/formAdvisor", name="advisor")
+     * @Route("/candidature", name="advisor")
      * @return Response
      */
 
-    public function advisor() : Response
+    public function candidature() : Response
     {
         $advisor = new Advisor();
-        $form = $this->createForm(AdvisorType::class, $advisor);
+
 
 
         return $this->render('formAdvisor/formAdvisor.html.twig', [
-            'form' => $form->createView()
         ]);
     }
 }

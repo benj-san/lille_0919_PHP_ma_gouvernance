@@ -1,25 +1,19 @@
-
+{% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('advisor') }}
+    {{ encore_entry_link_tags('advisorForm') }}
 {% endblock %}
 
-{% block title %}
-  Inscription via :
-{% endblock title %}
+
 
 {% block main %}
   <main>
-  
-      {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+      <section class="container">
+          <div id="presentation" >Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
+      </section>
 
-      {{ form_widget(form) }}
 
-     <div>
-        <button class="btn btn-primary"> Envoyer </button>
-    </div>
-      {{ form_end(form) }}
-      {{ form_rest(form) }}
+
 </main>
 {% endblock main %}
 

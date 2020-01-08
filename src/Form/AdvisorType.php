@@ -24,14 +24,14 @@ class AdvisorType extends AbstractType implements FormTypeInterface
                 ['label' => 'Avant de démarrer, nous vous remercions de certifier sur l\'honneur que vous avez votre pleine capacité juridique.*']
             )
             ->add(
-                'q2',
+                'firstname',
                 TextType::class,
                 ['label' => 'Nous allons prendre votre prénom *',
                 'attr' => ['placeholder' =>'Afin de mieux vous accompagner nous avons besoin d\'en savoir un peu plus sur vous']]
             )
 
             ->add(
-                'q3',
+                'name',
                 TextType::class,
                 ['label' =>'Et votre nom de famille *']
             )
