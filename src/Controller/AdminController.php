@@ -46,9 +46,27 @@ class AdminController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
-        $demands = $demandRepository ->findAll();
-        $tags = $tagRepository->findAll();
 
+        if (isset($_GET['filter'])) {
+            switch ($_GET['filter']) {
+                case 'proposé':
+                    $demands = $demandRepository->findBy(array('status' => 1), array('deadline' => 'ASC'));
+                    break;
+                case 'modifier':
+                    $demands = $demandRepository->findBy(array('status' => 0), array('deadline' => 'ASC'));
+                    break;
+                case 'accepté':
+                    $demands = $demandRepository->findBy(array('status' => 2), array('deadline' => 'ASC'));
+                    break;
+                default:
+                    $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+                    break;
+            }
+        } else {
+            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+        }
+
+        $tags = $tagRepository->findAll();
         /* Création d'une demande */
         $demand = new Demand();
         $form = $this->createForm(DemandType::class, $demand);
@@ -69,6 +87,7 @@ class AdminController extends AbstractController
             'demands'=>$demands,
             'tags' => $tags,
             'formDemand' =>$form->createView(),
+
         ]);
     }
 
