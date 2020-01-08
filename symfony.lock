@@ -219,6 +219,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "snapappointments/bootstrap-select": {
+        "version": "v1.13.12"
+    },
     "squizlabs/php_codesniffer": {
         "version": "3.0",
         "recipe": {

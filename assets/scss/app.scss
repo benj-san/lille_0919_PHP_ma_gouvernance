@@ -6,14 +6,22 @@
     padding:0;
 }
 
+
+
 html {
     scrollbar-color: #bebebe #d9dde0;
 }
 
+/* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
+
 header {
+    margin-bottom: 5%;
+
     nav {
         height:80px;
         border-bottom: #FFAB40 solid 3px;
+        display:flex;
+        align-items: center;
 
         .logoContainer {
             height:100%;
@@ -21,14 +29,32 @@ header {
             justify-content: center;
             align-items: center;
             width:10%;
-            margin-left:11%;
+            margin-left:1%;
 
             img {
                 height: 55%;
                 background-color: white;
             }
         }
+
+        .linksContainer {
+            height:100%;
+            display:flex;
+            align-items: center;
+            width:25%;
+
+            .links {
+                width:50%;
+                text-align: center;
+                font-size:22px;
+                text-decoration: none;
+                color:black;
+                font-weight:600;
+            }
+        }
+
     }
+
 }
 
 #filterContainer {
@@ -41,82 +67,146 @@ header {
 }
 
 
-.container {
-    height: 72vh;
-    justify-content: center;
-    background-color: #f3f7fa;
-    border-radius:15px;
-    padding:20px;
-    border:black solid 1px;
-
-    .containerContent {
-        width:98%;
-        margin:auto;
-        height:100%;
-        overflow:auto;
-    }
-}
-
-
-.card-horizontal {
-    border: solid 2px #4e555b;
+#Boards {
     display: flex;
-    flex: 1 1 auto;
-    border-radius: 10px;
-    margin: auto auto 2vh;
-    width: 80%;
-    cursor: pointer;
-    background-color: white;
+    flex-wrap: wrap;
 
-    .statut {
-        border-right: solid 2px #4e555b;
-        align-content: center;
-        width: 8rem;
+    .filterBoards {
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+
+        .filterTitle {
+            font-size: 28px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+
+        .filters {
+            width: 90%;
+            margin: 0 auto 20px auto;
+
+            #myInput {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+
+        .order {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+
+            input {
+                margin: 5px 0 5px 30px;
+            }
+        }
+    }
+
+
+    .container {
+        height: 65vh;
+        justify-content: center;
+        max-width: 80%;
+        margin: 0 0 0 0;
+
+
+        .containerContent {
+            width: 98%;
+            margin: auto;
+            height: 100%;
+            overflow: auto;
+        }
+    }
+
+
+    .cardHorizontal {
+        border: solid 2px #4e555b;
+        display: flex;
+        flex: 1 1 auto;
+        margin: auto auto 2vh;
+        width: 85%;
+        cursor: pointer;
+        background-color: white;
+        height: 120px;
+
+        .cardBody {
+            display: flex;
+            align-items: center;
+            margin-left: 2%;
+
+            .cardTitle {
+                font-size: 54px;
+                width: 300px;
+            }
+
+
+            .deadline {
+                font-size: 32px;
+                align-self: flex-end;
+                margin-left: 300px;
+            }
+        }
+
+
+        .statut {
+            border-right: solid 2px #4e555b;
+            align-content: center;
+            width: 12rem;
+        }
     }
 }
-
-
 
 .new-demande {
-    margin:5vh auto 50px auto;
-    bottom: 30px;
-    width: 100%;
+    margin: 5vh auto 50px auto;
+    width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #button-newdemand {
-    background-color: #0030cc;
-    padding: .3em 1em;
-    border: 2px solid rgba(0, 0, 0, 0);
-    border-radius: 7px;
+    background-color: #343434;
     color: white;
-    text-decoration: none ;
-    font-size: 1.7rem ;
-    cursor:pointer;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius:50%;
+    height:80px;
+    width:80px;
+    font-size:64px;
+    font-weight:bold;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:200px auto 0 auto;
 
 
     &:hover {
         text-decoration: none;
         color: white;
-    }
+        border-radius:50%;
+        height:80px;
+        width:80px;
+        font-size:64px;
+        font-weight:bold;
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        align-items: center;
 
+
+        &:hover {
+            text-decoration: none;
+            color: white;
+        }
+    }
 }
 
-.choices {
-    width: 70%;
-    margin: 50px auto 50px auto;
-    display: flex;
-    justify-content: space-between;
-    border: none;
-    font-size: 42px;
-    font-weight: 500;
-
-    #buttonAdvisors, #buttonBoards {
-        cursor: pointer;
-    }
-}
 
 .hidden {
 
@@ -125,17 +215,17 @@ header {
 
 }
 
-#allCardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    margin: auto;
-    transition:2s ease;
 
-    .cardAdvisors {
-        margin: 10px 2%;
+/* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
+#advisors {
+
+    display:flex;
+    flex-wrap: wrap;
+
+    .filterAdvisors {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
         background-color: $primary-color;
         border-radius: 8%;
         width: 10%;
@@ -143,26 +233,52 @@ header {
         align-items: center;
         color: white;
         cursor: pointer;
-
-        &:hover {
-            background-color: #2149e0;
+        #myInput {
+            width: 90%;
+            font-size: 22px;
         }
+    }
 
-        img {
-            border-radius: 50%;
-            height: 80px;
-            width: 80px;
-            margin: 10px auto 0 auto;
-            background-color: black;
+    #allCardsContainer {
+        display: flex;
+        flex-flow: row wrap;
+        width: 70%;
+        height: 70vh;
+        padding: 2rem 5em;
+        overflow: auto;
+
+        .cardAdvisors {
+            display: flex;
+            flex-direction: column;
+            margin: 2.7rem 2rem 2.7rem;
+            min-width: 200px;
+            height: 320px;
+            align-items: center;
+            color: black;
+            cursor: pointer;
+            border: #3d4b80 1px solid ;
+
+            .cardTitle{
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            p{
+                font-size: 1.7rem;
+                margin-bottom: 5px;
+            }
+
+            img {
+                height: 250px;
+                width: 200px;
+                background-color: lightgray;
+                border-bottom: #FFAB40 solid 3px;
+            }
         }
-
     }
 }
 
-.filters {
-
-    margin:50px 0;
-}
+/* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 
 #demandeFormulaire {
     width: 70%;
@@ -174,85 +290,73 @@ header {
     bottom: 10%;
     position: absolute;
     text-align: center;
-    padding:15px;
+
+    .submitDemand {
+        background-color: #0030cc;
+        padding: .3em 1em;
+        border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 7px;
+        color: white;
+        text-decoration: none ;
+        font-size: 1.7rem ;
+        cursor:pointer;
+    }
 
     #demandeFormulaireContent {
-        overflow: auto;
-        width:98%;
-        margin:auto;
-        height:100%;
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+        font-size: 16px;
 
         .demandeFormulaireTitles {
             font-size: 38px;
-            margin:1% auto 2% auto;
-            font-weight:bold;
+            margin: 1% auto 2% auto;
+            font-weight: bold;
         }
 
         .demandeFormulaireTitles2 {
-            font-weight:600;
-            font-size:28px;
+            font-weight: 600;
+            font-size: 28px;
             margin-bottom: 35px;
         }
 
+
         form {
-
-            label {
-                margin:5px auto;
-                font-size:20px;
+            input {
+                height: 30px;
+                font-size: 16px;
             }
 
-            .categories {
-                width:33%;
-                margin:0 auto 30px auto;
+            input, textarea, .bootstrap-select {
+                width: 65%;
+                margin: 2% auto;
+                font-size: 16px;
             }
 
-            #tags {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-
-                .tags {
-                    width: 17.333%;
-                    border:3px blue solid;
-                    margin: 15px 8%;
-                    border-radius: 8px;
-                    cursor:pointer;
-                    background-color: white;
-                }
+            .bootstrap-select {
+                width: 80%;
+                font-size: 16px;
+                background-color: #dfe3e6;
             }
 
-            .formDemande {
-                width: 70%;
-                margin: 1% auto;
+
+            .dropdown-toggle {
+                font-size: 16px;
             }
 
-            .formDemandeTextarea {
-                width: 70%;
-                margin: 1% auto;
-                height:100px;
-                overflow-y: scroll;
+            .dropdown-menu {
+                max-height: 250px !important;
+                font-size: 16px;
             }
 
-            .buttonsFormulaireDemande {
-                display: flex;
-                justify-content: space-evenly;
-                margin:4% auto 2% auto;
-
-                .submitDemande {
-                    background-color: #0030cc;
-                    padding: .15em 1em;
-                    border: 2px solid rgba(0, 0, 0, 0);
-                    border-radius: 7px;
-                    color: white;
-                    text-decoration: none;
-                    font-size: 1.3rem;
-                    width:30%;
-                }
+            .form-control {
+                font-size: 16px;
             }
         }
-
     }
 }
+
+/* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 
 .modalDescription {
     width: 70%;
@@ -266,13 +370,13 @@ header {
     font-size: 38px;
     text-align: center;
     font-weight: bold;
-    padding:15px;
+    padding: 15px;
 
     .modalDescriptionContainer {
-        overflow:auto;
-        width:98%;
-        margin:auto;
-        height:100%;
+        overflow: auto;
+        width: 98%;
+        margin: auto;
+        height: 100%;
 
         .modalParts {
             display: flex;
@@ -327,24 +431,50 @@ header {
                 align-items: center;
                 font-size: 18px;
 
-                p {
-                    padding: 22px;
+                .input-radio {
+                    margin: 0 5px 0 0;
+                    position: relative;
+                    width: 200px;
+                    height: 70px;
+                }
+
+                input[type=radio] {
+                    opacity: 0.001;
+                    z-index: 100;
+                }
+
+                input[type=radio] + label {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                label {
+                    cursor: pointer;
+                    z-index: 90;
                     border-radius: 15px;
                 }
 
-                .proposé {
-                    background-color: #FFAB40;
+                input[type=radio]:checked + label {
+                    border: 1px solid red;
                 }
 
-                .accepté {
+                .radioProposé {
+                    background-color: #FFAB40;
+
+                }
+
+                .radioAccepté {
                     background-color: #00A84D;
                 }
 
-                .modifié {
+                .radioModifié {
                     background-color: #FF4040;
                 }
             }
-
         }
 
         .containerRedirectButton {
@@ -352,7 +482,6 @@ header {
             display: flex;
             justify-content: space-evenly;
             width: 100%;
-
 
             .redirectButton {
                 font-size: 18px;
@@ -371,4 +500,5 @@ header {
 
     }
 }
+
 
