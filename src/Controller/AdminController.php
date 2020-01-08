@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
+use App\Form\BoardType;
 use App\Entity\Advisor;
 use App\Entity\Board;
 use App\Entity\Demand;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
+use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
@@ -77,6 +79,28 @@ class AdminController extends AbstractController
         $advisors = $advisorRepository->findAll();
         return $this->render('admin/advisors.html.twig', [
             'advisors' => $advisors
+        ]);
+    }
+
+    /**
+     * @Route("/board/{id}", name="board")
+     * @param AdvisorRepository $advisorRepository
+     * @param Board $board
+     * @param Request $request
+     * @return Response
+     */
+    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request)
+    {
+        $advisor = $advisorRepository->findAll();
+        $form = $this->createForm(BoardType::class, $board);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('admin');
+        }
+        return $this->render('admin/constructBoard.html.twig', [
+            'advisors' => $advisor,
+            'formBoard' => $form->createView(),
         ]);
     }
 }
