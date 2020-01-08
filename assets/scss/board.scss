@@ -6,7 +6,7 @@
     font-family:'Montserrat', sans-serif;;
 }
 
-#commentAdvisor{
+.commentAdvisor{
     margin: calc(50vh - 13%) 0 30px 35%;
     position: absolute;
     display: none;
@@ -79,8 +79,9 @@
     display: flex;
 }
 
-#commentAdvisor.display{
+.commentAdvisor.display{
     display: flex;
+    margin-top: 0;
 }
 
 #behind {
@@ -91,6 +92,7 @@
     display: none;
     z-index: 5;
     background-color: black;
+    margin-top: -5%;
 }
 
 
@@ -103,6 +105,7 @@
     display: flex;
     position: fixed;
     width: 100vw;
+    margin-top: -4%;
 
     #board {
         width: 80%;
@@ -213,7 +216,7 @@
                 width: 200px;
                 padding: 10px;
                 font-size: 30px;
-                margin: 4% auto auto auto;
+                margin: 2% auto auto auto;
                 border-radius: 15px;
                 border: 1px solid black;
                 color: white;
@@ -226,7 +229,7 @@
 
     #boardAdvisors {
         width: 20%;
-        height: calc(100vh - 83px);
+        height: calc(100vh - 100px);
         overflow: auto;
         justify-content: center;
 

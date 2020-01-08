@@ -13,14 +13,18 @@
         {% include 'cvAdvisor.html.twig' %}
     </div>
 
-    <div id="commentAdvisor">
-        <p>Justification de candidature</p>
-        <label>
-            <textarea placeholder="Entrez le résumé" rows="10" cols="35"></textarea>
-        </label>
-    </div>
-
     {% for advisor in advisors %}
+        <div class="commentAdvisor">
+            <p>Justification de candidature</p>
+            <form id="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
+                <label for="story">
+                    <textarea id="resumeJustification" name="resume" rows="10" cols="33"></textarea>
+                </label>
+                <input type="submit">
+            </form>
+
+        </div>
+
         <div class="deleteAdvisor">
             <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
             <button class="definitiveDeleteAdvisor">Retirer du board</button>

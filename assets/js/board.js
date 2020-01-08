@@ -7,7 +7,7 @@ const boardEdit = document.getElementById('boardEdit');
 const boardEditImg = document.getElementById('boardEditImg');
 const boardEditH2 = document.getElementById('boardEditH2');
 const behind = document.getElementById('behind');
-const commentAdvisor = document.getElementById('commentAdvisor');
+const commentAdvisor = document.querySelectorAll('div.commentAdvisor');
 const deleteAdvisor = document.querySelectorAll('div.deleteAdvisor');
 const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDeleteAdvisor');
 const boardAdvisors = document.getElementById('boardAdvisors');
@@ -52,10 +52,10 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // To click to display the window to add an advisor
     addCardAdvisor[i].addEventListener('click', () => {
         behind.classList.add('display');
-        commentAdvisor.classList.add('display');
+        commentAdvisor[i].classList.add('display');
         // To click to hide the different popups
         behind.addEventListener('click', () => {
-            commentAdvisor.classList.remove('display');
+            commentAdvisor[i].classList.remove('display');
             behind.classList.remove('display');
             deleteAdvisor[i].classList.remove('display');
         });
@@ -63,15 +63,15 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         const button = document.createElement('button');
         button.id = 'buttonValidateSynopsis';
         button.innerHTML = 'Valider';
-        commentAdvisor.appendChild(button);
+        commentAdvisor[i].appendChild(button);
         behind.addEventListener('click', () => {
-            commentAdvisor.classList.remove('display');
+            commentAdvisor[i].classList.remove('display');
             behind.classList.remove('display');
             deleteAdvisor[i].classList.remove('display');
-            commentAdvisor.removeChild(button);
+            commentAdvisor[i].removeChild(button);
         });
         button.addEventListener('click', () => {
-            commentAdvisor.removeChild(button);
+            commentAdvisor[i].removeChild(button);
             for (let j = 0; j < checkboxAdvisor.length; j += 1) {
                 if (checkboxAdvisor[j].type === 'checkbox') {
                     if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
@@ -80,7 +80,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
                         boardEditImg.classList.add('none');
                         boardEditH2.classList.add('none');
                         behind.classList.remove('display');
-                        commentAdvisor.classList.remove('display');
+                        commentAdvisor[i].classList.remove('display');
                     }
                 }
             }
@@ -90,7 +90,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
                 // To click to display the window to remove an advisor
                 cardAdvisorJS[i].addEventListener('click', () => {
                     behind.classList.add('display');
-                    commentAdvisor.classList.remove('display');
+                    commentAdvisor[i].classList.remove('display');
                     deleteAdvisor[i].classList.add('display');
                 });
             }

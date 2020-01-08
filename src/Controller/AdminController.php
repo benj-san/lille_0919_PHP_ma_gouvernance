@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Resume;
 use App\Form\BoardType;
 use App\Entity\Advisor;
 use App\Entity\Board;
@@ -10,6 +11,7 @@ use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
+use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -93,11 +95,35 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('admin/demands');
         }
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $advisor,
             'formBoard' => $form->createView(),
+            'board' => $board,
+        ]);
+    }
+
+    /**
+     * @Route("/boardform/{board}/{advisor}", name="formBoard")
+     * @param Advisor $advisor
+     * @param Board $board
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function formBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager)
+    {
+        $demand = $board->getDemand();
+        $board->addAdvisor($advisor);
+        $resume = new Resume();
+        $boardId = $board->getId();
+        $resume->setDemand($demand);
+        $resume->setAdvisor($advisor);
+        $resume->setContent($_POST['resume']);
+        $entityManager->persist($resume);
+        $entityManager->flush();
+        return $this->redirectToRoute("board", [
+            'id' => $boardId
         ]);
     }
 }
