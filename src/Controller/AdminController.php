@@ -26,6 +26,7 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
+     * @throws \Exception
      */
     public function index(
         DemandRepository $demandRepository,
@@ -52,6 +53,8 @@ class AdminController extends AbstractController
             $demand->setStatus(1);
             $board = new Board();
             $board->setDemand($demand);
+            $uuid = uuid_create(UUID_TYPE_RANDOM);
+            $board->setUuid($uuid);
             $entityManager->persist($demand);
             $entityManager->persist($board);
             $entityManager->flush();
