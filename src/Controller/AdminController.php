@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Form\BoardType;
 use App\Entity\Advisor;
 use App\Entity\Board;
