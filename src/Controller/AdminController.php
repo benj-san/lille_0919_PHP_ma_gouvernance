@@ -8,7 +8,6 @@ use App\Entity\Advisor;
 use App\Entity\Board;
 use App\Entity\Demand;
 use App\Form\DemandType;
-use App\Form\BoardType;
 use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
@@ -109,28 +108,6 @@ class AdminController extends AbstractController
         return $this->render('admin/advisors.html.twig', [
             'advisors' => $advisors,
             'pageAdvisor' => 'page advisor'
-        ]);
-    }
-
-    /**
-     * @Route("/board/{id}", name="board")
-     * @param AdvisorRepository $advisorRepository
-     * @param Board $board
-     * @param Request $request
-     * @return Response
-     */
-    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request)
-    {
-        $advisor = $advisorRepository->findAll();
-        $form = $this->createForm(BoardType::class, $board);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('admin');
-        }
-        return $this->render('admin/constructBoard.html.twig', [
-            'advisors' => $advisor,
-            'formBoard' => $form->createView(),
         ]);
     }
 
