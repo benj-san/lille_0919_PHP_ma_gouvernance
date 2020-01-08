@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+@import "~bootstrap";
+
 * {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -57,6 +60,7 @@ header nav {
     width: 8rem; }
 
 .new-demande {
+  margin: 5vh auto 50px auto;
   margin: 5vh auto 50px auto;
   bottom: 30px;
   width: 100%;
@@ -159,7 +163,7 @@ header nav {
         width: 17.333%;
         border: 3px blue solid;
         margin: 15px 8%;
-        border-radius>>>>>>> dev: 8px;
+        border-radius: 8px;
         cursor: pointer;
         background-color: white; }
     #demandeFormulaire #demandeFormulaireContent form .formDemande {
@@ -217,7 +221,7 @@ header nav {
         text-shadow: black 0.5px 0.5px 0.5px;
         font-size: 25px;
         margin: 0 0 0 20px; }
-    .modalDescription .modalDescriptioDemandnContainer .tagsModalDescription {
+    .modalDescription .modalDescriptionContainer .tagsModalDescription {
       display: flex;
       flex-wrap: wrap;
       width: 70%;
