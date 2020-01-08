@@ -24,23 +24,26 @@
         font-size: 30px;
   }
 
+    form{
+        display: flex;
+        flex-direction: column;
+
+        input{
+            padding: 5px 15px;
+            font-size: 30px;
+            margin: 10px auto 20px auto;
+            border-radius: 15px;
+            border: 1px solid black;
+            color: white;
+            background-color: $primary-color;
+            font-weight: bold;
+        }
+    }
+
     #resumeJustification{
         margin: 15px auto 0 auto;
         border-radius: 15px;
     }
-
-    button{
-        width: 150px;
-        padding: 10px;
-        font-size: 20px;
-        margin: 20px auto;
-        border-radius: 15px;
-        border: 1px solid black;
-        color: white;
-        background-color: $primary-color;
-        font-weight: bold;
-        cursor: pointer;
-  }
 }
 
 .deleteAdvisor{

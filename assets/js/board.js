@@ -26,18 +26,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
                 cardAdvisorJS[i].classList.add('display');
                 boardEditImg.classList.add('none');
                 boardEditH2.classList.add('none');
-                definitiveDeleteAdvisor[i].addEventListener('click', () => {
-                    for (let k = 0; k < checkboxAdvisor.length; k += 1) {
-                        if (checkboxAdvisor[k].type === 'checkbox') {
-                            if (idAdvisor[i].innerHTML === checkboxAdvisor[k].value) {
-                                checkboxAdvisor[k].checked = false;
-                                boardAdvisors.appendChild(cardAdvisorAndAdd[i]);
-                                behind.classList.remove('display');
-                                deleteAdvisor[i].classList.remove('display');
-                            }
-                        }
-                    }
-                });
             }
         }
     }
@@ -46,43 +34,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     addCardAdvisor[i].addEventListener('click', () => {
         behind.classList.add('display');
         commentAdvisor[i].classList.add('display');
-        // To click to create add an advisor button
-        const button = document.createElement('button');
-        button.id = 'buttonValidateSynopsis';
-        button.name = 'buttonValidateSynopsis';
-        button.innerHTML = 'Valider';
-        commentAdvisor[i].appendChild(button);
-        behind.addEventListener('click', () => {
-            commentAdvisor.removeChild(button);
-        });
-        button.addEventListener('click', () => {
-            commentAdvisor[i].removeChild(button);
-            for (let j = 0; j < checkboxAdvisor.length; j += 1) {
-                if (checkboxAdvisor[j].type === 'checkbox') {
-                    if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
-                        checkboxAdvisor[j].checked = true;
-                        boardEdit.appendChild(cardAdvisorAndAdd[i]);
-                        boardEditImg.classList.add('none');
-                        boardEditH2.classList.add('none');
-                        behind.classList.remove('display');
-                        commentAdvisor[i].classList.remove('display');
-                    }
-                }
-            }
-        });
-        // To click to remove an advisor
-        definitiveDeleteAdvisor[i].addEventListener('click', () => {
-            for (let j = 0; j < checkboxAdvisor.length; j += 1) {
-                if (checkboxAdvisor[j].type === 'checkbox') {
-                    if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
-                        checkboxAdvisor[j].checked = false;
-                        boardAdvisors.appendChild(cardAdvisorAndAdd[i]);
-                        behind.classList.remove('display');
-                        deleteAdvisor[i].classList.remove('display');
-                    }
-                }
-            }
-        });
     });
     // Modify the css if an advisor goes into the board
     if (cardAdvisorAndAdd[i].parentNode.id === 'boardEdit') {
@@ -106,5 +57,17 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
             cvAdvisor[i].classList.remove('display');
             behind.classList.remove('display');
         });
+    });
+    definitiveDeleteAdvisor[i].addEventListener('click', () => {
+        for (let j = 0; j < checkboxAdvisor.length; j += 1) {
+            if (checkboxAdvisor[j].type === 'checkbox') {
+                if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
+                    checkboxAdvisor[j].checked = false;
+                    boardAdvisors.appendChild(cardAdvisorAndAdd[i]);
+                    behind.classList.remove('display');
+                    deleteAdvisor[i].classList.remove('display');
+                }
+            }
+        }
     });
 }
