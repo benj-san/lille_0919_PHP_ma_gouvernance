@@ -128,4 +128,21 @@ class AdminController extends AbstractController
             'id' => $boardId
         ]);
     }
+
+    /**
+     * @Route("deleteAdvisorFromBoard/{board}/{advisor}", name="deleteAdvisorFromBoard")
+     * @param Board $board
+     * @param Advisor $advisor
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function deleteAdvisorFromBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager)
+    {
+        $board->removeAdvisor($advisor);
+        $boardId = $board->getId();
+        $entityManager->flush();
+        return $this->redirectToRoute("board", [
+            'id' => $boardId
+        ]);
+    }
 }

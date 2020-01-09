@@ -27,7 +27,7 @@
 
         <div class="deleteAdvisor">
             <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
-            <button class="definitiveDeleteAdvisor">Retirer du board</button>
+            <button class="definitiveDeleteAdvisor"><a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">Retirer du board</a></button>
         </div>
     {% endfor %}
 
@@ -38,13 +38,8 @@
         <div id="board">
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
-                <img id="boardEditImg" src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
-                <h2 id="boardEditH2">Ajoutez vos advisors</h2>
                 {{ form_start(formBoard) }}
                 {{ form_widget(formBoard) }}
-            </div>
-            <div id="submit">
-                <button>{{ button_label|default('Valider') }}</button>
                 {{ form_end(formBoard) }}
             </div>
         </div>

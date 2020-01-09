@@ -79,6 +79,14 @@
         background-color: $primary-color;
         font-weight: bold;
         cursor: pointer;
+
+        a{
+            color: white;
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
   }
 }
 

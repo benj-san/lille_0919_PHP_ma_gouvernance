@@ -23,9 +23,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
             if (checkboxAdvisor[j].checked) {
                 boardEdit.appendChild(cardAdvisorAndAdd[i]);
                 boardEdit.classList.add('displayAdvisor');
-                cardAdvisorJS[i].classList.add('display');
-                boardEditImg.classList.add('none');
-                boardEditH2.classList.add('none');
             }
         }
     }
@@ -39,25 +36,24 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     if (cardAdvisorAndAdd[i].parentNode.id === 'boardEdit') {
         boardEdit.classList.add('displayAdvisor');
     }
+    // Display the window to remove the advisor from the board
     removeCardAdvisor[i].addEventListener('click', () => {
         behind.classList.add('display');
         deleteAdvisor[i].classList.add('display');
     });
+    // Remove all windows
     behind.addEventListener('click', () => {
         behind.classList.remove('display');
         commentAdvisor[i].classList.remove('display');
         deleteAdvisor[i].classList.remove('display');
+        cvAdvisor[i].classList.remove('display');
     });
     // To click to display the advisors' CV
     cardAdvisorJS[i].addEventListener('click', () => {
         cvAdvisor[i].classList.add('display');
         behind.classList.add('display');
-        // To click to remove the advisors' CV
-        behind.addEventListener('click', () => {
-            cvAdvisor[i].classList.remove('display');
-            behind.classList.remove('display');
-        });
     });
+    // Remove the advisor from the board and add into the list
     definitiveDeleteAdvisor[i].addEventListener('click', () => {
         for (let j = 0; j < checkboxAdvisor.length; j += 1) {
             if (checkboxAdvisor[j].type === 'checkbox') {
