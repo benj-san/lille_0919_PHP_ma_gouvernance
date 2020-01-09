@@ -152,58 +152,62 @@
             flex-direction: column;
             overflow: auto;
 
-            img {
-                width: 150px;
-                height: 150px;
-                margin: auto auto 0 auto;
-      }
-
-            h2 {
-                text-align: center;
-                font-size: 3vw;
-                color: #9B9B9B;
-                font-style: normal;
-                font-weight: normal;
-                margin: auto;
-      }
-
             .cardAdvisorAndAdd {
-                width: 20%;
+                width: 19%;
+                height: 70%;
                 margin: 10px 30px;
                 display: flex;
                 align-items: baseline;
-                height: 70%;
 
                 .cardAdvisorJS {
                     width: 100%;
-                    height: 250px;
-                    background-color: $primary-color;
-                    border-radius: 10px;
+                    height: 100%;
+                    background-color: white;
                     display: flex;
                     flex-direction: column;
-                    cursor: pointer;
-                    padding: 0 10px;
                     text-align: center;
+                    outline-color: $primary-color;
+                    outline-style: solid;
+                    position: relative;
 
-                    img {
-                        width: 80px;
-                        height: 80px;
-                        background-color: #222222;
-                        border-radius: 50%;
-                        margin: auto;
+                    .addCardAdvisor{
+                        position: absolute;
+                        display: block;
+                        top: 5px;
+                        right: 5px;
+                        width: 100%;
+                        z-index: 50;
+                        text-align: right;
+
+                        .iconDelete, .iconCv{
+                            width: 30px;
+                            height: 30px;
+                            cursor: pointer;
+                        }
+
+                        .iconAdd{
+                            display: none;
+                        }
+                    }
+
+                    .pp {
+                        width: 100%;
+                        height: 50%;
+                        border-bottom: 1px solid $primary-color;
           }
 
                     #cardAdvisorInfos {
                         margin: auto;
+                        padding: 10px 10px 0 10px;
 
                         .nameAdvisor {
                             font-weight: bold;
-                            color: white;
+                            color: $primary-color;
                             font-size: 20px;
             }
 
                         .infosAdvisor {
-                            color: white;
+                            color: $primary-color;
             }
 
                         .idAdvisor {
@@ -274,11 +278,10 @@
                 outline-color: $primary-color;
                 outline-style: solid;
 
-                #pp {
+                .pp {
                     width: 150px;
                     height: 150px;
-                    background-color: #222222;
-                    border-right: 1px solid white;
+                    border-right: 1px solid $primary-color;
         }
 
                 #cardAdvisorInfos {
@@ -310,10 +313,14 @@
                 z-index: 50;
                 text-align: right;
 
-                img{
+                .iconAdd, .iconCv{
                     width: 40px;
                     height: 40px;
                     cursor: pointer;
+                }
+
+                .iconDelete{
+                    display: none;
                 }
       }
 

@@ -11,9 +11,9 @@ const boardAdvisors = document.getElementById('boardAdvisors');
 const cardAdvisorAndAdd = document.querySelectorAll('div.cardAdvisorAndAdd');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
-const removeCardAdvisor = document.querySelectorAll('div.removeCardAdvisor');
 const iconAdd = document.querySelectorAll('img.iconAdd');
 const iconCv = document.querySelectorAll('img.iconCv');
+const iconDelete = document.querySelectorAll('img.iconDelete');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -26,19 +26,22 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         }
     }
     // Advisors not in DB
-    // To click to display the window to add an advisor
-    iconAdd[i].addEventListener('click', () => {
-        behind.classList.add('display');
-        commentAdvisor[i].classList.add('display');
-    });
     // Modify the css if an advisor goes into the board
     if (cardAdvisorAndAdd[i].parentNode.id === 'boardEdit') {
         boardEdit.classList.add('displayAdvisor');
     }
-    // Display the window to remove the advisor from the board
-    removeCardAdvisor[i].addEventListener('click', () => {
+    // Displays the different windows according to the icons
+    iconDelete[i].addEventListener('click', () => {
         behind.classList.add('display');
         deleteAdvisor[i].classList.add('display');
+    });
+    iconCv[i].addEventListener('click', () => {
+        cvAdvisor[i].classList.add('display');
+        behind.classList.add('display');
+    });
+    iconAdd[i].addEventListener('click', () => {
+        behind.classList.add('display');
+        commentAdvisor[i].classList.add('display');
     });
     // Remove all windows
     behind.addEventListener('click', () => {
@@ -46,11 +49,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         commentAdvisor[i].classList.remove('display');
         deleteAdvisor[i].classList.remove('display');
         cvAdvisor[i].classList.remove('display');
-    });
-    // To click to display the advisors' CV
-    iconCv[i].addEventListener('click', () => {
-        cvAdvisor[i].classList.add('display');
-        behind.classList.add('display');
     });
     // Remove the advisor from the board and add into the list
     definitiveDeleteAdvisor[i].addEventListener('click', () => {
