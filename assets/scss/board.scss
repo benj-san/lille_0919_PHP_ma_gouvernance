@@ -69,25 +69,27 @@
         font-size: 30px;
   }
 
-    button{
-        padding: 10px;
-        font-size: 20px;
-        margin: 20px auto 0 auto;
-        border-radius: 15px;
-        border: 1px solid black;
-        color: white;
-        background-color: $primary-color;
-        font-weight: bold;
-        cursor: pointer;
+    #ddAdvisor{
+        width: 70%;
+        margin: auto;
 
-        a{
-            color: white;
-        }
+        a {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
 
-        a:hover{
-            text-decoration: none;
+            button {
+                padding: 10px;
+                font-size: 20px;
+                border-radius: 15px;
+                border: 1px solid black;
+                color: white;
+                background-color: $primary-color;
+                font-weight: bold;
+                position: center;
+            }
         }
-  }
+    }
 }
 
 .deleteAdvisor.display{

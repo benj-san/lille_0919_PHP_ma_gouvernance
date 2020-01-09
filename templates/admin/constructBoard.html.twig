@@ -27,7 +27,11 @@
 
         <div class="deleteAdvisor">
             <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
-            <button class="definitiveDeleteAdvisor"><a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">Retirer du board</a></button>
+            <div id="ddAdvisor">
+                <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
+                    <button class="definitiveDeleteAdvisor">Retirer du board</button>
+                </a>
+            </div>
         </div>
     {% endfor %}
 
