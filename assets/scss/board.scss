@@ -57,9 +57,8 @@ h2{
             border-bottom: #FFAB40 solid 3px;
         }
     }
-
-
 }
+
 #deadline{
     margin-top: 2em;
 }
@@ -78,9 +77,9 @@ h2{
     align-content: space-around;
     justify-content: space-around;
 
-        p{
-            margin: 20px auto 0 auto;
-            font-size: 30px;
+    p{
+        margin: 20px auto 0 auto;
+        font-size: 30px;
     }
 
     label{
@@ -240,9 +239,9 @@ h2{
                         margin: auto;
 
                         .nameAdvisor {
-                             font-weight: bold;
-                             color: white;
-                             font-size: 20px;
+                            font-weight: bold;
+                            color: white;
+                            font-size: 20px;
                         }
 
                         .infosAdvisor {
@@ -283,6 +282,7 @@ h2{
             }
         }
     }
+
     #boardAdvisors {
         width: 20%;
         height: calc(100vh - 83px);
@@ -323,50 +323,50 @@ h2{
                         color: white;
                     }
 
-                     .cardAdvisorAndAdd {
-                         display: flex;
-                         align-items: center;
+                    .cardAdvisorAndAdd {
+                        display: flex;
+                        align-items: center;
 
-                         .cardAdvisorJS {
-                             width: 80%;
-                             height: 100px;
-                             background-color: $primary-color;
-                             margin: 10px auto;
-                             border-radius: 10px;
-                             display: flex;
-                             cursor: pointer;
+                        .cardAdvisorJS {
+                            width: 80%;
+                            height: 100px;
+                            background-color: $primary-color;
+                            margin: 10px auto;
+                            border-radius: 10px;
+                            display: flex;
+                            cursor: pointer;
 
-                             img {
-                                 width: 80px;
-                                 height: 80px;
-                                 background-color: #222222;
-                                 border-radius: 50%;
-                                 margin: auto 0 auto 10px;
-                             }
-
-                             #cardAdvisorInfos {
-                                 margin: auto;
-
-                                 .nameAdvisor {
-                                     font-weight: bold;
-                                     font-size: 20px;
-                                     color: white;
-                                 }
-
-                                 .infosAdvisor {
-                                     color: white;
-                                 }
-
-                                 .idAdvisor {
-                                     display: none;
-                                 }
-                             }
-                         }
-
-                            .idAdvisor {
-                                 display: none;
+                            img {
+                                width: 80px;
+                                height: 80px;
+                                background-color: #222222;
+                                border-radius: 50%;
+                                margin: auto 0 auto 10px;
                             }
-                     }
+
+                            #cardAdvisorInfos {
+                                margin: auto;
+
+                                .nameAdvisor {
+                                    font-weight: bold;
+                                    font-size: 20px;
+                                    color: white;
+                                }
+
+                                .infosAdvisor {
+                                    color: white;
+                                }
+
+                                .idAdvisor {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .idAdvisor {
+                            display: none;
+                        }
+                    }
                 }
 
                 .addCardAdvisor {
