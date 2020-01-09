@@ -201,6 +201,7 @@ header {
         align-items: center;
 
 
+
         &:hover {
             text-decoration: none;
             color: white;
@@ -226,12 +227,10 @@ header {
     .filterAdvisors {
         display: flex;
         flex-direction: column;
-        background-color: $primary-color;
         border-radius: 8%;
         width: 10%;
         height: 250px;
         align-items: center;
-        color: white;
         cursor: pointer;
         #myInput {
             width: 90%;

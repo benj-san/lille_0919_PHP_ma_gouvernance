@@ -322,10 +322,10 @@ h2 {
 #boardAndBoardAdvisors #boardAdvisors .cardAdvisorAndAdd .cardAdvisorJS #cardAdvisorInfos .cardAdvisorAndAdd .cardAdvisorJS #cardAdvisorInfos .idAdvisor {
   display: none;
 }
-#boardAndBoardAdvisors #boardAdvisors .cardAdvisorAndAdd .cardAdvisorJS #cardAdvisorInfos .cardAdvisorAndAdd .cardAdvisorJS .idAdvisor {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorAndAdd .cardAdvisorJS #cardAdvisorInfos .cardAdvisorAndAdd .idAdvisor {
   display: none;
 }
-#boardAndBoardAdvisors #boardAdvisors .cardAdvisorAndAdd .cardAdvisorJS #cardAdvisorInfos .addCardAdvisor {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorAndAdd .cardAdvisorJS .addCardAdvisor {
   position: relative;
   background-color: black;
   color: white;
@@ -336,7 +336,8 @@ h2 {
   right: 6%;
   cursor: pointer;
 }
-#boardAndBoardAdvisors .boardContent {
+
+.boardContent {
   background: #C82829;
 }
 
