@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Form\BoardType;
 use App\Entity\Advisor;
 use App\Entity\Board;
 use App\Entity\Demand;
+use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
@@ -129,6 +129,7 @@ class AdminController extends AbstractController
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $advisor,
             'formBoard' => $form->createView(),
+            'board' => $board
         ]);
     }
 }
