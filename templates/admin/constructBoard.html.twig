@@ -27,6 +27,16 @@
         </div>
     {% endfor %}
 
+    <div id="behindAllAdvisors">
+    {% for advisor in advisors %}
+        <div class="allAdvisorsJS">
+            <div id="allAdvisors">
+                <p>{{ advisor.name }} {{ advisor.firstname }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
     <div id="behind">
     </div>
 
@@ -45,11 +55,13 @@
             </div>
         </div>
 
-
         <div id="boardAdvisors">
             <label id="research">
                 <input placeholder="Rechercher">
             </label>
+
+            <button id="takeAdvisors">Tous les advisors</button>
+
             {% for advisor in advisors %}
                 <div class="cardAdvisorAndAdd">
                     <div id="cardAdvisor" class="cardAdvisorJS">
