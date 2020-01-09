@@ -9,23 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ClientController extends AbstractController
 {
-    /**
-     * @Route("/client", name="client")
-
-     * @return Response
-     */
-    public function index(): Response
-    {
-
-        return $this->render('client/index.html.twig', [
-            'controller_name' => 'ClientController'
-                    ]);
-    }
-
-    /**
+      /**
      * @param Board $board
      * @return Response
-     * * @Route("/client/board/{uuid}", name="client_board")
+     * * @Route("suggestion/{uuid}", name="client_board")
      */
 
     public function board(Board $board): Response
