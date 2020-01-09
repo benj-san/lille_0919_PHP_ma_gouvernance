@@ -2,7 +2,6 @@ require('../scss/board.scss');
 
 const cvAdvisor = document.querySelectorAll('div.cvAdvisor');
 const cardAdvisorJS = document.querySelectorAll('div.cardAdvisorJS');
-const addCardAdvisor = document.querySelectorAll('div.addCardAdvisor');
 const boardEdit = document.getElementById('boardEdit');
 const behind = document.getElementById('behind');
 const commentAdvisor = document.querySelectorAll('div.commentAdvisor');
@@ -13,6 +12,8 @@ const cardAdvisorAndAdd = document.querySelectorAll('div.cardAdvisorAndAdd');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
 const removeCardAdvisor = document.querySelectorAll('div.removeCardAdvisor');
+const iconAdd = document.querySelectorAll('img.iconAdd');
+const iconCv = document.querySelectorAll('img.iconCv');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -26,7 +27,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     }
     // Advisors not in DB
     // To click to display the window to add an advisor
-    addCardAdvisor[i].addEventListener('click', () => {
+    iconAdd[i].addEventListener('click', () => {
         behind.classList.add('display');
         commentAdvisor[i].classList.add('display');
     });
@@ -47,7 +48,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         cvAdvisor[i].classList.remove('display');
     });
     // To click to display the advisors' CV
-    cardAdvisorJS[i].addEventListener('click', () => {
+    iconCv[i].addEventListener('click', () => {
         cvAdvisor[i].classList.add('display');
         behind.classList.add('display');
     });
