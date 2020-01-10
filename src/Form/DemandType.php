@@ -17,7 +17,6 @@ class DemandType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $options = '?';
         $builder
             ->add('client', TextType::class)
             ->add(

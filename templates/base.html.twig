@@ -11,6 +11,7 @@
         {% endblock %}
     </head>
     <body>
+    {% block header %}
     <header>
         {% block header %}
         <nav>
@@ -22,6 +23,7 @@
         </nav>
         {% endblock %}
     </header>
+    {% endblock %}
     <main>
         {% block main %}{% endblock %}
         {% block javascripts %}

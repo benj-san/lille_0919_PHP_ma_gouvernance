@@ -4,31 +4,76 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('board') }}
+    {{ encore_entry_link_tags('app') }}
 {% endblock %}
 
-{% block body %}
+{% block main %}
+
+    <div id="displayCvAdvisor">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
+
+    {% for advisor in advisors %}
+        <div class="commentAdvisor">
+            <p>Justification de candidature</p>
+            <form id="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
+                <label for="story">
+                    <textarea id="resumeJustification" name="resume" rows="10" cols="33"></textarea>
+                </label>
+                <input type="submit">
+            </form>
+
+        </div>
+
+        <div class="deleteAdvisor">
+            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
+            <div id="ddAdvisor">
+                <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
+                    <button class="definitiveDeleteAdvisor">Retirer du board</button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div id="behind">
+    </div>
 
     <div id="boardAndBoardAdvisors">
         <div id="board">
             <h1>Réaliser mon board</h1>
-            <div id="boardEdit" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <img src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
-                <h2>Déplacer vos advisors ICI !!!</h2>
+            <div id="boardEdit">
+                {{ form_start(formBoard) }}
+                {{ form_widget(formBoard) }}
+                {{ form_end(formBoard) }}
             </div>
+            <a href="{{ path('client_board', {'uuid': board.uuid}) }}"><button>Voir</button></a>
         </div>
 
-        <div id="boardAdvisors" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <form action=""></form>
-            {% for i in 0..20 %}
-                <div id="cardAdvisor" draggable="true" ondragstart="drag(event)">
-                    <img src="" alt="">
-                    <div id="cardAdvisorInfos">
-                        <h4>John Doe</h4>
-                        <p>Autres infos utiles</p>
+
+        <div id="boardAdvisors">
+            {#<label id="research">
+                <input placeholder="Rechercher">
+            </label>#}
+            {% for advisor in advisors %}
+                <div class="cardAdvisorAndAdd">
+                    <div id="cardAdvisor" class="cardAdvisorJS">
+                        <img src="{{ asset('build/pp.png') }}" alt="" class="pp">
+                        <div id="cardAdvisorInfos">
+                            <p class="nameAdvisor">{{ advisor.name }} {{ advisor.firstname }}</p>
+                            <p class="infosAdvisor">{{ advisor.email }}<br>{{ advisor.place }}</p>
+                            <p class="idAdvisor">{{ advisor.id }}</p>
+                        </div>
+                        <div class="addCardAdvisor">
+                            <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDelete">
+                            <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+                        </div>
                     </div>
                 </div>
             {% endfor %}
+
         </div>
+
     </div>
 
 {% endblock %}

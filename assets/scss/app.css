@@ -1,50 +1,415 @@
-/*
-Error: File to import not found or unreadable: ~bootstrap.
-        on line 2 of app.scss
+@charset "UTF-8";
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-1: @import "vars";
-2: @import "~bootstrap";
-3: 
-4: * {
-5:     font-family: 'Montserrat', sans-serif;
-6:     margin:0;
-7:     padding:0;
+html {
+  scrollbar-color: #bebebe #d9dde0;
+}
 
-Backtrace:
-app.scss:2
-/usr/lib/ruby/vendor_ruby/sass/tree/import_node.rb:67:in `rescue in import'
-/usr/lib/ruby/vendor_ruby/sass/tree/import_node.rb:44:in `import'
-/usr/lib/ruby/vendor_ruby/sass/tree/import_node.rb:28:in `imported_file'
-/usr/lib/ruby/vendor_ruby/sass/tree/import_node.rb:37:in `css_import?'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:313:in `visit_import'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:160:in `block in visit'
-/usr/lib/ruby/vendor_ruby/sass/stack.rb:79:in `block in with_base'
-/usr/lib/ruby/vendor_ruby/sass/stack.rb:115:in `with_frame'
-/usr/lib/ruby/vendor_ruby/sass/stack.rb:79:in `with_base'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:160:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:52:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:52:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:169:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:181:in `with_environment'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:168:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `block in visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:188:in `visit_root'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:159:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:8:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/root_node.rb:36:in `css_tree'
-/usr/lib/ruby/vendor_ruby/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:381:in `_render_with_sourcemap'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:298:in `render_with_sourcemap'
-/usr/lib/ruby/vendor_ruby/sass/exec/sass_scss.rb:387:in `run'
-/usr/lib/ruby/vendor_ruby/sass/exec/sass_scss.rb:63:in `process_result'
-/usr/lib/ruby/vendor_ruby/sass/exec/base.rb:52:in `parse'
-/usr/lib/ruby/vendor_ruby/sass/exec/base.rb:19:in `parse!'
-/usr/bin/sass:8:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap.\A         on line 2 of app.scss\A \A 1: @import \"vars\";\A 2: @import \"~bootstrap\";\A 3: \A 4: * {\A 5:     font-family: 'Montserrat', sans-serif;\A 6:     margin:0;\A 7:     padding:0;"; }
+/* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
+header {
+  margin-bottom: 5%;
+}
+header nav {
+  height: 80px;
+  border-bottom: #FFAB40 solid 3px;
+  display: flex;
+  align-items: center;
+}
+header nav .logoContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  margin-left: 1%;
+}
+header nav .logoContainer img {
+  height: 55%;
+  background-color: white;
+}
+header nav .linksContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+header nav .linksContainer .links {
+  width: 50%;
+  text-align: center;
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+#filterContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: grey;
+  opacity: 0.8;
+  top: 0;
+  margin-bottom: 2em;
+}
+
+#Boards {
+  display: flex;
+  flex-wrap: wrap;
+}
+#Boards .filterBoards {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+#Boards .filterBoards .filterTitle {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#Boards .filterBoards .filters {
+  width: 90%;
+  margin: 0 auto 20px auto;
+}
+#Boards .filterBoards .filters #myInput {
+  width: 100%;
+  font-size: 16px;
+}
+#Boards .filterBoards .order {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+#Boards .filterBoards .order input {
+  margin: 5px 0 5px 30px;
+}
+#Boards .container {
+  height: 65vh;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 0 0 0;
+}
+#Boards .container .containerContent {
+  width: 98%;
+  margin: auto;
+  height: 100%;
+  overflow: auto;
+}
+#Boards .cardHorizontal {
+  border: solid 2px #4e555b;
+  display: flex;
+  flex: 1 1 auto;
+  margin: auto auto 2vh;
+  width: 85%;
+  cursor: pointer;
+  background-color: white;
+  height: 120px;
+}
+#Boards .cardHorizontal .cardBody {
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+}
+#Boards .cardHorizontal .cardBody .cardTitle {
+  font-size: 44px;
+  width: 300px;
+}
+#Boards .cardHorizontal .cardBody .deadline {
+  font-size: 32px;
+  align-self: flex-end;
+  margin-left: 300px;
+}
+#Boards .cardHorizontal .statut {
+  border-right: solid 2px #4e555b;
+  align-content: center;
+  width: 12rem;
+}
+
+.new-demande {
+  margin: 5vh auto 50px auto;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button-newdemand {
+  background-color: #343434;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px auto 0 auto;
+}
+#button-newdemand:hover {
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#button-newdemand:hover:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+  transition: 2s ease;
+}
+
+/* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
+#advisors {
+  display: flex;
+  flex-wrap: wrap;
+}
+#advisors .filterAdvisors {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8%;
+  width: 10%;
+  height: 250px;
+  align-items: center;
+  cursor: pointer;
+}
+#advisors .filterAdvisors #myInput {
+  width: 90%;
+  font-size: 22px;
+}
+#advisors #allCardsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 70%;
+  height: 70vh;
+  padding: 2rem 5em;
+  overflow: auto;
+}
+#advisors #allCardsContainer .cardAdvisors {
+  display: flex;
+  flex-direction: column;
+  margin: 2.7rem 2rem 2.7rem;
+  min-width: 200px;
+  height: 320px;
+  align-items: center;
+  color: black;
+  cursor: pointer;
+  border: #3d4b80 1px solid;
+}
+#advisors #allCardsContainer .cardAdvisors .cardTitle {
+  font-size: 2rem;
+  text-align: center;
+}
+#advisors #allCardsContainer .cardAdvisors p {
+  font-size: 1.7rem;
+  margin-bottom: 5px;
+}
+#advisors #allCardsContainer .cardAdvisors img {
+  height: 250px;
+  width: 200px;
+  background-color: lightgray;
+  border-bottom: #FFAB40 solid 3px;
+}
+
+/* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
+#demandeFormulaire {
+  width: 70%;
+  z-index: 1;
+  height: 80%;
+  left: 15%;
+  border-radius: 15px;
+  background-color: #EDF1F4;
+  bottom: 10%;
+  position: absolute;
+  text-align: center;
+}
+#demandeFormulaire .submitDemand {
+  background-color: #0030cc;
+  padding: 0.3em 1em;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 7px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+#demandeFormulaire #demandeFormulaireContent {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+}
+#demandeFormulaire #demandeFormulaireContent .demandeFormulaireTitles {
+  font-size: 38px;
+  margin: 1% auto 2% auto;
+  font-weight: bold;
+}
+#demandeFormulaire #demandeFormulaireContent .demandeFormulaireTitles2 {
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 35px;
+}
+#demandeFormulaire #demandeFormulaireContent form input {
+  height: 30px;
+  font-size: 16px;
+}
+#demandeFormulaire #demandeFormulaireContent form input, #demandeFormulaire #demandeFormulaireContent form textarea, #demandeFormulaire #demandeFormulaireContent form .bootstrap-select {
+  width: 65%;
+  margin: 2% auto;
+  font-size: 16px;
+}
+#demandeFormulaire #demandeFormulaireContent form .bootstrap-select {
+  width: 80%;
+  font-size: 16px;
+  background-color: #dfe3e6;
+}
+#demandeFormulaire #demandeFormulaireContent form .dropdown-toggle {
+  font-size: 16px;
+}
+#demandeFormulaire #demandeFormulaireContent form .dropdown-menu {
+  max-height: 250px !important;
+  font-size: 16px;
+}
+#demandeFormulaire #demandeFormulaireContent form .form-control {
+  font-size: 16px;
+}
+
+/* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
+.modalDescription {
+  width: 70%;
+  z-index: 1;
+  height: 80%;
+  left: 15%;
+  border-radius: 15px;
+  background-color: #EDF1F4;
+  bottom: 10%;
+  position: absolute;
+  font-size: 38px;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+}
+.modalDescription .modalDescriptionContainer {
+  overflow: auto;
+  width: 98%;
+  margin: auto;
+  height: 100%;
+}
+.modalDescription .modalDescriptionContainer .modalParts {
+  display: flex;
+  margin: 6% 0 6% 5%;
+}
+.modalDescription .modalDescriptionContainer .modalParts .modalTitles {
+  font-size: 28px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  width: 35%;
+}
+.modalDescription .modalDescriptionContainer .modalParts p {
+  color: blue;
+  text-shadow: black 0.5px 0.5px 0.5px;
+  font-size: 25px;
+  margin: 0 0 0 20px;
+}
+.modalDescription .modalDescriptionContainer .tagsModalDescription {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  text-align: center;
+}
+.modalDescription .modalDescriptionContainer .tagsModalDescription .tags {
+  border: 3px blue solid;
+  padding: 3px;
+  margin: 15px 5%;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .modalTitles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 18px;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts .input-radio {
+  margin: 0 5px 0 0;
+  position: relative;
+  width: 200px;
+  height: 70px;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio] {
+  opacity: 0.001;
+  z-index: 100;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio] + label {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts label {
+  cursor: pointer;
+  z-index: 90;
+  border-radius: 15px;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio]:checked + label {
+  border: 1px solid red;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioProposé {
+  background-color: #FFAB40;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioAccepté {
+  background-color: #00A84D;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioModifié {
+  background-color: #FF4040;
+}
+.modalDescription .modalDescriptionContainer .containerRedirectButton {
+  margin: 80px auto 20px auto;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
+}
+.modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/*# sourceMappingURL=app.css.map */
