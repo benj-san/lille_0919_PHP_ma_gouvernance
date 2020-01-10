@@ -6,6 +6,64 @@
     font-family:'Montserrat', sans-serif;;
 }
 
+/*style for boardclient*/
+/*.displayclientAdvisor{
+ display : flex;
+}*/
+#clientName{
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+h2{
+    margin: 1.6em;
+}
+
+#boardContent{
+    display: flex;
+    width: 90%;
+    min-height: 50vh;
+    flex-wrap: wrap;
+    border: #3d4b80 2px solid ;
+    margin: auto;
+    padding: 0.2em;
+    justify-content: center;
+
+    .cardAdvisors {
+        display: flex;
+        flex-direction: column;
+        margin: 2.7rem 2rem 2.7rem;
+        min-width: 210px;
+        height: 320px;
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        border: #3d4b80 1px solid ;
+
+        .cardTitle{
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        p{
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        img{
+            height: 250px;
+            width: 210px;
+            background-color: lightgray;
+            border-bottom: #FFAB40 solid 3px;
+        }
+    }
+}
+
+#deadline{
+    margin-top: 2em;
+}
+/*  */
+
 .commentAdvisor{
     margin: calc(50vh - 13%) 0 30px 35%;
     position: absolute;
@@ -22,7 +80,7 @@
     p{
         margin: 20px auto 0 auto;
         font-size: 30px;
-  }
+    }
 
     form{
         display: flex;
@@ -50,7 +108,7 @@
     }
 }
 
-.deleteAdvisor{
+.deleteAdvisor {
     margin: calc(50vh - 13%) 0 0 35%;
     position: absolute;
     display: none;
@@ -64,12 +122,12 @@
     align-content: space-around;
     justify-content: space-around;
 
-    p{
+    p {
         text-align: center;
         font-size: 30px;
-  }
+    }
 
-    #ddAdvisor{
+    #ddAdvisor {
         width: 70%;
         margin: auto;
 
@@ -118,7 +176,7 @@
     cursor: pointer;
 }
 
-#boardAndBoardAdvisors{
+#boardAndBoardAdvisors {
     display: flex;
     position: fixed;
     width: 100vw;
@@ -133,13 +191,13 @@
             font-size: 3vw;
             font-style: normal;
             font-weight: normal;
-    }
+        }
 
-        #boardEdit.displayAdvisor{
+        #boardEdit.displayAdvisor {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-around;
-    }
+        }
 
         #boardEdit {
             width: 80%;
@@ -204,7 +262,7 @@
                             font-weight: bold;
                             color: $primary-color;
                             font-size: 20px;
-            }
+                        }
 
                         .infosAdvisor {
                             color: $primary-color;
@@ -212,11 +270,11 @@
 
                         .idAdvisor {
                             display: none;
-            }
-          }
-        }
+                        }
+                    }
+                }
 
-                .removeCardAdvisor{
+                .removeCardAdvisor {
                     color: white;
                     border-radius: 50%;
                     font-size: 50px;
@@ -226,19 +284,19 @@
                     position: relative;
                     right: 20%;
                     bottom: 23%;
-        }
+                }
 
-                .addCardAdvisor{
+                .addCardAdvisor {
                     display: none;
-        }
-      }
+                }
+            }
 
             form {
                 display: none;
-      }
-    }
+            }
+        }
 
-        #submit {
+        a {
             width: 100%;
             display: flex;
 
@@ -253,9 +311,13 @@
                 background-color: $primary-color;
                 font-weight: bold;
                 cursor: pointer;
-      }
+            }
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
     }
-  }
 
     #boardAdvisors {
         width: 30%;
@@ -300,9 +362,9 @@
 
                     .idAdvisor {
                         display: none;
-          }
-        }
-      }
+                    }
+                }
+            }
 
             .addCardAdvisor{
                 position: absolute;
@@ -324,9 +386,13 @@
                 }
       }
 
-            .removeCardAdvisor{
+            .removeCardAdvisor {
                 display: none;
             }
+        }
     }
-  }
+}
+
+.boardContent{
+    background: #C82829;
 }

@@ -46,6 +46,7 @@
                 {{ form_widget(formBoard) }}
                 {{ form_end(formBoard) }}
             </div>
+            <a href="{{ path('client_board', {'uuid': board.uuid}) }}"><button>Voir</button></a>
         </div>
 
 
@@ -70,7 +71,9 @@
                     </div>
                 </div>
             {% endfor %}
+
         </div>
+
     </div>
 
 {% endblock %}
