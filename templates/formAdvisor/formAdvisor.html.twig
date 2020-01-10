@@ -21,9 +21,14 @@
 {% block main %}
   <main>
       <section class="containerCandidature">
-          <div id="introduction">
+          <div id="introduction" class="question">
               <div id="presentation" >Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
-              <button>Commencer</button>
+              <button id="buttonPresentation">Commencer</button>
+          </div>
+          <div id="firstQuestionContainer" class="hidden question">
+              <div id="firstQuestion" >Avant de démarrer, nous vous remercions de certifier sur l'honneur que vous avez votre pleine capacité juridique.*</div>
+              <button id="firstButtonFirstQuestion">Oui</button>
+              <button id="secondButtonFirstQuestion">Non</button>
           </div>
       </section>
 
@@ -32,4 +37,7 @@
 </main>
 {% endblock main %}
 
+{% block javascripts %}
+    {{ encore_entry_script_tags('advisorForm') }}
+{% endblock %}
 

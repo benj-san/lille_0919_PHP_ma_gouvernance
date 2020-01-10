@@ -31,8 +31,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('board', './assets/js/board.js')
     .addEntry('advisor', './assets/scss/advisor.scss')
-    .addEntry('advisorForm', './assets/scss/advisorForm.js')
-
+    .addEntry('advisorForm', './assets/js/advisorForm.js')
     // .addEntry('page2', './assets/js/page2.js')
     .addEntry('advisors', './assets/js/advisors.js')
     //.addEntry('page2', './assets/js/page2.js')
