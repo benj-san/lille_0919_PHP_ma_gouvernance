@@ -9,11 +9,8 @@ use App\Entity\Demand;
 use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
-use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
-use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,17 +26,16 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
-     * @throws \Exception
      */
     public function index(
         DemandRepository $demandRepository,
         TagRepository $tagRepository,
         Request $request,
         EntityManagerInterface $entityManager
-    ) {
+    ): Response {
         /* Changement de statut de la demande */
         if (isset($_POST['statutSubmitted'])) {
-            $values = explode("-", $_POST['radio']);
+            $values = explode('-', $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
             $demand->setStatus($values[0]);
             $entityManager->flush();
@@ -97,7 +93,7 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function advisor(AdvisorRepository $advisorRepository, EntityManagerInterface $entityManager)
+    public function advisor(AdvisorRepository $advisorRepository, EntityManagerInterface $entityManager): Response
     {
         if (isset($_POST['commentChanged'])) {
             $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
@@ -118,7 +114,7 @@ class AdminController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request)
+    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request): Response
     {
         $advisor = $advisorRepository->findAll();
         $form = $this->createForm(BoardType::class, $board);
@@ -143,7 +139,7 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function formBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager)
+    public function formBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager): Response
     {
         $demand = $board->getDemand();
         $board->addAdvisor($advisor);
@@ -154,7 +150,7 @@ class AdminController extends AbstractController
         $resume->setContent($_POST['resume']);
         $entityManager->persist($resume);
         $entityManager->flush();
-        return $this->redirectToRoute("board", [
+        return $this->redirectToRoute('board', [
             'id' => $boardId
         ]);
     }
@@ -166,12 +162,15 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function deleteAdvisorFromBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager)
-    {
+    public function deleteAdvisorFromBoard(
+        Board $board,
+        Advisor $advisor,
+        EntityManagerInterface $entityManager
+    ): Response {
         $board->removeAdvisor($advisor);
         $boardId = $board->getId();
         $entityManager->flush();
-        return $this->redirectToRoute("board", [
+        return $this->redirectToRoute('board', [
             'id' => $boardId
         ]);
     }
