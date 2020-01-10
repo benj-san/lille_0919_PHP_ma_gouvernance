@@ -15,8 +15,7 @@ const cardAdvisorAndAdd = document.querySelectorAll('div.cardAdvisorAndAdd');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
 const takeAdvisors = document.getElementById('takeAdvisors');
-const allAdvisorsJS = document.querySelectorAll('div.allAdvisorsJS');
-const behindAllAdvisors = document.getElementById('behindAllAdvisors');
+const allAdvisorsBoard = document.getElementById('allAdvisorsBoard');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     for (let j = 0; j < checkboxAdvisor.length; j += 1) {
@@ -126,6 +125,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     });
     // To click to display the advisors listing
     takeAdvisors.addEventListener('click', () => {
-        behindAllAdvisors.classList.add('display');
+        behind.classList.add('display');
+        allAdvisorsBoard.classList.add('display');
     });
 }

@@ -38,17 +38,6 @@ class Advisor
      */
     private $place;
 
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $availabilityStart;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $availabilityEnd;
-
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -136,31 +125,6 @@ class Advisor
     public function setPlace(string $place): self
     {
         $this->place = $place;
-
-        return $this;
-    }
-
-
-    public function getAvailabilityStart(): ?\DateTimeInterface
-    {
-        return $this->availabilityStart;
-    }
-
-    public function setAvailabilityStart(?\DateTimeInterface $availabilityStart): self
-    {
-        $this->availabilityStart = $availabilityStart;
-
-        return $this;
-    }
-
-    public function getAvailabilityEnd(): ?\DateTimeInterface
-    {
-        return $this->availabilityEnd;
-    }
-
-    public function setAvailabilityEnd(?\DateTimeInterface $availabilityEnd): self
-    {
-        $this->availabilityEnd = $availabilityEnd;
 
         return $this;
     }
