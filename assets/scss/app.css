@@ -186,8 +186,11 @@ header nav .linksContainer .links {
 #advisors .filterAdvisors {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  margin: 0 auto;
+  border-radius: 8%;
+  width: 10%;
+  height: 250px;
+  align-items: center;
+  cursor: pointer;
 }
 #advisors .filterAdvisors #myInput {
   width: 90%;

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('board') }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+    {% block header %}
+<header>
+    <nav>
+        <a class="logoContainer" href=""><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+
+    </nav>
+</header>
+{% endblock %}
+{% block main %}
+    <div id="behind">
+    </div>
+    <div id="">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
+
+
+    <h1 id="clientName">{{ board.demand.client }}</h1>
+    <h2>Proposition de board:</h2>
+
+    <div id="boardContent">
+            {% for advisor in board.advisors  %}
+                 <div class="cardAdvisors">
+                     <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                        <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p>{{ advisor.place }}</p>
+                 </div>
+
+    {% endfor %}
+       </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('clientBoard') }}
+{% endblock %}

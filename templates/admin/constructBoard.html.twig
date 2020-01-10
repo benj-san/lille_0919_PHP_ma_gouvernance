@@ -13,17 +13,25 @@
         {% include 'cvAdvisor.html.twig' %}
     </div>
 
-    <div id="commentAdvisor">
-        <p>Justification de candidature</p>
-        <label>
-            <textarea placeholder="Entrez le résumé" rows="10" cols="35"></textarea>
-        </label>
-    </div>
-
     {% for advisor in advisors %}
+        <div class="commentAdvisor">
+            <p>Justification de candidature</p>
+            <form id="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
+                <label for="story">
+                    <textarea id="resumeJustification" name="resume" rows="10" cols="33"></textarea>
+                </label>
+                <input type="submit">
+            </form>
+
+        </div>
+
         <div class="deleteAdvisor">
             <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
-            <button class="definitiveDeleteAdvisor">Retirer du board</button>
+            <div id="ddAdvisor">
+                <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
+                    <button class="definitiveDeleteAdvisor">Retirer du board</button>
+                </a>
+            </div>
         </div>
     {% endfor %}
 
@@ -42,38 +50,39 @@
         <div id="board">
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
-                <img id="boardEditImg" src="{{ asset('build/dragAndDrop.png') }}" alt=""/>
-                <h2 id="boardEditH2">Ajoutez vos advisors</h2>
                 {{ form_start(formBoard) }}
                 {{ form_widget(formBoard) }}
-            </div>
-            <div id="submit">
-                <button>{{ button_label|default('Valider') }}</button>
                 {{ form_end(formBoard) }}
             </div>
+            <a href="{{ path('client_board', {'uuid': board.uuid}) }}"><button>Voir</button></a>
         </div>
 
         <div id="boardAdvisors">
-            <label id="research">
+            {#<label id="research">
                 <input placeholder="Rechercher">
             </label>
-
             <button id="takeAdvisors">Tous les advisors</button>
-
+            </label>#}
             {% for advisor in advisors %}
                 <div class="cardAdvisorAndAdd">
                     <div id="cardAdvisor" class="cardAdvisorJS">
-                        <img src="" alt="">
+                        <img src="{{ asset('build/pp.png') }}" alt="" class="pp">
                         <div id="cardAdvisorInfos">
-                            <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
-                            <p class="infosAdvisor">Autres infos utiles</p>
+                            <p class="nameAdvisor">{{ advisor.name }} {{ advisor.firstname }}</p>
+                            <p class="infosAdvisor">{{ advisor.email }}<br>{{ advisor.place }}</p>
                             <p class="idAdvisor">{{ advisor.id }}</p>
                         </div>
+                        <div class="addCardAdvisor">
+                            <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDelete">
+                            <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+                        </div>
                     </div>
-                    <div class="addCardAdvisor">+</div>
                 </div>
             {% endfor %}
+
         </div>
+
     </div>
 
 {% endblock %}
