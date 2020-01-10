@@ -51,21 +51,24 @@
 
 
         <div id="boardAdvisors">
-            <label id="research">
+            {#<label id="research">
                 <input placeholder="Rechercher">
-            </label>
+            </label>#}
             {% for advisor in advisors %}
                 <div class="cardAdvisorAndAdd">
                     <div id="cardAdvisor" class="cardAdvisorJS">
-                        <img src="" alt="">
+                        <img src="{{ asset('build/pp.png') }}" alt="" class="pp">
                         <div id="cardAdvisorInfos">
-                            <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
-                            <p class="infosAdvisor">Autres infos utiles</p>
+                            <p class="nameAdvisor">{{ advisor.name }} {{ advisor.firstname }}</p>
+                            <p class="infosAdvisor">{{ advisor.email }}<br>{{ advisor.place }}</p>
                             <p class="idAdvisor">{{ advisor.id }}</p>
                         </div>
+                        <div class="addCardAdvisor">
+                            <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDelete">
+                            <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+                        </div>
                     </div>
-                    <div class="removeCardAdvisor">x</div>
-                    <div class="addCardAdvisor">+</div>
                 </div>
             {% endfor %}
 
