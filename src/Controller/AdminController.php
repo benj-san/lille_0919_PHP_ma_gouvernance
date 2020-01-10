@@ -3,16 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Resume;
-use App\Form\BoardType;
 use App\Entity\Advisor;
 use App\Entity\Board;
 use App\Entity\Demand;
+use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
 use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,6 +29,7 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
+     * @throws \Exception
      */
     public function index(
         DemandRepository $demandRepository,
@@ -43,9 +45,27 @@ class AdminController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
-        $demands = $demandRepository ->findAll();
-        $tags = $tagRepository->findAll();
 
+        if (isset($_GET['filter'])) {
+            switch ($_GET['filter']) {
+                case 'proposé':
+                    $demands = $demandRepository->findBy(array('status' => 1), array('deadline' => 'ASC'));
+                    break;
+                case 'modifier':
+                    $demands = $demandRepository->findBy(array('status' => 0), array('deadline' => 'ASC'));
+                    break;
+                case 'accepté':
+                    $demands = $demandRepository->findBy(array('status' => 2), array('deadline' => 'ASC'));
+                    break;
+                default:
+                    $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+                    break;
+            }
+        } else {
+            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+        }
+
+        $tags = $tagRepository->findAll();
         /* Création d'une demande */
         $demand = new Demand();
         $form = $this->createForm(DemandType::class, $demand);
@@ -54,6 +74,8 @@ class AdminController extends AbstractController
             $demand->setStatus(1);
             $board = new Board();
             $board->setDemand($demand);
+            $uuid = uuid_create(UUID_TYPE_RANDOM);
+            $board->setUuid($uuid);
             $entityManager->persist($demand);
             $entityManager->persist($board);
             $entityManager->flush();
@@ -64,6 +86,7 @@ class AdminController extends AbstractController
             'demands'=>$demands,
             'tags' => $tags,
             'formDemand' =>$form->createView(),
+
         ]);
     }
 
@@ -71,13 +94,20 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/advisors", name="advisors")
      * @param AdvisorRepository $advisorRepository
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function advisor(AdvisorRepository $advisorRepository)
+    public function advisor(AdvisorRepository $advisorRepository, EntityManagerInterface $entityManager)
     {
+        if (isset($_POST['commentChanged'])) {
+            $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
+            $advisor->setCommentary($_POST['commentaryAdvisor']);
+            $entityManager->flush();
+        }
         $advisors = $advisorRepository->findAll();
         return $this->render('admin/advisors.html.twig', [
-            'advisors' => $advisors
+            'advisors' => $advisors,
+            'pageAdvisor' => 'page advisor'
         ]);
     }
 

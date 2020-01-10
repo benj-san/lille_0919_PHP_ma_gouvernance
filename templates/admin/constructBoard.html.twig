@@ -45,6 +45,7 @@
                 {{ form_start(formBoard) }}
                 {{ form_widget(formBoard) }}
                 {{ form_end(formBoard) }}
+                <button id="buttonBoardClient"><a href="{{ path('client_board', {'uuid': board.uuid}) }}">Voir </a></button>
             </div>
         </div>
 
@@ -60,14 +61,15 @@
                         <div id="cardAdvisorInfos">
                             <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
                             <p class="infosAdvisor">Autres infos utiles</p>
-                            <p class="idAdvisor">{{ advisor.id }}</p>
                         </div>
                     </div>
                     <div class="removeCardAdvisor">x</div>
                     <div class="addCardAdvisor">+</div>
                 </div>
             {% endfor %}
+
         </div>
+
     </div>
 
 {% endblock %}

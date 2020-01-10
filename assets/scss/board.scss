@@ -7,6 +7,65 @@
 }
 
 .commentAdvisor{
+  /*style for boardclient*/
+  /*.displayclientAdvisor{
+   display : flex;
+}*/
+#clientName{
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+h2{
+    margin: 1.6em;
+  }
+
+#boardContent{
+    display: flex;
+    width: 90%;
+    min-height: 50vh;
+    flex-wrap: wrap;
+    border: #3d4b80 2px solid ;
+    margin: auto;
+    padding: 0.2em;
+    justify-content: center;
+
+    .cardAdvisors {
+        display: flex;
+        flex-direction: column;
+        margin: 2.7rem 2rem 2.7rem;
+        min-width: 210px;
+        height: 320px;
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        border: #3d4b80 1px solid ;
+
+        .cardTitle{
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        p{
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        img{
+            height: 250px;
+            width: 210px;
+            background-color: lightgray;
+            border-bottom: #FFAB40 solid 3px;
+        }
+    }
+}
+
+#deadline{
+    margin-top: 2em;
+}
+/*  */
+
+#commentAdvisor{
     margin: calc(50vh - 13%) 0 30px 35%;
     position: absolute;
     display: none;
@@ -22,7 +81,7 @@
     p{
         margin: 20px auto 0 auto;
         font-size: 30px;
-  }
+    }
 
     form{
         display: flex;
@@ -67,7 +126,7 @@
     p{
         text-align: center;
         font-size: 30px;
-  }
+    }
 
     #ddAdvisor{
         width: 70%;
@@ -90,7 +149,6 @@
             }
         }
     }
-}
 
 .deleteAdvisor.display{
     display: flex;
@@ -118,7 +176,7 @@
     cursor: pointer;
 }
 
-#boardAndBoardAdvisors{
+#boardAndBoardAdvisors {
     display: flex;
     position: fixed;
     width: 100vw;
@@ -133,13 +191,13 @@
             font-size: 3vw;
             font-style: normal;
             font-weight: normal;
-    }
+        }
 
-        #boardEdit.displayAdvisor{
+        #boardEdit.displayAdvisor {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-around;
-    }
+        }
 
         #boardEdit {
             width: 80%;
@@ -156,7 +214,7 @@
                 width: 150px;
                 height: 150px;
                 margin: auto auto 0 auto;
-      }
+            }
 
             h2 {
                 text-align: center;
@@ -165,7 +223,7 @@
                 font-style: normal;
                 font-weight: normal;
                 margin: auto;
-      }
+            }
 
             .cardAdvisorAndAdd {
                 width: 20%;
@@ -191,7 +249,7 @@
                         background-color: #222222;
                         border-radius: 50%;
                         margin: auto;
-          }
+                    }
 
                     #cardAdvisorInfos {
                         margin: auto;
@@ -200,17 +258,17 @@
                             font-weight: bold;
                             color: white;
                             font-size: 20px;
-            }
+                        }
 
                         .infosAdvisor {
                             color: white;
-            }
+                        }
 
                         .idAdvisor {
                             display: none;
-            }
-          }
-        }
+                        }
+                    }
+                }
 
                 .removeCardAdvisor{
                     color: white;
@@ -226,13 +284,13 @@
 
                 .addCardAdvisor{
                     display: none;
-        }
-      }
+                }
+            }
 
             form {
                 display: none;
-      }
-    }
+            }
+        }
 
         #submit {
             width: 100%;
@@ -249,9 +307,9 @@
                 background-color: $primary-color;
                 font-weight: bold;
                 cursor: pointer;
-      }
+            }
+        }
     }
-  }
 
     #boardAdvisors {
         width: 20%;
@@ -259,45 +317,45 @@
         overflow: auto;
         justify-content: center;
 
-        .cardAdvisorAndAdd {
-            display: flex;
-            align-items: center;
+      .cardAdvisorAndAdd {
+          display: flex;
+          align-items: center;
 
-            .cardAdvisorJS {
-                width: 80%;
-                height: 100px;
-                background-color: $primary-color;
-                margin: 10px auto;
-                border-radius: 10px;
-                display: flex;
-                cursor: pointer;
+          .cardAdvisorJS {
+              width: 80%;
+              height: 100px;
+              background-color: $primary-color;
+              margin: 10px auto;
+              border-radius: 10px;
+              display: flex;
+              cursor: pointer;
 
-                img {
-                    width: 80px;
-                    height: 80px;
-                    background-color: #222222;
-                    border-radius: 50%;
-                    margin: auto 0 auto 10px;
-        }
+              img {
+                  width: 80px;
+                  height: 80px;
+                  background-color: #222222;
+                  border-radius: 50%;
+                  margin: auto 0 auto 10px;
+              }
 
-                #cardAdvisorInfos {
-                    margin: auto;
+              #cardAdvisorInfos {
+                  margin: auto;
 
-                    .nameAdvisor {
-                        font-weight: bold;
-                        font-size: 20px;
-                        color: white;
+                  .nameAdvisor {
+                      font-weight: bold;
+                      font-size: 20px;
+                      color: white;
+                  }
+
+                  .infosAdvisor {
+                      color: white;
+                  }
+
+                  .idAdvisor {
+                      display: none;
+                  }
+              }
           }
-
-                    .infosAdvisor {
-                        color: white;
-          }
-
-                    .idAdvisor {
-                        display: none;
-          }
-        }
-      }
 
             .addCardAdvisor{
                 position: relative;
@@ -315,5 +373,8 @@
                 display: none;
             }
     }
-  }
+}
+
+.boardContent{
+    background: #C82829;
 }

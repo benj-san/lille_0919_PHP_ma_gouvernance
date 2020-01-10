@@ -52,6 +52,55 @@
         padding: 50px;
         display: flex;
 
+        #commentary {
+            margin:2% auto;
+            font-size:16px;
+            width:45%;
+            position: relative;
+
+            .edit {
+                top:0;
+                right:0;
+                height:20px;
+                width:20px;
+                position:absolute;
+                cursor:pointer;
+            }
+
+            .commentaryTitle {
+                font-size:30px;
+                font-weight:500;
+                text-align: center;
+            }
+
+            p {
+                margin:3% 5%;
+                text-align: justify;
+                font-size:20px;
+            }
+
+            form {
+                height:60%;
+
+                textarea {
+                    padding:5px;
+                    margin:3% 4%;
+                    resize:none;
+                    width:92%;
+                    min-height:77%;
+                    text-align: justify;
+                    font-size:20px
+                }
+
+                input {
+                    margin:1% 40%;
+                    width:20%;
+                }
+            }
+
+        }
+
+
         #infosAdvisor{
             display: flex;
             flex-direction: column;
