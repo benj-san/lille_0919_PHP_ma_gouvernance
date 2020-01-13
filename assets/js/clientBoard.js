@@ -1,4 +1,4 @@
-require('../scss/board.scss');
+require('../scss/clientBoard.scss');
 
 const cvAdvisor = document.querySelectorAll('div.cvAdvisor');
 const cardAdvisor = document.querySelectorAll('div.cardAdvisors');

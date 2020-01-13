@@ -4,49 +4,66 @@
   font-family: "Montserrat", sans-serif;
 }
 
-#clientName {
-  margin-left: 1em;
-  margin-top: 1em;
+body {
+  background-color: white;
 }
 
-h2 {
-  margin: 1.6em;
+#headerClient {
+  margin-bottom: 2px;
+}
+
+#clientName {
+  width: 80%;
+  margin: 0.8em auto 1em;
+  color: #3d4b80;
+  background-color: white;
+  text-align: center;
 }
 
 #boardContent {
   display: flex;
-  width: 90%;
-  min-height: 50vh;
+  width: 78%;
+  padding: 2em;
   flex-wrap: wrap;
-  border: #3d4b80 4px solid;
-  margin: auto;
-  padding: 0.2em;
+  margin: auto auto 2em;
   justify-content: center;
+  background-color: #3d4b80;
+  -webkit-box-shadow: 2px 0 23px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 0 23px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 0 23px 1px rgba(0, 0, 0, 0.5);
 }
 #boardContent .cardAdvisors {
   display: flex;
   flex-direction: column;
-  margin: 2.7rem 2rem 2.7rem;
-  min-width: 210px;
-  height: 320px;
+  margin: 1.3em;
+  min-width: 250px;
+  height: 330px;
   align-items: center;
   color: black;
   cursor: pointer;
-  border: #3d4b80 1px solid;
+  background-color: white;
+  border: #25254b solid 3px;
 }
 #boardContent .cardAdvisors .cardTitle {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 #boardContent .cardAdvisors p {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 5px;
 }
 #boardContent .cardAdvisors img {
-  height: 250px;
-  width: 210px;
+  height: 270px;
+  width: 250px;
   background-color: lightgray;
-  border-bottom: #FFAB40 solid 3px;
+  border-bottom: #3d4b80 solid 2px;
+}
+
+footer {
+  margin: auto;
+  height: 40px;
+  background-color: white;
+  border-top: white solid 2px;
 }
 
 /*# sourceMappingURL=clientBoard.css.map */
