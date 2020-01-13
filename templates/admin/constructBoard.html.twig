@@ -15,10 +15,9 @@
 
     {% for advisor in advisors %}
         <div class="commentAdvisor">
-            <p>Justification de candidature</p>
             <form id="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
                 <label for="story">
-                    <textarea id="resumeJustification" name="resume" rows="10" cols="33"></textarea>
+                    <textarea id="resumeJustification" name="resume" rows="10" cols="33" placeholder="Justificatif de candidature"></textarea>
                 </label>
                 <input type="submit">
             </form>

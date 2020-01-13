@@ -108,7 +108,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/board/{id}", name="board")
+     * @Route("admin/board/{id}", name="board")
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
@@ -133,7 +133,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/boardform/{board}/{advisor}", name="formBoard")
+     * @Route("admin/boardform/{board}/{advisor}", name="formBoard")
      * @param Advisor $advisor
      * @param Board $board
      * @param EntityManagerInterface $entityManager
@@ -142,21 +142,21 @@ class AdminController extends AbstractController
     public function formBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager): Response
     {
         $demand = $board->getDemand();
-        $board->addAdvisor($advisor);
         $resume = new Resume();
-        $boardId = $board->getId();
         $resume->setDemand($demand);
         $resume->setAdvisor($advisor);
         $resume->setContent($_POST['resume']);
+        $board->addAdvisor($advisor);
         $entityManager->persist($resume);
         $entityManager->flush();
+        $boardId = $board->getId();
         return $this->redirectToRoute('board', [
             'id' => $boardId
         ]);
     }
 
     /**
-     * @Route("deleteAdvisorFromBoard/{board}/{advisor}", name="deleteAdvisorFromBoard")
+     * @Route("admin/deleteAdvisorFromBoard/{board}/{advisor}", name="deleteAdvisorFromBoard")
      * @param Board $board
      * @param Advisor $advisor
      * @param EntityManagerInterface $entityManager
