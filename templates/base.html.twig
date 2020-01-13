@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <title>{% block title %}Ma Gouvernance{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -11,19 +12,17 @@
         {% endblock %}
     </head>
     <body>
-    {% block header %}
     <header>
         {% block header %}
-        <nav>
-            <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
-            <div class="linksContainer">
-                <a href="{{ path('demands') }}" class="links">Demandes</a>
-                <a href="{{ path('advisors') }}" class="links">Advisors</a>
-            </div>
-        </nav>
+            <nav>
+                <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+                <div class="linksContainer">
+                    <a href="{{ path('demands') }}" class="links">Demandes</a>
+                    <a href="{{ path('advisors') }}" class="links">Advisors</a>
+                </div>
+            </nav>
         {% endblock %}
     </header>
-    {% endblock %}
     <main>
         {% block main %}{% endblock %}
         {% block javascripts %}

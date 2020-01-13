@@ -19,10 +19,11 @@ class AdvisorController extends AbstractController
     public function candidature() : Response
     {
         $advisor = new Advisor();
-
+        $form = $this->createForm(AdvisorType::class, $advisor);
 
 
         return $this->render('formAdvisor/formAdvisor.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }
