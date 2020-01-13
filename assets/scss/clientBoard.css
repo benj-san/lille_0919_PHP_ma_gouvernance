@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#clientName {
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+h2 {
+  margin: 1.6em;
+}
+
+#boardContent {
+  display: flex;
+  width: 90%;
+  min-height: 50vh;
+  flex-wrap: wrap;
+  border: #3d4b80 4px solid;
+  margin: auto;
+  padding: 0.2em;
+  justify-content: center;
+}
+#boardContent .cardAdvisors {
+  display: flex;
+  flex-direction: column;
+  margin: 2.7rem 2rem 2.7rem;
+  min-width: 210px;
+  height: 320px;
+  align-items: center;
+  color: black;
+  cursor: pointer;
+  border: #3d4b80 1px solid;
+}
+#boardContent .cardAdvisors .cardTitle {
+  font-size: 1.2rem;
+  text-align: center;
+}
+#boardContent .cardAdvisors p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+#boardContent .cardAdvisors img {
+  height: 250px;
+  width: 210px;
+  background-color: lightgray;
+  border-bottom: #FFAB40 solid 3px;
+}
+
+/*# sourceMappingURL=clientBoard.css.map */
