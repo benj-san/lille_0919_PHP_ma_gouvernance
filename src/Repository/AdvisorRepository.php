@@ -29,7 +29,7 @@ class AdvisorRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
+            ->setParameter('val', $val  ²ue)
             ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
