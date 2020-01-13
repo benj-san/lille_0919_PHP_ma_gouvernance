@@ -176,6 +176,9 @@ h2{
         background-color: #5eb5e0;
     }
 }
+.iconDeleteAllAdvisors{
+    width: 30px;
+}
 
 #behind {
     position: fixed;
@@ -188,7 +191,7 @@ h2{
     margin-top: -5%;
 }
 
-#behind.display, #allAdvisorsBoard.display{
+#behind.display, #allAdvisorsBoard.display {
     display: flex;
     cursor: pointer;
 }

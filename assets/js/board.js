@@ -16,6 +16,7 @@ const allAdvisorsBoard = document.getElementById('allAdvisorsBoard');
 const iconAdd = document.querySelectorAll('img.iconAdd');
 const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
+const iconDeleteAllAdvisors = document.querySelectorAll('img.iconDeleteAllAdvisors');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -51,6 +52,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         commentAdvisor[i].classList.remove('display');
         deleteAdvisor[i].classList.remove('display');
         cvAdvisor[i].classList.remove('display');
+        allAdvisorsBoard.classList.remove('display');
     });
     // Remove the advisor from the board and add into the list
     definitiveDeleteAdvisor[i].addEventListener('click', () => {
@@ -69,5 +71,11 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     takeAdvisors.addEventListener('click', () => {
         behind.classList.add('display');
         allAdvisorsBoard.classList.add('display');
+    });
+    iconDeleteAllAdvisors[i].addEventListener('click', () => {
+        behind.classList.remove('display');
+        allAdvisorsBoard.classList.remove('display');
+        deleteAdvisor.classList.remove('display');
+        iconDeleteAllAdvisors.remove('display');
     });
 }

@@ -36,6 +36,9 @@
     {% endfor %}
 
     <div id="allAdvisorsBoard">
+        <div class="deleteAdvisorButton">
+           <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
+        </div>
     {% for advisor in advisors %}
             <div class="allAdvisors">
                 <p>{{ advisor.name }} {{ advisor.firstname }}</p>
@@ -61,8 +64,9 @@
             {#<label id="research">
                 <input placeholder="Rechercher">
             </label>
+            #}
             <button id="takeAdvisors">Tous les advisors</button>
-            </label>#}
+
             {% for advisor in advisors %}
                 <div class="cardAdvisorAndAdd">
                     <div id="cardAdvisor" class="cardAdvisorJS">
