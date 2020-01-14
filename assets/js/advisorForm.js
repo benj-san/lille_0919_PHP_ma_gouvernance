@@ -2,7 +2,7 @@ require('../scss/advisorForm.scss');
 
 const secondButtonFirstQuestion = document.getElementById('secondButtonFirstQuestion');
 const questions = document.querySelectorAll('div.question');
-const buttonNext = document.querySelectorAll('button.nextOne');
+const buttonNext = document.querySelectorAll('div.nextOne');
 const experienceYes = document.getElementById('experienceYes');
 const experienceNo = document.getElementById('experienceNo');
 const mandateYes = document.getElementById('mandateYes');
@@ -15,6 +15,7 @@ const checkboxMandateYes = document.getElementById('advisor_mandateExperience_0'
 const checkboxMandateNo = document.getElementById('advisor_mandateExperience_1');
 const checkboxRgpdYes = document.getElementById('advisor_mandateExperience_0');
 const checkboxRgpdNo = document.getElementById('advisor_mandateExperience_1');
+const buttonsBack = document.querySelectorAll('div.lastQuestion');
 
 
 // eslint-disable-next-line no-undef
@@ -22,11 +23,26 @@ const checkboxRgpdNo = document.getElementById('advisor_mandateExperience_1');
 for (let i = 0; i < buttonNext.length; i += 1) {
     buttonNext[i].addEventListener('click', () => {
         questions[i].classList.add('hideIt1');
-        questions[i + 1].classList.remove('hideIt2');
         setTimeout(() => {
+            questions[i + 1].classList.remove('hideIt2');
             questions[i].classList.add('hideIt2');
-            questions[i + 1].classList.remove('hideIt1');
-        }, 500);
+            setTimeout(() => {
+                questions[i + 1].classList.remove('hideIt1');
+            }, 200);
+        }, 200);
+    });
+}
+
+for (let i = 0; i < buttonsBack.length; i += 1) {
+    buttonsBack[i].addEventListener('click', () => {
+        questions[i + 1].classList.add('hideIt1');
+        setTimeout(() => {
+            questions[i].classList.remove('hideIt2');
+            questions[i + 1].classList.add('hideIt2');
+            setTimeout(() => {
+                questions[i].classList.remove('hideIt1');
+            }, 200);
+        }, 200);
     });
 }
 
@@ -56,22 +72,24 @@ experienceNo.addEventListener('click', () => {
     checkboxExperienceYes.checked = false;
     checkboxExperienceNo.checked = true;
     questions[7].classList.add('hideIt1');
-    questions[15].classList.remove('hideIt2');
     setTimeout(() => {
+        questions[15].classList.remove('hideIt2');
         questions[7].classList.add('hideIt2');
-        questions[15].classList.remove('hideIt1');
-    }, 500);
+        setTimeout(() => {
+            questions[15].classList.remove('hideIt1');
+        }, 200);
+    }, 200);
 });
 
 mandateNo.addEventListener('click', () => {
     checkboxMandateYes.checked = false;
     checkboxMandateNo.checked = true;
     questions[9].classList.add('hideIt1');
-    questions[10].classList.remove('hideIt2');
     setTimeout(() => {
+        questions[10].classList.remove('hideIt2');
         questions[9].classList.add('hideIt2');
-        questions[10].classList.remove('hideIt1');
-    }, 500);
+        setTimeout(() => {
+            questions[10].classList.remove('hideIt1');
+        }, 200);
+    }, 200);
 });
-
-

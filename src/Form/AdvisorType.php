@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,28 +23,35 @@ class AdvisorType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Répondez ici...'
-                ]
+                    'placeholder' => 'Répondez ici...',
+                ],
+                'required'   => false,
+
+
             ])
             ->add('name', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Répondez ici...'
-                ]
+                    'placeholder' => 'Répondez ici...',
+                ],
+                'required'   => false,
             ])
             ->add('phoneNumber', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Répondez ici...'
-                ]
+                    'placeholder' => 'Répondez ici...',
+                ],
+                'required'   => false,
             ])
             ->add('email', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Répondez ici...'
-                ]
+                    'placeholder' => 'Répondez ici...',
+                ],
+                'required'   => false,
             ])
             ->add('presentation', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('gouvernanceExperience', ChoiceType::class, [
                 'attr' => [
@@ -54,7 +62,8 @@ class AdvisorType extends AbstractType
                     'Non' => 'false'
                 ],
                 'multiple' => 'false',
-                'expanded' => 'true'
+                'expanded' => 'true',
+                'required'   => false,
             ])
             ->add('tags', EntityType::class, [
                     'attr' => ['class' => 'selectpicker'],
@@ -66,7 +75,8 @@ class AdvisorType extends AbstractType
                     'choice_label' => 'name',
                     'multiple' => true,
                     'expanded' => false,
-                    'by_reference' => false
+                    'by_reference' => false,
+                    'required'   => false,
                 ])
             ->add('tags', EntityType::class, [
                 'attr' => ['class' => 'selectpicker'],
@@ -78,7 +88,8 @@ class AdvisorType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => false,
-                'by_reference' => false
+                'by_reference' => false,
+                'required'   => false,
             ])
             ->add('tags', EntityType::class, [
                 'attr' => ['class' => 'selectpicker'],
@@ -90,7 +101,8 @@ class AdvisorType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => false,
-                'by_reference' => false
+                'by_reference' => false,
+                'required'   => false,
             ])
             ->add('tags', EntityType::class, [
             'attr' => ['class' => 'selectpicker'],
@@ -102,7 +114,8 @@ class AdvisorType extends AbstractType
             'choice_label' => 'name',
             'multiple' => true,
             'expanded' => false,
-            'by_reference' => false
+            'by_reference' => false,
+            'required'   => false,
             ])
             ->add('mandateState', ChoiceType::class, [
                 'attr' => [
@@ -113,47 +126,56 @@ class AdvisorType extends AbstractType
                     'Non' => 'false'
                 ],
                 'multiple' => 'false',
-                'expanded' => 'true'
+                'expanded' => 'true',
+                'required'   => false,
             ])
             ->add('mandateContribution', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('method', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('gain', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('realisation', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('topSkill', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('progress', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('otherSpec', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('dailyRate', NumberType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
-                ]
+                ],
+                'required'   => false,
             ])
             ->add('rgpd', ChoiceType::class, [
                 'attr' => [
@@ -164,7 +186,8 @@ class AdvisorType extends AbstractType
                     'Je n\'accepte pas' => 'false'
                 ],
                 'multiple' => 'false',
-                'expanded' => 'true'
+                'expanded' => 'true',
+                'required'   => false,
             ])
         ;
     }

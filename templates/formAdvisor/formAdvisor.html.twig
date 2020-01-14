@@ -20,136 +20,237 @@
 
 {% block main %}
     <main>
-
+        {{ form_start(form) }}
         <section class="containerCandidature" >
             <div class="question">
-                <div>Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
-                <button class="nextOne choices">Commencer</button>
+                <div class="labels">Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
+                <div class="nextOne choices">Commencer</div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Avant de démarrer, nous vous remercions de certifier sur l'honneur que vous avez votre pleine capacité juridique.*</div>
-                <button class="nextOne choices">Oui</button>
-                <button id="secondButtonFirstQuestion" class = "choices">Non</button>
+                <div class="labels">Avant de démarrer, nous vous remercions de certifier sur l'honneur que vous avez votre pleine capacité juridique.*</div>
+                    <div class="nextOne choices">Oui</div>
+                    <div id="secondButtonFirstQuestion" class = "choices">Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
 
             <div class="hideIt1 hideIt2 question">
-                <div >Nous allons prendre votre prénom *</div>
+                <div class="labels">Nous allons prendre votre prénom *</div>
                 {{ form(form.firstname) }}
-                <button class="nextOne choices">Continuer</button>
+                <div>
+                    <div class="nextOne choices">Continuer</div>
+                </div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Et votre nom de famille *</div>
+                <div class="labels">Et votre nom de famille *</div>
                 {{ form(form.name) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Sur quel numéro pouvons nous vous joindre ? * </div>
+                <div class="labels">Sur quel numéro pouvons nous vous joindre ? * </div>
                 {{ form(form.phoneNumber) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quel est votre email ? *</div>
+                <div class="labels">Quel est votre email ? *</div>
                 {{ form(form.email) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Merci! Pour commencer, quel est votre "pitch" en une vingtaine de mots ? *</div>
+                <div class="labels">Merci! Pour commencer, quel est votre "pitch" en une vingtaine de mots ? *</div>
                 {{ form(form.presentation) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Avez-vous déjà eu une expérience dans un advisory board ou conseil d\'administration/de surveillance ? *</div>
+                <div class="labels">Avez-vous déjà eu une expérience dans un advisory board ou conseil d'administration/de surveillance ? *</div>
                 {{ form(form.gouvernanceExperience) }}
-                <button id="experienceYes" class="nextOne choices" >Oui</button>
-                <button id="experienceNo" class="choices" >Non</button>
+                <div id="experienceYes" class="nextOne choices" >Oui</div>
+                <div id="experienceNo" class="choices" >Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Dans quel type de structure exercez-vous ou avez-vous exercé un mandat ou plusieurs mandats ? *</div>
+                <div class="labels">Dans quel type de structure exercez-vous ou avez-vous exercé un mandat ou plusieurs mandats ? *</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quel(s) statut(s) avez-vous occupé ? *</div>
+                <div class="labels">Quel(s) statut(s) avez-vous occupé ? *</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Votre ou vos mandats sont ils toujours en cours ? *</div>
+                <div class="labels">Votre ou vos mandats sont ils toujours en cours ? *</div>
                 {{ form(form.mandateState) }}
-                <button id="mandateYes" class="nextOne choices" >Oui</button>
-                <button id="mandateNo" class="choices" >Non</button>
+                <div id="mandateYes" class="nextOne choices" >Oui</div>
+                <div id="mandateNo" class="choices" >Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Pourriez-vous préciser les organisations dans lesquelles vous avez ou vous exercez ce(s) mandat(s) et nous dire quelles contributions majeures vous avez apporté.</div>
+                <div class="labels">Pourriez-vous préciser les organisations dans lesquelles vous avez ou vous exercez ce(s) mandat(s) et nous dire quelles contributions majeures vous avez apporté.</div>
                 {{ form(form.mandateContribution) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Méthode : comment avez-vous l'habitude de fonctionner en Conseil ou en advisory board ?</div>
+                <div class="labels">Méthode : comment avez-vous l'habitude de fonctionner en Conseil ou en advisory board ?</div>
                 {{ form(form.method) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Que retirez-vous personnellement de l'expérience d'administrateur / advisor ?</div>
+                <div class="labels">Que retirez-vous personnellement de l'expérience d'administrateur / advisor ?</div>
                 {{ form(form.gain) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Etes-vous titulaire d'un certificat administrateur ou en cours de certification ?</div>
+                <div class="labels">Etes-vous titulaire d'un certificat administrateur ou en cours de certification ?</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quelle fonction principale occupez-vous actuellement ? *</div>
+                <div class="labels">Quelle fonction principale occupez-vous actuellement ? *</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quelles sont les compétences principales que vous pouvez déployer rapidement ? *</div>
+                <div class="labels">Quelles sont les compétences principales que vous pouvez déployer rapidement ? *</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quelles sont vos expertises sectorielles ? *</div>
+                <div class="labels">Quelles sont vos expertises sectorielles ? *</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quels contextes avez-vous expérimenté en entreprise ? *</div>
+                <div class="labels">Quels contextes avez-vous expérimenté en entreprise ? *</div>
                 {{ form(form.tags) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Pour chacun des contextes expérimentés en entreprise, pourriez-vous expliquer ce qu'ont été vos apports, vos réalisations.</div>
+                <div class="labels">Pour chacun des contextes expérimentés en entreprise, pourriez-vous expliquer ce qu'ont été vos apports, vos réalisations.</div>
                 {{ form(form.realisation) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quels sont vos points forts ?</div>
+                <div class="labels">Quels sont vos points forts ?</div>
                 {{ form(form.topSkill) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quels sont vos axes de progrès ?</div>
+                <div class="labels">Quels sont vos axes de progrès ?</div>
                 {{ form(form.progress) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quelles autres particularités souhaitez-vous mentionner ?</div>
+                <div class="labels">Quelles autres particularités souhaitez-vous mentionner ?</div>
                 {{ form(form.otherSpec) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Quel est votre taux journalier moyen ? *</div>
+                <div class="labels">Quel est votre taux journalier moyen ? *</div>
                 {{ form(form.dailyRate) }}
-                <button class="nextOne choices" >Continuer</button>
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div >Avez-vous avez entendu parler de la RGPD, la nouvelle loi sur les données ? Les informations recueillies via ce formulaire sont enregistrées dans notre base de données et ne seront pas revendues à des tiers. Elles nous permettent de communiquer avec vous et vous informer sur nos activités. Elles peuvent également être utilisées en interne afin de conduire des travaux de Recherche et Développement. Ces analyses sont non nominatives et leurs résultats pourront être communiqués. Elles sont conservées pendant trois ans dans nos bases de données Mailchimp, Google et Typeform. Conformément à la loi «informatique et libertés», vous pouvez exercer votre droit d’accès aux données vous concernant et les faire rectifier en contactant : contact@magouvernance.fr *</div>
+                <div class="rgpd">Avez-vous avez entendu parler de la RGPD, la nouvelle loi sur les données ? Les informations recueillies via ce formulaire sont enregistrées dans notre base de données et ne seront pas revendues à des tiers. Elles nous permettent de communiquer avec vous et vous informer sur nos activités. Elles peuvent également être utilisées en interne afin de conduire des travaux de Recherche et Développement. Ces analyses sont non nominatives et leurs résultats pourront être communiqués. Elles sont conservées pendant trois ans dans nos bases de données Mailchimp, Google et Typeform. Conformément à la loi «informatique et libertés», vous pouvez exercer votre droit d’accès aux données vous concernant et les faire rectifier en contactant : contact@magouvernance.fr *</div>
                 {{ form(form.rgpd) }}
-                <button id="rgpdYes" class="nextOne choices" >Oui</button>
-                <button id="rgpdNo" class="choices" >Non</button>
+                <div id="rgpdYes" class="nextOne choices" >Oui</div>
+                <div id="rgpdNo" class="choices" >Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
             </div>
+                <div class="hideIt1 hideIt2 question">
+                    <button class="btn">{{ button_label|default('Save') }}</button>
+                </div>
         </section>
 
     </main>

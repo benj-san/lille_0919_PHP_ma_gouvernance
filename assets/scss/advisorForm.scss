@@ -7,6 +7,10 @@
   font-family:'Montserrat', sans-serif;;
 }
 
+body {
+    height:100vh;
+    overflow:hidden;
+}
 header {
 
     nav {
@@ -65,22 +69,77 @@ header {
     -webkit-box-shadow: 1px 0px 23px 1px rgba(0,0,0,0.38);
     -moz-box-shadow: 1px 0px 23px 1px rgba(0,0,0,0.38);
     box-shadow: 1px 0px 23px 1px rgba(0,0,0,0.38);
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    position:relative;
 
     .selectpicker {
         width:60%;
         margin: 2% auto 5% auto;
     }
 
-
     .question {
-        -webkit-transition: all 0.4s ease-in;
-        -moz-transition: all 0.4s ease-in;
-        -o-transition: all 0.4s ease-in;
-        transition: all 0.4s ease-in;
-        position:absolute;
-        left:6%;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
         width:88%;
-        margin-top:5%;
+        margin: 0 auto;
+
+        .form-control {
+
+            width:60%;
+            margin:4% auto;
+            border:none;
+            box-shadow: none;
+            -webkit-box-shadow:none;
+            border-bottom:1px rgba(0,0,0,0.4) solid;
+            border-radius:0;
+            font-size:32px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+        }
+
+        textarea {
+            height:90px;
+            resize: none;
+
+            ::-webkit-scrollbar {
+                display: none;
+
+            }
+        }
+
+
+        .lastQuestion  {
+            position:absolute;
+            left:4%;
+            bottom:8%;
+            color:rgba(0,0,0,0.6);
+            font-size:20px;
+            display:flex;
+            align-items: center;
+            cursor:pointer;
+
+            .backArrow {
+                height:24px;
+                width:24px;
+
+                opacity:0.7;
+
+
+            }
+        }
+
+
+
+        .rgpd {
+            font-size:22px;
+        }
 
         .choices {
             z-index:2;
@@ -106,29 +165,7 @@ header {
 
 }
 
-.form-control {
 
-    width:60%;
-    margin:4% auto;
-    border:none;
-    box-shadow: none;
-    -webkit-box-shadow:none;
-    border-bottom:1px rgba(0,0,0,0.4) solid;
-    border-radius:0;
-    font-size:32px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    &:focus {
-        border-bottom:none;
-        box-shadow: none;
-        -webkit-box-shadow:none;
-        text-align: center;
-
-    }
-}
 
 label {
     font-weight:400;
