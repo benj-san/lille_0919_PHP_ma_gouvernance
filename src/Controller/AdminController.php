@@ -10,6 +10,7 @@ use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
+use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -112,10 +113,15 @@ class AdminController extends AbstractController
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
+     * @param ResumeRepository $resumeRepository
      * @return Response
      */
-    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request): Response
-    {
+    public function board(
+        AdvisorRepository $advisorRepository,
+        Board $board,
+        Request $request,
+        ResumeRepository $resumeRepository
+    ): Response {
         $advisor = $advisorRepository->findAll();
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
@@ -123,32 +129,47 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-
+        $demand = $board->getDemand();
+        $resume = $resumeRepository->findBy(['demand'=>$demand]);
 
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $advisor,
             'formBoard' => $form->createView(),
             'board' => $board,
+            'resumes' => $resume,
         ]);
     }
 
     /**
      * @Route("admin/boardform/{board}/{advisor}", name="formBoard")
-     * @param Advisor $advisor
      * @param Board $board
+     * @param Advisor $advisor
      * @param EntityManagerInterface $entityManager
+     * @param ResumeRepository $resumeRepository
      * @return Response
      */
-    public function formBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager): Response
-    {
+    public function formBoard(
+        Board $board,
+        Advisor $advisor,
+        EntityManagerInterface $entityManager,
+        ResumeRepository $resumeRepository
+    ): Response {
         $demand = $board->getDemand();
-        $resume = new Resume();
-        $resume->setDemand($demand);
-        $resume->setAdvisor($advisor);
-        $resume->setContent($_POST['resume']);
-        $board->addAdvisor($advisor);
-        $entityManager->persist($resume);
-        $entityManager->flush();
+        $resumeForm = $resumeRepository->findOneBy(['demand'=>$demand, 'advisor'=>$advisor]);
+        if ($resumeForm === null) {
+            $resume = new Resume();
+            $resume->setDemand($demand);
+            $resume->setAdvisor($advisor);
+            $resume->setContent($_POST['resume']);
+            $board->addAdvisor($advisor);
+            $entityManager->persist($resume);
+            $entityManager->flush();
+        } else {
+            $resumeForm->setContent($_POST['resume']);
+            $board->addAdvisor($advisor);
+            $entityManager->persist($resumeForm);
+            $entityManager->flush();
+        }
         $boardId = $board->getId();
         return $this->redirectToRoute('board', [
             'id' => $boardId
