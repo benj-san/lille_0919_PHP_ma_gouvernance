@@ -86,12 +86,12 @@ class Advisor
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $gouvernanceExperience;
+    private $gouvernanceExperience = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $mandateState;
+    private $mandateState= false;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -141,7 +141,7 @@ class Advisor
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $rgpd;
+    private $rgpd = true;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)

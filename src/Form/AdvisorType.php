@@ -53,18 +53,9 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
             ])
-            ->add('gouvernanceExperience', ChoiceType::class, [
-                'attr' => [
-                    'class' => 'hideIt2'
-                ],
-                'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false'
-                ],
-                'multiple' => 'false',
-                'expanded' => 'true',
+            ->add('gouvernanceExperience', CheckboxType::class, [
                 'required'   => false,
-            ])
+                ])
             ->add('tags', EntityType::class, [
                     'attr' => ['class' => 'selectpicker'],
                     'class' => Tag::class,
@@ -117,16 +108,10 @@ class AdvisorType extends AbstractType
             'by_reference' => false,
             'required'   => false,
             ])
-            ->add('mandateState', ChoiceType::class, [
+            ->add('mandateState', CheckboxType::class, [
                 'attr' => [
                     'class' => 'hideIt2'
                 ],
-                'choices' => [
-                    'Oui' => 'true',
-                    'Non' => 'false'
-                ],
-                'multiple' => 'false',
-                'expanded' => 'true',
                 'required'   => false,
             ])
             ->add('mandateContribution', TextareaType::class, [
@@ -177,16 +162,10 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
             ])
-            ->add('rgpd', ChoiceType::class, [
+            ->add('rgpd', CheckboxType::class, [
                 'attr' => [
                     'class' => 'hideIt2'
                 ],
-                'choices' => [
-                    'J\'accepte' => 'true',
-                    'Je n\'accepte pas' => 'false'
-                ],
-                'multiple' => 'false',
-                'expanded' => 'true',
                 'required'   => false,
             ])
         ;
