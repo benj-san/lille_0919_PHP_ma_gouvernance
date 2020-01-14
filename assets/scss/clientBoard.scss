@@ -22,60 +22,92 @@ body{
     text-align: center;
 
 }
+#behind {
+    position: fixed;
+    opacity: 60%;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    z-index: 5;
+    background-color: black;
+    margin-top: -5%;
+}
 
-#boardContent{
+
+#behind.display {
+    display: flex;
+    cursor: pointer;
+}
+
+#boardContent {
     display: flex;
     width: 78%;
-    padding: 2em;
+    padding: 2.5em;
     flex-wrap: wrap;
-    margin: auto auto 2em;
+    margin: auto auto 2.4em;
     justify-content: center;
-    background-color:  #3d4b80;
-    -webkit-box-shadow: 2px 0 23px 1px rgba(0,0,0,0.5);
-    -moz-box-shadow: 2px 0 23px 1px rgba(0,0,0,0.5);
-    box-shadow: 2px 0 23px 1px rgba(0,0,0,0.5);
+    background-color: #3d4b80;
+    -webkit-box-shadow: 2px 0 23px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 2px 0 23px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 0 23px 1px rgba(0, 0, 0, 0.5);
+
 
     .cardAdvisors {
         display: flex;
+
         flex-direction: column;
         margin: 1.3em;
         min-width: 250px;
         height: 330px;
         align-items: center;
         color: black;
-        cursor: pointer;
-        background-color: white;
-        border: #25254b solid 3px;
+         background-color: white;
+        border:  #21215e 3px inset;
 
 
+        .iconLink {
 
-
-
-        .cardTitle{
-            font-size: 1.5rem;
-            text-align: center;
+            position: relative;
+            cursor: pointer;
+            .icon {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                display: block;
+                bottom: 5px;
+                right: 5px;
+                z-index: 50;
+            }
         }
 
-        p{
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-
-        img{
+        .advisorPic {
             height: 270px;
             width: 250px;
-            background-color: lightgray;
             border-bottom: #3d4b80 solid 2px;
         }
-    }
 
+
+        .advisorInfo {
+
+            display: inline-block;
+            position: relative;
+
+            .cardTitle {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1.3rem;
+                margin-bottom: 5px;
+            }
+        }
+    }
 }
 
 footer {
 
-    margin: auto;
-    height: 40px;
+    height: 15px;
     background-color: white;
-    border-top: white solid 2px;
-
+    border-top: #21215e solid 2px;
 }

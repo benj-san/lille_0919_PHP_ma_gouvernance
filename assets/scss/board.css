@@ -210,6 +210,9 @@
 #boardAndBoardAdvisors #board #boardEdit form {
   display: none;
 }
+#boardAndBoardAdvisors #board #clientLink {
+  text-align: center;
+}
 #boardAndBoardAdvisors #board a {
   width: 100%;
   display: flex;
