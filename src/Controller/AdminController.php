@@ -10,7 +10,9 @@ use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
+use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -112,11 +114,27 @@ class AdminController extends AbstractController
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
+     * @param ResumeRepository $resumeRepository
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request): Response
-    {
+    public function board(
+        AdvisorRepository $advisorRepository,
+        Board $board,
+        Request $request,
+        ResumeRepository $resumeRepository,
+        EntityManagerInterface $entityManager
+    ): Response {
+
+        if (isset($_POST['commentChanged'])) {
+            $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
+            $advisor->setCommentary($_POST['commentaryAdvisor']);
+            $entityManager->flush();
+        }
+
         $advisor = $advisorRepository->findAll();
+        $demand = $board->getDemand();
+        $resumes = $resumeRepository->findBy(['demand'=>$demand]);
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -129,6 +147,7 @@ class AdminController extends AbstractController
             'advisors' => $advisor,
             'formBoard' => $form->createView(),
             'board' => $board,
+            'resumes' => $resumes,
         ]);
     }
 
