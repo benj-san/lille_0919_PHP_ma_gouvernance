@@ -34,6 +34,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRoles(['ROLE_ADMIN']);
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -53,7 +54,7 @@ class RegistrationController extends AbstractController
                 $request,
                 $authenticator,
                 'main' // firewall name in security.yaml
-            )?: new RedirectResponse('/');
+            )?: new RedirectResponse('demands');
         }
 
         return $this->render('registration/register.html.twig', [
