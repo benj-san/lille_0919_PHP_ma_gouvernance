@@ -8,13 +8,9 @@ const experienceNo = document.getElementById('experienceNo');
 const mandateYes = document.getElementById('mandateYes');
 const mandateNo = document.getElementById('mandateNo');
 const rgpdYes = document.getElementById('rgpdYes');
-const rgpdNo = document.getElementById('rgpdNo');
 const checkboxExperienceYes = document.getElementById('advisor_gouvernanceExperience');
-const checkboxExperienceNo = document.getElementById('advisor_gouvernanceExperience_1');
 const checkboxMandateYes = document.getElementById('advisor_mandateExperience');
-const checkboxMandateNo = document.getElementById('advisor_mandateExperience_1');
 const checkboxRgpdYes = document.getElementById('advisor_mandateExperience');
-const checkboxRgpdNo = document.getElementById('advisor_rgpdExperience_1');
 const buttonsBack = document.querySelectorAll('div.lastQuestion');
 
 
