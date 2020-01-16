@@ -18,6 +18,13 @@
                     <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
                     <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
                     <p>{{ advisor.place }}</p>
+                    {% if advisor.status ==0 %}
+                    <p>canditature en cours</p>
+                {% elseif advisor.status ==1 %}
+                    <p>canditature acceptée</p>
+                {% elseif advisor.status ==2 %}
+                    <p>canditature en suspens</p>
+                    {% endif %}
                 </div>
             {% endfor %}
         </section>
