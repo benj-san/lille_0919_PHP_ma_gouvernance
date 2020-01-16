@@ -5,8 +5,6 @@ const cardAdvisorJS = document.querySelectorAll('div.cardAdvisors');
 const myInput = document.getElementById('myInput');
 const filterContainer = document.getElementById('filterContainer');
 
-
-
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     cardAdvisorJS[i].addEventListener('click', () => {
         cvAdvisor[i].classList.add('display');
