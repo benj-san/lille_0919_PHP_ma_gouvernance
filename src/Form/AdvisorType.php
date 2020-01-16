@@ -26,8 +26,6 @@ class AdvisorType extends AbstractType
                     'placeholder' => 'Répondez ici...',
                 ],
                 'required'   => false,
-
-
             ])
             ->add('name', TextType::class, [
                 'attr' => [
@@ -54,6 +52,9 @@ class AdvisorType extends AbstractType
                 'required'   => false,
             ])
             ->add('gouvernanceExperience', CheckboxType::class, [
+                'attr' => [
+                    'class' => 'hideIt2'
+                ],
                 'required'   => false,
                 ])
             ->add('tags', EntityType::class, [
@@ -207,7 +208,25 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
             ])
-        ;
+            ->add('linkedin', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Répondez ici...',
+                ],
+                'required'   => false,
+                    ])
+            ->add('idealMission', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Répondez ici...'
+                ],
+                'required'   => false,
+            ])
+            ->add('avaibility', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Répondez ici...'
+                ],
+                'required'   => false,
+            ])
+                ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

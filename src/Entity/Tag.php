@@ -145,24 +145,4 @@ class Tag
         $this->advisors = $advisors;
         return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getAdvisors2()
-    {
-        return $this->advisors2;
-    }
-
-    /**
-     * @param mixed $advisors2
-     * @return Tag
-     */
-    public function setAdvisors2($advisors2)
-    {
-        $this->advisors2 = $advisors2;
-        return $this;
-    }
-
-
 }

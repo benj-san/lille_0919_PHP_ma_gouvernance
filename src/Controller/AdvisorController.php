@@ -31,10 +31,10 @@ class AdvisorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             if ($advisor->getGouvernanceExperience() === true) {
                 if ($form['tagsStatut']->getData()) {
-                    for ($i = 0; $i < count($form['tagsStatut']->getData()); $i++) {
+                    $total = count($form['tagsStatut']->getData());
+                    for ($i = 0; $i < $total; $i++) {
                         $tag = $form['tagsStatut']->getData()[$i];
                         $advisor->addTag($tag);
                     }
@@ -42,45 +42,50 @@ class AdvisorController extends AbstractController
             }
 
             if ($form['tagsActualFunction']->getData()) {
-                for ($i = 0; $i < count($form['tagsActualFunction']->getData()); $i++) {
+                $total = count($form['tagsActualFunction']->getData());
+                for ($i = 0; $i < $total; $i++) {
                     $tag = $form['tagsActualFunction']->getData()[$i];
                     $advisor->addTag($tag);
                 }
             }
 
             if ($form['tagsCertificate']->getData()) {
-                for ($i = 0; $i < count($form['tagsCertificate']->getData()); $i++) {
+                $total = count($form['tagsCertificate']->getData());
+                for ($i = 0; $i < $total; $i++) {
                     $tag = $form['tagsCertificate']->getData()[$i];
                     $advisor->addTag($tag);
                 }
             }
 
             if ($form['tagsExpertises']->getData()) {
-                for ($i = 0; $i < count($form['tagsExpertises']->getData()); $i++) {
+                $total = count($form['tagsExpertises']->getData());
+                for ($i = 0; $i < $total; $i++) {
                     $tag = $form['tagsExpertises']->getData()[$i];
                     $advisor->addTag($tag);
                 }
             }
 
             if ($form['tagsCompetences']->getData()) {
-                for ($i = 0; $i < count($form['tagsCompetences']->getData()); $i++) {
+                $total = count($form['tagsCompetences']->getData());
+                for ($i = 0; $i < $total; $i++) {
                     $tag = $form['tagsCompetences']->getData()[$i];
                     $advisor->addTag($tag);
                 }
             }
 
             if ($form['tagsContexts']->getData()) {
-                for ($i = 0; $i < count($form['tagsContexts']->getData()); $i++) {
+                $total = count($form['tagsContexts']->getData());
+                for ($i = 0; $i < $total; $i++) {
                     $tag = $form['tagsContexts']->getData()[$i];
                     $advisor->addTag($tag);
                 }
             }
 
-
             $date = new DateTime('now');
             $advisor->setSubmissionDate($date);
             $em->persist($advisor);
             $em->flush();
+            return $this->redirect('http://www.magouvernance.com');
         }
         return $this->render('formAdvisor/formAdvisor.html.twig', [
             'form' => $form->createView()

@@ -36,16 +36,11 @@ for (let i = 0; i < buttonNext.length; i += 1) {
 for (let i = 0; i < buttonsBack.length; i += 1) {
     buttonsBack[i].addEventListener('click', () => {
         questions[i + 1].classList.add('hideIt1');
-        setTimeout(() => {
-            questions[i].classList.remove('hideIt2');
-            questions[i + 1].classList.add('hideIt2');
-            setTimeout(() => {
-                questions[i].classList.remove('hideIt1');
-            }, 200);
-        }, 200);
+        questions[i].classList.remove('hideIt2');
+        questions[i + 1].classList.add('hideIt2');
+        questions[i].classList.remove('hideIt1');
     });
 }
-
 
 secondButtonFirstQuestion.addEventListener('click', () => {
     window.location.href = 'http://www.magouvernance.com';

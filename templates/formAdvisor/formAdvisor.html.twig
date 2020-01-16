@@ -241,6 +241,33 @@
                 </div>
             </div>
             <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelle est pour vous la mission idéale ?</div>
+                {{ form_widget(form.idealMission) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelles sont vos disponibilités pour vous consacrer à une mission d'administrateur ?</div>
+                {{ form_widget(form.avaibility) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Merci de nous indiquer le lien vers votre profil Linkedin *</div>
+                {{ form_widget(form.linkedin) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
                 <div class="rgpd">Avez-vous avez entendu parler de la RGPD, la nouvelle loi sur les données ? Les informations recueillies via ce formulaire sont enregistrées dans notre base de données et ne seront pas revendues à des tiers. Elles nous permettent de communiquer avec vous et vous informer sur nos activités. Elles peuvent également être utilisées en interne afin de conduire des travaux de Recherche et Développement. Ces analyses sont non nominatives et leurs résultats pourront être communiqués. Elles sont conservées pendant trois ans dans nos bases de données Mailchimp, Google et Typeform. Conformément à la loi «informatique et libertés», vous pouvez exercer votre droit d’accès aux données vous concernant et les faire rectifier en contactant : contact@magouvernance.fr *</div>
                 {{ form_widget(form.rgpd) }}
                 <div id="rgpdYes" class="nextOne choices" >Oui</div>
@@ -250,10 +277,10 @@
                     Question précédente
                 </div>
             </div>
-                <div class="question hideIt1 hideIt2">
-                    <button type="submit">Save</button>
-                    {{ form_errors(form) }}
-                </div>
+            <div class="question hideIt1 hideIt2">
+                <div class="labels">Valider votre canditure !</div>
+                <button class="choices" type="submit">Envoyer</button>
+            </div>
             {{ form_end(form) }}
 
         </section>

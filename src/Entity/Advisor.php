@@ -181,6 +181,11 @@ class Advisor
      */
     private $submissionDate;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $linkedin;
+
 
     public function __construct()
     {
@@ -688,5 +693,21 @@ class Advisor
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLinkedin()
+    {
+        return $this->linkedin;
+    }
 
+    /**
+     * @param mixed $linkedin
+     * @return Advisor
+     */
+    public function setLinkedin($linkedin)
+    {
+        $this->linkedin = $linkedin;
+        return $this;
+    }
 }
