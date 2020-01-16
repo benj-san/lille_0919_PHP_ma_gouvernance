@@ -32,8 +32,7 @@ class AdminController extends AbstractController
         TagRepository $tagRepository,
         Request $request,
         EntityManagerInterface $entityManager
-    ): Response
-    {
+    ): Response {
         /* Changement de statut de la demande */
         if (isset($_POST['statutSubmitted'])) {
             $values = explode('-', $_POST['radio']);
@@ -116,8 +115,12 @@ class AdminController extends AbstractController
      * @param DemandRepository $demandRepository
      * @return Response
      */
-    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request, DemandRepository $demandRepository): Response
-    {
+    public function board(
+        AdvisorRepository $advisorRepository,
+        Board $board,
+        Request $request,
+        DemandRepository $demandRepository
+    ): Response {
         $advisor = $advisorRepository->findAll();
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
         $tags = $demand->getTags()->getValues();
@@ -211,8 +214,7 @@ class AdminController extends AbstractController
         Board $board,
         Advisor $advisor,
         EntityManagerInterface $entityManager
-    ): Response
-    {
+    ): Response {
         $board->removeAdvisor($advisor);
         $boardId = $board->getId();
         $entityManager->flush();
