@@ -9,19 +9,19 @@
 body{
     background-color: white; ;
 }
+
 #headerClient{
     margin-bottom: 2px;
     }
 
 #clientName{
-
     width: 80%;
     margin: 0.8em auto 1em;
     color: #3d4b80;
     background-color: white;
     text-align: center;
-
 }
+
 #behind {
     position: fixed;
     opacity: 60%;
@@ -32,7 +32,6 @@ body{
     background-color: black;
     margin-top: -5%;
 }
-
 
 #behind.display {
     display: flex;
