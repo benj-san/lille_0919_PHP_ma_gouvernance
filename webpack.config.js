@@ -32,6 +32,8 @@ Encore
     .addEntry('board', './assets/js/board.js')
     .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
     // .addEntry('page2', './assets/js/page2.js')
+    .addEntry('advisors', './assets/js/advisors.js')
+    //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
