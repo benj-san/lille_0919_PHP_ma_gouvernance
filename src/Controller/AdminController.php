@@ -6,12 +6,9 @@ use App\Entity\Resume;
 use App\Entity\Advisor;
 use App\Entity\Board;
 use App\Form\BoardType;
-use App\Entity\Advisor;
 use App\Entity\Demand;
-use App\Form\BoardType;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
-use App\Repository\BoardRepository;
 use App\Repository\DemandRepository;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,7 +32,8 @@ class AdminController extends AbstractController
         TagRepository $tagRepository,
         Request $request,
         EntityManagerInterface $entityManager
-    ): Response {
+    ): Response
+    {
         /* Changement de statut de la demande */
         if (isset($_POST['statutSubmitted'])) {
             $values = explode('-', $_POST['radio']);
@@ -61,7 +59,7 @@ class AdminController extends AbstractController
                     break;
             }
         } else {
-            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+            $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
         }
 
         $tags = $tagRepository->findAll();
@@ -82,9 +80,9 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('demands');
         }
         return $this->render('admin/demands.html.twig', [
-            'demands'=>$demands,
+            'demands' => $demands,
             'tags' => $tags,
-            'formDemand' =>$form->createView(),
+            'formDemand' => $form->createView(),
 
         ]);
     }
@@ -115,9 +113,10 @@ class AdminController extends AbstractController
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
+     * @param DemandRepository $demandRepository
      * @return Response
      */
-    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request): Response
+    public function board(AdvisorRepository $advisorRepository, Board $board, Request $request, DemandRepository $demandRepository): Response
     {
         $advisor = $advisorRepository->findAll();
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
@@ -125,26 +124,26 @@ class AdminController extends AbstractController
 
         $advisorsArray = array();
         $totalAdvisors = count($advisor);
-        for ($i = 0; $i<$totalAdvisors; $i++) {
+        for ($i = 0; $i < $totalAdvisors; $i++) {
             $matches = 0;
             $advisorsTags = $advisor[$i]->getTags()->getValues();
             $totalTags = count($tags);
-            for ($j = 0; $j<$totalTags; $j++) {
+            for ($j = 0; $j < $totalTags; $j++) {
                 $totalTags2 = count($advisorsTags);
-                for ($k = 0; $k< $totalTags2; $k++) {
+                for ($k = 0; $k < $totalTags2; $k++) {
                     if ($advisorsTags[$k] === $tags[$j]) {
                         $matches++;
                     }
                 }
             }
-            $advisorAndSum = [$matches => $advisor[$i]->getId()] ;
+            $advisorAndSum = [$matches => $advisor[$i]->getId()];
             array_push($advisorsArray, $advisorAndSum);
         }
 
         $total = count($advisorsArray);
-        for ($i = 0; $i<$total; $i++) {
+        for ($i = 0; $i < $total; $i++) {
             $total2 = count($advisorsArray);
-            for ($j = 0 + $i; $j< $total2; $j++) {
+            for ($j = 0 + $i; $j < $total2; $j++) {
                 if (key($advisorsArray[$i]) < key($advisorsArray[$j])) {
                     $temporary = $advisorsArray[$j];
                     $advisorsArray[$j] = $advisorsArray[$i];
@@ -161,9 +160,8 @@ class AdminController extends AbstractController
                 array_push($allAdvisorsSorted, $advisorSorted);
             }
         }
-      
-     
-      
+
+
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -213,7 +211,8 @@ class AdminController extends AbstractController
         Board $board,
         Advisor $advisor,
         EntityManagerInterface $entityManager
-    ): Response {
+    ): Response
+    {
         $board->removeAdvisor($advisor);
         $boardId = $board->getId();
         $entityManager->flush();
@@ -221,4 +220,4 @@ class AdminController extends AbstractController
             'id' => $boardId
         ]);
     }
-
+}

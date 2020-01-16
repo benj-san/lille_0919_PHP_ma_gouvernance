@@ -16,6 +16,7 @@
         <exclude name="TooManyPublicMethods"/>
         <exclude name="ExcessivePublicCount"/>
         <exclude name="ExcessiveMethodLength"/>
+        <exclude name="CyclomaticComplexity"/>
     </rule>
     <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity" >
         <properties>
