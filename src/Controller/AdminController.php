@@ -100,7 +100,25 @@ class AdminController extends AbstractController
             $advisor->setCommentary($_POST['commentaryAdvisor']);
             $entityManager->flush();
         }
-        $advisors = $advisorRepository->findAll();
+
+        if (isset($_GET['filter'])) {
+            switch ($_GET['filter']) {
+                case 'encours':
+                    $advisors = $advisorRepository->findBy(array('status' => 0));
+                    break;
+                case 'accepté':
+                    $advisors = $advisorRepository->findBy(array('status' => 1));
+                    break;
+                case 'ensuspens':
+                    $advisors = $advisorRepository->findBy(array('status' => 2));
+                    break;
+                default:
+                    $advisors = $advisorRepository->findAll();
+                    break;
+            }
+        } else {
+            $advisors = $advisorRepository->findAll();
+        }
         return $this->render('admin/advisors.html.twig', [
             'advisors' => $advisors,
             'pageAdvisor' => 'page advisor'
