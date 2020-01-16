@@ -42,7 +42,7 @@ body{
 #boardContent {
     display: flex;
     width: 78%;
-    padding: 2.5em;
+    padding: 2em;
     flex-wrap: wrap;
     margin: auto auto 2.4em;
     justify-content: center;
@@ -54,21 +54,20 @@ body{
 
     .cardAdvisors {
         display: flex;
-
         flex-direction: column;
         margin: 1.3em;
         min-width: 250px;
         height: 330px;
         align-items: center;
         color: black;
-         background-color: white;
+        background-color: white;
         border:  #21215e 3px inset;
 
 
         .iconLink {
 
             position: relative;
-            cursor: pointer;
+
             .icon {
                 position: absolute;
                 width: 40px;
@@ -77,6 +76,7 @@ body{
                 bottom: 5px;
                 right: 5px;
                 z-index: 50;
+                cursor: pointer;
             }
         }
 
@@ -84,17 +84,30 @@ body{
             height: 270px;
             width: 250px;
             border-bottom: #3d4b80 solid 2px;
+            -webkit-filter: grayscale(10%);
+            filter: grayscale(30%);
         }
 
 
         .advisorInfo {
+            width: 100%;
+            padding-left:0.5em;
+            background: linear-gradient( to left, #ebebeb 50%,  #21215e  50% );
+            background-size: 200% 100%;
+            background-position: right bottom;
+            cursor: pointer;
+            transition: all ease .4s;
 
-            display: inline-block;
-            position: relative;
+
+            &:hover{
+                background-position: left bottom;
+                color: white;
+                font-weight: bold;
+            }
 
             .cardTitle {
+                padding-top: 5px;
                 font-size: 1.5rem;
-                text-align: center;
             }
 
             p {
@@ -107,7 +120,6 @@ body{
 
 footer {
 
-    height: 15px;
     background-color: white;
     border-top: #21215e solid 2px;
 }

@@ -39,7 +39,7 @@ body {
 #boardContent {
   display: flex;
   width: 78%;
-  padding: 2.5em;
+  padding: 2em;
   flex-wrap: wrap;
   margin: auto auto 2.4em;
   justify-content: center;
@@ -61,7 +61,6 @@ body {
 }
 #boardContent .cardAdvisors .iconLink {
   position: relative;
-  cursor: pointer;
 }
 #boardContent .cardAdvisors .iconLink .icon {
   position: absolute;
@@ -71,19 +70,32 @@ body {
   bottom: 5px;
   right: 5px;
   z-index: 50;
+  cursor: pointer;
 }
 #boardContent .cardAdvisors .advisorPic {
   height: 270px;
   width: 250px;
   border-bottom: #3d4b80 solid 2px;
+  -webkit-filter: grayscale(10%);
+  filter: grayscale(30%);
 }
 #boardContent .cardAdvisors .advisorInfo {
-  display: inline-block;
-  position: relative;
+  width: 100%;
+  padding-left: 0.5em;
+  background: linear-gradient(to left, #ebebeb 50%, #21215e 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+#boardContent .cardAdvisors .advisorInfo:hover {
+  background-position: left bottom;
+  color: white;
+  font-weight: bold;
 }
 #boardContent .cardAdvisors .advisorInfo .cardTitle {
+  padding-top: 5px;
   font-size: 1.5rem;
-  text-align: center;
 }
 #boardContent .cardAdvisors .advisorInfo p {
   font-size: 1.3rem;
@@ -91,7 +103,6 @@ body {
 }
 
 footer {
-  height: 15px;
   background-color: white;
   border-top: #21215e solid 2px;
 }

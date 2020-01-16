@@ -1,15 +1,19 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-    {{ encore_entry_link_tags('clientBoard') }}
-    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('clientBoard') }}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+
+{% block header %}
+    <header>
+        <nav>
+            <a class="logoContainer" href="http://magouvernance.fr/"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+
+        </nav>
+    </header>
 {% endblock %}
-    {% block header %}
-<header id="headerClient">
-    <nav>
-        <a class="logoContainer" href=""><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
-    </nav>
-</header>
-{% endblock %}
+
 {% block main %}
     <div id="behind">
     </div>
@@ -31,6 +35,7 @@
                          <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
                         <p>{{ advisor.place }}</p>
 
+
                      </div>
                  </div>
 
@@ -39,9 +44,7 @@
 
 {% endblock %}
  {% block footer %}
-     <footer>
 
-     </footer>
  {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('clientBoard') }}
