@@ -37,9 +37,11 @@
         <div id="board">
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
-                {{ form_start(formBoard) }}
-                {{ form_widget(formBoard) }}
-                {{ form_end(formBoard) }}
+                <div class="boardDisplayAdvisor">
+                    {{ form_start(formBoard) }}
+                    {{ form_widget(formBoard) }}
+                    {{ form_end(formBoard) }}
+                </div>
             </div>
             <div id="viewBoardAndIcon">
                 <div id="viewBoard">

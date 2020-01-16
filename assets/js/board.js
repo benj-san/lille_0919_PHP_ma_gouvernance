@@ -22,15 +22,10 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         if (checkboxAdvisor[j].type === 'checkbox' && idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
             if (checkboxAdvisor[j].checked) {
                 boardEdit.appendChild(cardAdvisorJS[i]);
-                boardEdit.classList.add('displayAdvisor');
             }
         }
     }
     // Advisors not in DB
-    // Modify the css if an advisor goes into the board
-    if (cardAdvisorJS[i].parentNode.id === 'boardEdit') {
-        boardEdit.classList.add('displayAdvisor');
-    }
     // Displays the different windows according to the icons
     iconDelete[i].addEventListener('click', () => {
         behind.classList.add('display');

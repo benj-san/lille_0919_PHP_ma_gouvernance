@@ -15,7 +15,7 @@
     margin-top: 1em;
 }
 
-h2{
+h2 {
     margin: 1.6em;
 }
 
@@ -192,12 +192,6 @@ h2{
             color: $border;
         }
 
-        #boardEdit.displayAdvisor {
-            display: flex;
-            justify-content: space-around;
-            flex-flow: wrap;
-        }
-
         #boardEdit.hidden{
             display: none;
         }
@@ -210,6 +204,8 @@ h2{
             overflow: auto;
             padding: 10px;
             box-shadow: 0 0 15px gray;
+            display: flex;
+            flex-flow: row wrap;
 
             .cardAdvisorJS {
                 display: flex;
@@ -217,12 +213,14 @@ h2{
                 text-align: center;
                 outline: solid #21215e;
                 position: relative;
-                margin-bottom: 10px;
+                margin: 10px;
                 width: calc(25% - 20px);
                 height: 70%;
 
                 .pp {
                     width: 100%;
+                    max-width: 100%;
+                    display: block;
                     border-bottom: 1px solid #21215e;
                 }
 
@@ -232,7 +230,7 @@ h2{
                     .nameAdvisor {
                         font-weight: bold;
                         font-size: 17px;
-                        height: 60px;
+                        height: 10%;
                     }
 
                     .placeAdvisor {
@@ -420,6 +418,7 @@ h2{
         #boardAdvisors{
 
             .cardAdvisorJS{
+                height: 120px;
 
                 .pp{
                     width: 120px;
@@ -462,7 +461,7 @@ h2{
 
             #boardEdit{
 
-                .cardAdvisorJS{
+                .cardAdvisorJS {
                     width: calc((100% / 3) - 20px);
                 }
             }
@@ -498,6 +497,7 @@ h2{
 
                 .cardAdvisorJS{
                     width: 30%;
+                    height: auto;
 
                     #cardAdvisorInfos{
 
@@ -546,6 +546,13 @@ h2{
     #boardAndBoardAdvisors {
 
         #board{
+
+            #boardEdit{
+
+                .cardAdvisorJS{
+                    height: auto;
+                }
+            }
 
             #viewBoard{
 
