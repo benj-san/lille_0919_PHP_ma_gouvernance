@@ -132,7 +132,7 @@
             text-align: center;
             margin-top: 3%;
             font-size: 3vw;
-            font-style: normal;
+            font-style: normal; {% endif %}
             font-weight: normal;
         }
 
@@ -238,9 +238,10 @@
                 display: none;
             }
         }
+        
         #clientLink{
             text-align: center;
-        };
+        }
 
         a {
             width: 100%;
