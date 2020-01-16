@@ -69,7 +69,7 @@ class AdvisorType extends AbstractType
                     'by_reference' => false,
                     'required'   => false,
                 ])
-            ->add('tags', EntityType::class, [
+            ->add('tagsStatut', EntityType::class, [
                 'attr' => ['class' => 'selectpicker'],
                 'class' => Tag::class,
                 'query_builder' => function (EntityRepository $er) {
@@ -82,7 +82,46 @@ class AdvisorType extends AbstractType
                 'by_reference' => false,
                 'required'   => false,
             ])
-            ->add('tags', EntityType::class, [
+            ->add('tagsCertificate', EntityType::class, [
+                'attr' => ['class' => 'selectpicker'],
+                'class' => Tag::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->WHERE('t.category = 5');
+                },
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => false,
+                'required'   => false,
+            ])
+            ->add('tagsActualFunction', EntityType::class, [
+            'attr' => ['class' => 'selectpicker'],
+            'class' => Tag::class,
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('t')
+                    ->WHERE('t.category = 4');
+            },
+            'choice_label' => 'name',
+            'multiple' => true,
+            'expanded' => false,
+            'by_reference' => false,
+            'required'   => false,
+            ])
+            ->add('tagsCompetences', EntityType::class, [
+                'attr' => ['class' => 'selectpicker'],
+                'class' => Tag::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->WHERE('t.category = 2');
+                },
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => false,
+                'required'   => false,
+            ])
+            ->add('tagsExpertises', EntityType::class, [
                 'attr' => ['class' => 'selectpicker'],
                 'class' => Tag::class,
                 'query_builder' => function (EntityRepository $er) {
@@ -95,18 +134,18 @@ class AdvisorType extends AbstractType
                 'by_reference' => false,
                 'required'   => false,
             ])
-            ->add('tags', EntityType::class, [
-            'attr' => ['class' => 'selectpicker'],
-            'class' => Tag::class,
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('t')
-                    ->WHERE('t.category = 6');
-            },
-            'choice_label' => 'name',
-            'multiple' => true,
-            'expanded' => false,
-            'by_reference' => false,
-            'required'   => false,
+            ->add('tagsContexts', EntityType::class, [
+                'attr' => ['class' => 'selectpicker'],
+                'class' => Tag::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->WHERE('t.category = 3');
+                },
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => false,
+                'required'   => false,
             ])
             ->add('mandateState', CheckboxType::class, [
                 'attr' => [

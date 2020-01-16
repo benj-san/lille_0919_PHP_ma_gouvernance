@@ -101,6 +101,7 @@ header {
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            display:block;
 
         }
 
@@ -160,6 +161,7 @@ header {
             border-radius: 4px;
             margin:3% auto;
             width:20%;
+            display:inline-block;
         }
     }
 
@@ -170,6 +172,7 @@ header {
 
 label {
     font-weight:400;
+    display:none;
 }
 
 .form-text {

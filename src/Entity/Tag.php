@@ -25,9 +25,10 @@ class Tag
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", inversedBy="tags")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Advisor", inversedBy="tags, tagsStatut")
      */
     private $advisors;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Demand", inversedBy="tags")
@@ -126,4 +127,42 @@ class Tag
 
         return $this;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAdvisors(): ArrayCollection
+    {
+        return $this->advisors;
+    }
+
+    /**
+     * @param ArrayCollection $advisors
+     * @return Tag
+     */
+    public function setAdvisors(ArrayCollection $advisors): Tag
+    {
+        $this->advisors = $advisors;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdvisors2()
+    {
+        return $this->advisors2;
+    }
+
+    /**
+     * @param mixed $advisors2
+     * @return Tag
+     */
+    public function setAdvisors2($advisors2)
+    {
+        $this->advisors2 = $advisors2;
+        return $this;
+    }
+
+
 }
