@@ -38,17 +38,6 @@ class Advisor
      */
     private $place;
 
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $availabilityStart;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $availabilityEnd;
-
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -78,6 +67,86 @@ class Advisor
      * @ORM\OneToMany(targetEntity="App\Entity\Resume", mappedBy="advisor")
      */
     private $resumes;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $idealMission;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $gouvernanceExperience;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $mandateState;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $mandateContribution;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $method;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $gain;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $realisation;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $topSkill;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $progress;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $otherSpec;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $dailyRate;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $avaibility;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $rgpd;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $submissionDate;
 
 
     public function __construct()
@@ -136,31 +205,6 @@ class Advisor
     public function setPlace(string $place): self
     {
         $this->place = $place;
-
-        return $this;
-    }
-
-
-    public function getAvailabilityStart(): ?\DateTimeInterface
-    {
-        return $this->availabilityStart;
-    }
-
-    public function setAvailabilityStart(?\DateTimeInterface $availabilityStart): self
-    {
-        $this->availabilityStart = $availabilityStart;
-
-        return $this;
-    }
-
-    public function getAvailabilityEnd(): ?\DateTimeInterface
-    {
-        return $this->availabilityEnd;
-    }
-
-    public function setAvailabilityEnd(?\DateTimeInterface $availabilityEnd): self
-    {
-        $this->availabilityEnd = $availabilityEnd;
 
         return $this;
     }
@@ -283,6 +327,198 @@ class Advisor
                 $resume->setAdvisor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getIdealMission(): ?string
+    {
+        return $this->idealMission;
+    }
+
+    public function setIdealMission(?string $idealMission): self
+    {
+        $this->idealMission = $idealMission;
+
+        return $this;
+    }
+
+    public function getGouvernanceExperience(): ?bool
+    {
+        return $this->gouvernanceExperience;
+    }
+
+    public function setGouvernanceExperience(?bool $gouvernanceExperience): self
+    {
+        $this->gouvernanceExperience = $gouvernanceExperience;
+
+        return $this;
+    }
+
+    public function getMandateState(): ?bool
+    {
+        return $this->mandateState;
+    }
+
+    public function setMandateState(?bool $mandateState): self
+    {
+        $this->mandateState = $mandateState;
+
+        return $this;
+    }
+
+    public function getMandateContribution(): ?string
+    {
+        return $this->mandateContribution;
+    }
+
+    public function setMandateContribution(?string $mandateContribution): self
+    {
+        $this->mandateContribution = $mandateContribution;
+
+        return $this;
+    }
+
+    public function getMethod(): ?string
+    {
+        return $this->method;
+    }
+
+    public function setMethod(?string $method): self
+    {
+        $this->method = $method;
+
+        return $this;
+    }
+
+    public function getGain(): ?string
+    {
+        return $this->gain;
+    }
+
+    public function setGain(?string $gain): self
+    {
+        $this->gain = $gain;
+
+        return $this;
+    }
+
+    public function getRealisation(): ?string
+    {
+        return $this->realisation;
+    }
+
+    public function setRealisation(?string $realisation): self
+    {
+        $this->realisation = $realisation;
+
+        return $this;
+    }
+
+    public function getTopSkill(): ?string
+    {
+        return $this->topSkill;
+    }
+
+    public function setTopSkill(?string $topSkill): self
+    {
+        $this->topSkill = $topSkill;
+
+        return $this;
+    }
+
+    public function getProgress(): ?string
+    {
+        return $this->progress;
+    }
+
+    public function setProgress(?string $progress): self
+    {
+        $this->progress = $progress;
+
+        return $this;
+    }
+
+    public function getOtherSpec(): ?string
+    {
+        return $this->otherSpec;
+    }
+
+    public function setOtherSpec(?string $otherSpec): self
+    {
+        $this->otherSpec = $otherSpec;
+
+        return $this;
+    }
+
+    public function getDailyRate(): ?float
+    {
+        return $this->dailyRate;
+    }
+
+    public function setDailyRate(?float $dailyRate): self
+    {
+        $this->dailyRate = $dailyRate;
+
+        return $this;
+    }
+
+    public function getAvaibility(): ?string
+    {
+        return $this->avaibility;
+    }
+
+    public function setAvaibility(?string $avaibility): self
+    {
+        $this->avaibility = $avaibility;
+
+        return $this;
+    }
+
+    public function getRgpd(): ?bool
+    {
+        return $this->rgpd;
+    }
+
+    public function setRgpd(?bool $rgpd): self
+    {
+        $this->rgpd = $rgpd;
+
+        return $this;
+    }
+
+    public function getSubmissionDate(): ?\DateTimeInterface
+    {
+        return $this->submissionDate;
+    }
+
+    public function setSubmissionDate(?\DateTimeInterface $submissionDate): self
+    {
+        $this->submissionDate = $submissionDate;
 
         return $this;
     }
