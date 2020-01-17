@@ -163,7 +163,6 @@ class AdminController extends AbstractController
             }
         }
 
-        dd($allAdvisorsSorted);
 
 
         $form = $this->createForm(BoardType::class, $board);
