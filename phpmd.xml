@@ -16,20 +16,14 @@
         <exclude name="TooManyPublicMethods"/>
         <exclude name="ExcessivePublicCount"/>
         <exclude name="ExcessiveMethodLength"/>
-    </rule>
-    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity" >
-        <properties>
-            <property name="maximum" value="80"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/codesize.xml/ExcessivePublicCount" >
-        <properties>
-            <property name="minimum" value="60"/>
-        </properties>
+        <exclude name="CyclomaticComplexity"/>
+        <exclude name="NPathComplexity"/>
+        <exclude name="ExcessiveClassComplexity"/>
+        <exclude name="CountInLoopExpression"/>
     </rule>
     <rule ref="rulesets/codesize.xml/ExcessiveMethodLength" >
         <properties>
-            <property name="minimum" value="200"/>
+            <property name="minimum" value="250"/>
         </properties>
     </rule>
     <rule ref="rulesets/codesize.xml/TooManyFields" >
@@ -44,6 +38,7 @@
     </rule>
     <rule ref="rulesets/controversial.xml" >
         <exclude name="Superglobals" />
+
     </rule>
     <rule ref="rulesets/design.xml" >
         <exclude name="CouplingBetweenObjects" />
