@@ -53,6 +53,39 @@ class Advisor
      */
     private $tags;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsStatut;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsCertificate;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsActualFunction;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsContexts;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsCompetences;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsExpertises;
+
+
+
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Board", inversedBy="advisors")
      */
@@ -86,12 +119,12 @@ class Advisor
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $gouvernanceExperience;
+    private $gouvernanceExperience = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $mandateState;
+    private $mandateState= false;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -141,7 +174,7 @@ class Advisor
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $rgpd;
+    private $rgpd = true;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -157,8 +190,50 @@ class Advisor
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->tagsStatut = new ArrayCollection();
+        $this->tagsCertificate = new ArrayCollection();
+        $this->tagsActualFunction = new ArrayCollection();
+        $this->tagsCompetences = new ArrayCollection();
+        $this->tagsContexts = new ArrayCollection();
+        $this->tagsExpertises = new ArrayCollection();
         $this->boards = new ArrayCollection();
         $this->resumes = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function gettagsStatut()
+    {
+        return $this->tagsStatut;
+    }
+
+    /**
+     * @param mixed $tagsStatut
+     * @return Advisor
+     */
+    public function settagsStatut($tagsStatut)
+    {
+        $this->tagsStatut = $tagsStatut;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getBoards(): ArrayCollection
+    {
+        return $this->boards;
+    }
+
+    /**
+     * @param ArrayCollection $boards
+     * @return Advisor
+     */
+    public function setBoards(ArrayCollection $boards): Advisor
+    {
+        $this->boards = $boards;
+        return $this;
     }
 
     public function getId(): ?int
@@ -528,15 +603,111 @@ class Advisor
         return $this;
     }
 
-    public function getLinkedin(): ?string
+    /**
+     * @return ArrayCollection
+     */
+    public function getTagsCertificate(): ArrayCollection
+    {
+        return $this->tagsCertificate;
+    }
+
+    /**
+     * @param ArrayCollection $tagsCertificate
+     * @return Advisor
+     */
+    public function setTagsCertificate(ArrayCollection $tagsCertificate): Advisor
+    {
+        $this->tagsCertificate = $tagsCertificate;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTagsActualFunction(): ArrayCollection
+    {
+        return $this->tagsActualFunction;
+    }
+
+    /**
+     * @param ArrayCollection $tagsActualFunction
+     * @return Advisor
+     */
+    public function setTagsActualFunction(ArrayCollection $tagsActualFunction): Advisor
+    {
+        $this->tagsActualFunction = $tagsActualFunction;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTagsContexts(): ArrayCollection
+    {
+        return $this->tagsContexts;
+    }
+
+    /**
+     * @param ArrayCollection $tagsContexts
+     * @return Advisor
+     */
+    public function setTagsContexts(ArrayCollection $tagsContexts): Advisor
+    {
+        $this->tagsContexts = $tagsContexts;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTagsCompetences(): ArrayCollection
+    {
+        return $this->tagsCompetences;
+    }
+
+    /**
+     * @param ArrayCollection $tagsCompetences
+     * @return Advisor
+     */
+    public function setTagsCompetences(ArrayCollection $tagsCompetences): Advisor
+    {
+        $this->tagsCompetences = $tagsCompetences;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTagsExpertises(): ArrayCollection
+    {
+        return $this->tagsExpertises;
+    }
+
+    /**
+     * @param ArrayCollection $tagsExpertises
+     * @return Advisor
+     */
+    public function setTagsExpertises(ArrayCollection $tagsExpertises): Advisor
+    {
+        $this->tagsExpertises = $tagsExpertises;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkedin()
     {
         return $this->linkedin;
     }
 
-    public function setLinkedin(?string $linkedin): self
+    /**
+     * @param mixed $linkedin
+     * @return Advisor
+     */
+    public function setLinkedin($linkedin)
     {
         $this->linkedin = $linkedin;
-
         return $this;
     }
 }

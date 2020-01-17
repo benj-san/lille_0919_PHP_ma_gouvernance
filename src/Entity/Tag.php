@@ -29,6 +29,7 @@ class Tag
      */
     private $advisors;
 
+
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Demand", inversedBy="tags")
      */
@@ -124,6 +125,24 @@ class Tag
     {
         $this->category = $category;
 
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAdvisors(): ArrayCollection
+    {
+        return $this->advisors;
+    }
+
+    /**
+     * @param ArrayCollection $advisors
+     * @return Tag
+     */
+    public function setAdvisors(ArrayCollection $advisors): Tag
+    {
+        $this->advisors = $advisors;
         return $this;
     }
 }
