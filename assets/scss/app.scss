@@ -228,15 +228,37 @@ header {
         display: flex;
         flex-direction: column;
         border-radius: 8%;
-        width: 10%;
+        width: 25%;
         height: 250px;
         align-items: center;
         cursor: pointer;
 
+        .filterTitle {
+            font-size: 28px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+
         #myInput {
             width: 90%;
             font-size: 22px;
+            margin-left: 15px;
         }
+
+        .order {
+            width: 90%;
+            margin: 5px auto;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+
+            a{
+                margin: 5px 0 5px 15px;
+            }
+        }
+
     }
 
     #allCardsContainer {
