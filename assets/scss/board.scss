@@ -276,6 +276,7 @@ h2 {
                         }
                     }
                 }
+
                 .removeCardAdvisor {
                     color: white;
                     border-radius: 50%;
@@ -352,79 +353,78 @@ h2 {
 
     /************************** LISTE ADVISOR **************************/
 
-    #boardAdvisors {
-        width: 30%;
-        height: calc(100vh - 100px);
-        overflow: auto;
-        justify-content: center;
-        padding: 20px;
-        border-left: 3px solid $border;
+#boardAdvisors {
+    width: 30%;
+    height: calc(100vh - 100px);
+    overflow: auto;
+    justify-content: center;
+    padding: 20px;
+    border-left: 3px solid $border;
 
-        .cardAdvisorJS {
-            width: 100%;
-            height: 150px;
-            background-color: white;
-            margin: 10px auto;
-            display: flex;
-            position: relative;
-            outline: solid #21215e;
+    .cardAdvisorJS {
+        width: 100%;
+        height: 150px;
+        background-color: white;
+        margin: 10px auto;
+        display: flex;
+        position: relative;
+        outline: solid #21215e;
 
-            .pp {
-                height: 100%;
-                border-right: 1px solid #21215e;
-            }
-
-            #cardAdvisorInfos {
-                padding: 0 10px;
-                margin:  auto 0 auto 10px;
-
-                .nameAdvisor {
-                    font-weight: bold;
-                    font-size: 2.2rem;
-                }
-
-                .idAdvisor {
-                    display: none;
-                }
-            }
+        .pp {
+            height: 100%;
+            border-right: 1px solid #21215e;
         }
 
-        .cardAdvisorIcons{
-            position: absolute;
-            display: block;
-            bottom: 5px;
-            right: 5px;
-            width: 100%;
-            z-index: 50;
-            text-align: right;
+        #cardAdvisorInfos {
+            padding: 0 10px;
+            margin:  auto 0 auto 10px;
 
-            .iconAdd, .iconCv {
-                width: 40px;
-                height: 40px;
-                cursor: pointer;
+            .nameAdvisor {
+                font-weight: bold;
+                font-size: 2.2rem;
             }
 
-            .iconDelete{
+            .idAdvisor {
                 display: none;
             }
         }
+    }
 
-        .removeCardAdvisor {
+    .cardAdvisorIcons{
+        position: absolute;
+        display: block;
+        bottom: 5px;
+        right: 5px;
+        width: 100%;
+        z-index: 50;
+        text-align: right;
+
+        .iconAdd, .iconCv {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .iconDelete{
             display: none;
         }
     }
 
-    #boardAdvisors.display{
-        display: block;
-        position: absolute;
-        width: 60%;
-        height: 70%;
-        top: 10%;
-        left: 20%;
-        border-left: none;
-        margin-top: 20px;
+    .removeCardAdvisor {
+        display: none;
     }
+}
 
+#boardAdvisors.display{
+    display: block;
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    top: 10%;
+    left: 20%;
+    border-left: none;
+    margin-top: 20px;
+}
 
 /***************************************************/
 /******************* MEDIA QUERY *******************/
@@ -614,5 +614,3 @@ h2 {
         }
     }
 }
-
-
