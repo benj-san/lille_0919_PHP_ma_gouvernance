@@ -25,6 +25,7 @@ class ClientController extends AbstractController
             'board' => $board,
             'clientBoard' => 'clientBoard',
             'resumes' => $resumes
+
         ]);
     }
 }
