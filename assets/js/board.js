@@ -14,6 +14,8 @@ const checkboxAdvisor = document.querySelectorAll('input');
 const iconAdd = document.querySelectorAll('img.iconAdd');
 const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
+document.getElementById('js-datepicker').valueAsDate = new Date();
+
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
