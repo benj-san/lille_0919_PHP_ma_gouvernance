@@ -23,7 +23,7 @@
 }
 .cvAdvisor #pitch {
   width: 100%;
-  background-color: #1449cc;
+  background-color: #21215e;
   color: white;
   font-size: 20px;
   height: 100%;
@@ -35,12 +35,18 @@
   width: 60%;
   margin: 20px 3%;
 }
-.cvAdvisor #pitch img {
+.cvAdvisor #pitch .ppCv {
+  position: relative;
+  text-align: right;
+  bottom: 75px;
+  right: 200px;
+}
+.cvAdvisor #pitch .ppCv img {
   background-color: black;
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
 }
 .cvAdvisor #allInfosAdvisor {
   padding: 50px;
@@ -90,7 +96,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: calc(50% - 100px);
+  width: calc(60% - 100px);
 }
 .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo:first-child {
   margin-top: 0;
@@ -100,6 +106,7 @@
 }
 .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo h2 {
   color: gray;
+  margin: 0;
 }
 .cvAdvisor #allInfosAdvisor #infosAdvisor .blocInfo h3 {
   margin-top: 15px;
@@ -118,7 +125,7 @@
   padding: 10px;
 }
 .cvAdvisor #allInfosAdvisor #infosAdvisor #civilStatus h2 {
-  color: #1449cc;
+  color: #21215e;
 }
 
 /*# sourceMappingURL=cvAdvisor.css.map */
