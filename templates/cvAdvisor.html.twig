@@ -25,7 +25,7 @@
                         <h2>Compétences clés</h2>
                         <div class="tags">
                             {% for tag in advisor.tags %}
-                                {% if tag.category.id == 2 %}
+                                {% if tag.category.name == "Compétences principales/ clés" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
@@ -36,7 +36,7 @@
                         <h2>Expertises sectorielles</h2>
                         <div class="tags">
                             {% for tag in advisor.tags %}
-                                {% if tag.category.id == 1 %}
+                                {% if tag.category.name == "expertise sectorielle" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
@@ -48,7 +48,7 @@
                         <div class="tags">
 
                             {% for tag in advisor.tags %}
-                                {% if tag.category.id == 6 %}
+                                {% if tag.category.name == "Structures expérimentés" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
@@ -98,7 +98,7 @@
                         <h2>Compétences clés</h2>
                         <div class="tags">
                             {% for tag in advisor.tags %}
-                                {% if tag.category.id == 2 %}
+                                {% if tag.category.name == "Compétences principales/ clés" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
@@ -109,7 +109,7 @@
                         <h2>Expertises sectorielles</h2>
                         <div class="tags">
                             {% for tag in advisor.tags %}
-                                {% if tag.category.id == 1 %}
+                                {% if tag.category.name == "expertise sectorielle" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
@@ -121,11 +121,10 @@
                         <div class="tags">
 
                             {% for tag in advisor.tags %}
-                                {% if tag.category.id == 6 %}
+                                {% if tag.category.name == "Structures expérimentés" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
-
                         </div>
                     </div>
                     <div class="blocInfo" id="experiences">
