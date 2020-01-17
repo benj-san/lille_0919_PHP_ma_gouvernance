@@ -19,7 +19,7 @@ class ClientController extends AbstractController
     {
         return $this->render('client/show.html.twig', [
             'board' => $board,
-            'clientBoard' => 'clientBoard'
+            'clientBoard' => 'clientBoard',
         ]);
     }
 }
