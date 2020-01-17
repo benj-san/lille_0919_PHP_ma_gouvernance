@@ -8,10 +8,12 @@
 
 
 
+
 /*style for boardclient*/
 /*.displayclientAdvisor{
  display : flex;
 }*/
+
 #clientName{
     margin-left: 1em;
     margin-top: 1em;
@@ -114,6 +116,7 @@ h2 {
     justify-content: space-around;
     box-shadow: 0 0 10px black;
 
+
     p {
         text-align: center;
         font-size: 30px;
@@ -207,6 +210,7 @@ h2 {
             display: flex;
             flex-flow: row wrap;
 
+
             .cardAdvisorJS {
                 display: flex;
                 flex-direction: column;
@@ -266,9 +270,12 @@ h2 {
                         .iconAdd {
                             display: none;
                         }
+
+                        .idAdvisor {
+                            display: none;
+                        }
                     }
                 }
-
                 .removeCardAdvisor {
                     color: white;
                     border-radius: 50%;
@@ -341,6 +348,8 @@ h2 {
             }
         }
     }
+}
+
     /************************** LISTE ADVISOR **************************/
 
     #boardAdvisors {
@@ -415,7 +424,7 @@ h2 {
         border-left: none;
         margin-top: 20px;
     }
-}
+
 
 /***************************************************/
 /******************* MEDIA QUERY *******************/

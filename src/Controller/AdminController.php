@@ -5,8 +5,8 @@ namespace App\Controller;
 use App\Entity\Resume;
 use App\Entity\Advisor;
 use App\Entity\Board;
-use App\Entity\Demand;
 use App\Form\BoardType;
+use App\Entity\Demand;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
@@ -51,20 +51,20 @@ class AdminController extends AbstractController
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
                 case 'proposé':
-                    $demands = $demandRepository->findBy(array('status' => 1), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => 1], ['deadline' => 'ASC']);
                     break;
                 case 'modifier':
-                    $demands = $demandRepository->findBy(array('status' => 0), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => 0], ['deadline' => 'ASC']);
                     break;
                 case 'accepté':
-                    $demands = $demandRepository->findBy(array('status' => 2), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => 2], ['deadline' => 'ASC']);
                     break;
                 default:
-                    $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => [0, 1]], ['deadline' => 'ASC']);
                     break;
             }
         } else {
-            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+            $demands = $demandRepository->findBy(['status' => [0, 1]], ['deadline' => 'ASC']);
         }
 
         $tags = $tagRepository->findAll();
@@ -85,9 +85,9 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('demands');
         }
         return $this->render('admin/demands.html.twig', [
-            'demands'=>$demands,
+            'demands' => $demands,
             'tags' => $tags,
-            'formDemand' =>$form->createView(),
+            'formDemand' => $form->createView(),
 
         ]);
     }
@@ -136,6 +136,7 @@ class AdminController extends AbstractController
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
+     * @param DemandRepository $demandRepository
      * @param ResumeRepository $resumeRepository
      * @return Response
      */
@@ -143,9 +144,53 @@ class AdminController extends AbstractController
         AdvisorRepository $advisorRepository,
         Board $board,
         Request $request,
+        DemandRepository $demandRepository,
         ResumeRepository $resumeRepository
     ): Response {
         $advisor = $advisorRepository->findAll();
+        $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
+        $tags = $demand->getTags()->getValues();
+
+        $advisorsArray = [];
+        $totalAdvisors = count($advisor);
+        for ($i = 0; $i < $totalAdvisors; $i++) {
+            $matches = 0;
+            $advisorsTags = $advisor[$i]->getTags()->getValues();
+            $totalTags = count($tags);
+            for ($j = 0; $j < $totalTags; $j++) {
+                $totalTags2 = count($advisorsTags);
+                for ($k = 0; $k < $totalTags2; $k++) {
+                    if ($advisorsTags[$k] === $tags[$j]) {
+                        $matches++;
+                    }
+                }
+            }
+            $advisorAndSum = [$matches => $advisor[$i]];
+            $advisorsArray[] = $advisorAndSum;
+        }
+
+        $total = count($advisorsArray);
+        for ($i = 0; $i < $total; $i++) {
+            $total2 = count($advisorsArray);
+            for ($j = 0 + $i; $j < $total2; $j++) {
+                if (key($advisorsArray[$i]) < key($advisorsArray[$j])) {
+                    $temporary = $advisorsArray[$j];
+                    $advisorsArray[$j] = $advisorsArray[$i];
+                    $advisorsArray[$i] = $temporary;
+                }
+            }
+        }
+
+
+        $allAdvisorsSorted = [];
+        foreach ($advisorsArray as $advisor => $data) {
+            foreach ($data as $matches => $advisor) {
+                $allAdvisorsSorted[] = $advisor;
+            }
+        }
+
+
+
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -156,7 +201,7 @@ class AdminController extends AbstractController
         $resume = $resumeRepository->findBy(['demand'=>$demand]);
 
         return $this->render('admin/constructBoard.html.twig', [
-            'advisors' => $advisor,
+            'advisors' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resume,

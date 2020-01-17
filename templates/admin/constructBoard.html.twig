@@ -13,6 +13,7 @@
         {% include 'cvAdvisor.html.twig' %}
     </div>
 
+
     {% for advisor in advisors %}
         <div class="commentAdvisor">
             <form class="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
