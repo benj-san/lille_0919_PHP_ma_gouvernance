@@ -6,63 +6,6 @@
     font-family:'Montserrat', sans-serif;;
 }
 
-/*style for boardclient*/
-/*.displayclientAdvisor{
- display : flex;
-}*/
-#clientName{
-    margin-left: 1em;
-    margin-top: 1em;
-}
-
-h2{
-    margin: 1.6em;
-}
-
-#boardContent{
-    display: flex;
-    width: 90%;
-    min-height: 50vh;
-    flex-wrap: wrap;
-    border: #3d4b80 2px solid ;
-    margin: auto;
-    padding: 0.2em;
-    justify-content: center;
-
-    .cardAdvisors {
-        display: flex;
-        flex-direction: column;
-        margin: 2.7rem 2rem 2.7rem;
-        min-width: 210px;
-        height: 320px;
-        align-items: center;
-        color: black;
-        cursor: pointer;
-        border: #3d4b80 1px solid ;
-
-        .cardTitle{
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        p{
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-
-        img{
-            height: 250px;
-            width: 210px;
-            background-color: lightgray;
-            border-bottom: #FFAB40 solid 3px;
-        }
-    }
-}
-
-#deadline{
-    margin-top: 2em;
-}
-/*  */
 
 .commentAdvisor{
     margin: calc(50vh - 13%) 0 30px 35%;
@@ -252,7 +195,7 @@ h2{
                         width: 100%;
                         height: 50%;
                         border-bottom: 1px solid $primary-color;
-          }
+                    }
 
                     #cardAdvisorInfos {
                         margin: auto;
@@ -294,6 +237,10 @@ h2{
             form {
                 display: none;
             }
+        }
+
+        #clientLink{
+            text-align: center;
         }
 
         a {

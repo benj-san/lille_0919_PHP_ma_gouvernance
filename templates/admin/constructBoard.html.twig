@@ -4,7 +4,7 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('board') }}
-    {{ encore_entry_link_tags('app') }}
+    {{ parent() }}
 {% endblock %}
 
 {% block main %}
@@ -46,7 +46,8 @@
                 {{ form_widget(formBoard) }}
                 {{ form_end(formBoard) }}
             </div>
-            <a href="{{ path('client_board', {'uuid': board.uuid}) }}"><button>Voir</button></a>
+            <p id="clientLink"><a href="{{ path('client_board', {'uuid': board.uuid}) }}">suggestion/{{ board.uuid }}</a></p>
+
         </div>
 
 

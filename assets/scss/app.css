@@ -18,6 +18,7 @@ header nav {
   border-bottom: #FFAB40 solid 3px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 header nav .logoContainer {
   height: 100%;
@@ -223,27 +224,55 @@ header nav .linksContainer .links {
 #advisors #allCardsContainer .cardAdvisors {
   display: flex;
   flex-direction: column;
-  margin: 2.7rem 2rem 2.7rem;
-  min-width: 200px;
-  height: 320px;
+  margin: 1.3em;
+  min-width: 250px;
+  height: 330px;
   align-items: center;
   color: black;
+  background-color: white;
+  border: #21215e 3px inset;
+}
+#advisors #allCardsContainer .cardAdvisors .iconLink {
+  position: relative;
+}
+#advisors #allCardsContainer .cardAdvisors .iconLink .icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: block;
+  bottom: 5px;
+  right: 5px;
+  z-index: 50;
   cursor: pointer;
-  border: #3d4b80 1px solid;
 }
-#advisors #allCardsContainer .cardAdvisors .cardTitle {
-  font-size: 2rem;
-  text-align: center;
+#advisors #allCardsContainer .cardAdvisors .advisorPic {
+  height: 270px;
+  width: 250px;
+  border-bottom: #3d4b80 solid 2px;
+  -webkit-filter: grayscale(10%);
+  filter: grayscale(30%);
 }
-#advisors #allCardsContainer .cardAdvisors p {
-  font-size: 1.7rem;
+#advisors #allCardsContainer .cardAdvisors .advisorInfo {
+  width: 100%;
+  padding-left: 0.5em;
+  background: linear-gradient(to left, #ebebeb 50%, #21215e 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo:hover {
+  background-position: left bottom;
+  color: white;
+  font-weight: bold;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo .cardTitle {
+  padding-top: 5px;
+  font-size: 1.5rem;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo p {
+  font-size: 1.3rem;
   margin-bottom: 5px;
-}
-#advisors #allCardsContainer .cardAdvisors img {
-  height: 250px;
-  width: 200px;
-  background-color: lightgray;
-  border-bottom: #FFAB40 solid 3px;
 }
 
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/

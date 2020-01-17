@@ -148,6 +148,11 @@ class Advisor
      */
     private $submissionDate;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $linkedin;
+
 
     public function __construct()
     {
@@ -519,6 +524,18 @@ class Advisor
     public function setSubmissionDate(?\DateTimeInterface $submissionDate): self
     {
         $this->submissionDate = $submissionDate;
+
+        return $this;
+    }
+
+    public function getLinkedin(): ?string
+    {
+        return $this->linkedin;
+    }
+
+    public function setLinkedin(?string $linkedin): self
+    {
+        $this->linkedin = $linkedin;
 
         return $this;
     }

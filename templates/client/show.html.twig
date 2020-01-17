@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-    {{ encore_entry_link_tags('board') }}
-    {{ encore_entry_link_tags('app') }}
-    {{ encore_entry_link_tags('clientBoard') }}
-{% endblock %}
-    {% block header %}
-<header>
-    <nav>
-        <a class="logoContainer" href=""><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
 
-    </nav>
-</header>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('clientBoard') }}
+        {{ parent() }}
+    {% endblock %}
+
+{% block header %}
+    <header>
+        <nav>
+            <a class="logoContainer" href="http://magouvernance.fr/"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+
+        </nav>
+    </header>
 {% endblock %}
+
 {% block main %}
     <div id="behind">
     </div>
     <div id="">
         {% include 'cvAdvisor.html.twig' %}
     </div>
-
-
-    <h1 id="clientName">{{ board.demand.client }}</h1>
-    <h2>Proposition de board:</h2>
+    <h1 id="clientName">Proposition de board</h1>
+    <h2 ></h2>
 
     <div id="boardContent">
             {% for advisor in board.advisors  %}
@@ -34,12 +34,16 @@
             <div class="advisorInfo">
                 <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
                 <p>{{ advisor.place }}</p>
-
+            </div>
+        </div>
     {% endfor %}
-       </div>
 
+    </div>
 {% endblock %}
 
+ {% block footer %}
+
+ {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('clientBoard') }}
 {% endblock %}
