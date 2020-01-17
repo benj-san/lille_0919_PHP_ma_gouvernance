@@ -66,9 +66,7 @@ h2 {
 }
 
 /************************** AJOUT ADVISOR **************************/
-        {{ parent() }}
-
-
+   
 .commentAdvisor{
     margin: calc(50vh - 13%) 0 30px 35%;
     position: absolute;
