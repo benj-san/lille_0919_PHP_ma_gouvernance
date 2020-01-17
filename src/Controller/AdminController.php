@@ -12,6 +12,7 @@ use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
 use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -137,6 +138,7 @@ class AdminController extends AbstractController
      * @param Board $board
      * @param Request $request
      * @param DemandRepository $demandRepository
+     * @param EntityManagerInterface $entityManager
      * @param ResumeRepository $resumeRepository
      * @return Response
      */
@@ -145,8 +147,20 @@ class AdminController extends AbstractController
         Board $board,
         Request $request,
         DemandRepository $demandRepository,
+        EntityManagerInterface $entityManager,
         ResumeRepository $resumeRepository
     ): Response {
+
+        if (isset($_POST['commentChanged'])) {
+            $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
+            $advisor->setCommentary($_POST['commentaryAdvisor']);
+            $entityManager->flush();
+        }
+
+        $advisor = $advisorRepository->findAll();
+        $demand = $board->getDemand();
+        $resumes = $resumeRepository->findBy(['demand'=>$demand]);
+
         $advisor = $advisorRepository->findAll();
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
         $tags = $demand->getTags()->getValues();
@@ -198,13 +212,13 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('demands');
         }
         $demand = $board->getDemand();
-        $resume = $resumeRepository->findBy(['demand'=>$demand]);
+        $resumes = $resumeRepository->findBy(['demand'=>$demand]);
 
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),
             'board' => $board,
-            'resumes' => $resume,
+            'resumes' => $resumes,
         ]);
     }
 
