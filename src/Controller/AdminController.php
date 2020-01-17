@@ -12,6 +12,7 @@ use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
 use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -136,6 +137,8 @@ class AdminController extends AbstractController
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
+     * @param ResumeRepository $resumeRepository
+     * @param EntityManagerInterface $entityManager
      * @param DemandRepository $demandRepository
      * @param ResumeRepository $resumeRepository
      * @return Response
@@ -144,9 +147,22 @@ class AdminController extends AbstractController
         AdvisorRepository $advisorRepository,
         Board $board,
         Request $request,
+        ResumeRepository $resumeRepository,
+        EntityManagerInterface $entityManager
         DemandRepository $demandRepository
         ResumeRepository $resumeRepository
     ): Response {
+
+        if (isset($_POST['commentChanged'])) {
+            $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
+            $advisor->setCommentary($_POST['commentaryAdvisor']);
+            $entityManager->flush();
+        }
+
+        $advisor = $advisorRepository->findAll();
+        $demand = $board->getDemand();
+        $resumes = $resumeRepository->findBy(['demand'=>$demand]);
+
         $advisor = $advisorRepository->findAll();
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
         $tags = $demand->getTags()->getValues();
@@ -204,7 +220,7 @@ class AdminController extends AbstractController
             'advisors' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),
             'board' => $board,
-            'resumes' => $resume,
+            'resumes' => $resumes,
         ]);
     }
 
