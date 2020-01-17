@@ -16,14 +16,12 @@
 
     {% for advisor in advisors %}
         <div class="commentAdvisor">
-            <p>Justification de candidature</p>
-            <form id="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
+            <form class="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
                 <label for="story">
-                    <textarea id="resumeJustification" name="resume" rows="10" cols="33"></textarea>
+                    <textarea class="resumeJustification" name="resume" rows="10" cols="33" placeholder="Justificatif de candidature">{% for resume in resumes %}{% if resume.advisor == advisor %}{{ resume.content }}{% endif %}{% endfor %}</textarea>
                 </label>
                 <input type="submit">
             </form>
-
         </div>
 
         <div class="deleteAdvisor">
@@ -36,46 +34,49 @@
         </div>
     {% endfor %}
 
-    <div id="behind">
-    </div>
-
     <div id="boardAndBoardAdvisors">
         <div id="board">
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
-                {{ form_start(formBoard) }}
-                {{ form_widget(formBoard) }}
-                {{ form_end(formBoard) }}
+                <div class="boardDisplayAdvisor">
+                    {{ form_start(formBoard) }}
+                    {{ form_widget(formBoard) }}
+                    {{ form_end(formBoard) }}
+                </div>
             </div>
-            <a href="{{ path('client_board', {'uuid': board.uuid}) }}"><button>Voir</button></a>
+            <div id="viewBoardAndIcon">
+                <div id="viewBoard">
+                    <a href="{{ path('client_board', {'uuid': board.uuid}) }}">
+                        <button>Voir</button>
+                    </a>
+                </div>
+                <div id="iconAddAdvisor">
+                    <img id="addAdvisors" src="{{ asset('build/add.png') }}" alt="">
+                </div>
+            </div>
         </div>
 
 
         <div id="boardAdvisors">
-
-            {#<label id="research">
-                <input placeholder="Rechercher">
-            </label>#}
             {% for advisor in advisors %}
-                <div class="cardAdvisorAndAdd">
-                    <div id="cardAdvisor" class="cardAdvisorJS">
-                        <img src="{{ asset('build/pp.png') }}" alt="" class="pp">
-                        <div id="cardAdvisorInfos">
-                            <p class="nameAdvisor">{{ advisor.name }} {{ advisor.firstname }}</p>
-                            <p class="infosAdvisor">{{ advisor.email }}<br>{{ advisor.place }}</p>
-                            <p class="idAdvisor">{{ advisor.id }}</p>
-                        </div>
-                        <div class="addCardAdvisor">
-                            <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
-                            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDelete">
-                            <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
-                        </div>
+                <div class="cardAdvisorJS">
+                    <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                    <div id="cardAdvisorInfos">
+                        <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p class="placeAdvisor">{{ advisor.place }}</p>
+                        <p class="idAdvisor">{{ advisor.id }}</p>
+                    </div>
+                    <div class="cardAdvisorIcons">
+                        <img class="iconAdd" src="{{ asset('build/add.png') }}" alt="">
+                        <img class="iconDelete" src="{{ asset('build/delete.png') }}" alt="">
+                        <img class="iconCv" src="{{ asset('build/cv.png') }}" alt="">
                     </div>
                 </div>
             {% endfor %}
-
         </div>
+    </div>
 
+    <div id="behind">
     </div>
 
 {% endblock %}

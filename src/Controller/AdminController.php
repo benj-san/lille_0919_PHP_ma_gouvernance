@@ -10,12 +10,18 @@ use App\Entity\Demand;
 use App\Form\DemandType;
 use App\Repository\AdvisorRepository;
 use App\Repository\DemandRepository;
+use App\Repository\ResumeRepository;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 
 class AdminController extends AbstractController
 {
@@ -100,7 +106,25 @@ class AdminController extends AbstractController
             $advisor->setCommentary($_POST['commentaryAdvisor']);
             $entityManager->flush();
         }
-        $advisors = $advisorRepository->findAll();
+
+        if (isset($_GET['filter'])) {
+            switch ($_GET['filter']) {
+                case 'encours':
+                    $advisors = $advisorRepository->findBy(array('status' => 0));
+                    break;
+                case 'accepté':
+                    $advisors = $advisorRepository->findBy(array('status' => 1));
+                    break;
+                case 'ensuspens':
+                    $advisors = $advisorRepository->findBy(array('status' => 2));
+                    break;
+                default:
+                    $advisors = $advisorRepository->findAll();
+                    break;
+            }
+        } else {
+            $advisors = $advisorRepository->findAll();
+        }
         return $this->render('admin/advisors.html.twig', [
             'advisors' => $advisors,
             'pageAdvisor' => 'page advisor'
@@ -108,11 +132,12 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/board/{id}", name="board")
+     * @Route("admin/board/{id}", name="board")
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
      * @param DemandRepository $demandRepository
+     * @param ResumeRepository $resumeRepository
      * @return Response
      */
     public function board(
@@ -120,6 +145,7 @@ class AdminController extends AbstractController
         Board $board,
         Request $request,
         DemandRepository $demandRepository
+        ResumeRepository $resumeRepository
     ): Response {
         $advisor = $advisorRepository->findAll();
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
@@ -171,40 +197,55 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-
+        $demand = $board->getDemand();
+        $resume = $resumeRepository->findBy(['demand'=>$demand]);
 
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),
             'board' => $board,
+            'resumes' => $resume,
         ]);
     }
 
     /**
-     * @Route("/boardform/{board}/{advisor}", name="formBoard")
-     * @param Advisor $advisor
+     * @Route("admin/boardform/{board}/{advisor}", name="formBoard")
      * @param Board $board
+     * @param Advisor $advisor
      * @param EntityManagerInterface $entityManager
+     * @param ResumeRepository $resumeRepository
      * @return Response
      */
-    public function formBoard(Board $board, Advisor $advisor, EntityManagerInterface $entityManager): Response
-    {
+    public function formBoard(
+        Board $board,
+        Advisor $advisor,
+        EntityManagerInterface $entityManager,
+        ResumeRepository $resumeRepository
+    ): Response {
         $demand = $board->getDemand();
-        $board->addAdvisor($advisor);
-        $resume = new Resume();
+        $resumeForm = $resumeRepository->findOneBy(['demand'=>$demand, 'advisor'=>$advisor]);
+        if ($resumeForm === null) {
+            $resume = new Resume();
+            $resume->setDemand($demand);
+            $resume->setAdvisor($advisor);
+            $resume->setContent($_POST['resume']);
+            $board->addAdvisor($advisor);
+            $entityManager->persist($resume);
+            $entityManager->flush();
+        } else {
+            $resumeForm->setContent($_POST['resume']);
+            $board->addAdvisor($advisor);
+            $entityManager->persist($resumeForm);
+            $entityManager->flush();
+        }
         $boardId = $board->getId();
-        $resume->setDemand($demand);
-        $resume->setAdvisor($advisor);
-        $resume->setContent($_POST['resume']);
-        $entityManager->persist($resume);
-        $entityManager->flush();
         return $this->redirectToRoute('board', [
             'id' => $boardId
         ]);
     }
 
     /**
-     * @Route("deleteAdvisorFromBoard/{board}/{advisor}", name="deleteAdvisorFromBoard")
+     * @Route("admin/deleteAdvisorFromBoard/{board}/{advisor}", name="deleteAdvisorFromBoard")
      * @param Board $board
      * @param Advisor $advisor
      * @param EntityManagerInterface $entityManager
