@@ -4,7 +4,9 @@
     "require": {
         "php": "^7.2",
         "ext-ctype": "*",
+        "ext-http": "*",
         "ext-iconv": "*",
+        "php-http/curl-client": "^2.1",
         "phpmd/phpmd": "^2.6",
         "ramsey/uuid": "^3.9",
         "sensio/framework-extra-bundle": "^5.1",
@@ -28,8 +30,7 @@
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/webpack-encore-bundle": "^1.7",
-        "symfony/yaml": "4.3.*",
-        "ext-http": "*"
+        "symfony/yaml": "4.3.*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
