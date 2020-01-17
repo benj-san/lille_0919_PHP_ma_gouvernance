@@ -45,20 +45,20 @@ class AdminController extends AbstractController
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
                 case 'proposé':
-                    $demands = $demandRepository->findBy(array('status' => 1), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => 1], ['deadline' => 'ASC']);
                     break;
                 case 'modifier':
-                    $demands = $demandRepository->findBy(array('status' => 0), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => 0], ['deadline' => 'ASC']);
                     break;
                 case 'accepté':
-                    $demands = $demandRepository->findBy(array('status' => 2), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => 2], ['deadline' => 'ASC']);
                     break;
                 default:
-                    $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+                    $demands = $demandRepository->findBy(['status' => [0, 1]], ['deadline' => 'ASC']);
                     break;
             }
         } else {
-            $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+            $demands = $demandRepository->findBy(['status' => [0, 1]], ['deadline' => 'ASC']);
         }
 
         $tags = $tagRepository->findAll();
@@ -125,7 +125,7 @@ class AdminController extends AbstractController
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
         $tags = $demand->getTags()->getValues();
 
-        $advisorsArray = array();
+        $advisorsArray = [];
         $totalAdvisors = count($advisor);
         for ($i = 0; $i < $totalAdvisors; $i++) {
             $matches = 0;
@@ -139,7 +139,7 @@ class AdminController extends AbstractController
                     }
                 }
             }
-            $advisorAndSum = [$matches => $advisor[$i]->getId()];
+            $advisorAndSum = [$matches => $advisor[$i]];
             array_push($advisorsArray, $advisorAndSum);
         }
 
@@ -156,13 +156,14 @@ class AdminController extends AbstractController
         }
 
 
-        $allAdvisorsSorted = array();
+        $allAdvisorsSorted = [];
         foreach ($advisorsArray as $advisor => $data) {
-            foreach ($data as $matches => $id) {
-                $advisorSorted = $advisorRepository->findOneBy(['id' => $id]);
-                array_push($allAdvisorsSorted, $advisorSorted);
+            foreach ($data as $matches => $advisor) {
+                array_push($allAdvisorsSorted, $advisor);
             }
         }
+
+        dd($allAdvisorsSorted);
 
 
         $form = $this->createForm(BoardType::class, $board);
