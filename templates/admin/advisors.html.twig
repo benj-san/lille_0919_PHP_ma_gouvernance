@@ -15,7 +15,7 @@
         {% include 'cvAdvisor.html.twig' %}
     </div>
 
-    <section id="advisors" >
+    <section id="advisors">
         <section id="allCardsContainer">
             {% for advisor in advisors %}
                 <div class="cardAdvisors">
@@ -36,11 +36,9 @@
                         {% endif %}
                     </div>
                 </div>
-
-
-
             {% endfor %}
         </section>
+
 
     <section id="filterContainer" class="hidden">
     </section>
@@ -57,10 +55,8 @@
         </div>
     </section>
 
-
-    </form>
-
     </section>
+
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
     {% endblock %}

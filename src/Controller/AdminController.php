@@ -58,7 +58,7 @@ class AdminController extends AbstractController
                     break;
             }
         } else {
-            $demands = $demandRepository ->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
+            $demands = $demandRepository->findBy(array('status' => array(0, 1)), array('deadline' => 'ASC'));
         }
 
         $tags = $tagRepository->findAll();
@@ -79,9 +79,9 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('demands');
         }
         return $this->render('admin/demands.html.twig', [
-            'demands'=>$demands,
+            'demands' => $demands,
             'tags' => $tags,
-            'formDemand' =>$form->createView(),
+            'formDemand' => $form->createView(),
 
         ]);
     }
@@ -100,17 +100,24 @@ class AdminController extends AbstractController
             $advisor->setCommentary($_POST['commentaryAdvisor']);
             $entityManager->flush();
         }
+        if (isset($_POST['statusChange'])) {
+            $values = explode('-', $_POST['radio']);
+            $advisor = $advisorRepository->findOneBy(['id' => $values[1]]);
+            $advisor->setStatus($values[0]);
+            $entityManager->flush();
+            return $this->redirectToRoute('advisors');
+        }
 
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
                 case 'encours':
-                    $advisors = $advisorRepository->findBy(array('status' => 0));
+                    $advisors = $advisorRepository->findBy(array('status' => 0), array('name' => 'ASC'));
                     break;
                 case 'accepté':
-                    $advisors = $advisorRepository->findBy(array('status' => 1));
+                    $advisors = $advisorRepository->findBy(array('status' => 1), array('name' => 'ASC'));
                     break;
                 case 'ensuspens':
-                    $advisors = $advisorRepository->findBy(array('status' => 2));
+                    $advisors = $advisorRepository->findBy(array('status' => 2), array('name' => 'ASC'));
                     break;
                 default:
                     $advisors = $advisorRepository->findAll();
@@ -119,11 +126,13 @@ class AdminController extends AbstractController
         } else {
             $advisors = $advisorRepository->findAll();
         }
-        return $this->render('admin/advisors.html.twig', [
-            'advisors' => $advisors,
-            'pageAdvisor' => 'page advisor'
-        ]);
+            return $this->render('admin/advisors.html.twig', [
+                'advisors' => $advisors,
+                'pageAdvisor' => 'page advisor'
+            ]);
     }
+
+
 
     /**
      * @Route("/board/{id}", name="board")

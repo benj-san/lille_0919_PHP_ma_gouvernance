@@ -274,7 +274,7 @@ header {
             flex-direction: column;
             margin: 1.3em;
             min-width: 250px;
-            height: 330px;
+            height: 353px;
             align-items: center;
             color: black;
             background-color: white;
@@ -282,7 +282,6 @@ header {
 
 
             .iconLink {
-
                 position: relative;
 
                 .icon {
@@ -309,7 +308,7 @@ header {
             .advisorInfo {
                 width: 100%;
                 padding-left:0.5em;
-                background: linear-gradient( to left, #ebebeb 50%,  #21215e  50% );
+                background: linear-gradient( to left, #ffffff 50%,  #21215e  50% );
                 background-size: 200% 100%;
                 background-position: right bottom;
                 cursor: pointer;
