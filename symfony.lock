@@ -652,5 +652,8 @@
     },
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"
+    },
+    "zoonman/linkedin-api-php-client": {
+        "version": "0.0.14"
     }
 }
