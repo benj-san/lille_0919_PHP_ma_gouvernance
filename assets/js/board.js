@@ -4,7 +4,7 @@ const cvAdvisor = document.querySelectorAll('div.cvAdvisor');
 const cardAdvisorJS = document.querySelectorAll('div.cardAdvisorJS');
 const boardEdit = document.getElementById('boardEdit');
 const behind = document.getElementById('behind');
-const commentAdvisor = document.getElementById('commentAdvisor');
+const commentAdvisor = document.querySelectorAll('div.commentAdvisor');
 const deleteAdvisor = document.querySelectorAll('div.deleteAdvisor');
 const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDeleteAdvisor');
 const boardAdvisors = document.getElementById('boardAdvisors');
@@ -15,7 +15,6 @@ const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
 const addAdvisors = document.getElementById('addAdvisors');
 const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
-
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
     for (let j = 0; j < checkboxAdvisor.length; j += 1) {
@@ -60,7 +59,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         }
     });
 }
-
 addAdvisors.addEventListener('click', () => {
     boardAdvisors.classList.add('display');
     boardEdit.classList.add('hidden');
