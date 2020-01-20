@@ -137,18 +137,19 @@ class AdminController extends AbstractController
      * @param AdvisorRepository $advisorRepository
      * @param Board $board
      * @param Request $request
-     * @param DemandRepository $demandRepository
-     * @param EntityManagerInterface $entityManager
      * @param ResumeRepository $resumeRepository
-     * @return Response
+     * @param EntityManagerInterface $entityManager
+     * @param DemandRepository $demandRepository
+      * @return Response
      */
     public function board(
         AdvisorRepository $advisorRepository,
         Board $board,
         Request $request,
-        DemandRepository $demandRepository,
+        ResumeRepository $resumeRepository,
         EntityManagerInterface $entityManager,
-        ResumeRepository $resumeRepository
+        DemandRepository $demandRepository
+
     ): Response {
 
         if (isset($_POST['commentChanged'])) {
@@ -166,15 +167,12 @@ class AdminController extends AbstractController
         $tags = $demand->getTags()->getValues();
 
         $advisorsArray = [];
-        $totalAdvisors = count($advisor);
-        for ($i = 0; $i < $totalAdvisors; $i++) {
+        foreach ($advisor as $i => $iValue) {
             $matches = 0;
-            $advisorsTags = $advisor[$i]->getTags()->getValues();
-            $totalTags = count($tags);
-            for ($j = 0; $j < $totalTags; $j++) {
-                $totalTags2 = count($advisorsTags);
-                for ($k = 0; $k < $totalTags2; $k++) {
-                    if ($advisorsTags[$k] === $tags[$j]) {
+            $advisorsTags = $iValue->getTags()->getValues();
+            foreach ($tags as $jValue) {
+                foreach ($advisorsTags as $kValue) {
+                    if ($kValue === $jValue) {
                         $matches++;
                     }
                 }
@@ -183,13 +181,12 @@ class AdminController extends AbstractController
             $advisorsArray[] = $advisorAndSum;
         }
 
-        $total = count($advisorsArray);
-        for ($i = 0; $i < $total; $i++) {
+        foreach ($advisorsArray as $i => $iValue) {
             $total2 = count($advisorsArray);
             for ($j = 0 + $i; $j < $total2; $j++) {
-                if (key($advisorsArray[$i]) < key($advisorsArray[$j])) {
+                if (key($iValue) < key($advisorsArray[$j])) {
                     $temporary = $advisorsArray[$j];
-                    $advisorsArray[$j] = $advisorsArray[$i];
+                    $advisorsArray[$j] = $iValue;
                     $advisorsArray[$i] = $temporary;
                 }
             }
@@ -211,8 +208,6 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-        $demand = $board->getDemand();
-        $resumes = $resumeRepository->findBy(['demand'=>$demand]);
 
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $allAdvisorsSorted,
