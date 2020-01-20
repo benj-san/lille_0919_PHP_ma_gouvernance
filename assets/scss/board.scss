@@ -159,21 +159,56 @@ h2{
     margin-top: 0;
 }
 
-#allAdvisorsBoard{
+#allAdvisorsBoard {
     display: none;
     width: 70%;
-    height: 50vh;
-    background-color: #ff8e59;
+    height: 60vh;
+    background-color: white;
     position: absolute;
     z-index: 10;
-    margin: 15vh 15%;
+    margin: 2rem 15%;
     overflow: auto;
-    flex-direction: column;
-    .allAdvisors{
-        height: 30px;
-        width: 20px;
-        padding: 15%;
-        background-color: #5eb5e0;
+
+    #allCardsContainer {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        padding: 5rem 2em;
+
+        .cardAdvisors {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            min-width: 200px;
+            height: 320px;
+            align-items: center;
+            color: black;
+            cursor: pointer;
+            border: #3d4b80 1px solid ;
+
+            img {
+                height: 250px;
+                width: 200px;
+                background-color: lightgray;
+                border-bottom: #FFAB40 solid 3px;
+
+                .cardTitle {
+                    font-size: 2rem;
+                    text-align: center;
+
+                    p {
+                        font-size: 1.7rem;
+                        margin-bottom: 5px;
+
+                        .allAdvisors {
+                            height: 30px;
+                            width: 20px;
+                            padding: 15%;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 .iconDeleteAllAdvisors{

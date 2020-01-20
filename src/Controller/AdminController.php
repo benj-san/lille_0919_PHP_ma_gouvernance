@@ -123,8 +123,6 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-
-
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $advisor,
             'formBoard' => $form->createView(),

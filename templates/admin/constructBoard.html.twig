@@ -36,14 +36,18 @@
     {% endfor %}
 
     <div id="allAdvisorsBoard">
-        <div class="deleteAdvisorButton">
-           <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
-        </div>
+    <section id="allCardsContainer">
     {% for advisor in advisors %}
-            <div class="allAdvisors">
-                <p>{{ advisor.name }} {{ advisor.firstname }}</p>
-            </div>
+        <div class="cardAdvisors">
+            <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+            <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
+            <p>{{ advisor.place }}</p>
+        </div>
     {% endfor %}
+    </section>
+        <div class="deleteAdvisorButton">
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
+        </div>
     </div>
 
     <div id="behind">
