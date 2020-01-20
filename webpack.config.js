@@ -33,6 +33,7 @@ Encore
     .addEntry('board', './assets/js/board.js')
     .addEntry('clientBoard', './assets/js/clientBoard.js')
     .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
+    .addEntry('login', './assets/scss/login.scss')
 
 // .addEntry('page2', './assets/js/page2.js')
 
