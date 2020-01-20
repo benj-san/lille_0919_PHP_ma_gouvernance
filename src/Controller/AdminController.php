@@ -140,7 +140,7 @@ class AdminController extends AbstractController
      * @param ResumeRepository $resumeRepository
      * @param EntityManagerInterface $entityManager
      * @param DemandRepository $demandRepository
-     * @return Response
+      * @return Response
      */
     public function board(
         AdvisorRepository $advisorRepository,
@@ -207,6 +207,7 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
+
         return $this->render('admin/constructBoard.html.twig', [
             'advisors' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),

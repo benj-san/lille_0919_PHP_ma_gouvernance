@@ -19,6 +19,7 @@ header nav {
   border-bottom: #FFAB40 solid 3px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 header nav .logoContainer {
   height: 100%;
