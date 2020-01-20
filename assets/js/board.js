@@ -15,6 +15,9 @@ const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
 const addAdvisors = document.getElementById('addAdvisors');
 const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
+const clientLink = document.getElementById('clientLink');
+const copy = document.getElementById('copy');
+
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
     for (let j = 0; j < checkboxAdvisor.length; j += 1) {
@@ -63,4 +66,12 @@ addAdvisors.addEventListener('click', () => {
     boardAdvisors.classList.add('display');
     boardEdit.classList.add('hidden');
     viewBoardAndIcon.classList.add('hidden');
+});
+
+copy.addEventListener('click', () => {
+    const range = document.createRange();
+    range.selectNode(clientLink);
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
 });

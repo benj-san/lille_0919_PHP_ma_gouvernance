@@ -288,21 +288,25 @@ h2 {
 
         #viewBoardAndIcon {
             margin-top: 20px;
+
+            #clientLink{
+                position: absolute;
+                top: 99999px;
+            }
         }
 
         #viewBoard{
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
 
             a {
                 width: 20%;
 
-                button {
+                button{
                     width: 100%;
                     padding: 10px;
                     font-size: 3rem;
-                    margin: 2% auto auto auto;
                     border: 3px solid $primary-color;
                     color: $primary-color;
                     font-weight: bold;
@@ -312,6 +316,15 @@ h2 {
 
             a:hover{
                 text-decoration: none;
+            }
+
+            #copy{
+                width: 20%;
+                font-size: 2rem;
+                border: 3px solid $primary-color;
+                color: $primary-color;
+                font-weight: bold;
+                cursor: pointer;
             }
         }
 
