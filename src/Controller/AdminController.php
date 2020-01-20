@@ -149,7 +149,6 @@ class AdminController extends AbstractController
         ResumeRepository $resumeRepository,
         EntityManagerInterface $entityManager,
         DemandRepository $demandRepository
-
     ): Response {
 
         if (isset($_POST['commentChanged'])) {
