@@ -1,5 +1,6 @@
 @charset "UTF-8";
 * {
+
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
@@ -18,6 +19,7 @@ header nav {
   border-bottom: #FFAB40 solid 3px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 header nav .logoContainer {
   height: 100%;
@@ -50,10 +52,9 @@ header nav .linksContainer .links {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: grey;
-  opacity: 0.8;
+  background-color: black;
+  opacity: 60%;
   top: 0;
-  margin-bottom: 2em;
 }
 
 #Boards {
@@ -187,14 +188,31 @@ header nav .linksContainer .links {
   display: flex;
   flex-direction: column;
   border-radius: 8%;
-  width: 10%;
+  width: 25%;
   height: 250px;
   align-items: center;
   cursor: pointer;
 }
+#advisors .filterAdvisors .filterTitle {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
 #advisors .filterAdvisors #myInput {
   width: 90%;
   font-size: 22px;
+  margin-left: 15px;
+}
+#advisors .filterAdvisors .order {
+  width: 90%;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+#advisors .filterAdvisors .order a {
+  margin: 5px 0 5px 15px;
 }
 #advisors #allCardsContainer {
   display: flex;
@@ -306,6 +324,7 @@ header nav .linksContainer .links {
   font-size: 38px;
   text-align: center;
   font-weight: bold;
+
   padding: 15px;
 }
 .modalDescription .modalDescriptionContainer {
