@@ -216,17 +216,16 @@ header nav .linksContainer .links {
 #advisors #allCardsContainer {
   display: flex;
   flex-flow: row wrap;
-  width: 70%;
+  width: 75%;
   height: 70vh;
-  padding: 2rem 5em;
+  padding-bottom: 2em;
   overflow: auto;
 }
 #advisors #allCardsContainer .cardAdvisors {
   display: flex;
   flex-direction: column;
-  margin: 1.3em;
+  margin: 1em;
   min-width: 250px;
-  height: 353px;
   align-items: center;
   color: black;
   background-color: white;

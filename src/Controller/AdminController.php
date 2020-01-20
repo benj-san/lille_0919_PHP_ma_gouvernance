@@ -45,6 +45,7 @@ class AdminController extends AbstractController
             $values = explode('-', $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
             $demand->setStatus($values[0]);
+
             $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
