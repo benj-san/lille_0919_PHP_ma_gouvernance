@@ -89,7 +89,6 @@ class AdminController extends AbstractController
             'demands' => $demands,
             'tags' => $tags,
             'formDemand' => $form->createView(),
-
         ]);
     }
 
@@ -140,12 +139,14 @@ class AdminController extends AbstractController
      * @param ResumeRepository $resumeRepository
      * @param EntityManagerInterface $entityManager
      * @param DemandRepository $demandRepository
+     * @param Demand $demand
      * @return Response
      */
     public function board(
         AdvisorRepository $advisorRepository,
         Board $board,
         Request $request,
+        Demand $demand,
         ResumeRepository $resumeRepository,
         EntityManagerInterface $entityManager,
         DemandRepository $demandRepository
@@ -269,5 +270,18 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('board', [
             'id' => $boardId
         ]);
+    }
+
+    /**
+     * @Route("/board/delete/{id}, name="delete_board_route")
+     */
+    public function deleteBoard($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $board = $em->getRepository('DemandRepository')->find($id);
+        echo $board;
+        $em->flush();
+
+        return $this->redirectToRoute('demand');
     }
 }

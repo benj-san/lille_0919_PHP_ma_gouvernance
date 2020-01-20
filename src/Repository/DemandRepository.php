@@ -29,7 +29,7 @@ class DemandRepository extends ServiceEntityRepository
             ->andWhere('d.exampleField = :val')
             ->setParameter('val', $value)
             ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(    10)
             ->getQuery()
             ->getResult()
         ;
@@ -47,4 +47,14 @@ class DemandRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function deleteBoard(): array
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'select id
+                from demand
+                where demand.id = :id'
+        );
+        return $query->getResult();
+    }
 }
