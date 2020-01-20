@@ -11,7 +11,12 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mime\Email;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 class AdvisorController extends AbstractController
 {
@@ -20,12 +25,17 @@ class AdvisorController extends AbstractController
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param TagRepository $tagRepository
+     * @param MailerInterface $mailer
      * @return Response
-     * @throws \Exception
+     * @throws TransportExceptionInterface
      */
 
-    public function candidature(EntityManagerInterface $em, Request $request, TagRepository $tagRepository) : Response
-    {
+    public function candidature(
+        EntityManagerInterface $em,
+        Request $request,
+        TagRepository $tagRepository,
+        MailerInterface $mailer
+    ) : Response {
         $advisor = new Advisor();
         $form = $this->createForm(AdvisorType::class, $advisor);
         $form->handleRequest($request);
@@ -80,6 +90,37 @@ class AdvisorController extends AbstractController
                     $advisor->addTag($tag);
                 }
             }
+
+            $email = (new TemplatedEmail())
+                ->from(Address::fromString('MaGouvernance <remimayeux@gmail.com>'))
+                ->to('remimayeux@gmail.com')
+                //->cc('cc@example.com')
+                //->bcc('bcc@example.com')
+                //->replyTo('fabien@example.com')
+                //->priority(Email::PRIORITY_HIGH)
+                ->subject('Inscription d\'un nouvel advisor')
+                ->htmlTemplate('emails/mailAdmin.html.twig')
+                ->context([
+                    'form' => $form
+                ]);
+
+
+            $mailer->send($email);
+
+            $email2 = (new TemplatedEmail())
+                ->from(Address::fromString('MaGouvernance <remimayeux@gmail.com>'))
+                ->to($form['email']->getData())
+                //->cc('cc@example.com')
+                //->bcc('bcc@example.com')
+                //->replyTo('fabien@example.com')
+                //->priority(Email::PRIORITY_HIGH)
+                ->subject('Merci pour votre candidature !')
+                ->htmlTemplate('emails/mailAdvisor.html.twig')
+                ->context([
+                    'advisor' => $advisor
+                ]);
+
+            $mailer->send($email2);
 
             $date = new DateTime('now');
             $advisor->setSubmissionDate($date);
