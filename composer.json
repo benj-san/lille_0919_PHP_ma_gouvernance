@@ -4,7 +4,6 @@
     "require": {
         "php": "^7.2",
         "ext-ctype": "*",
-        "ext-http": "*",
         "ext-iconv": "*",
         "phpmd/phpmd": "^2.6",
         "ramsey/uuid": "^3.9",
