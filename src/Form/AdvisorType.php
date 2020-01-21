@@ -33,6 +33,12 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
             ])
+            ->add('place', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Répondez ici...',
+                ],
+                'required'   => false,
+            ])
             ->add('phoneNumber', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...',
