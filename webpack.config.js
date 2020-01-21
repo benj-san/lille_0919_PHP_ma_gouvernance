@@ -29,8 +29,10 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('advisors', './assets/js/advisors.js')
     .addEntry('board', './assets/js/board.js')
+    .addEntry('advisor', './assets/scss/advisor.scss')
+    .addEntry('advisorForm', './assets/js/advisorForm.js')
+    .addEntry('advisors', './assets/js/advisors.js')
     .addEntry('clientBoard', './assets/js/clientBoard.js')
     .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
     .addEntry('login', './assets/scss/login.scss')
@@ -72,6 +74,7 @@ Encore
 
 // uncomment if you use TypeScript
 // .enableTypeScriptLoader()
+
 
 // uncomment to get integrity="..." attributes on your script & link tags
 // requires WebpackEncoreBundle 1.4 or higher
