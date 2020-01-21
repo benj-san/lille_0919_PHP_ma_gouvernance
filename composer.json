@@ -4,8 +4,8 @@
     "require": {
         "php": "^7.2",
         "ext-ctype": "*",
+        "ext-http": "*",
         "ext-iconv": "*",
-        "csa/guzzle-cache-middleware": "^1.0",
         "phpmd/phpmd": "^2.6",
         "ramsey/uuid": "^3.9",
         "sensio/framework-extra-bundle": "^5.1",
@@ -15,7 +15,7 @@
         "symfony/dotenv": "4.3.*",
         "symfony/expression-language": "4.3.*",
         "symfony/flex": "^1.1",
-        "symfony/form": "4.4.*",
+        "symfony/form": "4.3.*",
         "symfony/framework-bundle": "4.3.*",
         "symfony/google-mailer": "4.4.*",
         "symfony/mailer": "4.4.*",
@@ -32,8 +32,7 @@
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.3.*",
         "twig/cssinliner-extra": "^3.0",
-        "twig/extra-bundle": "^3.0",
-        "zoonman/linkedin-api-php-client": "^0.0.14"
+        "twig/extra-bundle": "^3.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
