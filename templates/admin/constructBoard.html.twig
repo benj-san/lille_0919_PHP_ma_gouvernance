@@ -42,6 +42,11 @@
             <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
             <p>{{ advisor.place }}</p>
         </div>
+        <div class="addCardAdvisor">
+            <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDelete">
+            <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+        </div>
     {% endfor %}
     </section>
         <div class="deleteAdvisorButton">
