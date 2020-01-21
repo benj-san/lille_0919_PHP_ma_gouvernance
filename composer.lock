@@ -1945,7 +1945,7 @@
         },
         {
             "name": "ocramius/package-versions",
-            "version": "1.5.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/PackageVersions.git",
@@ -1959,7 +1959,7 @@
             },
             "require": {
                 "composer-plugin-api": "^1.0.0",
-                "php": "^7.3.0"
+                "php": "^7.1.0"
             },
             "require-dev": {
                 "composer/composer": "^1.8.6",
@@ -1996,7 +1996,7 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.6.0",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
@@ -2010,8 +2010,8 @@
             },
             "require": {
                 "laminas/laminas-code": "^3.4.1",
-                "ocramius/package-versions": "^1.5.1",
-                "php": "7.4.*",
+                "ocramius/package-versions": "^1.1.3",
+                "php": "^7.2.0",
                 "webimpress/safe-writer": "^2.0"
             },
             "conflict": {
