@@ -1,42 +1,56 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Entity\Advisor;
 use App\Form\AdvisorType;
+use App\Repository\AdvisorRepository;
 use App\Repository\TagRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use LinkedIn\Exception;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use LinkedIn\Client;
+use LinkedIn\Scope;
+
+/**
+ * @Route("/advisor")
+ * @return Response
+ * @throws Exception
+ */
+
 
 class AdvisorController extends AbstractController
 {
     /**
-     * @Route("/candidature", name="advisor")
+     * @Route("/candidature/{uuid}", name="candidature")
+     * @ParamConverter("advisor", options={"mapping": {"uuid" : "uuid"}})
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param TagRepository $tagRepository
      * @param MailerInterface $mailer
+     * @param Advisor $advisor
      * @return Response
      * @throws TransportExceptionInterface
      */
 
     public function candidature(
+        Advisor $advisor,
         EntityManagerInterface $em,
         Request $request,
         TagRepository $tagRepository,
         MailerInterface $mailer
-    ) : Response {
-        $advisor = new Advisor();
+    ): Response {
+
         $form = $this->createForm(AdvisorType::class, $advisor);
         $form->handleRequest($request);
 
@@ -124,7 +138,6 @@ class AdvisorController extends AbstractController
 
             $date = new DateTime('now');
             $advisor->setSubmissionDate($date);
-            $em->persist($advisor);
             $em->flush();
             return $this->redirect('http://www.magouvernance.com');
         }
