@@ -22,11 +22,25 @@
                 </div>
             {% endfor %}
         </section>
+
     <section id="filterContainer" class="hidden">
     </section>
     <section class="filterAdvisors">
+        <div class="filterTitle">Filtres :</div>
         <input type="text" id="myInput" placeholder="Chercher un nom..">
+
+        <div class="order">
+
+            <a href="{{ path('advisors') }}">tous</a>
+            <a href="./advisors/?filter=encours"> canditature en cours</a>
+            <a href="./advisors/?filter=accepté">candidature acceptée</a>
+            <a href="./advisors/?filter=ensuspens">candidature en suspens</a>
+        </div>
     </section>
+
+
+    </form>
+
     </section>
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
