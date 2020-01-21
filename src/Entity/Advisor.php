@@ -19,6 +19,11 @@ class Advisor
     private $id;
 
     /**
+     * @ORM\Column(type="string" , length=255 , nullable=true)
+     */
+    private $uuid;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -239,6 +244,16 @@ class Advisor
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid($uuid): void
+    {
+        $this->uuid = $uuid;
     }
 
     public function getName(): ?string
