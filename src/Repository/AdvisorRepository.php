@@ -29,7 +29,6 @@ class AdvisorRepository extends ServiceEntityRepository
             'select * 
                 from advisor'
         );
-
         return $query->getResult();
     }
 }
