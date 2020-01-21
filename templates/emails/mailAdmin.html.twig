@@ -1,0 +1,148 @@
+{% apply inline_css(source('@scss/mailAdmin.scss')) %}
+
+    <table>
+
+    <tr>
+        <th>Questions</th>
+        <th>Réponses</th>
+    </tr>
+
+    <tr>
+        <td>Nous allons prendre votre prénom *</td>
+        <td>{{ form.data.firstname}}</td>
+    </tr>
+
+    <tr>
+        <td>Et votre nom de famille *</td>
+        <td>{{ form.data.name}}</td>
+    </tr>
+
+    <tr>
+        <td>Sur quel numéro pouvons nous vous joindre ? *</td>
+        <td>{{ form.data.phoneNumber}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Quel est votre email ? *</td>
+        <td>{{ form.data.email}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Merci! Pour commencer, quel est votre "pitch" en une vingtaine de mots ? *</td>
+        <td>{{ form.data.presentation}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Avez-vous déjà eu une expérience dans un advisory board ou conseil d'administration/de surveillance ? *</td>
+        <td>{% if form.data.gouvernanceExperience is same as (true) %} Oui {% else %} Non {% endif %}</td>
+    </tr>
+
+    <tr>
+        <td>Dans quel type de structure exercez-vous ou avez-vous exercé un mandat ou plusieurs mandats ? </td>
+        <td>{% if form.data.tags is defined %}{% for tags in form.data.tags %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+    <tr>
+        <td>Dans quel type de structure exercez-vous ou avez-vous exercé un mandat ou plusieurs mandats ? </td>
+        <td>{% if form.data.tagsStatut is defined %}{% for tags in form.data.tagsStatut %}{{ tags.name }} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+
+
+    <tr>
+        <td>Votre ou vos mandats sont ils toujours en cours ? *</td>
+        <td>{% if form.data.mandateState is same as (true) %} Oui {% else %} Non {% endif %}</td>
+    </tr>
+
+
+    <tr>
+        <td>Pourriez-vous préciser les organisations dans lesquelles vous avez ou vous exercez ce(s) mandat(s) et nous dire quelles contributions majeures vous avez apporté.</td>
+        <td>{{ form.data.mandateContribution}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Méthode : comment avez-vous l'habitude de fonctionner en Conseil ou en advisory board ?</td>
+        <td>{{ form.data.method}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Que retirez-vous personnellement de l'expérience d'administrateur / advisor ?</td>
+        <td>{{ form.data.gain}}</td>
+    </tr>
+
+
+    <tr>
+        <td>Etes-vous titulaire d'un certificat administrateur ou en cours de certification ?</td>
+        <td>{% if form.data.tagsCertificate is defined %}{% for tags in form.data.tagsCertificate %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+
+    <tr>
+        <td>>Quelle fonction principale occupez-vous actuellement ? *</td>
+        <td>{% if form.data.tagsActualFunction is defined %}{% for tags in form.data.tagsActualFunction %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+    <tr>
+        <td>Quelles sont les compétences principales que vous pouvez déployer rapidement ? *</td>
+        <td>{% if form.data.tagsCompetences is defined %}{% for tags in form.data.tagsCompetences %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+    <tr>
+        <td>Quelles sont vos expertises sectorielles ? *</td>
+        <td>{% if form.data.tagsExpertises is defined %}{% for tags in form.data.tagsExpertises %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+    <tr>
+        <td>Quels contextes avez-vous expérimenté en entreprise ? *</td>
+        <td>{% if form.data.tagsContexts is defined %}{% for tags in form.data.tagsContexts %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+    </tr>
+
+    <tr>
+        <td>Pour chacun des contextes expérimentés en entreprise, pourriez-vous expliquer ce qu'ont été vos apports, vos réalisations.</td>
+        <td>{{ form.data.realisation}}</td>
+    </tr>
+
+    <tr>
+        <td>Quels sont vos points forts ?</td>
+        <td>{{ form.data.topSkill}}</td>
+    </tr>
+
+    <tr>
+        <td>Quels sont vos axes de progrès ?</td>
+        <td>{{ form.data.progress}}</td>
+    </tr>
+
+    <tr>
+        <td>Quel est votre taux journalier moyen ? *</td>
+        <td>{{ form.data.dailyRate}}</td>
+    </tr>
+
+    <tr>
+        <td>Quelle est pour vous la mission idéale ?</td>
+        <td>{{ form.data.idealMission}}</td>
+    </tr>
+
+    <tr>
+        <td>Quelles sont vos disponibilités pour vous consacrer à une mission d'administrateur ?</td>
+        <td>{{ form.data.avaibility}}</td>
+    </tr>
+
+    <tr>
+        <td>Merci de nous indiquer le lien vers votre profil Linkedin *</td>
+        <td>{{ form.data.linkedin}}</td>
+    </tr>
+
+    <tr>
+        <td>RGPD</td>
+        <td>{% if form.data.RGPD is same as (true) %} Oui {% else %} Non {% endif %}</td>
+    </tr>
+
+</table>
+
+{% endapply %}
+
