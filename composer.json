@@ -4,7 +4,6 @@
     "require": {
         "php": "^7.2",
         "ext-ctype": "*",
-        "ext-http": "*",
         "ext-iconv": "*",
         "csa/guzzle-cache-middleware": "^1.0",
         "phpmd/phpmd": "^2.6",
