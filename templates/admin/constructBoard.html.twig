@@ -38,16 +38,15 @@
     <section id="allCardsContainer">
     {% for advisor in advisors %}
         <div class="cardAdvisors">
-            <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+            <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
             <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
+            <div class="addCardAdvisor">
+                <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+            </div>
             <p>{{ advisor.place }}</p>
         </div>
-        <div class="addCardAdvisor">
-            <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
-            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDelete">
-            <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
-        </div>
-    {% endfor %}
+     {% endfor %}
     </section>
         <div class="deleteAdvisorButton">
             <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
