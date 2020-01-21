@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Advisor;
 use App\Form\AdvisorType;
+use App\Repository\AdvisorRepository;
 use App\Repository\TagRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,10 +34,11 @@ class AdvisorController extends AbstractController
     /**
      * @Route("/linkedin", name="linkedin_connect")
      * @param EntityManagerInterface $em
+     * @param AdvisorRepository $advisorRepository
      * @return Response
      * @throws Exception
      */
-    public function index(EntityManagerInterface $em): Response
+    public function index(EntityManagerInterface $em, AdvisorRepository $advisorRepository): Response
     {
         $client = new Client(
             $_ENV['OAUTH_LINKEDIN_ID'],
@@ -62,15 +64,23 @@ class AdvisorController extends AbstractController
             $lastName = $profile['localizedLastName'];
             $profilePicture =
                 $imageArray['profilePicture']['displayImage~']['elements'][3]['identifiers'][0]['identifier'];
-            $advisor = new Advisor();
-            $advisor->setEmail($email);
-            $advisor->setFirstname($firstname);
-            $advisor->setName($lastName);
-            $advisor->setPicture($profilePicture);
-            $em->persist($advisor);
-            $em->flush();
+            $advisor = $advisorRepository->findOneBy(['email'=>$email]);
+            if ($advisor === null) {
+                $advisor = new Advisor();
+                $advisor->setEmail($email);
+                $advisor->setFirstname($firstname);
+                $advisor->setName($lastName);
+                $advisor->setPicture($profilePicture);
+                $em->persist($advisor);
+                $em->flush();
+                $idAdvisor = $advisor->getId();
+                return $this->redirectToRoute('candidature', ['id' => $idAdvisor]);
+            }
+
             $idAdvisor = $advisor->getId();
             return $this->redirectToRoute('candidature', ['id' => $idAdvisor]);
+
+
         }
         return $this->render('advisor/advisor.html.twig', [
             'login_url' => $loginUrl
@@ -78,7 +88,7 @@ class AdvisorController extends AbstractController
     }
 
         /**
-     * @Route("/candidature", name="candidature")
+     * @Route("/candidature/", name="candidature")
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param TagRepository $tagRepository
