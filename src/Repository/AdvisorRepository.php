@@ -14,37 +14,22 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class AdvisorRepository extends ServiceEntityRepository
 {
+    public $takeAdvisorForBoard;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Advisor::class);
     }
 
-    // /**
-    //  * @return advisor[] Returns an array of advisor objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?advisor
+
+    public function takeAdvisorForBoard(): array
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $this->getEntityManager()->createQuery(
+            'select * 
+                from advisor'
+        );
+
+        return $query->getResult();
     }
-    */
 }

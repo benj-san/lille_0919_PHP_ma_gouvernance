@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ma Gouvernance{% endblock %}
+
+{% block main %}
+
+    <section id="filterContainer" class="hidden">
+    </section>
+
+    {% for demand in demands %}
+
+        <section class="modalDescription hidden">
+            <div class="modalDescriptionContainer">
+                Demande n° {{ demand.id }} :
+                <div class="modalParts">
+                    <div class="modalTitles">Nom entreprise :</div>
+                    <p>{{demand.client}}</p>
+                </div>
+                <div class="modalParts">
+                    <div class="modalTitles">Besoins :</div>
+                    <p>{{ demand.clientRequest }}</p>
+                </div>
+                <div class="modalParts">
+                    <div class="modalTitles">Tags :</div>
+                    <div class="tagsModalDescription">
+                        {% for tags in demand.tags %}
+                            <div class="tags">{{ tags.name }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <form method="POST" >
+                <div class="statutsContainer">
+                    <div class="modalTitles">Statut du board</div>
+                    <div class="statuts">
+                        <div class="proposé input-radio">
+                            <input type="radio" name="radio" value="0-{{ demand.id }}" id="0-{{ demand.id }}"/>
+                            <label for="0-{{ demand.id }}" class="radioModifié">Board à modifier</label>
+                        </div>
+                        <div class="accepté input-radio">
+                            <input type="radio" name="radio" value="1-{{ demand.id }}" id="1-{{ demand.id }}"/>
+                            <label for="1-{{ demand.id }}" class="radioProposé">Simulation proposé</label>
+                        </div>
+                        <div class="modifié input-radio">
+                            <input type="radio" name="radio" value="2-{{ demand.id }}" id="2-{{ demand.id }}"/>
+                            <label for="2-{{ demand.id }}" class="radioAccepté">Board accepté</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="containerRedirectButton">
+                    <input type="submit" class="redirectButton" name="statutSubmitted" value="Modifier le statut" />
+                    <a href="{{ path('board', {id : demand.boards.values[0].id}) }}" class="redirectButton">Modifier le board</a>
+                </div>
+                </form>
+            </div>
+
+        </section>
+    {% endfor %}
+
+
+    <section id="Boards">
+
+
+
+        <div class="container">
+            <div class="containerContent">
+
+                {% for demand in demands %}
+
+                    <div class="cardHorizontal">
+                        {% if demand.status ==0 %}
+                            <div class="statut" style="background-color: red;"></div>
+                        {% elseif demand.status ==1 %}
+                            <div class="statut" style="background-color: orange;"></div>
+                        {% elseif demand.status ==2 %}
+                            <div class="statut" style="background-color: green;"></div>
+                        {% endif %}
+
+                        <div class="cardBody">
+                            <p class="cardTitle">{{demand.client}}</p>
+                            <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+        <section class="filterBoards">
+            <div class="filterTitle">Filtres :</div>
+            <section class="filters">
+                <input type="text" id="myInput" placeholder="Chercher un nom..">
+            </section>
+            <div class="order">
+                Filtré par :
+                <a href="{{ path('demands') }}">En cours</a>
+                <a href="../demands/?filter=proposé">Board proposé</a>
+                <a href="../demands/?filter=modifier">Board à modifier</a>
+                <a href="../demands/?filter=accepté">Board accepté</a>
+            </div>
+            <div id ="button-newdemand">+</div>
+        </section>
+
+
+
+        <section id="demandeFormulaire" class="hidden">
+            <div id="demandeFormulaireContent">
+                <div class="demandeFormulaireTitles">Créer une demande</div>
+                {{ form_start(formDemand, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_widget(formDemand) }}
+                <button class="submitDemand">{{ button_label|default('Créer') }}</button>
+                {{ form_end(formDemand) }}
+            </div>
+        </section>
+
+    </section>
+
+
+{% endblock %}
+
+{% form_theme formDemand 'bootstrap_4_layout.html.twig' %}
+

@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Construire le board{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('board') }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block main %}
+
+    <div id="displayCvAdvisor">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
+
+
+    {% for advisor in advisors %}
+        <div class="commentAdvisor">
+            <form class="resumeJustification" action="{{ path('formBoard', {'board': board.id, 'advisor': advisor.id}) }}" method="POST">
+                <label for="story">
+                    <textarea class="resumeJustification" name="resume" rows="10" cols="33" placeholder="Justificatif de candidature">{% for resume in resumes %}{% if resume.advisor == advisor %}{{ resume.content }}{% endif %}{% endfor %}</textarea>
+                </label>
+                <input type="submit">
+            </form>
+        </div>
+
+        <div class="deleteAdvisor">
+            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
+            <div id="ddAdvisor">
+                <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
+                    <button class="definitiveDeleteAdvisor">Retirer du board</button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div id="boardAndBoardAdvisors">
+        <div id="board">
+            <h1>Réaliser mon board</h1>
+            <div id="boardEdit">
+                <div class="boardDisplayAdvisor">
+                    {{ form_start(formBoard) }}
+                    {{ form_widget(formBoard) }}
+                    {{ form_end(formBoard) }}
+                </div>
+            </div>
+            <div id="viewBoardAndIcon">
+                <div id="viewBoard">
+                    <a href="{{ path('client_board', {'uuid': board.uuid}) }}">
+                        <button>Voir</button>
+                    </a>
+                </div>
+                <div id="iconAddAdvisor">
+                    <img id="addAdvisors" src="{{ asset('build/add.png') }}" alt="">
+                </div>
+            </div>
+            <p id="clientLink"><a href="{{ path('client_board', {'uuid': board.uuid}) }}">suggestion/{{ board.uuid }}</a></p>
+        </div>
+
+
+        <div id="boardAdvisors">
+            {% for advisor in advisors %}
+                <div class="cardAdvisorJS">
+                    <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                    <div id="cardAdvisorInfos">
+                        <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p class="placeAdvisor">{{ advisor.place }}</p>
+                        <p class="idAdvisor">{{ advisor.id }}</p>
+                    </div>
+                    <div class="cardAdvisorIcons">
+                        <img class="iconAdd" src="{{ asset('build/add.png') }}" alt="">
+                        <img class="iconDelete" src="{{ asset('build/delete.png') }}" alt="">
+                        <img class="iconCv" src="{{ asset('build/cv.png') }}" alt="">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="behind">
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('board') }}
+{% endblock %}
