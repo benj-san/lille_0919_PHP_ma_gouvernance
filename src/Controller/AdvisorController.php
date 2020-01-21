@@ -145,4 +145,62 @@ class AdvisorController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+
+    /**
+     * @Route("/linkedin", name="linkedin_connect")
+     * @param EntityManagerInterface $em
+     * @param AdvisorRepository $advisorRepository
+     * @return Response
+     * @throws Exception
+     */
+    public function index(EntityManagerInterface $em, AdvisorRepository $advisorRepository): Response
+    {
+        $client = new Client(
+            $_ENV['OAUTH_LINKEDIN_ID'],
+            $_ENV['OAUTH_LINKEDIN_SECRET']
+        );
+        $client->setRedirectUrl('https://127.0.0.1:8000/advisor/linkedin');
+        $scopes = [
+            'r_liteprofile',
+            SCOPE::READ_EMAIL_ADDRESS,
+        ];
+
+
+        $loginUrl = $client->getLoginUrl($scopes);
+        if (isset($_GET['code'])) {
+            $client->setApiRoot('https://api.linkedin.com/v2/');
+            $accessToken = $client->getAccessToken($_GET['code']);
+            $client->setAccessToken($accessToken);
+            $imageArray = $client->get('me?projection=(profilePicture(displayImage~:playableStreams))');
+            $profile = $client->get('me');
+            $emailArray = $client->get('emailAddress?q=members&projection=(elements*(handle~))');
+            $email = ($emailArray['elements'][0]['handle~']['emailAddress']);
+            $firstname = $profile['localizedFirstName'];
+            $lastName = $profile['localizedLastName'];
+            $profilePicture =
+                $imageArray['profilePicture']['displayImage~']['elements'][3]['identifiers'][0]['identifier'];
+            $advisor = $advisorRepository->findOneBy(['email'=>$email]);
+            if ($advisor === null) {
+                $advisor = new Advisor();
+                $advisor->setEmail($email);
+                $advisor->setFirstname($firstname);
+                $advisor->setName($lastName);
+                $advisor->setPicture($profilePicture);
+                $uuid = uuid_create(UUID_TYPE_RANDOM);
+                $advisor->setUuid($uuid);
+                $advisor->setStatus(0);
+                $em->persist($advisor);
+                $em->flush();
+                $uuidAdvisor = $advisor->getUuid();
+                return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
+            }
+
+            $uuidAdvisor = $advisor->getUuid();
+            return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
+        }
+        return $this->render('advisor/advisor.html.twig', [
+            'login_url' => $loginUrl
+        ]);
+    }
 }

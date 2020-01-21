@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdvisorRepository")
@@ -17,6 +18,11 @@ class Advisor
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string" , length=255 , nullable=true)
+     */
+    private $uuid;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -239,6 +245,16 @@ class Advisor
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid($uuid): void
+    {
+        $this->uuid = $uuid;
     }
 
     public function getName(): ?string
@@ -604,9 +620,9 @@ class Advisor
     }
 
     /**
-     * @return ArrayCollection
+     * @return PersistentCollection
      */
-    public function getTagsCertificate(): ArrayCollection
+    public function getTagsCertificate(): Collection
     {
         return $this->tagsCertificate;
     }
@@ -622,9 +638,9 @@ class Advisor
     }
 
     /**
-     * @return ArrayCollection
+     * @return PersistentCollection
      */
-    public function getTagsActualFunction(): ArrayCollection
+    public function getTagsActualFunction(): Collection
     {
         return $this->tagsActualFunction;
     }
@@ -640,9 +656,9 @@ class Advisor
     }
 
     /**
-     * @return ArrayCollection
+     * @return PersistentCollection
      */
-    public function getTagsContexts(): ArrayCollection
+    public function getTagsContexts(): Collection
     {
         return $this->tagsContexts;
     }
@@ -658,9 +674,9 @@ class Advisor
     }
 
     /**
-     * @return ArrayCollection
+     * @return PersistentCollection
      */
-    public function getTagsCompetences(): ArrayCollection
+    public function getTagsCompetences(): Collection
     {
         return $this->tagsCompetences;
     }
@@ -676,9 +692,9 @@ class Advisor
     }
 
     /**
-     * @return ArrayCollection
+     * @return PersistentCollection
      */
-    public function getTagsExpertises(): ArrayCollection
+    public function getTagsExpertises(): Collection
     {
         return $this->tagsExpertises;
     }
