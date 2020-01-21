@@ -39,8 +39,13 @@ class AdvisorController extends AbstractController
             $email = ($emailArray['elements'][0]['handle~']['emailAddress']);
             $firstname = $profile['localizedFirstName'];
             $lastName = $profile['localizedLastName'];
-            $profilePicture = $imageArray['profilePicture']['displayImage~']['elements'][3]['identifiers'][0]['identifier'];
-            dd($email,$firstname,$lastName,$profilePicture);
+            $profilePicture = $imageArray['profilePicture']
+            ['displayImage~']
+            ['elements']
+            [3]
+            ['identifiers']
+            [0]['identifier'];
+            dd($email, $firstname, $lastName, $profilePicture);
         }
         return $this->render('advisor/advisor.html.twig', [
             'login_url' => $loginUrl
