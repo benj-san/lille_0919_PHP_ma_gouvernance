@@ -70,8 +70,19 @@ addAdvisors.addEventListener('click', () => {
 
 copy.addEventListener('click', () => {
     const range = document.createRange();
+    const linkAdress = document.getElementById('linkAdress');
     range.selectNode(clientLink);
     window.getSelection().addRange(range);
-    document.execCommand('copy');
+    try {
+        if (document.execCommand('copy')) {
+            linkAdress.classList.add('display');
+            setTimeout(() => {
+                linkAdress.classList.remove('display');
+            }, 2000);
+        }
+    } catch (err) {
+        // eslint-disable-next-line no-alert
+        alert('Pas possible de copier');
+    }
     window.getSelection().removeAllRanges();
 });
