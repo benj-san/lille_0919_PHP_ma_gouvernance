@@ -55,48 +55,47 @@
         }
     }
 
-        #allInfosAdvisor{
-            padding: 5em;
+    #allInfosAdvisor {
+        padding: 5em;
+        display: flex;
+
+        #advisorEdit {
             display: flex;
+            flex-direction: column;
 
-            #advisorEdit {
-                display: flex;
-                flex-direction: column;
+            #advisorStatus {
+                font-size: 16px;
+                position: relative;
+                min-height: 20vh;
+                min-width: 30vh;
+                margin: 5% auto 2em;
+                padding: 2em;
+                background-color: rgba(0, 0, 0, 0.05);
+                border: #8b8b8b solid 1px;
 
-                #advisorStatus{
-                    font-size: 16px;
-                    position: relative;
-                    min-height: 20vh;
-                    min-width: 30vh;
-                    margin: 5% auto 2em;
-                    padding: 2em;
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border: #8b8b8b solid 1px;
-
-                    .modalTitles{
-                        font-size:30px;
-                    }
-
+                .modalTitles {
+                    font-size: 30px;
                 }
 
-                #commentary {
-                    font-size: 16px;
-                    position: relative;
-                    min-height: 20vh;
-                    min-width: 30vh;
-                    margin: 5% auto 2em;
-                    padding: 2em;
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border: #8b8b8b solid 1px;
+            }
 
-                    .edit {
-                        top: 0;
-                        right: 0;
-                        height: 20px;
-                        width: 20px;
-                        position: absolute;
-                        cursor: pointer;
-                    }
+            #commentary {
+                font-size: 16px;
+                position: relative;
+                min-height: 20vh;
+                min-width: 30vh;
+                margin: 5% auto 2em;
+                padding: 2em;
+                background-color: rgba(0, 0, 0, 0.05);
+                border: #8b8b8b solid 1px;
+
+                .edit {
+                    top: 0;
+                    right: 0;
+                    height: 20px;
+                    width: 20px;
+                    position: absolute;
+                    cursor: pointer;
 
                     .commentaryTitle {
                         font-size: 30px;
@@ -133,51 +132,52 @@
                 }
             }
 
-            #infosAdvisor{
+            #infosAdvisor {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
                 width: calc(60% - 100px);
 
-                .blocInfo:first-child{
+                .blocInfo:first-child {
                     margin-top: 0;
-          }
+                }
 
-                .blocInfo{
+                .blocInfo {
                     margin-top: 50px;
 
-                    h2{
+                    h2 {
                         color: gray;
                         margin: 0;
-            }
+                    }
 
-                    h3{
+                    h3 {
                         margin-top: 15px;
-            }
+                    }
 
-                    p{
+                    p {
                         margin-top: 10px;
-            }
-
+                    }
                 }
             }
 
-            #civilStatus{
-                h2{
+            #civilStatus {
+                h2 {
                     color: $primary-color;
                 }
             }
         }
-        .tags{
+
+        .tags {
             display: flex;
             flex-wrap: wrap;
 
-            p{
-                 margin-left: 10px;
-                 border: 1px solid black;
-                 border-radius: 7px;
-                 padding: 10px;
-                 }
+            p {
+                margin-left: 10px;
+                border: 1px solid black;
+                border-radius: 7px;
+                padding: 10px;
+            }
         }
+    }
 }
 

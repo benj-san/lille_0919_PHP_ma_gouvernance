@@ -7,15 +7,15 @@ const myInput = document.getElementById('myInput');
 const filterContainer = document.getElementById('filterContainer');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
-    //cardAdvisorJS[i].addEventListener('click', () => {
-      //  cvAdvisor[i].classList.add('display');
-       // filterContainer.classList.remove('hidden');
-        // To click to remove the advisors' CV
-      //  filterContainer.addEventListener('click', () => {
-        //    cvAdvisor[i].classList.remove('display');
-          //  filterContainer.classList.add('hidden');
-        //});
-  //  });
+    // cardAdvisorJS[i].addEventListener('click', () => {
+    //  cvAdvisor[i].classList.add('display');
+    // filterContainer.classList.remove('hidden');
+    // To click to remove the advisors' CV
+    //  filterContainer.addEventListener('click', () => {
+    //    cvAdvisor[i].classList.remove('display');
+    //  filterContainer.classList.add('hidden');
+    // });
+    //  });
 
     iconCv[i].addEventListener('click', () => {
         cvAdvisor[i].classList.add('display');
@@ -39,6 +39,4 @@ myInput.addEventListener('keyup', () => {
             cardAdvisors[i].style.display = 'none';
         }
     }
-
-
 });
