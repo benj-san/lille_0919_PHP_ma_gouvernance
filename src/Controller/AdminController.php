@@ -15,6 +15,7 @@ use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -277,9 +278,9 @@ class AdminController extends AbstractController
      * @Route("admin/deleteBoard/{id}", name="deleteBoard")
      * @param Demand $demand
      * @param EntityManagerInterface $em
-     * @return RedirectResponse
+     * @return Response
      */
-    public function deleteBoard(Demand $demand, EntityManagerInterface $em)
+    public function deleteBoard(Demand $demand, EntityManagerInterface $em) : Response
     {
         $em->remove($demand);
         $em->flush();
