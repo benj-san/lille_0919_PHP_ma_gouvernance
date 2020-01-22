@@ -15,6 +15,9 @@ const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
 const addAdvisors = document.getElementById('addAdvisors');
 const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
+const clientLink = document.getElementById('clientLink');
+const copy = document.getElementById('copy');
+
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
     for (let j = 0; j < checkboxAdvisor.length; j += 1) {
@@ -63,4 +66,23 @@ addAdvisors.addEventListener('click', () => {
     boardAdvisors.classList.add('display');
     boardEdit.classList.add('hidden');
     viewBoardAndIcon.classList.add('hidden');
+});
+
+copy.addEventListener('click', () => {
+    const range = document.createRange();
+    const linkAdress = document.getElementById('linkAdress');
+    range.selectNode(clientLink);
+    window.getSelection().addRange(range);
+    try {
+        if (document.execCommand('copy')) {
+            linkAdress.classList.add('display');
+            setTimeout(() => {
+                linkAdress.classList.remove('display');
+            }, 2000);
+        }
+    } catch (err) {
+        // eslint-disable-next-line no-alert
+        alert('Pas possible de copier');
+    }
+    window.getSelection().removeAllRanges();
 });
