@@ -79,6 +79,11 @@
   background-color: rgba(0, 0, 0, 0.05);
   border: #8b8b8b solid 1px;
 }
+.cvAdvisor #allInfosAdvisor #advisorEdit #commentary .commentaryTitle {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
 .cvAdvisor #allInfosAdvisor #advisorEdit #commentary .edit {
   top: 0;
   right: 0;
@@ -87,20 +92,15 @@
   position: absolute;
   cursor: pointer;
 }
-.cvAdvisor #allInfosAdvisor #advisorEdit #commentary .edit .commentaryTitle {
-  font-size: 30px;
-  font-weight: 500;
-  text-align: center;
-}
-.cvAdvisor #allInfosAdvisor #advisorEdit #commentary .edit p {
+.cvAdvisor #allInfosAdvisor #advisorEdit #commentary p {
   margin: 3% 5% 60% 5%;
   text-align: justify;
   font-size: 20px;
 }
-.cvAdvisor #allInfosAdvisor #advisorEdit #commentary .edit form {
+.cvAdvisor #allInfosAdvisor #advisorEdit #commentary form {
   height: 60%;
 }
-.cvAdvisor #allInfosAdvisor #advisorEdit #commentary .edit form textarea {
+.cvAdvisor #allInfosAdvisor #advisorEdit #commentary form textarea {
   padding: 5px;
   margin: 3% 4%;
   resize: none;
@@ -109,7 +109,7 @@
   text-align: justify;
   font-size: 20px;
 }
-.cvAdvisor #allInfosAdvisor #advisorEdit #commentary .edit form input {
+.cvAdvisor #allInfosAdvisor #advisorEdit #commentary form input {
   margin: 1% 40%;
   width: 20%;
 }

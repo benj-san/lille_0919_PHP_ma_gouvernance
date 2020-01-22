@@ -1,215 +1,200 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('cvAdvisor') }}
 {% endblock %}
-
 {% block main %}
-
-
     {% if clientBoard is defined %}
-    {% for advisor in board.advisors %}
-        <div class="cvAdvisor">
-            <div id="pitch">
-                <h1>Son pitch en quelques mots</h1>
-                <p>{{ advisor.presentation }}</p>
-                <div class="ppCv">
-                    <img src="" alt="">
-                </div>
-            </div>
-            <div id="allInfosAdvisor">
-                <div id="infosAdvisor">
-                    <div class="blocInfo" id="civilStatus">
-                        <h2>{{ advisor.firstname }} {{ advisor.name }}</h2>
-                        <h3>{{ advisor.place }}</h3>
-                        <h3>{{ advisor.email }}</h3>
-                        <p>Mobilité France</p>
-                        <p>Disponible 1 journée par mois</p>
-                    </div>
-                    <div class="blocInfo" id="competences">
-                        <h2>Compétences clés</h2>
-                        <div class="tags">
-                            {% for tag in advisor.tags %}
-                                {% if tag.category.name == "Compétences principales/ clés" %}
-                                    <p>{{ tag.name }}</p>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-
-                    </div>
-                    <div class="blocInfo" id="expertises">
-                        <h2>Expertises sectorielles</h2>
-                        <div class="tags">
-                            {% for tag in advisor.tags %}
-                                {% if tag.category.name == "expertise sectorielle" %}
-                                    <p>{{ tag.name }}</p>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-
-                    </div>
-                    <div class="blocInfo" id="contexts">
-                        <h2>Contextes expérimentés</h2>
-                        <div class="tags">
-
-                            {% for tag in advisor.tags %}
-                                {% if tag.category.name == "Structures expérimentés" %}
-                                    <p>{{ tag.name }}</p>
-                                {% endif %}
-                            {% endfor %}
-
-                        </div>
-                    </div>
-                    <div class="blocInfo" id="experiences">
-                        <h2>Expérience de mandat</h2>
-                        <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
+        {% for advisor in board.advisors %}
+            <div class="cvAdvisor">
+                <div id="pitch">
+                    <h1>Son pitch en quelques mots</h1>
+                    <p>{{ advisor.presentation }}</p>
+                    <div class="ppCv">
+                        <img src="" alt="">
                     </div>
                 </div>
-                <div id="commentary">
-                    <div class="resume">
-                        {% if resumes is defined %}
-                            {% for resume in resumes %}
-                                {% if resume.advisor == advisor %}
-                                    <div class="commentaryTitle">Justificatif:</div>
-                                    <p class="commentaryP">{{ resume.content }}</p>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    {% endfor %}    {% else %}
-
-    {% for advisor in advisors %}
-        <div class="cvAdvisor">
-            <div id="pitch">
-                <h1>Son pitch en quelques mots</h1>
-                <p>{{ advisor.presentation }}</p>
-                <div class="ppCv">
-                    <img src="{{ advisor.picture }}" alt="">
-                </div>
-            </div>
-            <div id="allInfosAdvisor">
-                <div id="infosAdvisor">
-                    <div class="blocInfo" id="civilStatus">
-                        <h2>{{ advisor.firstname }} {{ advisor.name }}</h2>
-                        <h3>{{ advisor.place }}</h3>
-                        <h3>{{ advisor.email }}</h3>
-                        <p>Mobilité France</p>
-                        <p>Disponible 1 journée par mois</p>
-                    </div>
-                    <div class="blocInfo" id="competences">
-                        <h2>Compétences clés</h2>
-                        <div class="tags">
-                            {% for tag in advisor.tags %}
-                                {% if tag.category.name == "Compétences principales/ clés" %}
-                                    <p>{{ tag.name }}</p>
-                                {% endif %}
-                            {% endfor %}
+                <div id="allInfosAdvisor">
+                    <div id="infosAdvisor">
+                        <div class="blocInfo" id="civilStatus">
+                            <h2>{{ advisor.firstname }} {{ advisor.name }}</h2>
+                            <h3>{{ advisor.place }}</h3>
+                            <h3>{{ advisor.email }}</h3>
+                            <p>Mobilité France</p>
+                            <p>Disponible 1 journée par mois</p>
                         </div>
-
-                    </div>
-                    <div class="blocInfo" id="expertises">
-                        <h2>Expertises sectorielles</h2>
-                        <div class="tags">
-                            {% for tag in advisor.tags %}
-                                {% if tag.category.name == "expertise sectorielle" %}
-                                    <p>{{ tag.name }}</p>
-                                {% endif %}
-                            {% endfor %}
+                        <div class="blocInfo" id="competences">
+                            <h2>Compétences clés</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "Compétences principales/ clés" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="blocInfo" id="contexts">
-                        <h2>Contextes expérimentés</h2>
-                        <div class="tags">
-
-                            {% for tag in advisor.tags %}
-                                {% if tag.category.name == "Structures expérimentés" %}
-                                    <p>{{ tag.name }}</p>
-                                {% endif %}
-                            {% endfor %}
+                        <div class="blocInfo" id="expertises">
+                            <h2>Expertises sectorielles</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "expertise sectorielle" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blocInfo" id="contexts">
+                            <h2>Contextes expérimentés</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "Structures expérimentés" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blocInfo" id="experiences">
+                            <h2>Expérience de mandat</h2>
+                            <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
                         </div>
                     </div>
-                    <div class="blocInfo" id="experiences">
-                        <h2>Expérience de mandat</h2>
-                        <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
-                    </div>
-                </div>
-
-                {% if board is defined %}
-                <div id="commentary">
-                    <div class="commentaryTitle">Commentaire :</div>
-                        <p class="commentaryP">{{ advisor.commentary }}</p>
-                        <img class="edit" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg"/>
-                        <form class="hidden formCommentary" method="POST">
-                            <textarea name="commentaryAdvisor">{{ advisor.commentary }}</textarea>
-                            <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
-                            <input name="commentChanged" type="submit" value="Valider !"/>
-                        </form>
-                        {% if resumes is defined %}
-                            {% for resume in resumes %}
-                                {% if resume.advisor == advisor %}
-                                    <div class="commentaryTitle">Justification de l'advisor :</div>
-                                    <p class="commentaryP">{{ resume.content }}</p>
-                                {% endif %}
-                             {% endfor %}
-                        {% endif %}
-                </div>
-                {% endif %}
-
-                {% if pageAdvisor is defined %}
-                    <div id="advisorEdit">
-                        <div id="advisorStatus">
-                            <div class="modalTitles"> Statut:</div>
-                            {% if advisor.status ==0 %}
-                                <p>candidature en cours</p>
-                            {% elseif advisor.status ==1 %}
-                                <p>candidature acceptée</p>
-                            {% elseif advisor.status ==2 %}
-                                <p>candidature en suspens</p>
+                    <div id="commentary">
+                        <div class="resume">
+                            {% if resumes is defined %}
+                                {% for resume in resumes %}
+                                    {% if resume.advisor == advisor %}
+                                        <div class="commentaryTitle">Justificatif:</div>
+                                        <p class="commentaryP">{{ resume.content }}</p>
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
-                            <form method="POST" >
-                                <div class="advisorStatus">
-                                    <div class="modalTitles">Modifier</div>
-                                    <div class="encours input-radio">
-                                        <input type="radio" name="radio" value="0-{{ advisor.id }}" id="0-{{ advisor.id }}"/>
-                                        <label for="0-{{ advisor.id }}" class="radioCours">candidature en cours</label>
-                                    </div>
-                                    <div class="acceptée input-radio">
-                                        <input type="radio" name="radio" value="1-{{ advisor.id }}" id="1-{{ advisor.id }}"/>
-                                        <label for="1-{{ advisor.id }}" class="radioAcceptée">candidature acceptée</label>
-                                    </div>
-                                    <div class="modifié input-radio">
-                                        <input type="radio" name="radio" value="2-{{ advisor.id }}" id="2-{{ advisor.id }}"/>
-                                        <label for="2-{{ advisor.id }}" class="radioSuspens">candidature en suspens</label>
-                                    </div>
-                                    <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
-
-                                    <input type="submit" class="redirectButton" name="statusChange" value="Valider" />
-
-                                </div>
-                            </form>
-                        </div>
-                        <div id="commentary">
-                            <div class="commentaryTitle">Commentaire :</div>
-                            <p class="commentaryP">{{ advisor.commentary }}</p>
-                            <img class="edit" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg" alt=""/>
-                            <form class="hidden formCommentary" method="POST">
-                                <textarea name="commentaryAdvisor">{{ advisor.commentary }}</textarea>
-                                <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
-                                <input name="commentChanged" type="submit" value="Valider !"/>
-                            </form>
                         </div>
                     </div>
-                {% endif %}
-
+                </div>
             </div>
-        </div>
-    {% endfor %}
- {% endif %}
+        {% endfor %}    {% else %}
+        {% for advisor in advisors %}
+            <div class="cvAdvisor">
+                <div id="pitch">
+                    <h1>Son pitch en quelques mots</h1>
+                    <p>{{ advisor.presentation }}</p>
+                    <div class="ppCv">
+                        <img src="{{ advisor.picture }}" alt="">
+                    </div>
+                </div>
+                <div id="allInfosAdvisor">
+                    <div id="infosAdvisor">
+                        <div class="blocInfo" id="civilStatus">
+                            <h2>{{ advisor.firstname }} {{ advisor.name }}</h2>
+                            <h3>{{ advisor.place }}</h3>
+                            <h3>{{ advisor.email }}</h3>
+                            <h4>Date d'inscription : {{ advisor.submissionDate|date("d/m/Y")}}</h4>
+                            <p>Mobilité France</p>
+                            <p>Disponible 1 journée par mois</p>
+                        </div>
+                        <div class="blocInfo" id="competences">
+                            <h2>Compétences clés</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "Compétences principales/ clés" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blocInfo" id="expertises">
+                            <h2>Expertises sectorielles</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "expertise sectorielle" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blocInfo" id="contexts">
+                            <h2>Contextes expérimentés</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "Structures expérimentés" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blocInfo" id="experiences">
+                            <h2>Expérience de mandat</h2>
+                            <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
+                        </div>
+                    </div>
+                    {% if board is defined %}
+                        <div id="advisorEdit">
+                            <div id="commentary">
+                                <div class="commentaryTitle">Commentaire :</div>
+                                <p class="commentaryP">{{ advisor.commentary }}</p>
+                                <img class="edit" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg"/>
+                                <form class="hidden formCommentary" method="POST">
+                                    <textarea name="commentaryAdvisor">{{ advisor.commentary }}</textarea>
+                                    <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
+                                    <input name="commentChanged" type="submit" value="Valider !"/>
+                                </form>
+                                {% if resumes is defined %}
+                                    {% for resume in resumes %}
+                                        {% if resume.advisor == advisor %}
+                                            <div class="commentaryTitle">Justification de l'advisor :</div>
+                                            <p class="commentaryP">{{ resume.content }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if pageAdvisor is defined %}
+                        <div id="advisorEdit">
+                            <div id="advisorStatus">
+                                <div class="modalTitles"> Statut:</div>
+                                {% if advisor.status ==0 %}
+                                    <p>candidature en cours</p>
+                                {% elseif advisor.status ==1 %}
+                                    <p>candidature acceptée</p>
+                                {% elseif advisor.status ==2 %}
+                                    <p>candidature en suspens</p>
+                                {% endif %}
+                                <form method="POST" >
+                                    <div class="advisorStatus">
+                                        <div class="modalTitles">Modifier</div>
+                                        <div class="encours input-radio">
+                                            <input type="radio" name="radio" value="0-{{ advisor.id }}" id="0-{{ advisor.id }}"/>
+                                            <label for="0-{{ advisor.id }}" class="radioCours">candidature en cours</label>
+                                        </div>
+                                        <div class="acceptée input-radio">
+                                            <input type="radio" name="radio" value="1-{{ advisor.id }}" id="1-{{ advisor.id }}"/>
+                                            <label for="1-{{ advisor.id }}" class="radioAcceptée">candidature acceptée</label>
+                                        </div>
+                                        <div class="modifié input-radio">
+                                            <input type="radio" name="radio" value="2-{{ advisor.id }}" id="2-{{ advisor.id }}"/>
+                                            <label for="2-{{ advisor.id }}" class="radioSuspens">candidature en suspens</label>
+                                        </div>
+                                        <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
+                                        <input type="submit" class="redirectButton" name="statusChange" value="Valider" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="commentary">
+                                <div class="commentaryTitle">Commentaire :</div>
+                                <p class="commentaryP">{{ advisor.commentary }}</p>
+                                <img class="edit" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg" alt=""/>
+                                <form class="hidden formCommentary" method="POST">
+                                    <textarea name="commentaryAdvisor">{{ advisor.commentary }}</textarea>
+                                    <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
+                                    <input name="commentChanged" type="submit" value="Valider !"/>
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
-
 {% block javascripts %}
     {{ encore_entry_script_tags('cvAdvisor') }}
 {% endblock %}
