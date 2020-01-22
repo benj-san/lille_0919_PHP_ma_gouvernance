@@ -59,10 +59,10 @@ body {
   background-color: white;
   border: #21215e 3px inset;
 }
-#boardContent .cardAdvisors .iconLink {
+#boardContent .cardAdvisors .icon {
   position: relative;
 }
-#boardContent .cardAdvisors .iconLink .icon {
+#boardContent .cardAdvisors .icon .iconLinkedin {
   position: absolute;
   width: 40px;
   height: 40px;

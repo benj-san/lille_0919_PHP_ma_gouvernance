@@ -60,6 +60,7 @@
   font-size: 16px;
   position: relative;
   min-height: 20vh;
+  min-width: 30vh;
   margin: 5% auto 2em;
   padding: 2em;
   background-color: rgba(0, 0, 0, 0.05);
@@ -72,6 +73,7 @@
   font-size: 16px;
   position: relative;
   min-height: 20vh;
+  min-width: 30vh;
   margin: 5% auto 2em;
   padding: 2em;
   background-color: rgba(0, 0, 0, 0.05);
@@ -103,7 +105,7 @@
   margin: 3% 4%;
   resize: none;
   width: 92%;
-  min-height: 77%;
+  min-height: 90%;
   text-align: justify;
   font-size: 20px;
 }

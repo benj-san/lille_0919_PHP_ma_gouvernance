@@ -86,7 +86,7 @@
                 <h1>Son pitch en quelques mots</h1>
                 <p>{{ advisor.presentation }}</p>
                 <div class="ppCv">
-                    <img src="" alt="">
+                    <img src="{{ advisor.picture }}" alt="">
                 </div>
             </div>
             <div id="allInfosAdvisor">
@@ -163,26 +163,26 @@
                         <div id="advisorStatus">
                             <div class="modalTitles"> Statut:</div>
                             {% if advisor.status ==0 %}
-                                <p>canditature en cours</p>
+                                <p>candidature en cours</p>
                             {% elseif advisor.status ==1 %}
-                                <p>canditature acceptée</p>
+                                <p>candidature acceptée</p>
                             {% elseif advisor.status ==2 %}
-                                <p>canditature en suspens</p>
+                                <p>candidature en suspens</p>
                             {% endif %}
                             <form method="POST" >
                                 <div class="advisorStatus">
                                     <div class="modalTitles">Modifier</div>
                                     <div class="encours input-radio">
                                         <input type="radio" name="radio" value="0-{{ advisor.id }}" id="0-{{ advisor.id }}"/>
-                                        <label for="0-{{ advisor.id }}" class="radioCours">canditature en cours</label>
+                                        <label for="0-{{ advisor.id }}" class="radioCours">candidature en cours</label>
                                     </div>
                                     <div class="acceptée input-radio">
                                         <input type="radio" name="radio" value="1-{{ advisor.id }}" id="1-{{ advisor.id }}"/>
-                                        <label for="1-{{ advisor.id }}" class="radioAcceptée">canditature acceptée</label>
+                                        <label for="1-{{ advisor.id }}" class="radioAcceptée">candidature acceptée</label>
                                     </div>
                                     <div class="modifié input-radio">
                                         <input type="radio" name="radio" value="2-{{ advisor.id }}" id="2-{{ advisor.id }}"/>
-                                        <label for="2-{{ advisor.id }}" class="radioSuspens">en suspens</label>
+                                        <label for="2-{{ advisor.id }}" class="radioSuspens">candidature en suspens</label>
                                     </div>
                                     <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
 
