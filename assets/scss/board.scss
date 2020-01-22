@@ -63,7 +63,7 @@ h2 {
     margin-top: 2em;
 }
 
-/************************** AJOUT ADVISOR **************************/
+/************************** ADD ADVISOR **************************/
 
 .commentAdvisor{
     margin: calc(50vh - 13%) 0 30px 35%;
@@ -98,7 +98,7 @@ h2 {
     }
 }
 
-/************************** SUPPRIMER ADVISOR **************************/
+/************************** DELETE ADVISOR **************************/
 
 .deleteAdvisor {
     margin: calc(50vh - 13%) 0 0 35%;
@@ -148,7 +148,7 @@ h2 {
     margin-top: 0;
 }
 
-/************************** FOND NOIR LORS D'UNE POPIN **************************/
+/************************** BLACK BACKGROUND FOR POPIN **************************/
 
 #behind {
     position: fixed;
@@ -167,7 +167,7 @@ h2 {
     cursor: pointer;
 }
 
-/************************** BOARD + LISTE ADVISOR **************************/
+/************************** BOARD + ADVISOR LIST **************************/
 
 #boardAndBoardAdvisors {
     display: flex;
@@ -284,7 +284,7 @@ h2 {
             }
         }
 
-        /************************** BOUTON POUR VOIR LE BOARD **************************/
+        /************************** BUTTON FOR VIEW BOARD **************************/
 
         #viewBoardAndIcon {
             margin-top: 20px;
@@ -330,7 +330,7 @@ h2 {
         }
     }
 
-    /************************** LISTE ADVISOR **************************/
+    /************************** ADVISOR LIST **************************/
 
     #boardAdvisors {
         width: 30%;
