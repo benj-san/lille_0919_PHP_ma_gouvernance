@@ -59,6 +59,15 @@
                 </div>
             </div>
             <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quel est votre email ? *</div>
+                {{ form_widget(form.email) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
                 <div class="labels">Sur quel numéro pouvons nous vous joindre ? * </div>
                 {{ form_widget(form.phoneNumber) }}
                 <div class="nextOne choices" >Continuer</div>
@@ -68,8 +77,8 @@
                 </div>
             </div>
             <div class="hideIt1 hideIt2 question">
-                <div class="labels">Quel est votre email ? *</div>
-                {{ form_widget(form.email) }}
+                <div class="labels">Dans quelle ville proposez vous vos services ?</div>
+                {{ form_widget(form.place) }}
                 <div class="nextOne choices" >Continuer</div>
                 <div class="lastQuestion">
                     <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Gouvernance{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('advisor') }}
+            {{ encore_entry_link_tags('app') }}
+            <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        {% endblock %}
+{% block main %}
+    <div id="connectContainer">
+        <a class="linkedinlogo" href="{{ login_url }}"><img src="https://dryfta.com/wp-content/uploads/2017/04/Linkedin-customized-button.png"/></a>
+    </div>
+{% endblock %}
+
