@@ -58,6 +58,9 @@
 
     <div id="boardAndBoardAdvisors">
         <div id="board">
+            <div id="popinLink">
+                <p id="linkAdress">Liens copié !</p>
+            </div>
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
                 <div class="boardDisplayAdvisor">
@@ -68,6 +71,7 @@
             </div>
             <div id="viewBoardAndIcon">
                 <div id="viewBoard">
+                    <button id="copy">Copier l'adresse</button>
                     <a href="{{ path('client_board', {'uuid': board.uuid}) }}">
                         <button>Voir</button>
                     </a>
@@ -75,8 +79,8 @@
                 <div id="iconAddAdvisor">
                     <img id="addAdvisors" src="{{ asset('build/add.png') }}" alt="">
                 </div>
+                <p id="clientLink" spellcheck="false">suggestion/{{ board.uuid }}</p>
             </div>
-            <p id="clientLink"><a href="{{ path('client_board', {'uuid': board.uuid}) }}">suggestion/{{ board.uuid }}</a></p>
         </div>
 
         <div id="boardAdvisors">
