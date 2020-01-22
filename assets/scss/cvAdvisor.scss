@@ -87,6 +87,7 @@
                 padding: 2em;
                 background-color: rgba(0, 0, 0, 0.05);
                 border: #8b8b8b solid 1px;
+
                 .commentaryTitle {
                     font-size: 30px;
                     font-weight: 500;
@@ -110,6 +111,7 @@
 
                 form {
                     height: 60%;
+
                     textarea {
                         padding: 5px;
                         margin: 3% 4%;
@@ -132,6 +134,7 @@
                 flex-direction: column;
                 justify-content: space-around;
                 width: calc(60% - 100px);
+
                 .blocInfo:first-child {
                     margin-top: 0;
                 }
@@ -164,6 +167,7 @@
         .tags {
             display: flex;
             flex-wrap: wrap;
+
             p {
                 margin-left: 10px;
                 border: 1px solid black;
