@@ -14,24 +14,6 @@
     <body>
     <header>
 
-        <nav>
-            <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
-            <div class="linksContainer">
-                <a href="{{ path('demands') }}" class="links">Demandes</a>
-                <a href="{{ path('advisors') }}" class="links">Advisors</a>
-            </div>
-            <div class="sign-out">
-                {% if not app.user %}
-                {% else %}
-                <a href="{{ path('app_logout') }}">
-                <button  class="btn btn-lg btn-primary" type="submit">
-                    Sign out
-                </button>
-                </a>
-                    
-                {% endif %}
-            </div>
-        </nav>
 
         {% block header %}
             <nav>
@@ -40,6 +22,12 @@
                     <a href="{{ path('demands') }}" class="links">Demandes</a>
                     <a href="{{ path('advisors') }}" class="links">Advisors</a>
                 </div>
+                    {% if not app.user %}
+                    {% else %}
+                        <a class="logout" href="{{ path('app_logout') }}">
+                            Sign out
+                        </a>
+                    {% endif %}
             </nav>
         {% endblock %}
 
