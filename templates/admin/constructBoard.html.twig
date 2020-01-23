@@ -34,6 +34,28 @@
         </div>
     {% endfor %}
 
+    <div id="allAdvisorsBoard">
+    <section id="allCardsContainer">
+    {% for advisor in advisors %}
+        <div class="cardAdvisors">
+            <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+            <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
+            <div class="addCardAdvisor">
+                <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+            </div>
+            <p>{{ advisor.place }}</p>
+        </div>
+     {% endfor %}
+    </section>
+        <div class="deleteAdvisorButton">
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
+        </div>
+    </div>
+
+    <div id="behind">
+    </div>
+
     <div id="boardAndBoardAdvisors">
         <div id="board">
             <div id="popinLink">
@@ -61,8 +83,13 @@
             </div>
         </div>
 
-
         <div id="boardAdvisors">
+            {#<label id="research">
+                <input placeholder="Rechercher">
+            </label>
+            #}
+            <button id="takeAdvisors">Tous les advisors</button>
+
             {% for advisor in advisors %}
                 <div class="cardAdvisorJS">
                     <img class="pp" src="{{ asset('build/pp.png') }}" alt="">

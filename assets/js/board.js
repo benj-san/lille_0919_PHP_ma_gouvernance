@@ -10,9 +10,12 @@ const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDele
 const boardAdvisors = document.getElementById('boardAdvisors');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
+const takeAdvisors = document.getElementById('takeAdvisors');
+const allAdvisorsBoard = document.getElementById('allAdvisorsBoard');
 const iconAdd = document.querySelectorAll('img.iconAdd');
 const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
+const iconDeleteAllAdvisors = document.querySelectorAll('img.iconDeleteAllAdvisors');
 const addAdvisors = document.getElementById('addAdvisors');
 const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
 const clientLink = document.getElementById('clientLink');
@@ -47,6 +50,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         commentAdvisor[i].classList.remove('display');
         deleteAdvisor[i].classList.remove('display');
         cvAdvisor[i].classList.remove('display');
+        allAdvisorsBoard.classList.remove('display');
     });
     // Remove the advisor from the board and add into the list
     definitiveDeleteAdvisor[i].addEventListener('click', () => {
@@ -60,6 +64,17 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
                 }
             }
         }
+    });
+    // To click to display the advisors listing
+    takeAdvisors.addEventListener('click', () => {
+        behind.classList.add('display');
+        allAdvisorsBoard.classList.add('display');
+    });
+    iconDeleteAllAdvisors[i].addEventListener('click', () => {
+        behind.classList.remove('display');
+        allAdvisorsBoard.classList.remove('display');
+        deleteAdvisor.classList.remove('display');
+        iconDeleteAllAdvisors.remove('display');
     });
 }
 addAdvisors.addEventListener('click', () => {

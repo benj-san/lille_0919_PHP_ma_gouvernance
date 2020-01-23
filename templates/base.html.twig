@@ -13,6 +13,8 @@
     </head>
     <body>
     <header>
+
+
         {% block header %}
             <nav>
                 <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
@@ -20,8 +22,15 @@
                     <a href="{{ path('demands') }}" class="links">Demandes</a>
                     <a href="{{ path('advisors') }}" class="links">Advisors</a>
                 </div>
+                    {% if not app.user %}
+                    {% else %}
+                        <a class="logout" href="{{ path('app_logout') }}">
+                            Sign out
+                        </a>
+                    {% endif %}
             </nav>
         {% endblock %}
+
     </header>
     <main>
         {% block main %}{% endblock %}
