@@ -62,19 +62,25 @@
         #advisorEdit {
             display: flex;
             flex-direction: column;
+            margin: auto;
 
             #advisorStatus {
-                font-size: 16px;
                 position: relative;
                 min-height: 20vh;
-                min-width: 30vh;
+                width: 25vw;
                 margin: 5% auto 2em;
                 padding: 2em;
                 background-color: rgba(0, 0, 0, 0.05);
                 border: #8b8b8b solid 1px;
 
                 .modalTitles {
-                    font-size: 30px;
+                    font-size: 20px;
+                }
+                .changeStatus{
+
+                    label{
+                        font-size: 0.8em ;
+                    }
                 }
             }
 
@@ -82,15 +88,14 @@
                 font-size: 16px;
                 position: relative;
                 min-height: 20vh;
-                min-width: 30vh;
+                width: 25vw;
                 margin: 5% auto 2em;
                 padding: 2em;
                 background-color: rgba(0, 0, 0, 0.05);
                 border: #8b8b8b solid 1px;
 
                 .commentaryTitle {
-                    font-size: 30px;
-                    font-weight: 500;
+                    font-weight: bold;
                     text-align: center;
                 }
 

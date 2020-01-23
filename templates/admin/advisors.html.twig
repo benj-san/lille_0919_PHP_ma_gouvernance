@@ -38,11 +38,13 @@
                         <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
                         <p>{{ advisor.place }}</p>
                         {% if advisor.status ==0 %}
-                            <p>candidature en cours</p>
+                            <p>en cours d'inscription</p>
                         {% elseif advisor.status ==1 %}
-                            <p>candidature acceptée</p>
+                            <p>en cours de validation</p>
                         {% elseif advisor.status ==2 %}
-                            <p>candidature en suspens</p>
+                            <p>validé</p>
+                        {% elseif advisor.status ==3 %}
+                            <p>suspendu</p>
                         {% endif %}
                     </div>
                 </div>
@@ -59,13 +61,13 @@
         <div class="order">
 
             <a href="{{ path('advisors') }}">tous</a>
-            <a href="./advisors/?filter=encours"> candidature en cours</a>
-            <a href="./advisors/?filter=accepté">candidature acceptée</a>
-            <a href="./advisors/?filter=ensuspens">candidature en suspens</a>
+            <a href="./advisors/?filter=preinscrit">en cours d'inscription</a>
+            <a href="./advisors/?filter=accepté">en cours de validation</a>
+            <a href="./advisors/?filter=ensuspens">validé</a>
+            <a href="./advisors/?filter=ensuspens">suspendu</a>
         </div>
     </section>
-
-    </section>
+</section>
 
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}

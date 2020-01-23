@@ -150,28 +150,34 @@
                     {% if pageAdvisor is defined %}
                         <div id="advisorEdit">
                             <div id="advisorStatus">
-                                <div class="modalTitles"> Statut:</div>
+                                <div class="modalTitles"> Compte:</div>
                                 {% if advisor.status ==0 %}
-                                    <p>candidature en cours</p>
+                                    <p>en cours d'inscription</p>
                                 {% elseif advisor.status ==1 %}
-                                    <p>candidature acceptée</p>
+                                    <p>en cours de validation </p>
                                 {% elseif advisor.status ==2 %}
-                                    <p>candidature en suspens</p>
+                                    <p> validé</p>
+                                {% elseif advisor.status ==3 %}
+                                    <p> en suspens</p>
                                 {% endif %}
                                 <form method="POST" >
                                     <div class="advisorStatus">
-                                        <div class="modalTitles">Modifier</div>
-                                        <div class="encours input-radio">
+                                        <div class="modalTitles">Modifier le statut du compte</div>
+                                        <div class="changeStatus">
                                             <input type="radio" name="radio" value="0-{{ advisor.id }}" id="0-{{ advisor.id }}"/>
-                                            <label for="0-{{ advisor.id }}" class="radioCours">candidature en cours</label>
+                                            <label for="0-{{ advisor.id }}" class="">en cours d'incription</label>
                                         </div>
-                                        <div class="acceptée input-radio">
+                                        <div class="changeStatus">
                                             <input type="radio" name="radio" value="1-{{ advisor.id }}" id="1-{{ advisor.id }}"/>
-                                            <label for="1-{{ advisor.id }}" class="radioAcceptée">candidature acceptée</label>
+                                            <label for="1-{{ advisor.id }}" class="">en cours de validation</label>
                                         </div>
-                                        <div class="modifié input-radio">
+                                        <div class="changeStatus">
                                             <input type="radio" name="radio" value="2-{{ advisor.id }}" id="2-{{ advisor.id }}"/>
-                                            <label for="2-{{ advisor.id }}" class="radioSuspens">candidature en suspens</label>
+                                            <label for="2-{{ advisor.id }}" class="">validé</label>
+                                        </div>
+                                        <div class="changeStatus">
+                                            <input type="radio" name="radio" value="3-{{ advisor.id }}" id="3-{{ advisor.id }}"/>
+                                            <label for="3-{{ advisor.id }}" class="">en suspens</label>
                                         </div>
                                         <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
                                         <input type="submit" class="redirectButton" name="statusChange" value="Valider" />
