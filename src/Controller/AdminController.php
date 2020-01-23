@@ -128,7 +128,7 @@ class AdminController extends AbstractController
         }
         return $this->render('admin/advisors.html.twig', [
             'advisors' => $advisors,
-            'pageAdvisor' => 'page advisor'
+            'commentary' => 'commentary'
         ]);
     }
 
@@ -213,6 +213,7 @@ class AdminController extends AbstractController
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resumes,
+            'commentary' => 'commentary'
         ]);
     }
 
@@ -273,7 +274,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("admin/editAdvisor/{uuid}", name="deleteAdvisorFromBoard")
+     * @Route("admin/editAdvisor/{uuid}", name="editAdvisor")
      * @param Advisor $advisor
      * @return Response
      */

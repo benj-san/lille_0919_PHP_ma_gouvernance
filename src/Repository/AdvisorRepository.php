@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Advisor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
@@ -50,13 +51,13 @@ class AdvisorRepository extends ServiceEntityRepository
     }
     */
 
-    public function takeAdvisorForBoard(): array
+    public function findByBoard($board): Array
     {
-        $query = $this->getEntityManager()->createQuery(
-            'select * 
-                from advisor'
-        );
-
-        return $query->getResult();
+        return $this->createQueryBuilder('a')
+            ->andWhere(':board MEMBER OF a.boards')
+            ->setParameter('board', $board)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }
