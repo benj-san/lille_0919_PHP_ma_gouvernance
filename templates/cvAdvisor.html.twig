@@ -38,7 +38,7 @@
                         <h2>Expertises sectorielles</h2>
                         <div class="tags">
                             {% for tag in advisor.tags %}
-                                {% if tag.category.name == "expertise sectorielle" %}
+                                {% if tag.category.name == "Expertise sectorielle" %}
                                     <p>{{ tag.name }}</p>
                                 {% endif %}
                             {% endfor %}
@@ -83,6 +83,7 @@
                     {% endif %}
                 </div>
             </div>
+            <a href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
         </div>
     {% endfor %}
 

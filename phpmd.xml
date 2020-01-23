@@ -26,11 +26,7 @@
             <property name="minimum" value="250"/>
         </properties>
     </rule>
-    <rule ref="rulesets/codesize.xml/TooManyFields" >
-        <properties>
-            <property name="maxfields" value="35"/>
-        </properties>
-    </rule>
+
     <rule ref="rulesets/codesize.xml/TooManyMethods" >
         <properties>
             <property name="maxmethods" value="45"/>

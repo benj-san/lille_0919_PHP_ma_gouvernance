@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Resume;
 use App\Entity\Advisor;
 use App\Entity\Board;
+use App\Form\AdvisorEditType;
+use App\Form\AdvisorType;
 use App\Form\BoardType;
 use App\Entity\Demand;
 use App\Form\DemandType;
@@ -276,14 +278,66 @@ class AdminController extends AbstractController
     /**
      * @Route("admin/editAdvisor/{uuid}", name="editAdvisor")
      * @param Advisor $advisor
+     * @param Request $request
+     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function editAdvisor(Advisor $advisor)
+    public function editAdvisor(Advisor $advisor, Request $request, EntityManagerInterface $em)
     {
+        $form = $this->createForm(AdvisorEditType::class, $advisor);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $tagsCompetencesform = $form->getData()->getTagsCompetences();
+            $tagsAdvisor = $advisor->getTags();
+            $totalForm = count($tagsCompetencesform);
+            $totalAdvisor = count($tagsAdvisor);
+
+            for ($i = 0; $i < $totalForm; $i++) {
+                $tagsAdvisor = $advisor->getTags();
+                $state = false;
+                for ($j = 0; $j < $totalAdvisor; $j++) {
+                    if ($tagsCompetencesform[$i] === $tagsAdvisor[$j]) {
+                        $state = true;
+                    }
+                }
+                if ($state === false) {
+                    $advisor->addTag($tagsCompetencesform[$i]);
+                }
+            }
+
+            for ($i = 0; $i < $totalAdvisor; $i++) {
+                $state = true;
+                for ($j = 0; $j < $totalForm; $j++) {
+                    if ($tagsCompetencesform[$j] === $tagsAdvisor[$i]) {
+                        $state = false;
+                    }
+                }
+                if ($state === true) {
+                    $advisor->removeTag($tagsAdvisor[$i]);
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            $em->flush();
+            return $this->redirectToRoute('advisors');
+        }
         return $this->render(
-            'admin/advisorEdit.html.twig',
-            ['advisor' => $advisor]
+            'admin/editAdvisor.html.twig',
+            [
+                'advisor' => $advisor,
+                'form' => $form->createView()
+            ]
         );
     }
 }
