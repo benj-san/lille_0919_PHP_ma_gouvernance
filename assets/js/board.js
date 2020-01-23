@@ -20,6 +20,8 @@ const addAdvisors = document.getElementById('addAdvisors');
 const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
 const clientLink = document.getElementById('clientLink');
 const copy = document.getElementById('copy');
+const viewAllAdvisors = document.getElementById('viewAllAdvisors');
+const behindAllAdvisors = document.getElementById('behindAllAdvisors');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -52,6 +54,14 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         cvAdvisor[i].classList.remove('display');
         allAdvisorsBoard.classList.remove('display');
     });
+    behindAllAdvisors.addEventListener('click', () => {
+        allAdvisorsBoard.classList.remove('display');
+        behindAllAdvisors.classList.remove('display');
+    });
+    takeAdvisors.addEventListener('click', () => {
+        allAdvisorsBoard.classList.add('display');
+        behindAllAdvisors.classList.add('display');
+    });
     // Remove the advisor from the board and add into the list
     definitiveDeleteAdvisor[i].addEventListener('click', () => {
         for (let j = 0; j < checkboxAdvisor.length; j += 1) {
@@ -65,23 +75,7 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
             }
         }
     });
-    // To click to display the advisors listing
-    takeAdvisors.addEventListener('click', () => {
-        behind.classList.add('display');
-        allAdvisorsBoard.classList.add('display');
-    });
-    iconDeleteAllAdvisors[i].addEventListener('click', () => {
-        behind.classList.remove('display');
-        allAdvisorsBoard.classList.remove('display');
-        deleteAdvisor.classList.remove('display');
-        iconDeleteAllAdvisors.remove('display');
-    });
 }
-addAdvisors.addEventListener('click', () => {
-    boardAdvisors.classList.add('display');
-    boardEdit.classList.add('hidden');
-    viewBoardAndIcon.classList.add('hidden');
-});
 
 copy.addEventListener('click', () => {
     const range = document.createRange();

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee0d824193779da23861b6530caf9d7f",
+    "content-hash": "424e9e817bd3f43c307007fe429c6154",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3790,16 +3790,16 @@
         },
         {
             "name": "symfony/google-mailer",
-            "version": "v4.4.2",
+            "version": "v4.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/google-mailer.git",
-                "reference": "e8213795d510c7b8a1980540de5f08fa520ccacb"
+                "reference": "7dd2d4722ed7e9fe3be27b0afe1865dc81643815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/google-mailer/zipball/e8213795d510c7b8a1980540de5f08fa520ccacb",
-                "reference": "e8213795d510c7b8a1980540de5f08fa520ccacb",
+                "url": "https://api.github.com/repos/symfony/google-mailer/zipball/7dd2d4722ed7e9fe3be27b0afe1865dc81643815",
+                "reference": "7dd2d4722ed7e9fe3be27b0afe1865dc81643815",
                 "shasum": ""
             },
             "require": {
@@ -3839,7 +3839,7 @@
             ],
             "description": "Symfony Google Mailer Bridge",
             "homepage": "https://symfony.com",
-            "time": "2019-10-12T00:35:04+00:00"
+            "time": "2020-01-04T13:00:46+00:00"
         },
         {
             "name": "symfony/http-foundation",

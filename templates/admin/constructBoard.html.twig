@@ -34,26 +34,9 @@
         </div>
     {% endfor %}
 
-    <div id="allAdvisorsBoard">
-    <section id="allCardsContainer">
-    {% for advisor in advisors %}
-        <div class="cardAdvisors">
-            <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
-            <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
-            <div class="addCardAdvisor">
-                <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
-                <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
-            </div>
-            <p>{{ advisor.place }}</p>
-        </div>
-     {% endfor %}
-    </section>
-        <div class="deleteAdvisorButton">
-            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
-        </div>
-    </div>
-
     <div id="behind">
+    </div>
+    <div id="behindAllAdvisors">
     </div>
 
     <div id="boardAndBoardAdvisors">
@@ -90,25 +73,43 @@
             #}
             <button id="takeAdvisors">Tous les advisors</button>
 
-            {% for advisor in advisors %}
-                <div class="cardAdvisorJS">
-                    <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
-                    <div id="cardAdvisorInfos">
-                        <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
-                        <p class="placeAdvisor">{{ advisor.place }}</p>
-                        <p class="idAdvisor">{{ advisor.id }}</p>
+            <div id="viewAllAdvisors">
+                {% for advisor in advisors %}
+                    <div class="cardAdvisorJS">
+                        <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                        <div id="cardAdvisorInfos">
+                            <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                            <p class="placeAdvisor">{{ advisor.place }}</p>
+                            <p class="idAdvisor">{{ advisor.id }}</p>
+                        </div>
+                        <div class="cardAdvisorIcons">
+                            <img class="iconAdd" src="{{ asset('build/add.png') }}" alt="">
+                            <img class="iconDelete" src="{{ asset('build/delete.png') }}" alt="">
+                            <img class="iconCv" src="{{ asset('build/cv.png') }}" alt="">
+                        </div>
                     </div>
-                    <div class="cardAdvisorIcons">
-                        <img class="iconAdd" src="{{ asset('build/add.png') }}" alt="">
-                        <img class="iconDelete" src="{{ asset('build/delete.png') }}" alt="">
-                        <img class="iconCv" src="{{ asset('build/cv.png') }}" alt="">
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 
-    <div id="behind">
+    <div id="allAdvisorsBoard">
+        <section id="allCardsContainer">
+            {% for advisor in advisors %}
+                <div class="cardAdvisorsJS">
+                    <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                    <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
+                    <div class="addCardAdvisor">
+                        <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                        <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+
+        <div class="deleteAdvisorButton">
+            {#<img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">#}
+        </div>
     </div>
 
 {% endblock %}
