@@ -271,4 +271,18 @@ class AdminController extends AbstractController
             'id' => $boardId
         ]);
     }
+
+    /**
+     * @Route("admin/editAdvisor/{uuid}", name="deleteAdvisorFromBoard")
+     * @param Advisor $advisor
+     * @return Response
+     */
+    public function editAdvisor(Advisor $advisor)
+    {
+
+        return $this->render(
+            'admin/advisorEdit.html.twig',
+            ['advisor' => $advisor]
+        );
+    }
 }
