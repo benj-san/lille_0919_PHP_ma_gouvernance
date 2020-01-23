@@ -23,6 +23,8 @@ header {
         display:flex;
         align-items: center;
         background-color: white;
+        position:relative;
+
 
         .logoContainer {
             height:100%;
@@ -49,11 +51,30 @@ header {
                 text-align: center;
                 font-size:22px;
                 text-decoration: none;
-                color:black;
+                color:rgba(0,0,0,0.6);
                 font-weight:600;
             }
         }
 
+        .sign-out{
+            margin-left: 70%;
+            width: 25%;
+        }
+
+
+    }
+
+    .logout {
+        width:7%;
+        padding: 5px;
+        font-size: 2rem;
+        border: 3px solid $primary-color;
+        color: $primary-color;
+        background-color: white;
+        font-weight: bold;
+        position:absolute;
+        right:15px;
+        text-align:center;
     }
 
 }
@@ -216,6 +237,7 @@ header {
     transition:2s ease;
 
 }
+
 
 
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
