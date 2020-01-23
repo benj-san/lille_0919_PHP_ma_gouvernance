@@ -44,15 +44,25 @@ header {
             height:100%;
             display:flex;
             align-items: center;
-            width:25%;
+            width:100%;
 
             .links {
+                height:100%;
                 width:50%;
                 text-align: center;
-                font-size:22px;
+                font-size:1.5em;
                 text-decoration: none;
+                color:black;
+                padding: 1em;
+               }
+
+            #linkAdvisor{
+                width:50%;
+                text-align: center;
+                font-size:2em;
                 color:rgba(0,0,0,0.6);
                 font-weight:600;
+                background-color: #21215e;
             }
         }
 
@@ -86,6 +96,7 @@ header {
     background-color: black;
     opacity: 60%;
     top:0;
+
 }
 
 
@@ -241,86 +252,6 @@ header {
 
 
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
-#advisors {
-
-    display:flex;
-    flex-wrap: wrap;
-
-    .filterAdvisors {
-        display: flex;
-        flex-direction: column;
-        border-radius: 8%;
-        width: 25%;
-        height: 250px;
-        align-items: center;
-        cursor: pointer;
-
-        .filterTitle {
-            font-size: 28px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 20px;
-
-        }
-
-        #myInput {
-            width: 90%;
-            font-size: 22px;
-            margin-left: 15px;
-        }
-
-        .order {
-            width: 90%;
-            margin: 5px auto;
-            display: flex;
-            flex-direction: column;
-            font-size: 16px;
-
-            a{
-                margin: 5px 0 5px 15px;
-            }
-        }
-
-    }
-
-    #allCardsContainer {
-        display: flex;
-        flex-flow: row wrap;
-        width: 70%;
-        height: 70vh;
-        padding: 2rem 5em;
-        overflow: auto;
-
-        .cardAdvisors {
-            display: flex;
-            flex-direction: column;
-            margin: 2.7rem 2rem 2.7rem;
-            min-width: 200px;
-            height: 320px;
-            align-items: center;
-            color: black;
-            cursor: pointer;
-            border: #3d4b80 1px solid ;
-
-            .cardTitle{
-                font-size: 2rem;
-                text-align: center;
-            }
-
-            p{
-                font-size: 1.7rem;
-                margin-bottom: 5px;
-            }
-
-            img {
-                height: 250px;
-                width: 200px;
-                background-color: lightgray;
-                border-bottom: #FFAB40 solid 3px;
-            }
-        }
-    }
-}
 
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 
