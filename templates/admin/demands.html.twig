@@ -3,6 +3,17 @@
 
 {% block title %}Ma Gouvernance{% endblock %}
 
+ {% block header %}
+     <nav>
+         <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+         <div class="linksContainer">
+             <p id="linkAdvisor">Demandes</p>
+             <p><a href="{{ path('advisors') }}" class="links">Advisors</a></p>
+
+         </div>
+     </nav>
+ {% endblock %}
+
 {% block main %}
 
     <section id="filterContainer" class="hidden">
