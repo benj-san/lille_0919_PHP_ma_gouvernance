@@ -118,14 +118,17 @@ class AdminController extends AbstractController
 
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
-                case 'encours':
+                case 'inscription':
                     $advisors = $advisorRepository->findBy(array('status' => 0), array('name' => 'ASC'));
                     break;
-                case 'accepté':
+                case 'validation':
                     $advisors = $advisorRepository->findBy(array('status' => 1), array('name' => 'ASC'));
                     break;
-                case 'ensuspens':
+                case 'valide':
                     $advisors = $advisorRepository->findBy(array('status' => 2), array('name' => 'ASC'));
+                    break;
+                case 'ensuspens':
+                    $advisors = $advisorRepository->findBy(array('status' => 3), array('name' => 'ASC'));
                     break;
                 default:
                     $advisors = $advisorRepository->findAll();
