@@ -53,108 +53,133 @@
                 position: absolute;
             }
         }
-  }
+    }
 
-    #allInfosAdvisor{
-        padding: 50px;
+    #allInfosAdvisor {
+        padding: 5em;
         display: flex;
 
-
-        #commentary {
-            margin:2% auto;
-            font-size:16px;
-            width:45%;
-            position: relative;
-
-            .edit {
-                top:0;
-                right:0;
-                height:20px;
-                width:20px;
-                position:absolute;
-                cursor:pointer;
-            }
-
-            .commentaryTitle {
-                font-size:30px;
-                font-weight:500;
-                text-align: center;
-            }
-
-            p {
-                margin:3% 5% 60% 5%;
-                text-align: justify;
-                font-size:20px;
-
-            }
-
-            form {
-                height:60%;
-
-                textarea {
-                    padding:5px;
-                    margin:3% 4%;
-                    resize:none;
-                    width:92%;
-                    min-height:77%;
-                    text-align: justify;
-                    font-size:20px
-                }
-
-                input {
-                    margin:1% 40%;
-                    width:20%;
-                }
-            }
-
-        }
-
-
-        #infosAdvisor{
+        #advisorEdit {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            width: calc(60% - 100px);
+            margin: auto;
 
-            .blocInfo:first-child{
-                margin-top: 0;
-      }
+            #advisorStatus {
+                position: relative;
+                min-height: 20vh;
+                width: 25vw;
+                margin: 5% auto 2em;
+                padding: 2em;
+                background-color: rgba(0, 0, 0, 0.05);
+                border: #8b8b8b solid 1px;
 
-            .blocInfo{
-                margin-top: 50px;
+                .modalTitles {
+                    font-size: 20px;
+                }
 
-                h2{
-                    color: gray;
-                    margin: 0;
-        }
+                .changeStatus{
 
-                h3{
-                    margin-top: 15px;
-        }
+                    label{
+                        font-size: 0.8em ;
+                    }
+                }
+            }
 
-                p{
-                    margin-top: 10px;
-        }
+            #commentary {
+                font-size: 16px;
+                position: relative;
+                min-height: 20vh;
+                width: 25vw;
+                margin: 5% auto 2em;
+                padding: 2em;
+                background-color: rgba(0, 0, 0, 0.05);
+                border: #8b8b8b solid 1px;
 
-                .tags{
-                    display: flex;
-                    flex-wrap: wrap;
+                .commentaryTitle {
+                    font-weight: bold;
+                    text-align: center;
+                }
 
-                    p{
-                        margin-left: 10px;
-                        border: 1px solid black;
-                        border-radius: 7px;
-                        padding: 10px;
-          }
-        }
-      }
+                .edit {
+                    top: 0;
+                    right: 0;
+                    height: 20px;
+                    width: 20px;
+                    position: absolute;
+                    cursor: pointer;
+                }
 
-            #civilStatus{
-                h2{
+                p {
+                    margin: 3% 5% 60% 5%;
+                    text-align: justify;
+                    font-size: 20px;
+                }
+
+                form {
+                    height: 60%;
+
+                    textarea {
+                        padding: 5px;
+                        margin: 3% 4%;
+                        resize: none;
+                        width: 92%;
+                        min-height: 90%;
+                        text-align: justify;
+                        font-size: 20px
+                    }
+
+                    input {
+                        margin: 1% 40%;
+                        width: 20%;
+                    }
+                }
+            }
+
+            #infosAdvisor {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: calc(60% - 100px);
+
+                .blocInfo:first-child {
+                    margin-top: 0;
+                }
+
+                .blocInfo {
+                    margin-top: 50px;
+
+                    h2 {
+                        color: gray;
+                        margin: 0;
+                    }
+
+                    h3 {
+                        margin-top: 15px;
+                    }
+
+                    p {
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            #civilStatus {
+                h2 {
                     color: $primary-color;
+                }
+            }
         }
-      }
-    }
-  }
-}
 
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+                margin-left: 10px;
+                border: 1px solid black;
+                border-radius: 7px;
+                padding: 10px;
+            }
+        }
+    }
+}
