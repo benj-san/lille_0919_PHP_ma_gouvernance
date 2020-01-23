@@ -160,7 +160,7 @@ class AdvisorController extends AbstractController
             $_ENV['OAUTH_LINKEDIN_ID'],
             $_ENV['OAUTH_LINKEDIN_SECRET']
         );
-        $client->setRedirectUrl('https://127.0.0.1:8000/advisor/linkedin');
+        $client->setRedirectUrl($_ENV['REDIRECT_URI']);
         $scopes = [
             'r_liteprofile',
             SCOPE::READ_EMAIL_ADDRESS,
