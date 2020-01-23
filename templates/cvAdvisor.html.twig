@@ -176,6 +176,105 @@
             </div>
         </div>
     {% endfor %}
+
+
+        {% if advisorsRest is defined %}
+        {% for advisor in advisorsRest %}
+            <div class="cvAdvisor">
+                <div id="pitch">
+                    <h1>Son pitch en quelques mots</h1>
+                    <p>{{ advisor.presentation }}</p>
+                    <div class="ppCv">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div id="allInfosAdvisor">
+                    <div id="infosAdvisor">
+                        <div class="blocInfo" id="civilStatus">
+                            <h2>{{ advisor.firstname }} {{ advisor.name }}</h2>
+                            <h3>{{ advisor.place }}</h3>
+                            <h3>{{ advisor.email }}</h3>
+                            <p>Mobilité France</p>
+                            <p>Disponible 1 journée par mois</p>
+                        </div>
+                        <div class="blocInfo" id="competences">
+                            <h2>Compétences clés</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "Compétences principales/ clés" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                        <div class="blocInfo" id="expertises">
+                            <h2>Expertises sectorielles</h2>
+                            <div class="tags">
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "expertise sectorielle" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                        <div class="blocInfo" id="contexts">
+                            <h2>Contextes expérimentés</h2>
+                            <div class="tags">
+
+                                {% for tag in advisor.tags %}
+                                    {% if tag.category.name == "Structures expérimentés" %}
+                                        <p>{{ tag.name }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blocInfo" id="experiences">
+                            <h2>Expérience de mandat</h2>
+                            <p>Conseil d'administration de la Cave aux Poètes depuis 2019</p>
+                        </div>
+                    </div>
+
+
+                    <div id="commentary">
+                        <div class="commentaryTitle">Commentaire :</div>
+                        <p class="commentaryP">{{ advisor.commentary }}</p>
+                        <img class="edit" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg"/>
+                        <form class="hidden formCommentary" method="POST">
+                            <textarea name="commentaryAdvisor">{{ advisor.commentary }}</textarea>
+                            <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
+                            <input name="commentChanged" type="submit" value="Valider !"/>
+                        </form>
+                        {% if resumes is defined %}
+                            {% for resume in resumes %}
+                                {% if resume.advisor == advisor %}
+                                    <div class="commentaryTitle">Justification de l'advisor :</div>
+                                    <p class="commentaryP">{{ resume.content }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+
+                    {% if pageAdvisor is defined %}
+                        <div id="commentary">
+                            <div class="commentaryTitle">Commentaire :</div>
+                            <p class="commentaryP">{{ advisor.commentary }}</p>
+                            <img class="edit" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Edit_Notepad_Icon.svg" alt=""/>
+                            <form class="hidden formCommentary" method="POST">
+                                <textarea name="commentaryAdvisor">{{ advisor.commentary }}</textarea>
+                                <input type="number" value="{{ advisor.id }}" name="advisorId" class="hidden" />
+                                <input name="commentChanged" type="submit" value="Valider !"/>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endfor %}
+            {% endif %}
+
  {% endif %}
 {% endblock %}
 

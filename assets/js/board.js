@@ -22,8 +22,11 @@ const clientLink = document.getElementById('clientLink');
 const copy = document.getElementById('copy');
 const viewAllAdvisors = document.getElementById('viewAllAdvisors');
 const behindAllAdvisors = document.getElementById('behindAllAdvisors');
+const allAdvisors = document.querySelectorAll('div.cardAdvisorsJS');
 
-for (let i = 0; i < cardAdvisorJS.length; i += 1) {
+console.log(iconCv);
+
+for (let i = 0; i < cardAdvisorJS.length + allAdvisors.length; i += 1) {
     // Advisors in DB
     for (let j = 0; j < checkboxAdvisor.length; j += 1) {
         if (checkboxAdvisor[j].type === 'checkbox' && idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
@@ -91,7 +94,7 @@ copy.addEventListener('click', () => {
         }
     } catch (err) {
         // eslint-disable-next-line no-alert
-        alert('Pas possible de copier');
+        alert('Impossible de copier le lien');
     }
     window.getSelection().removeAllRanges();
 });

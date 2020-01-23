@@ -42,7 +42,7 @@
     <div id="boardAndBoardAdvisors">
         <div id="board">
             <div id="popinLink">
-                <p id="linkAdress">Liens copié !</p>
+                <p id="linkAdress">Lien copié !</p>
             </div>
             <h1>Réaliser mon board</h1>
             <div id="boardEdit">
@@ -95,20 +95,20 @@
 
     <div id="allAdvisorsBoard">
         <section id="allCardsContainer">
-            {% for advisor in advisors %}
+            {% for advisor in advisorsRest %}
                 <div class="cardAdvisorsJS">
                     <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
                     <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
                     <div class="addCardAdvisor">
-                        <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
-                        <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+                        <img class="iconAdd" src="{{ asset('build/add.png') }}" alt="">
+                        <img class="iconCv" src="{{ asset('build/cv.png') }}" alt="">
                     </div>
                 </div>
             {% endfor %}
         </section>
 
         <div class="deleteAdvisorButton">
-            {#<img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">#}
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
         </div>
     </div>
 
