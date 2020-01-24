@@ -4,8 +4,27 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('board') }}
+    {{ encore_entry_link_tags('app') }}
+
     {{ parent() }}
 {% endblock %}
+
+ {% block header %}
+     <nav>
+         <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+         <div class="linksContainer">
+             <p class="links">Demandes</p>
+             <p><a href="{{ path('advisors') }}" class="links">Advisors</a></p>
+
+         </div>
+         {% if not app.user %}
+         {% else %}
+             <a class="logout" href="{{ path('app_logout') }}">
+                 Sign out
+             </a>
+         {% endif %}
+     </nav>
+ {% endblock %}
 
 {% block main %}
 
@@ -55,7 +74,7 @@
             <div id="viewBoardAndIcon">
                 <div id="viewBoard">
                     <button id="copy">Copier l'adresse</button>
-                    <a href="{{ path('client_board', {'uuid': board.uuid}) }}">
+                    <a href="{{ path('client_board', {'uuid': board.uuid}) }}" target="_blank">
                         <button>Voir</button>
                     </a>
                 </div>
