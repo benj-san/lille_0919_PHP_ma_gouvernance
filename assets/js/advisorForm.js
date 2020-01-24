@@ -18,9 +18,9 @@ const buttonsBack = document.querySelectorAll('div.lastQuestion');
 
 for (let i = 0; i < buttonNext.length; i += 1) {
     buttonNext[i].addEventListener('click', () => {
-        if (questions[i].children[1].tagName == 'INPUT') {
+        if (questions[i].children[1].tagName === 'INPUT') {
             console.log(questions[i].children[1].value)   ;
-            if (questions[i].children[1].value == '') {
+            if (questions[i].children[1].value === '') {
                 alert("champ obligatoire")
             } else {
                 questions[i].classList.add('hideIt1');
