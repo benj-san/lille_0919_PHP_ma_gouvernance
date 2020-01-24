@@ -93,7 +93,6 @@ mandateNo.addEventListener('click', () => {
 
 rgpdNo.addEventListener('click', () => {
     if (document.querySelectorAll('div.error').length === 0) {
-        console.log(questions[28]);
         const errorMessage = document.createElement('div');
         errorMessage.classList.add('error');
         errorMessage.innerHTML = 'Vous devez répondre oui afin de continuer';
