@@ -12,6 +12,12 @@
              <p><a href="{{ path('demands') }}" class="links">Demandes</a></p>
              <p id="linkAdvisor">Advisors</p>
          </div>
+         {% if not app.user %}
+         {% else %}
+             <a class="logout" href="{{ path('app_logout') }}">
+                 Sign out
+             </a>
+         {% endif %}
      </nav>
  {% endblock %}
 
