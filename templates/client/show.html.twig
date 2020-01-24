@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
+
     {% block stylesheets %}
-        {{ parent() }}    
+        {{ parent() }}
         {{ encore_entry_link_tags('clientBoard') }}
     {% endblock %}
 
@@ -21,9 +22,14 @@
     <h1 id="clientName">Proposition de board</h1>
         <div id="boardContent">
             {% for advisor in board.advisors  %}
+
                  <div class="cardAdvisors">
-                     <div class="iconLink">
-                        <a href="{{ advisor.linkedin }}"><img  class="icon" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                     <div class="icon">
+                         {% if advisor.linkedin is null %}
+                             <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                         {% else %}
+                             <a href="{{ advisor.linkedin}}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                         {% endif %}
                         <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
                         <a href="" target="_blank"></a>
                      </div>
@@ -35,9 +41,6 @@
 
            {% endfor %}
        </div>
-
-{% endblock %}
-{% block footer %}
 
 {% endblock %}
 {% block javascripts %}

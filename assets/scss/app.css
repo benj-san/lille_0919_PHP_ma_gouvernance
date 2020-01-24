@@ -19,6 +19,7 @@ header nav {
   display: flex;
   align-items: center;
   background-color: white;
+  position: relative;
 }
 header nav .logoContainer {
   height: 100%;
@@ -36,15 +37,40 @@ header nav .linksContainer {
   height: 100%;
   display: flex;
   align-items: center;
-  width: 25%;
+  width: 100%;
 }
 header nav .linksContainer .links {
+  height: 100%;
   width: 50%;
   text-align: center;
-  font-size: 22px;
+  font-size: 1.5em;
   text-decoration: none;
   color: black;
+  padding: 1em;
+}
+header nav .linksContainer #linkAdvisor {
+  width: 50%;
+  text-align: center;
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 600;
+  background-color: #21215e;
+}
+header nav .sign-out {
+  margin-left: 70%;
+  width: 25%;
+}
+header .logout {
+  width: 7%;
+  padding: 5px;
+  font-size: 2rem;
+  border: 3px solid #21215e;
+  color: #21215e;
+  background-color: white;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  text-align: center;
 }
 
 #filterContainer {
@@ -179,74 +205,6 @@ header nav .linksContainer .links {
 }
 
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
-#advisors {
-  display: flex;
-  flex-wrap: wrap;
-}
-#advisors .filterAdvisors {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8%;
-  width: 25%;
-  height: 250px;
-  align-items: center;
-  cursor: pointer;
-}
-#advisors .filterAdvisors .filterTitle {
-  font-size: 28px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 20px;
-}
-#advisors .filterAdvisors #myInput {
-  width: 90%;
-  font-size: 22px;
-  margin-left: 15px;
-}
-#advisors .filterAdvisors .order {
-  width: 90%;
-  margin: 5px auto;
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-}
-#advisors .filterAdvisors .order a {
-  margin: 5px 0 5px 15px;
-}
-#advisors #allCardsContainer {
-  display: flex;
-  flex-flow: row wrap;
-  width: 70%;
-  height: 70vh;
-  padding: 2rem 5em;
-  overflow: auto;
-}
-#advisors #allCardsContainer .cardAdvisors {
-  display: flex;
-  flex-direction: column;
-  margin: 2.7rem 2rem 2.7rem;
-  min-width: 200px;
-  height: 320px;
-  align-items: center;
-  color: black;
-  cursor: pointer;
-  border: #3d4b80 1px solid;
-}
-#advisors #allCardsContainer .cardAdvisors .cardTitle {
-  font-size: 2rem;
-  text-align: center;
-}
-#advisors #allCardsContainer .cardAdvisors p {
-  font-size: 1.7rem;
-  margin-bottom: 5px;
-}
-#advisors #allCardsContainer .cardAdvisors img {
-  height: 250px;
-  width: 200px;
-  background-color: lightgray;
-  border-bottom: #FFAB40 solid 3px;
-}
-
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 #demandeFormulaire {
   width: 70%;

@@ -71,7 +71,7 @@ h2 {
     display: none;
     width: 30%;
     background-color: white;
-    z-index: 10;
+    z-index: 60;
     flex-direction: column;
     justify-content: space-around;
     padding: 10px;
@@ -107,7 +107,7 @@ h2 {
     width: 30%;
     padding: 30px;
     background-color: white;
-    z-index: 10;
+    z-index: 60;
     flex-direction: column;
     justify-content: space-around;
     box-shadow: 0 0 10px black;
@@ -148,6 +148,93 @@ h2 {
     margin-top: 0;
 }
 
+/************************** POP-IN TOUS LES ADVISORS **************************/
+
+#allAdvisorsBoard {
+    display: none;
+    width: 70%;
+    height: 60vh;
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    margin: 2rem 15%;
+    overflow: auto;
+
+    #allCardsContainer {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        padding: 5rem 2em;
+
+        .cardAdvisors {
+            display: flex;
+            flex-direction: column;
+            margin: 0.6em auto;
+            min-width: 200px;
+            height: 320px;
+            align-items: center;
+            color: black;
+            cursor: pointer;
+            border: #3d4b80 1px solid;
+
+            #pp {
+                height: 250px;
+                width: 200px;
+                border-bottom: #FFAB40 solid 3px;
+            }
+
+            .iconCv, .iconAdd{
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+        }
+
+        .cardAdvisorIcons{
+            position: absolute;
+            display: block;
+            bottom: 5px;
+            right: 5px;
+            width: 100%;
+            z-index: 50;
+            text-align: right;
+         }
+
+        .cardTitle {
+            font-size: 2rem;
+            text-align: center;
+
+            p {
+                font-size: 1.7rem;
+                margin-bottom: 5px;
+
+                .allAdvisors {
+                    height: 30px;
+                    width: 20px;
+                    padding: 15%;
+                }
+            }
+        }
+    }
+}
+
+.iconDeleteAllAdvisors {
+    width: 30px;
+}
+
+#takeAdvisors{
+    width: 250px;
+    padding: 5px;
+    font-size: 18px;
+    margin: 2% auto auto auto;
+    border-radius: 8px;
+    border: 1px solid black;
+    color: white;
+    background-color: $primary-color;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /************************** FOND NOIR LORS D'UNE POPIN **************************/
 
 #behind {
@@ -161,8 +248,7 @@ h2 {
     margin-top: -5%;
 }
 
-
-#behind.display{
+#behind.display, #allAdvisorsBoard.display {
     display: flex;
     cursor: pointer;
 }

@@ -64,7 +64,7 @@ h2 {
   display: none;
   width: 30%;
   background-color: white;
-  z-index: 10;
+  z-index: 60;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
@@ -96,7 +96,7 @@ h2 {
   width: 30%;
   padding: 30px;
   background-color: white;
-  z-index: 10;
+  z-index: 60;
   flex-direction: column;
   justify-content: space-around;
   box-shadow: 0 0 10px black;
@@ -132,6 +132,84 @@ h2 {
   margin-top: 0;
 }
 
+/************************** POP-IN TOUS LES ADVISORS **************************/
+#allAdvisorsBoard {
+  display: none;
+  width: 70%;
+  height: 60vh;
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  margin: 2rem 15%;
+  overflow: auto;
+}
+#allAdvisorsBoard #allCardsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  padding: 5rem 2em;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisors {
+  display: flex;
+  flex-direction: column;
+  margin: 0.6em auto;
+  min-width: 200px;
+  height: 320px;
+  align-items: center;
+  color: black;
+  cursor: pointer;
+  border: #3d4b80 1px solid;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisors #pp {
+  height: 250px;
+  width: 200px;
+  border-bottom: #FFAB40 solid 3px;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisors .iconCv, #allAdvisorsBoard #allCardsContainer .cardAdvisors .iconAdd {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorIcons {
+  position: absolute;
+  display: block;
+  bottom: 5px;
+  right: 5px;
+  width: 100%;
+  z-index: 50;
+  text-align: right;
+}
+#allAdvisorsBoard #allCardsContainer .cardTitle {
+  font-size: 2rem;
+  text-align: center;
+}
+#allAdvisorsBoard #allCardsContainer .cardTitle p {
+  font-size: 1.7rem;
+  margin-bottom: 5px;
+}
+#allAdvisorsBoard #allCardsContainer .cardTitle p .allAdvisors {
+  height: 30px;
+  width: 20px;
+  padding: 15%;
+}
+
+.iconDeleteAllAdvisors {
+  width: 30px;
+}
+
+#takeAdvisors {
+  width: 250px;
+  padding: 5px;
+  font-size: 18px;
+  margin: 2% auto auto auto;
+  border-radius: 8px;
+  border: 1px solid black;
+  color: white;
+  background-color: #21215e;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /************************** FOND NOIR LORS D'UNE POPIN **************************/
 #behind {
   position: fixed;
@@ -144,7 +222,7 @@ h2 {
   margin-top: -5%;
 }
 
-#behind.display {
+#behind.display, #allAdvisorsBoard.display {
   display: flex;
   cursor: pointer;
 }
@@ -155,12 +233,37 @@ h2 {
   position: fixed;
   width: 100vw;
   margin-top: -4%;
+  /************************** BOARD **************************/
+  /************************** LISTE ADVISOR **************************/
 }
 #boardAndBoardAdvisors #board {
   width: 70%;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  /************************** BOUTON POUR VOIR LE BOARD **************************/
+}
+#boardAndBoardAdvisors #board #popinLink {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+#boardAndBoardAdvisors #board #popinLink #linkAdress {
+  position: absolute;
+  font-size: 2.5rem;
+  border: 3px solid #21215e;
+  padding: 5px;
+  margin-top: -1%;
+  background-color: white;
+  color: #21215e;
+  opacity: 0;
+  transition-duration: 1s;
+}
+#boardAndBoardAdvisors #board #popinLink #linkAdress.display {
+  opacity: 1;
+  transition-duration: 1s;
+  -webkit-animation-duration: 2s;
 }
 #boardAndBoardAdvisors #board h1 {
   text-align: center;
@@ -183,7 +286,6 @@ h2 {
   box-shadow: 0 0 15px gray;
   display: flex;
   flex-flow: row wrap;
-  /************************** BOUTON POUR VOIR LE BOARD **************************/
 }
 #boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS {
   display: flex;
@@ -209,18 +311,13 @@ h2 {
   font-size: 17px;
   height: 10%;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .pp {
-  width: 100%;
-  height: 50%;
-  border-bottom: 1px solid #21215e;
-}
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .pp .placeAdvisor {
+#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .placeAdvisor {
   display: none;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .pp .idAdvisor {
+#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .idAdvisor {
   display: none;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .cardAdvisorIcons {
+#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS .cardAdvisorIcons {
   position: absolute;
   display: block;
   top: 5px;
@@ -229,18 +326,15 @@ h2 {
   z-index: 50;
   text-align: right;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .cardAdvisorIcons .iconDelete, #boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .cardAdvisorIcons .iconCv {
+#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS .cardAdvisorIcons .iconDelete, #boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS .cardAdvisorIcons .iconCv {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .cardAdvisorIcons .iconAdd {
+#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS .cardAdvisorIcons .iconAdd {
   display: none;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS #cardAdvisorInfos .cardAdvisorIcons .idAdvisor {
-  display: none;
-}
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS .removeCardAdvisor {
+#boardAndBoardAdvisors #board #boardEdit .removeCardAdvisor {
   color: white;
   border-radius: 50%;
   font-size: 50px;
@@ -251,53 +345,59 @@ h2 {
   right: 20%;
   bottom: 23%;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS .cardAdvisorIcons {
+#boardAndBoardAdvisors #board #boardEdit .cardAdvisorIcons {
   display: none;
 }
-#boardAndBoardAdvisors #board #boardEdit .cardAdvisorJS form {
+#boardAndBoardAdvisors #board #boardEdit form {
   display: none;
 }
-#boardAndBoardAdvisors #board #boardEdit #clientLink {
-  text-align: center;
-}
-#boardAndBoardAdvisors #board #boardEdit #viewBoardAndIcon {
+#boardAndBoardAdvisors #board #viewBoardAndIcon {
   margin-top: 20px;
 }
-#boardAndBoardAdvisors #board #boardEdit #viewBoard {
+#boardAndBoardAdvisors #board #viewBoardAndIcon #clientLink {
+  position: absolute;
+  top: 99999px;
+}
+#boardAndBoardAdvisors #board #viewBoard {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
-#boardAndBoardAdvisors #board #boardEdit #viewBoard a {
+#boardAndBoardAdvisors #board #viewBoard a {
   width: 20%;
 }
-#boardAndBoardAdvisors #board #boardEdit #viewBoard a button {
+#boardAndBoardAdvisors #board #viewBoard a button {
   width: 100%;
   padding: 10px;
   font-size: 3rem;
-  margin: 2% auto auto auto;
   border: 3px solid #21215e;
   color: #21215e;
   font-weight: bold;
   cursor: pointer;
 }
-#boardAndBoardAdvisors #board #boardEdit #viewBoard a:hover {
+#boardAndBoardAdvisors #board #viewBoard a:hover {
   text-decoration: none;
 }
-#boardAndBoardAdvisors #board #boardEdit #viewBoard.hidden {
+#boardAndBoardAdvisors #board #viewBoard #copy {
+  width: 20%;
+  font-size: 2rem;
+  border: 3px solid #21215e;
+  color: #21215e;
+  font-weight: bold;
+  cursor: pointer;
+}
+#boardAndBoardAdvisors #board #viewBoard.hidden {
   display: none;
 }
-#boardAndBoardAdvisors #board #boardEdit #iconAddAdvisor {
+#boardAndBoardAdvisors #board #iconAddAdvisor {
   display: none;
   float: right;
 }
-#boardAndBoardAdvisors #board #boardEdit #iconAddAdvisor #addAdvisors {
+#boardAndBoardAdvisors #board #iconAddAdvisor #addAdvisors {
   width: 60px;
   cursor: pointer;
 }
-
-/************************** LISTE ADVISOR **************************/
-#boardAdvisors {
+#boardAndBoardAdvisors #boardAdvisors {
   width: 30%;
   height: calc(100vh - 100px);
   overflow: auto;
@@ -305,7 +405,7 @@ h2 {
   padding: 20px;
   border-left: 3px solid #fab03a;
 }
-#boardAdvisors .cardAdvisorJS {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorJS {
   width: 100%;
   height: 150px;
   background-color: white;
@@ -314,22 +414,22 @@ h2 {
   position: relative;
   outline: solid #21215e;
 }
-#boardAdvisors .cardAdvisorJS .pp {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorJS .pp {
   height: 100%;
   border-right: 1px solid #21215e;
 }
-#boardAdvisors .cardAdvisorJS #cardAdvisorInfos {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorJS #cardAdvisorInfos {
   padding: 0 10px;
   margin: auto 0 auto 10px;
 }
-#boardAdvisors .cardAdvisorJS #cardAdvisorInfos .nameAdvisor {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorJS #cardAdvisorInfos .nameAdvisor {
   font-weight: bold;
   font-size: 2.2rem;
 }
-#boardAdvisors .cardAdvisorJS #cardAdvisorInfos .idAdvisor {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorJS #cardAdvisorInfos .idAdvisor {
   display: none;
 }
-#boardAdvisors .cardAdvisorIcons {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorIcons {
   position: absolute;
   display: block;
   bottom: 5px;
@@ -338,19 +438,18 @@ h2 {
   z-index: 50;
   text-align: right;
 }
-#boardAdvisors .cardAdvisorIcons .iconAdd, #boardAdvisors .cardAdvisorIcons .iconCv {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorIcons .iconAdd, #boardAndBoardAdvisors #boardAdvisors .cardAdvisorIcons .iconCv {
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
-#boardAdvisors .cardAdvisorIcons .iconDelete {
+#boardAndBoardAdvisors #boardAdvisors .cardAdvisorIcons .iconDelete {
   display: none;
 }
-#boardAdvisors .removeCardAdvisor {
+#boardAndBoardAdvisors #boardAdvisors .removeCardAdvisor {
   display: none;
 }
-
-#boardAdvisors.display {
+#boardAndBoardAdvisors #boardAdvisors.display {
   display: block;
   position: absolute;
   width: 60%;

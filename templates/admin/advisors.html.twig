@@ -1,26 +1,69 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
 
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('advisor') }}
+{% endblock %}
 {% block title %}Ma Gouvernance{% endblock %}
+ {% block header %}
+     <nav>
+         <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+         <div class="linksContainer">
+             <p><a href="{{ path('demands') }}" class="links">Demandes</a></p>
+             <p id="linkAdvisor">Advisors</p>
+         </div>
+     </nav>
+ {% endblock %}
 
 {% block main %}
 
     <section id="filterContainer" class="hidden">
     </section>
+    <div class="displayAllAdvisor">
 
+
+    <div id="behind">
+    </div>
     <div id="displayCvAdvisor">
         {% include 'cvAdvisor.html.twig' %}
     </div>
 
-    <section id="advisors" >
+    <section id="advisors">
         <section id="allCardsContainer">
             {% for advisor in advisors %}
                 <div class="cardAdvisors">
-                    <img src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
-                    <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
-                    <p>{{ advisor.place }}</p>
+                    <div class="cardImg">
+                        {% if advisor.picture is null %}
+                        <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                        {% else %}
+                            <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
+                        {% endif %}
+                        <div class="icon">
+                            {% if advisor.linkedin is null %}
+                            <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                            {% else %}
+                            <a href="{{ advisor.linkedin }}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                           {% endif %}
+                            <img class="iconCv" src="{{ asset('build/cv.png') }}" alt=""/>
+                        </div>
+                    </div>
+                    <div class="advisorInfo">
+                        <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p>{{ advisor.place }}</p>
+                        {% if advisor.status ==0 %}
+                            <p>en cours d'inscription</p>
+                        {% elseif advisor.status ==1 %}
+                            <p>en cours de validation</p>
+                        {% elseif advisor.status ==2 %}
+                            <p>validé</p>
+                        {% elseif advisor.status ==3 %}
+                            <p>suspendu</p>
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
         </section>
+
 
     <section id="filterContainer" class="hidden">
     </section>
@@ -31,18 +74,17 @@
         <div class="order">
 
             <a href="{{ path('advisors') }}">tous</a>
-            <a href="./advisors/?filter=encours"> canditature en cours</a>
-            <a href="./advisors/?filter=accepté">candidature acceptée</a>
-            <a href="./advisors/?filter=ensuspens">candidature en suspens</a>
+            <a href="./advisors/?filter=inscription">en cours d'inscription</a>
+            <a href="./advisors/?filter=validation">en cours de validation</a>
+            <a href="./advisors/?filter=valide">validé</a>
+            <a href="./advisors/?filter=ensuspens">suspendu</a>
         </div>
     </section>
+</section>
 
-
-    </form>
-
-    </section>
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
+        {{ encore_entry_script_tags('board') }}
     {% endblock %}
 {% endblock %}
 

@@ -1,3 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: white;
+}
+
+#behind {
+  position: fixed;
+  opacity: 60%;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  z-index: 5;
+  background-color: black;
+  margin-top: -5%;
+}
+
+#behind.display {
+  display: flex;
+  cursor: pointer;
+}
+
 #connectContainer {
   background-color: white;
   width: 35%;
@@ -20,6 +46,106 @@
 }
 #connectContainer a img {
   width: 100%;
+}
+
+#advisors {
+  display: flex;
+  flex-wrap: wrap;
+}
+#advisors .filterAdvisors {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8%;
+  width: 25%;
+  height: 250px;
+  align-items: center;
+  cursor: pointer;
+}
+#advisors .filterAdvisors .filterTitle {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#advisors .filterAdvisors #myInput {
+  width: 90%;
+  font-size: 22px;
+  margin-left: 15px;
+}
+#advisors .filterAdvisors .order {
+  width: 90%;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+#advisors .filterAdvisors .order a {
+  margin: 5px 0 5px 15px;
+}
+#advisors #allCardsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 75%;
+  height: 70vh;
+  padding-bottom: 2em;
+  overflow: auto;
+}
+#advisors #allCardsContainer .cardAdvisors {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  min-width: 250px;
+  height: 354px;
+  align-items: center;
+  color: black;
+  background-color: white;
+  border: #21215e 3px inset;
+}
+#advisors #allCardsContainer .cardAdvisors .cardImg {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#advisors #allCardsContainer .cardAdvisors .cardImg .advisorPic {
+  height: 270px;
+  width: 250px;
+  border-bottom: #3d4b80 solid 2px;
+  -webkit-filter: grayscale(10%);
+  filter: grayscale(30%);
+}
+#advisors #allCardsContainer .cardAdvisors .cardImg .icon {
+  position: absolute;
+  display: flex;
+}
+#advisors #allCardsContainer .cardAdvisors .cardImg .icon .iconLinkedin, #advisors #allCardsContainer .cardAdvisors .cardImg .icon .iconCv {
+  width: 40px;
+  height: 40px;
+  display: block;
+  z-index: 50;
+  cursor: pointer;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo {
+  width: 100%;
+  padding-left: 0.5em;
+  background: linear-gradient(to left, #ffffff 50%, #21215e 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo:hover {
+  background-position: left bottom;
+  color: white;
+  font-weight: bold;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo .cardTitle {
+  padding-top: 5px;
+  font-size: 1.5rem;
+}
+#advisors #allCardsContainer .cardAdvisors .advisorInfo p {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
 }
 
 /*# sourceMappingURL=advisor.css.map */

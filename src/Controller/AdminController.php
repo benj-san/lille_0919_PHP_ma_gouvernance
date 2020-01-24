@@ -45,6 +45,7 @@ class AdminController extends AbstractController
             $values = explode('-', $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
             $demand->setStatus($values[0]);
+
             $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
@@ -107,17 +108,27 @@ class AdminController extends AbstractController
             $advisor->setCommentary($_POST['commentaryAdvisor']);
             $entityManager->flush();
         }
+        if (isset($_POST['statusChange'])) {
+            $values = explode('-', $_POST['radio']);
+            $advisor = $advisorRepository->findOneBy(['id' => $values[1]]);
+            $advisor->setStatus($values[0]);
+            $entityManager->flush();
+            return $this->redirectToRoute('advisors');
+        }
 
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
-                case 'encours':
-                    $advisors = $advisorRepository->findBy(array('status' => 0));
+                case 'inscription':
+                    $advisors = $advisorRepository->findBy(array('status' => 0), array('name' => 'ASC'));
                     break;
-                case 'accepté':
-                    $advisors = $advisorRepository->findBy(array('status' => 1));
+                case 'validation':
+                    $advisors = $advisorRepository->findBy(array('status' => 1), array('name' => 'ASC'));
+                    break;
+                case 'valide':
+                    $advisors = $advisorRepository->findBy(array('status' => 2), array('name' => 'ASC'));
                     break;
                 case 'ensuspens':
-                    $advisors = $advisorRepository->findBy(array('status' => 2));
+                    $advisors = $advisorRepository->findBy(array('status' => 3), array('name' => 'ASC'));
                     break;
                 default:
                     $advisors = $advisorRepository->findAll();
@@ -126,11 +137,13 @@ class AdminController extends AbstractController
         } else {
             $advisors = $advisorRepository->findAll();
         }
-        return $this->render('admin/advisors.html.twig', [
-            'advisors' => $advisors,
-            'pageAdvisor' => 'page advisor'
-        ]);
+            return $this->render('admin/advisors.html.twig', [
+                'advisors' => $advisors,
+                'pageAdvisor' => 'page advisor'
+            ]);
     }
+
+
 
     /**
      * @Route("admin/board/{id}", name="board")
