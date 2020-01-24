@@ -97,6 +97,5 @@ rgpdNo.addEventListener('click', () => {
         errorMessage.classList.add('error');
         errorMessage.innerHTML = 'Vous devez répondre oui afin de continuer';
         questions[28].appendChild(errorMessage);
-
     }
 });
