@@ -86,7 +86,7 @@ for (let i = 0; i < deletes.length; i += 1) {
     const name = clientName[i].innerHTML;
 
     deletes[i].addEventListener('click', (e) => {
-        if (confirm(`Etes-vous sur de vouloir supprimer la demande de ${name}`)) {
+        if (window.confirm(`Etes-vous sur de vouloir supprimer la demande de ${name}`)) {
             // do stuff
         } else {
             e.preventDefault();
