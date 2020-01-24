@@ -275,13 +275,40 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("admin/deleteBoard/{id}", name="deleteBoard")
+     * @Route("admin/deleteDemand/{id}", name="deleteDemand")
      * @param Demand $demand
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function deleteBoard(Demand $demand, EntityManagerInterface $em) : Response
+    public function deleteDemand(Demand $demand, EntityManagerInterface $em) : Response
     {
+        $tags = $demand->getTags()->getValues();
+        $boards = $demand->getBoards()->getValues();
+
+        dd('oui');
+        $totalTags = count($tags);
+        for ($i = 0; $i<$totalTags; $i++) {
+            $demand->removeTag($tags[$i]);
+        }
+
+        $resumes = $demand->getResumes();
+        $totalResumes = count($resumes);
+
+        for ($i = 0; $i<$totalResumes; $i++) {
+            $em->remove($resumes[$i]);
+        }
+
+        $totalBoards = count($boards);
+
+        for ($i = 0; $i<$totalBoards; $i++) {
+            $advisors = $boards[$i]->getAdvisors()->getValues();
+            $totalAdvisors = count($advisors);
+
+            for ($j = 0; $j<$totalAdvisors; $j++) {
+                $boards[$i]->removeAdvisor($advisors[$j]);
+            }
+            $em->remove($boards[$i]);
+        }
         $em->remove($demand);
         $em->flush();
         return $this->redirectToRoute('demands');

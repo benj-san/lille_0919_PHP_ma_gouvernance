@@ -79,3 +79,5 @@ mandateNo.addEventListener('click', () => {
         }, 200);
     }, 200);
 });
+
+
