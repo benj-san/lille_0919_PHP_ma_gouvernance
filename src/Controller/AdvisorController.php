@@ -137,6 +137,7 @@ class AdvisorController extends AbstractController
             $mailer->send($email2);
 
             $date = new DateTime('now');
+            $advisor->setStatus(1);
             $advisor->setSubmissionDate($date);
             $em->flush();
             return $this->redirect('http://www.magouvernance.com');
@@ -198,10 +199,27 @@ class AdvisorController extends AbstractController
             }
 
             $uuidAdvisor = $advisor->getUuid();
+            if ($advisor->getStatus() !== 0) {
+                return $this->redirectToRoute('statut', [
+                    'uuid' => $uuidAdvisor
+                ]);
+            }
             return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
         }
         return $this->render('advisor/advisor.html.twig', [
             'login_url' => $loginUrl
         ]);
+    }
+
+
+    /**
+     * @Route("/statut/{uuid}", name="statut")
+     * @param Advisor $advisor
+     * @return Response
+     */
+    public function advisorStatut(Advisor $advisor)
+    {
+        return $this->render('advisor/advisorStatut.html.twig', [
+            'advisor' => $advisor]);
     }
 }
