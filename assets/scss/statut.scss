@@ -76,30 +76,30 @@ header {
         margin:auto;
     }
 
-  a {
-      display:block;
-      width:100%;
+    a {
+        display:block;
+        width:100%;
 
-      .button {
-          width:30%;
-          z-index:2;
-          font-weight: 700;
-          cursor: pointer;
-          white-space: nowrap;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px 0px;
-          min-height: 48px;
-          background-color: rgb(250, 176, 58);
-          color: rgb(52, 32, 1);
-          transition: background-color 0.2s ease 0s, color 0.2s ease 0s, border-color 0.2s ease 0s, opacity 0.2s ease 0s;
-          outline: none;
-          border-width: 1px;
-          border-style: solid;
-          border-image: initial;
-          padding: 8px 18px;
-          border-color: transparent;
-          border-radius: 4px;
-          margin:3% auto;
-          display:inline-block;
-      }
-  }
+        .button {
+            width:30%;
+            z-index:2;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px 0px;
+            min-height: 48px;
+            background-color: rgb(250, 176, 58);
+            color: rgb(52, 32, 1);
+            transition: background-color 0.2s ease 0s, color 0.2s ease 0s, border-color 0.2s ease 0s, opacity 0.2s ease 0s;
+            outline: none;
+            border-width: 1px;
+            border-style: solid;
+            border-image: initial;
+            padding: 8px 18px;
+            border-color: transparent;
+            border-radius: 4px;
+            margin:3% auto;
+            display:inline-block;
+        }
+    }
 }
