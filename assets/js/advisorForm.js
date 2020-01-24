@@ -18,7 +18,7 @@ const buttonsBack = document.querySelectorAll('div.lastQuestion');
 
 for (let i = 0; i < buttonNext.length; i += 1) {
     buttonNext[i].addEventListener('click', () => {
-        if (questions[i].children[1].tagName === 'INPUT'|| questions[i].children[1].tagName === 'TEXTAREA' ) {
+        if (questions[i].children[1].tagName === 'INPUT' || questions[i].children[1].tagName === 'TEXTAREA') {
             if (questions[i].children[1].value === '') {
                 if (document.querySelectorAll('div.error').length === 0) {
                     const errorMessage = document.createElement('div');
