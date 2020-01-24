@@ -10,7 +10,6 @@ const mandateYes = document.getElementById('mandateYes');
 const mandateNo = document.getElementById('mandateNo');
 const rgpdYes = document.getElementById('rgpdYes');
 const rgpdNo = document.getElementById('rgpdNo');
-
 const checkboxExperienceYes = document.getElementById('advisor_gouvernanceExperience');
 const checkboxMandateYes = document.getElementById('advisor_mandateExperience');
 const checkboxRgpdYes = document.getElementById('advisor_mandateExperience');
