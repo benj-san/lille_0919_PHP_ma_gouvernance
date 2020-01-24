@@ -18,15 +18,38 @@ const buttonsBack = document.querySelectorAll('div.lastQuestion');
 
 for (let i = 0; i < buttonNext.length; i += 1) {
     buttonNext[i].addEventListener('click', () => {
-        questions[i].classList.add('hideIt1');
-        setTimeout(() => {
-            questions[i + 1].classList.remove('hideIt2');
-            questions[i].classList.add('hideIt2');
+        //Si je suis sur une div qui contient un input
+        if (questions[i].children[1].tagName == 'INPUT') {
+            console.log(questions[i].children[1].value)   ;
+            if (questions[i].children[1].value == '') {
+                alert("champ obligatoire")
+            } else {
+                questions[i].classList.add('hideIt1');
+                setTimeout(() => {
+                    questions[i + 1].classList.remove('hideIt2');
+                    questions[i].classList.add('hideIt2');
+                    setTimeout(() => {
+                        questions[i + 1].classList.remove('hideIt1');
+                    }, 200);
+                }, 200);
+            }
+            //Je récupère la valeurde mon input
+                        //je vérifie qu'il n'est pas null
+
+            //si non je lance ma prochaine question
+        } else {
+            questions[i].classList.add('hideIt1');
             setTimeout(() => {
-                questions[i + 1].classList.remove('hideIt1');
+                questions[i + 1].classList.remove('hideIt2');
+                questions[i].classList.add('hideIt2');
+                setTimeout(() => {
+                    questions[i + 1].classList.remove('hideIt1');
+                }, 200);
             }, 200);
-        }, 200);
+        }
     });
+    //endif else
+    //Je rajoute un message d'erreur champ obligatoire
 }
 
 for (let i = 0; i < buttonsBack.length; i += 1) {

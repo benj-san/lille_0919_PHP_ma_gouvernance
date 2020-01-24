@@ -48,8 +48,8 @@
                         </div>
                     </div>
                     <div class="advisorInfo">
-                        <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
-                        <p>{{ advisor.place }}</p>
+                        <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper}}</p>
+                        <p>{{ advisor.place|title }}</p>
                         {% if advisor.status ==0 %}
                             <p>en cours d'inscription</p>
                         {% elseif advisor.status ==1 %}
