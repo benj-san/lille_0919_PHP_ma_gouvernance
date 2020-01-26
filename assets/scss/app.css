@@ -19,6 +19,7 @@ header nav {
   display: flex;
   align-items: center;
   background-color: white;
+  position: relative;
 }
 header nav .logoContainer {
   height: 100%;
@@ -51,9 +52,25 @@ header nav .linksContainer #linkAdvisor {
   width: 50%;
   text-align: center;
   font-size: 2em;
-  color: white;
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 600;
   background-color: #21215e;
+}
+header nav .sign-out {
+  margin-left: 70%;
+  width: 25%;
+}
+header .logout {
+  width: 7%;
+  padding: 5px;
+  font-size: 2rem;
+  border: 3px solid #21215e;
+  color: #21215e;
+  background-color: white;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  text-align: center;
 }
 
 #filterContainer {
@@ -187,6 +204,8 @@ header nav .linksContainer #linkAdvisor {
   transition: 2s ease;
 }
 
+/* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
+/* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 #demandeFormulaire {
   width: 70%;
   z-index: 1;
