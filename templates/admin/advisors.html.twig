@@ -34,7 +34,7 @@
                 <div class="cardAdvisors">
                     <div class="cardImg">
                         {% if advisor.picture is null %}
-                        <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                            <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
                         {% else %}
                             <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
                         {% endif %}
@@ -48,8 +48,8 @@
                         </div>
                     </div>
                     <div class="advisorInfo">
-                        <p class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</p>
-                        <p>{{ advisor.place }}</p>
+                        <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper}}</p>
+                        <p>{{ advisor.place|title }}</p>
                         {% if advisor.status ==0 %}
                             <p>en cours d'inscription</p>
                         {% elseif advisor.status ==1 %}

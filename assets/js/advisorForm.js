@@ -27,10 +27,37 @@ for (let i = 0; i < buttonNext.length; i += 1) {
         setTimeout(() => {
             questions[i + 1].classList.remove('hideIt2');
             questions[i].classList.add('hideIt2');
+        if (questions[i].children[1].tagName === 'INPUT' || questions[i].children[1].tagName === 'TEXTAREA') {
+            if (questions[i].children[1].value === '') {
+                if (document.querySelectorAll('div.error').length === 0) {
+                    const errorMessage = document.createElement('div');
+                    errorMessage.classList.add('error');
+                    errorMessage.innerHTML = 'une réponse est requise pour les champs marqués par *';
+                    questions[i].appendChild(errorMessage);
+                }
+            } else {
+                if (document.querySelectorAll('div.error').length === 1) {
+                    document.querySelectorAll('div.error')[0].parentNode.removeChild(document.querySelectorAll('div.error')[0]);
+                }
+                questions[i].classList.add('hideIt1');
+                setTimeout(() => {
+                    questions[i + 1].classList.remove('hideIt2');
+                    questions[i].classList.add('hideIt2');
+                    setTimeout(() => {
+                        questions[i + 1].classList.remove('hideIt1');
+                    }, 200);
+                }, 200);
+            }
+        } else {
+            questions[i].classList.add('hideIt1');
             setTimeout(() => {
-                questions[i + 1].classList.remove('hideIt1');
+                questions[i + 1].classList.remove('hideIt2');
+                questions[i].classList.add('hideIt2');
+                setTimeout(() => {
+                    questions[i + 1].classList.remove('hideIt1');
+                }, 200);
             }, 200);
-        }, 200);
+        }
     });
 }
 
