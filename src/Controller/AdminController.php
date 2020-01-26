@@ -233,13 +233,18 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-
+        $totalAdvisorsRest = count($allAdvisorsRest);
+        $advisors = $allAdvisorsSorted;
+        for ($i = 0; $i< $totalAdvisorsRest; $i++) {
+            $advisors[] = $allAdvisorsRest[$i];
+        }
         return $this->render('admin/constructBoard.html.twig', [
-            'advisors' => $allAdvisorsSorted,
+            'advisorsSorted' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resumes,
-            'advisorsRest' => $allAdvisorsRest
+            'advisorsRest' => $allAdvisorsRest,
+            'advisors' => $advisors
         ]);
     }
 

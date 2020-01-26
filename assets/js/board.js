@@ -48,7 +48,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         commentAdvisor[i].classList.remove('display');
         deleteAdvisor[i].classList.remove('display');
         cvAdvisor[i].classList.remove('display');
-        allAdvisorsBoard.classList.remove('display');
     });
     behindAllAdvisors.addEventListener('click', () => {
         allAdvisorsBoard.classList.remove('display');

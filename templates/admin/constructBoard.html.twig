@@ -7,6 +7,7 @@
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
 
+
 {% block main %}
 
     <div id="displayCvAdvisor">
@@ -74,7 +75,7 @@
             <button id="takeAdvisors">Tous les advisors</button>
 
             <div id="viewAllAdvisors">
-                {% for advisor in advisors %}
+                {% for advisor in advisorsSorted %}
                     <div class="cardAdvisorJS advisor">
                         <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
                         <div id="cardAdvisorInfos">
@@ -96,11 +97,16 @@
     <div id="allAdvisorsBoard">
         <section id="allCardsContainer">
             {% for advisor in advisorsRest %}
-                <div class="cardAdvisorsJS advisor">
-                    <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
-                    <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
-                    <div class="addCardAdvisor">
+                <div class="cardAdvisorJS advisor">
+                    <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                    <div id="cardAdvisorInfos">
+                        <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p class="placeAdvisor">{{ advisor.place }}</p>
+                        <p class="idAdvisor">{{ advisor.id }}</p>
+                    </div>
+                    <div class="cardAdvisorIcons">
                         <img class="iconAdd" src="{{ asset('build/add.png') }}" alt="">
+                        <img class="iconDelete" src="{{ asset('build/delete.png') }}" alt="">
                         <img class="iconCv" src="{{ asset('build/cv.png') }}" alt="">
                     </div>
                 </div>
