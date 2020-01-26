@@ -159,13 +159,13 @@
                 z-index: 50;
                 text-align: right;
 
-                .iconDelete, .iconCv{
+                .iconAdd, .iconCv{
                     width: 30px;
                     height: 30px;
                     cursor: pointer;
                 }
 
-                .iconAdd{
+                .iconDelete{
                     display: none;
                 }
             }

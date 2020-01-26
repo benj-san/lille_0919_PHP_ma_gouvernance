@@ -1,13 +1,11 @@
 require('../scss/board.scss');
 
 const cvAdvisor = document.querySelectorAll('div.cvAdvisor');
-const cardAdvisorJS = document.querySelectorAll('div.advisor');
+const cardAdvisorJS = document.querySelectorAll('div.cardAdvisorJS');
 const boardEdit = document.getElementById('boardEdit');
 const behind = document.getElementById('behind');
 const commentAdvisor = document.querySelectorAll('div.commentAdvisor');
 const deleteAdvisor = document.querySelectorAll('div.deleteAdvisor');
-const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDeleteAdvisor');
-const boardAdvisors = document.getElementById('boardAdvisors');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
 const takeAdvisors = document.getElementById('takeAdvisors');
@@ -18,6 +16,8 @@ const iconDelete = document.querySelectorAll('img.iconDelete');
 const clientLink = document.getElementById('clientLink');
 const copy = document.getElementById('copy');
 const behindAllAdvisors = document.getElementById('behindAllAdvisors');
+const myInput = document.getElementById('myInput');
+
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -58,18 +58,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         behindAllAdvisors.classList.add('display');
     });
     // Remove the advisor from the board and add into the list
-    definitiveDeleteAdvisor[i].addEventListener('click', () => {
-        for (let j = 0; j < checkboxAdvisor.length; j += 1) {
-            if (checkboxAdvisor[j].type === 'checkbox') {
-                if (idAdvisor[i].innerHTML === checkboxAdvisor[j].value) {
-                    checkboxAdvisor[j].checked = false;
-                    boardAdvisors.appendChild(cardAdvisorJS[i]);
-                    behind.classList.remove('display');
-                    deleteAdvisor[i].classList.remove('display');
-                }
-            }
-        }
-    });
 }
 
 copy.addEventListener('click', () => {
@@ -89,4 +77,18 @@ copy.addEventListener('click', () => {
         alert('Impossible de copier le lien');
     }
     window.getSelection().removeAllRanges();
+});
+
+myInput.addEventListener('keyup', () => {
+    const filter = myInput.value.toUpperCase();
+    const advisorRest = document.getElementsByClassName('advisorRest');
+    for (let i = 0; i < advisorRest.length; i += 1) {
+        const cardTitle = advisorRest[i].getElementsByClassName('nameAdvisor')[0];
+        const txtValue = cardTitle.textContent || cardTitle.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            advisorRest[i].style.display = '';
+        } else {
+            advisorRest[i].style.display = 'none';
+        }
+    }
 });

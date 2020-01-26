@@ -76,7 +76,7 @@
 
             <div id="viewAllAdvisors">
                 {% for advisor in advisorsSorted %}
-                    <div class="cardAdvisorJS advisor">
+                    <div class="cardAdvisorJS">
                         <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
                         <div id="cardAdvisorInfos">
                             <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
@@ -96,8 +96,9 @@
 
     <div id="allAdvisorsBoard">
         <section id="allCardsContainer">
+            <input type="text" id="myInput" placeholder="Chercher un nom..">
             {% for advisor in advisorsRest %}
-                <div class="cardAdvisorJS advisor">
+                <div class="cardAdvisorJS advisorRest">
                     <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
                     <div id="cardAdvisorInfos">
                         <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
