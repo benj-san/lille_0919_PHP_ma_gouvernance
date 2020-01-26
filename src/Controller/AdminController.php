@@ -172,7 +172,6 @@ class AdminController extends AbstractController
             $entityManager->flush();
         }
 
-        $advisor = $advisorRepository->findAll();
         $demand = $board->getDemand();
         $resumes = $resumeRepository->findBy(['demand'=>$demand]);
 
@@ -200,21 +199,33 @@ class AdminController extends AbstractController
             for ($j = 0 + $i; $j < $total2; $j++) {
                 if (key($iValue) < key($advisorsArray[$j])) {
                     $temporary = $advisorsArray[$j];
-                    $advisorsArray[$j] = $iValue;
+                    $advisorsArray[$j] = $advisorsArray[$i];
                     $advisorsArray[$i] = $temporary;
                 }
             }
         }
 
-
         $allAdvisorsSorted = [];
+        $limit = 0;
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
-                $allAdvisorsSorted[] = $advisor;
+                $limit ++;
+                if ($limit < 6) {
+                    $allAdvisorsSorted[] = $advisor;
+                }
             }
         }
 
-
+        $allAdvisorsRest = [];
+        $limit = 0;
+        foreach ($advisorsArray as $advisor => $data) {
+            foreach ($data as $matches => $advisor) {
+                $limit ++;
+                if ($limit >= 6) {
+                    $allAdvisorsRest[] = $advisor;
+                }
+            }
+        }
 
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
@@ -228,6 +239,7 @@ class AdminController extends AbstractController
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resumes,
+            'advisorsRest' => $allAdvisorsRest
         ]);
     }
 
