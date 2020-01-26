@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('statut') }}
+{% endblock %}
+
+{% block header %}
+    <nav>
+        <a class="logoContainer" href="http://www.magouvernance.fr"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+        <div class="linksContainer">
+            <a class="links" href="http://www.magouvernance.fr">Accueil</a>
+            <a class="links" href="http://magouvernance.fr/index.php/entreprises/">Entreprises</a>
+            <a class="links" href="http://magouvernance.fr/index.php/blog/">Blog</a>
+            <a class="links" href="http://magouvernance.fr/index.php/435-2/">Nous contacter</a>
+            <a class="links" href="http://magouvernance.fr/index.php/faq/">FAQ</a>
+        </div>
+    </nav>
+{% endblock %}
+
+
+{% block main %}
+    <main>
+
+        <section class="containerStatut" >
+            <div>
+            {% if advisor.status == 2 %}
+                <p>Votre compte a était validé.
+                    <br>Nous reviendrons vers vous lorsqu'une mission adaptée à votre profil est disponible.</p>
+            {% else %}
+                <p>Votre compte est en cours de validation !</p>
+            {% endif %}
+            </div>
+            <a href="http://www.magouvernance.com"><button class="button">Retourner à l'accueil</button></a>
+        </section>
+
+    </main>
+{% endblock main %}
+
