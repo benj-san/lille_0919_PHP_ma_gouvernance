@@ -25,7 +25,7 @@
         </div>
 
         <div class="deleteAdvisor">
-            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
+            <p>Retirer {{ advisor.firstname|title }} {{ advisor.name|upper }} ?</p>
             <div id="ddAdvisor">
                 <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
                     <button class="definitiveDeleteAdvisor">Retirer du board</button>
@@ -38,8 +38,12 @@
     <section id="allCardsContainer">
     {% for advisor in advisors %}
         <div class="cardAdvisors">
-            <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
-            <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
+            {% if advisor.picture is null %}
+                <img id="pp" src="{{ asset('build/pp.png') }}" alt=""/>
+            {% else %}
+                <img id="pp" src="{{ advisor.picture }}" alt="">
+            {% endif %}
+            <div class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</div>
             <div class="addCardAdvisor">
                 <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
                 <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
@@ -92,9 +96,13 @@
 
             {% for advisor in advisors %}
                 <div class="cardAdvisorJS">
-                    <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                    {% if advisor.picture is null %}
+                        <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                    {% else %}
+                        <img class="pp" src="{{ advisor.picture }}" alt="">
+                    {% endif %}
                     <div id="cardAdvisorInfos">
-                        <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p class="nameAdvisor">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
                         <p class="placeAdvisor">{{ advisor.place }}</p>
                         <p class="idAdvisor">{{ advisor.id }}</p>
                     </div>
