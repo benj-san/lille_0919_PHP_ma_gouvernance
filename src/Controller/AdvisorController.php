@@ -138,6 +138,11 @@ class AdvisorController extends AbstractController
 
             $date = new DateTime('now');
             $advisor->setSubmissionDate($date);
+            $linkedin = substr($advisor->getLinkedin(), 0, 3);
+            if ($linkedin === "www") {
+                $advisor->setLinkedin("http://" . $advisor->getLinkedin());
+            }
+
             $em->flush();
             return $this->redirect('http://www.magouvernance.com');
         }

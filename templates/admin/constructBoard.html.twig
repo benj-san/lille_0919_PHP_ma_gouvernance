@@ -44,7 +44,7 @@
         </div>
 
         <div class="deleteAdvisor">
-            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
+            <p>Retirer {{ advisor.firstname|title }} {{ advisor.name|upper }} ?</p>
             <div id="ddAdvisor">
                 <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
                     <button class="definitiveDeleteAdvisor">Retirer du board</button>
@@ -52,6 +52,30 @@
             </div>
         </div>
     {% endfor %}
+
+
+    <div id="allAdvisorsBoard">
+    <section id="allCardsContainer">
+    {% for advisor in advisors %}
+        <div class="cardAdvisors">
+            {% if advisor.picture is null %}
+                <img id="pp" src="{{ asset('build/pp.png') }}" alt=""/>
+            {% else %}
+                <img id="pp" src="{{ advisor.picture }}" alt="">
+            {% endif %}
+            <div class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</div>
+            <div class="addCardAdvisor">
+                <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
+                <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
+            </div>
+            <p>{{ advisor.place }}</p>
+        </div>
+     {% endfor %}
+    </section>
+        <div class="deleteAdvisorButton">
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
+        </div>
+    </div>
 
     <div id="behind">
     </div>
