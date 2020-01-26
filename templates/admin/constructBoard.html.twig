@@ -5,26 +5,7 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('board') }}
     {{ encore_entry_link_tags('app') }}
-
-    {{ parent() }}
 {% endblock %}
-
- {% block header %}
-     <nav>
-         <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
-         <div class="linksContainer">
-             <p class="links">Demandes</p>
-             <p><a href="{{ path('advisors') }}" class="links">Advisors</a></p>
-
-         </div>
-         {% if not app.user %}
-         {% else %}
-             <a class="logout" href="{{ path('app_logout') }}">
-                 Sign out
-             </a>
-         {% endif %}
-     </nav>
- {% endblock %}
 
 {% block main %}
 
@@ -44,7 +25,7 @@
         </div>
 
         <div class="deleteAdvisor">
-            <p>Retirer {{ advisor.firstname|title }} {{ advisor.name|upper }} ?</p>
+            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
             <div id="ddAdvisor">
                 <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
                     <button class="definitiveDeleteAdvisor">Retirer du board</button>
@@ -52,30 +33,6 @@
             </div>
         </div>
     {% endfor %}
-
-
-    <div id="allAdvisorsBoard">
-    <section id="allCardsContainer">
-    {% for advisor in advisors %}
-        <div class="cardAdvisors">
-            {% if advisor.picture is null %}
-                <img id="pp" src="{{ asset('build/pp.png') }}" alt=""/>
-            {% else %}
-                <img id="pp" src="{{ advisor.picture }}" alt="">
-            {% endif %}
-            <div class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</div>
-            <div class="addCardAdvisor">
-                <img src="{{ asset('build/add.png') }}" alt="" class="iconAdd">
-                <img src="{{ asset('build/cv.png') }}" alt="" class="iconCv">
-            </div>
-            <p>{{ advisor.place }}</p>
-        </div>
-     {% endfor %}
-    </section>
-        <div class="deleteAdvisorButton">
-            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
-        </div>
-    </div>
 
     <div id="behind">
     </div>
@@ -98,7 +55,7 @@
             <div id="viewBoardAndIcon">
                 <div id="viewBoard">
                     <button id="copy">Copier l'adresse</button>
-                    <a href="{{ path('client_board', {'uuid': board.uuid}) }}" target="_blank">
+                    <a href="{{ path('client_board', {'uuid': board.uuid}) }}">
                         <button>Voir</button>
                     </a>
                 </div>
@@ -118,7 +75,7 @@
 
             <div id="viewAllAdvisors">
                 {% for advisor in advisors %}
-                    <div class="cardAdvisorJS">
+                    <div class="cardAdvisorJS advisor">
                         <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
                         <div id="cardAdvisorInfos">
                             <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
@@ -139,7 +96,7 @@
     <div id="allAdvisorsBoard">
         <section id="allCardsContainer">
             {% for advisor in advisorsRest %}
-                <div class="cardAdvisorsJS">
+                <div class="cardAdvisorsJS advisor">
                     <img id="pp" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
                     <div class="cardTitle">{{ advisor.firstname }} {{ advisor.name }}</div>
                     <div class="addCardAdvisor">
@@ -159,6 +116,4 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('board') }}
-    {{ encore_entry_script_tags('app') }}
-
 {% endblock %}

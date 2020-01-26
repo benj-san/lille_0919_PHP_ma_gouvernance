@@ -1,7 +1,7 @@
 require('../scss/board.scss');
 
 const cvAdvisor = document.querySelectorAll('div.cvAdvisor');
-const cardAdvisorJS = document.querySelectorAll('div.cardAdvisorJS');
+const cardAdvisorJS = document.querySelectorAll('div.advisor');
 const boardEdit = document.getElementById('boardEdit');
 const behind = document.getElementById('behind');
 const commentAdvisor = document.querySelectorAll('div.commentAdvisor');
