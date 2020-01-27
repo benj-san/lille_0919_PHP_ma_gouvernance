@@ -26,7 +26,7 @@
         </div>
 
         <div class="deleteAdvisor">
-            <p>Retirer {{ advisor.firstname }} {{ advisor.name }} ?</p>
+            <p>Retirer {{ advisor.firstname|title }} {{ advisor.name|upper }} ?</p>
             <div id="ddAdvisor">
                 <a href="{{ path('deleteAdvisorFromBoard', {'board': board.id, 'advisor': advisor.id}) }}">
                     <button class="definitiveDeleteAdvisor">Retirer du board</button>
@@ -82,7 +82,7 @@
                         {% else %}
                             <img class="pp" src="{{ advisor.picture }}" alt=""/>
                         {% endif %}                        <div id="cardAdvisorInfos">
-                            <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                            <p class="nameAdvisor">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
                             <p class="placeAdvisor">{{ advisor.place }}</p>
                             <p class="idAdvisor">{{ advisor.id }}</p>
                         </div>
@@ -108,7 +108,7 @@
                         <img class="pp" src="{{ advisor.picture }}" alt=""/>
                     {% endif %}
                     <div id="cardAdvisorInfos">
-                        <p class="cardTitle nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
+                        <p class="cardTitle nameAdvisor">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
                         <p class="placeAdvisor">{{ advisor.place }}</p>
                         <p class="idAdvisor">{{ advisor.id }}</p>
                     </div>
