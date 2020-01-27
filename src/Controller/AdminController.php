@@ -145,10 +145,7 @@ class AdminController extends AbstractController
             'advisors' => $advisors,
             'commentary' => 'commentary'
         ]);
-
     }
-
-
 
     /**
      * @Route("admin/board/{id}", name="board")
@@ -242,7 +239,7 @@ class AdminController extends AbstractController
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resumes,
-            'commentary' => 'commentary'
+            'commentary' => 'commentary',
             'advisorsRest' => $allAdvisorsRest
         ]);
     }
@@ -278,9 +275,7 @@ class AdminController extends AbstractController
             $entityManager->flush();
         }
         $boardId = $board->getId();
-        return $th>>>>>>> dev
-399
-is->redirectToRoute('board', [
+        return $this->redirectToRoute('board', [
             'id' => $boardId
         ]);
     }
@@ -359,6 +354,7 @@ is->redirectToRoute('board', [
                 'form' => $form->createView()
             ]
         );
+    }
       
     /**
      * @Route("admin/deleteDemand/{id}", name="deleteDemand")
