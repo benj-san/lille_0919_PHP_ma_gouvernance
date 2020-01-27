@@ -210,7 +210,7 @@ class AdminController extends AbstractController
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
                 $limit ++;
-                if ($limit < 6) {
+                if ($limit < 2O) {
                     $allAdvisorsSorted[] = $advisor;
                 }
             }
@@ -221,7 +221,7 @@ class AdminController extends AbstractController
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
                 $limit ++;
-                if ($limit >= 6) {
+                if ($limit >= 20) {
                     $allAdvisorsRest[] = $advisor;
                 }
             }
@@ -315,7 +315,6 @@ class AdminController extends AbstractController
         $tags = $demand->getTags()->getValues();
         $boards = $demand->getBoards()->getValues();
 
-        dd('oui');
         $totalTags = count($tags);
         for ($i = 0; $i<$totalTags; $i++) {
             $demand->removeTag($tags[$i]);
