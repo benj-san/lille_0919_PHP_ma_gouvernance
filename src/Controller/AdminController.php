@@ -210,7 +210,7 @@ class AdminController extends AbstractController
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
                 $limit ++;
-                if ($limit < 2O) {
+                if ($limit < 20) {
                     $allAdvisorsSorted[] = $advisor;
                 }
             }
