@@ -195,12 +195,28 @@ class AdvisorController extends AbstractController
                 $uuidAdvisor = $advisor->getUuid();
                 return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
             }
-
             $uuidAdvisor = $advisor->getUuid();
+            if ($advisor->getStatus() !== 0) {
+                return  $this->redirectToRoute('status', ['uuid' => $uuidAdvisor]);
+            }
+
             return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
         }
         return $this->render('advisor/advisor.html.twig', [
             'login_url' => $loginUrl
+        ]);
+    }
+
+    /**
+     * @Route ("/status/{uuid}" , name="status")
+     * @param Advisor $advisor
+     * @return Response
+     */
+    public function status(Advisor $advisor)
+    {
+        $advisor->getStatus();
+        return $this->render('advisor/status.html.twig', [
+            'advisor' => $advisor
         ]);
     }
 }
