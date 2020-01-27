@@ -122,7 +122,9 @@
                          
                     {% endif %}
                 </div>
-                <a href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
+                {% if board is not defined %}
+                    <a href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
+                {% endif %}
             </div>
         {% endfor %}
 {% endblock %}
