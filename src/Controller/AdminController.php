@@ -210,7 +210,7 @@ class AdminController extends AbstractController
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
                 $limit ++;
-                if ($limit < 6) {
+                if ($limit < 10) {
                     $allAdvisorsSorted[] = $advisor;
                 }
             }
@@ -221,7 +221,7 @@ class AdminController extends AbstractController
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
                 $limit ++;
-                if ($limit >= 6) {
+                if ($limit >= 10) {
                     $allAdvisorsRest[] = $advisor;
                 }
             }
@@ -233,12 +233,17 @@ class AdminController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('demands');
         }
-
+        $totalAdvisorsRest = count($allAdvisorsRest);
+        $advisors = $allAdvisorsSorted;
+        for ($i = 0; $i< $totalAdvisorsRest; $i++) {
+            $advisors[] = $allAdvisorsRest[$i];
+        }
         return $this->render('admin/constructBoard.html.twig', [
-            'advisors' => $allAdvisorsSorted,
+            'advisorsSorted' => $allAdvisorsSorted,
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resumes,
+            'advisors' => $advisors,
             'commentary' => 'commentary',
             'advisorsRest' => $allAdvisorsRest
         ]);
@@ -367,7 +372,6 @@ class AdminController extends AbstractController
         $tags = $demand->getTags()->getValues();
         $boards = $demand->getBoards()->getValues();
 
-        dd('oui');
         $totalTags = count($tags);
         for ($i = 0; $i<$totalTags; $i++) {
             $demand->removeTag($tags[$i]);

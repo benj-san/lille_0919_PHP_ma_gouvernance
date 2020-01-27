@@ -6,58 +6,7 @@
     font-family:'Montserrat', sans-serif;;
 }
 
-/*style for boardclient*/
-/*.displayclientAdvisor{
- display : flex;
-}*/
-#clientName{
-    margin-left: 1em;
-    margin-top: 1em;
-}
 
-h2 {
-    margin: 1.6em;
-}
-
-#boardContent{
-    display: flex;
-    width: 90%;
-    min-height: 50vh;
-    flex-wrap: wrap;
-    border: #3d4b80 2px solid ;
-    margin: auto;
-    padding: 0.2em;
-    justify-content: center;
-
-    .cardAdvisorsJS {
-        display: flex;
-        flex-direction: column;
-        margin: 2.7rem 2rem 2.7rem;
-        min-width: 210px;
-        height: 320px;
-        align-items: center;
-        color: black;
-        cursor: pointer;
-        border: #3d4b80 1px solid ;
-
-        .cardTitle{
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        p{
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-
-        img{
-            height: 250px;
-            width: 210px;
-            background-color: lightgray;
-            border-bottom: #FFAB40 solid 3px;
-        }
-    }
-}
 
 #deadline{
     margin-top: 2em;
@@ -165,6 +114,63 @@ h2 {
         flex-flow: row wrap;
         width: 100%;
         padding: 5rem 2em;
+
+        .cardAdvisorJS {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            outline: solid #21215e;
+            position: relative;
+            margin: 10px;
+            width: calc(25% - 20px);
+            height: 70%;
+
+            .pp {
+                width: 100%;
+                max-width: 100%;
+                display: block;
+                border-bottom: 1px solid #21215e;
+            }
+
+            #cardAdvisorInfos {
+                padding: 10px;
+
+                .nameAdvisor {
+                    font-weight: bold;
+                    font-size: 17px;
+                    height: 10%;
+                }
+
+                .placeAdvisor {
+                    display: none;
+                }
+
+                .idAdvisor {
+                    display: none;
+                }
+            }
+
+            .cardAdvisorIcons{
+                position: absolute;
+                display: block;
+                top: 5px;
+                right: 5px;
+                width: 100%;
+                z-index: 50;
+                text-align: right;
+
+                .iconAdd, .iconCv{
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                }
+
+                .iconDelete{
+                    display: none;
+                }
+            }
+        }
+
     }
 }
 
@@ -713,17 +719,19 @@ h2 {
 @media screen and (max-width: 400px) {
     #boardAndBoardAdvisors {
 
-        #board {
+        #board{
 
-            #viewBoard {
-                a {
+            #viewBoard{
+                a{
                     width: 50%;
                 }
             }
 
-            h1 {
+            h1{
                 font-size: 2rem;
             }
         }
     }
 }
+
+
