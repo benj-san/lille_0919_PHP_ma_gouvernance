@@ -30,19 +30,19 @@ footer {
 }
 
 @media screen and (max-width: 630px) {
-  ul {
-      display:flex;
-      flex-direction: column;
-      align-items: center;
+      ul {
+          display:flex;
+          flex-direction: column;
+          align-items: center;
 
-      li {
+          li {
 
-          margin:0 3%;
+              margin:0 3%;
 
-          a {
-              color:white;
-              opacity: 1;
+              a {
+                  color:white;
+                  opacity: 1;
+              }
           }
       }
-  }
 }
