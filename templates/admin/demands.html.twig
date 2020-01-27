@@ -3,6 +3,23 @@
 
 {% block title %}Ma Gouvernance{% endblock %}
 
+ {% block header %}
+     <nav>
+         <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+         <div class="linksContainer">
+             <p id="linkAdvisor">Demandes</p>
+             <p><a href="{{ path('advisors') }}" class="links">Advisors</a></p>
+
+         </div>
+         {% if not app.user %}
+         {% else %}
+             <a class="logout" href="{{ path('app_logout') }}">
+                 Sign out
+             </a>
+         {% endif %}
+     </nav>
+ {% endblock %}
+
 {% block main %}
 
     <section id="filterContainer" class="hidden">
@@ -15,7 +32,7 @@
                 Demande n° {{ demand.id }} :
                 <div class="modalParts">
                     <div class="modalTitles">Nom entreprise :</div>
-                    <p>{{demand.client}}</p>
+                    <p class="clientName">{{demand.client}}</p>
                 </div>
                 <div class="modalParts">
                     <div class="modalTitles">Besoins :</div>
@@ -50,6 +67,7 @@
                 <div class="containerRedirectButton">
                     <input type="submit" class="redirectButton" name="statutSubmitted" value="Modifier le statut" />
                     <a href="{{ path('board', {id : demand.boards.values[0].id}) }}" class="redirectButton">Modifier le board</a>
+                    <a href="{{ path('deleteDemand', {'id': demand.id}) }}" class="delete">Supprimer le board</a>
                 </div>
                 </form>
             </div>
@@ -74,8 +92,8 @@
                             <div class="statut" style="background-color: orange;"></div>
                         {% elseif demand.status ==2 %}
                             <div class="statut" style="background-color: green;"></div>
-                        {% endif %}
 
+                    {% endif %}
                         <div class="cardBody">
                             <p class="cardTitle">{{demand.client}}</p>
                             <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>

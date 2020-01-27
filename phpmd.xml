@@ -26,11 +26,7 @@
             <property name="minimum" value="250"/>
         </properties>
     </rule>
-    <rule ref="rulesets/codesize.xml/TooManyFields" >
-        <properties>
-            <property name="maxfields" value="35"/>
-        </properties>
-    </rule>
+
     <rule ref="rulesets/codesize.xml/TooManyMethods" >
         <properties>
             <property name="maxmethods" value="45"/>
@@ -38,7 +34,6 @@
     </rule>
     <rule ref="rulesets/controversial.xml" >
         <exclude name="Superglobals" />
-
     </rule>
     <rule ref="rulesets/design.xml" >
         <exclude name="CouplingBetweenObjects" />
@@ -48,7 +43,6 @@
             <property name="maximum" value="60" />
         </properties>
     </rule>
-
     <rule ref="rulesets/unusedcode.xml">
         <exclude name="UnusedFormalParameter" />
     </rule>

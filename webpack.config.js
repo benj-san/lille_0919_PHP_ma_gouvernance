@@ -35,8 +35,12 @@ Encore
     .addEntry('advisors', './assets/js/advisors.js')
     .addEntry('clientBoard', './assets/js/clientBoard.js')
     .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
+    .addEntry('login', './assets/scss/login.scss')
+    .addEntry('register', './assets/scss/register.scss')
+    .addEntry('statut', './assets/scss/statut.scss')
 
-// .addEntry('page2', './assets/js/page2.js')
+
+    // .addEntry('page2', './assets/js/page2.js')
 
 // .addEntry('page2', './assets/js/page2.js')
 
