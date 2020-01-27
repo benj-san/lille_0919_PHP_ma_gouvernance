@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
-use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -137,7 +136,13 @@ class AdvisorController extends AbstractController
             $mailer->send($email2);
 
             $date = new DateTime('now');
+            $advisor->setStatus(1);
             $advisor->setSubmissionDate($date);
+            $linkedin = substr($advisor->getLinkedin(), 0, 3);
+            if ($linkedin === "www") {
+                $advisor->setLinkedin("http://" . $advisor->getLinkedin());
+            }
+
             $em->flush();
             return $this->redirect('http://www.magouvernance.com');
         }
@@ -160,7 +165,8 @@ class AdvisorController extends AbstractController
             $_ENV['OAUTH_LINKEDIN_ID'],
             $_ENV['OAUTH_LINKEDIN_SECRET']
         );
-        $client->setRedirectUrl('https://127.0.0.1:8000/advisor/linkedin');
+
+        $client->setRedirectUrl($_ENV['REDIRECT_URI']);
         $scopes = [
             'r_liteprofile',
             SCOPE::READ_EMAIL_ADDRESS,
@@ -197,10 +203,27 @@ class AdvisorController extends AbstractController
             }
 
             $uuidAdvisor = $advisor->getUuid();
+            if ($advisor->getStatus() !== 0) {
+                return $this->redirectToRoute('statut', [
+                    'uuid' => $uuidAdvisor
+                ]);
+            }
             return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
         }
         return $this->render('advisor/advisor.html.twig', [
             'login_url' => $loginUrl
         ]);
+    }
+
+
+    /**
+     * @Route("/statut/{uuid}", name="statut")
+     * @param Advisor $advisor
+     * @return Response
+     */
+    public function advisorStatut(Advisor $advisor)
+    {
+        return $this->render('advisor/advisorStatut.html.twig', [
+            'advisor' => $advisor]);
     }
 }

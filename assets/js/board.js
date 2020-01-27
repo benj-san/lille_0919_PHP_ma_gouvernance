@@ -10,13 +10,14 @@ const definitiveDeleteAdvisor = document.querySelectorAll('button.definitiveDele
 const boardAdvisors = document.getElementById('boardAdvisors');
 const idAdvisor = document.querySelectorAll('p.idAdvisor');
 const checkboxAdvisor = document.querySelectorAll('input');
+const takeAdvisors = document.getElementById('takeAdvisors');
+const allAdvisorsBoard = document.getElementById('allAdvisorsBoard');
 const iconAdd = document.querySelectorAll('img.iconAdd');
 const iconCv = document.querySelectorAll('img.iconCv');
 const iconDelete = document.querySelectorAll('img.iconDelete');
-const addAdvisors = document.getElementById('addAdvisors');
-const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
 const clientLink = document.getElementById('clientLink');
 const copy = document.getElementById('copy');
+const behindAllAdvisors = document.getElementById('behindAllAdvisors');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -47,6 +48,15 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         commentAdvisor[i].classList.remove('display');
         deleteAdvisor[i].classList.remove('display');
         cvAdvisor[i].classList.remove('display');
+        allAdvisorsBoard.classList.remove('display');
+    });
+    behindAllAdvisors.addEventListener('click', () => {
+        allAdvisorsBoard.classList.remove('display');
+        behindAllAdvisors.classList.remove('display');
+    });
+    takeAdvisors.addEventListener('click', () => {
+        allAdvisorsBoard.classList.add('display');
+        behindAllAdvisors.classList.add('display');
     });
     // Remove the advisor from the board and add into the list
     definitiveDeleteAdvisor[i].addEventListener('click', () => {
@@ -62,11 +72,6 @@ for (let i = 0; i < cardAdvisorJS.length; i += 1) {
         }
     });
 }
-addAdvisors.addEventListener('click', () => {
-    boardAdvisors.classList.add('display');
-    boardEdit.classList.add('hidden');
-    viewBoardAndIcon.classList.add('hidden');
-});
 
 copy.addEventListener('click', () => {
     const range = document.createRange();
@@ -82,7 +87,7 @@ copy.addEventListener('click', () => {
         }
     } catch (err) {
         // eslint-disable-next-line no-alert
-        alert('Pas possible de copier');
+        alert('Impossible de copier le lien');
     }
     window.getSelection().removeAllRanges();
 });

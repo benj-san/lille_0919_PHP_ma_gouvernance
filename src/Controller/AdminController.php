@@ -17,7 +17,9 @@ use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,6 +49,7 @@ class AdminController extends AbstractController
             $values = explode('-', $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
             $demand->setStatus($values[0]);
+
             $entityManager->flush();
             return $this->redirectToRoute('demands');
         }
@@ -109,17 +112,27 @@ class AdminController extends AbstractController
             $advisor->setCommentary($_POST['commentaryAdvisor']);
             $entityManager->flush();
         }
+        if (isset($_POST['statusChange'])) {
+            $values = explode('-', $_POST['radio']);
+            $advisor = $advisorRepository->findOneBy(['id' => $values[1]]);
+            $advisor->setStatus($values[0]);
+            $entityManager->flush();
+            return $this->redirectToRoute('advisors');
+        }
 
         if (isset($_GET['filter'])) {
             switch ($_GET['filter']) {
-                case 'encours':
-                    $advisors = $advisorRepository->findBy(array('status' => 0));
+                case 'inscription':
+                    $advisors = $advisorRepository->findBy(array('status' => 0), array('name' => 'ASC'));
                     break;
-                case 'accepté':
-                    $advisors = $advisorRepository->findBy(array('status' => 1));
+                case 'validation':
+                    $advisors = $advisorRepository->findBy(array('status' => 1), array('name' => 'ASC'));
+                    break;
+                case 'valide':
+                    $advisors = $advisorRepository->findBy(array('status' => 2), array('name' => 'ASC'));
                     break;
                 case 'ensuspens':
-                    $advisors = $advisorRepository->findBy(array('status' => 2));
+                    $advisors = $advisorRepository->findBy(array('status' => 3), array('name' => 'ASC'));
                     break;
                 default:
                     $advisors = $advisorRepository->findAll();
@@ -132,7 +145,10 @@ class AdminController extends AbstractController
             'advisors' => $advisors,
             'commentary' => 'commentary'
         ]);
+
     }
+
+
 
     /**
      * @Route("admin/board/{id}", name="board")
@@ -159,7 +175,6 @@ class AdminController extends AbstractController
             $entityManager->flush();
         }
 
-        $advisor = $advisorRepository->findAll();
         $demand = $board->getDemand();
         $resumes = $resumeRepository->findBy(['demand'=>$demand]);
 
@@ -187,21 +202,33 @@ class AdminController extends AbstractController
             for ($j = 0 + $i; $j < $total2; $j++) {
                 if (key($iValue) < key($advisorsArray[$j])) {
                     $temporary = $advisorsArray[$j];
-                    $advisorsArray[$j] = $iValue;
+                    $advisorsArray[$j] = $advisorsArray[$i];
                     $advisorsArray[$i] = $temporary;
                 }
             }
         }
 
-
         $allAdvisorsSorted = [];
+        $limit = 0;
         foreach ($advisorsArray as $advisor => $data) {
             foreach ($data as $matches => $advisor) {
-                $allAdvisorsSorted[] = $advisor;
+                $limit ++;
+                if ($limit < 6) {
+                    $allAdvisorsSorted[] = $advisor;
+                }
             }
         }
 
-
+        $allAdvisorsRest = [];
+        $limit = 0;
+        foreach ($advisorsArray as $advisor => $data) {
+            foreach ($data as $matches => $advisor) {
+                $limit ++;
+                if ($limit >= 6) {
+                    $allAdvisorsRest[] = $advisor;
+                }
+            }
+        }
 
         $form = $this->createForm(BoardType::class, $board);
         $form->handleRequest($request);
@@ -216,6 +243,7 @@ class AdminController extends AbstractController
             'board' => $board,
             'resumes' => $resumes,
             'commentary' => 'commentary'
+            'advisorsRest' => $allAdvisorsRest
         ]);
     }
 
@@ -250,7 +278,9 @@ class AdminController extends AbstractController
             $entityManager->flush();
         }
         $boardId = $board->getId();
-        return $this->redirectToRoute('board', [
+        return $th>>>>>>> dev
+399
+is->redirectToRoute('board', [
             'id' => $boardId
         ]);
     }
@@ -319,16 +349,6 @@ class AdminController extends AbstractController
             }
 
 
-
-
-
-
-
-
-
-
-
-
             $em->flush();
             return $this->redirectToRoute('advisors');
         }
@@ -339,5 +359,44 @@ class AdminController extends AbstractController
                 'form' => $form->createView()
             ]
         );
+      
+    /**
+     * @Route("admin/deleteDemand/{id}", name="deleteDemand")
+     * @param Demand $demand
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function deleteDemand(Demand $demand, EntityManagerInterface $em) : Response
+    {
+        $tags = $demand->getTags()->getValues();
+        $boards = $demand->getBoards()->getValues();
+
+        dd('oui');
+        $totalTags = count($tags);
+        for ($i = 0; $i<$totalTags; $i++) {
+            $demand->removeTag($tags[$i]);
+        }
+
+        $resumes = $demand->getResumes();
+        $totalResumes = count($resumes);
+
+        for ($i = 0; $i<$totalResumes; $i++) {
+            $em->remove($resumes[$i]);
+        }
+
+        $totalBoards = count($boards);
+
+        for ($i = 0; $i<$totalBoards; $i++) {
+            $advisors = $boards[$i]->getAdvisors()->getValues();
+            $totalAdvisors = count($advisors);
+
+            for ($j = 0; $j<$totalAdvisors; $j++) {
+                $boards[$i]->removeAdvisor($advisors[$j]);
+            }
+            $em->remove($boards[$i]);
+        }
+        $em->remove($demand);
+        $em->flush();
+        return $this->redirectToRoute('demands');
     }
 }

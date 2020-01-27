@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('statut') }}
+{% endblock %}
 
 {% block header %}
     <nav>
@@ -14,17 +17,22 @@
     </nav>
 {% endblock %}
 
-{% block title %}Ma Gouvernance{% endblock %}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('advisorForm') }}
-            {{ encore_entry_link_tags('advisor') }}
 
-        {% endblock %}
 {% block main %}
-    <div id="connectContainer">
-        <a class="linkedinlogo" href="{{ login_url }}">
-            <img src="https://dryfta.com/wp-content/uploads/2017/04/Linkedin-customized-button.png"/>
-        </a>
-    </div>
-{% endblock %}
+    <main>
+
+        <section class="containerStatut" >
+            <div>
+            {% if advisor.status == 2 %}
+                <p>Votre compte a était validé.
+                    <br>Nous reviendrons vers vous lorsqu'une mission adaptée à votre profil est disponible.</p>
+            {% else %}
+                <p>Votre compte est en cours de validation !</p>
+            {% endif %}
+            </div>
+            <a href="http://www.magouvernance.com"><button class="button">Retourner à l'accueil</button></a>
+        </section>
+
+    </main>
+{% endblock main %}
 

@@ -59,7 +59,6 @@ class Advisor
      */
     private $tags;
 
-
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
      */
@@ -94,6 +93,7 @@ class Advisor
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
      */
     private $tagsStructures;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Board", inversedBy="advisors")
@@ -185,7 +185,7 @@ class Advisor
      */
     private $rgpd = true;
 
-    /**
+  /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $submissionDate;
@@ -194,7 +194,6 @@ class Advisor
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $linkedin;
-
 
     public function __construct()
     {
