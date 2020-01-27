@@ -243,7 +243,7 @@ class AdminController extends AbstractController
             'formBoard' => $form->createView(),
             'board' => $board,
             'resumes' => $resumes,
-            'advisors' => $advisors
+            'advisors' => $advisors,
             'commentary' => 'commentary',
             'advisorsRest' => $allAdvisorsRest
         ]);
