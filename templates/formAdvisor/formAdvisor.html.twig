@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('advisorForm') }}
+    {{ encore_entry_link_tags('footer') }}
 {% endblock %}
 
 {% block header %}
@@ -300,5 +301,9 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('advisorForm') }}
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html.twig' %}
 {% endblock %}
 
