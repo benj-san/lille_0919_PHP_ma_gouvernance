@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('clientBoard') }}
+    {% endblock %}
+
+{% block header %}
+    <header>
+        <nav>
+            <a class="logoContainer" href="http://magouvernance.fr/"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block main %}
+    <div id="behind">
+    </div>
+    <div id="">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
+    <h1 id="clientName">Proposition de board</h1>
+        <div id="boardContent">
+            {% for advisor in advisors  %}
+
+                 <div class="cardAdvisors">
+                     <div class="icon">
+                         {% if advisor.linkedin is null %}
+                             <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                         {% else %}
+                             <a href="{{ advisor.linkedin}}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                         {% endif %}
+                         {% if advisor.picture is null %}
+                             <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
+                         {% else %}
+                             <img class="advisorPic" src="{{ advisor.picture }}" alt="">
+                         {% endif %}                        <a href="" target="_blank"></a>
+                     </div>
+                     <div class="advisorInfo">
+                         <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
+                         <p>{{ advisor.place }}</p>
+                     </div>
+                 </div>
+
+           {% endfor %}
+       </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('clientBoard') }}
+{% endblock %}

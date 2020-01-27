@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+{% block header %}
+    <nav>
+        <a class="logoContainer" href="http://www.magouvernance.fr"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+        <div class="linksContainer">
+            <a class="links" href="http://www.magouvernance.fr">Accueil</a>
+            <a class="links" href="http://magouvernance.fr/index.php/entreprises/">Entreprises</a>
+            <a class="links" href="http://magouvernance.fr/index.php/blog/">Blog</a>
+            <a class="links" href="http://magouvernance.fr/index.php/435-2/">Nous contacter</a>
+            <a class="links" href="http://magouvernance.fr/index.php/faq/">FAQ</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block title %}Ma Gouvernance{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('advisorForm') }}
+            {{ encore_entry_link_tags('advisor') }}
+
+        {% endblock %}
+{% block main %}
+    <div id="connectContainer">
+        <a class="linkedinlogo" href="{{ login_url }}">
+            <img src="https://dryfta.com/wp-content/uploads/2017/04/Linkedin-customized-button.png"/>
+        </a>
+    </div>
+{% endblock %}
+

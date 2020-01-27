@@ -1,12 +1,23 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 
 Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
+
+    .copyFiles({
+        from: './assets/images',
+        // optional target path, relative to the output dir
+        // to: 'images/[path][name].[ext]',
+        // if versioning is enabled, add the file hash too
+        // to: 'images/[path][name].[hash:8].[ext]',
+        // only copy files matching this pattern
+        // pattern: /\.(png|jpg|jpeg)$/
+    })
+
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    //.setManifestKeyPrefix('build/')
+    // .setManifestKeyPrefix('build/')
 
     /*
      * ENTRY CONFIG
@@ -18,8 +29,21 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    //.addEntry('page1', './assets/js/page1.js')
-    //.addEntry('page2', './assets/js/page2.js')
+    .addEntry('board', './assets/js/board.js')
+    .addEntry('advisor', './assets/scss/advisor.scss')
+    .addEntry('advisorForm', './assets/js/advisorForm.js')
+    .addEntry('advisors', './assets/js/advisors.js')
+    .addEntry('clientBoard', './assets/js/clientBoard.js')
+    .addEntry('cvAdvisor', './assets/js/cvAdvisor.js')
+    .addEntry('login', './assets/scss/login.scss')
+    .addEntry('register', './assets/scss/register.scss')
+    .addEntry('statut', './assets/scss/statut.scss')
+
+
+    // .addEntry('page2', './assets/js/page2.js')
+
+// .addEntry('page2', './assets/js/page2.js')
+
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -44,25 +68,27 @@ Encore
     // enables @babel/preset-env polyfills
     .configureBabel(() => {}, {
         useBuiltIns: 'usage',
-        corejs: 3
+        corejs: 3,
     })
 
     // enables Sass/SCSS support
     .enableSassLoader()
 
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
+// uncomment if you use TypeScript
+// .enableTypeScriptLoader()
 
-    // uncomment to get integrity="..." attributes on your script & link tags
-    // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes()
 
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+// uncomment to get integrity="..." attributes on your script & link tags
+// requires WebpackEncoreBundle 1.4 or higher
+// .enableIntegrityHashes()
 
-    // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
+// uncomment if you're having problems with a jQuery plugin
+// .autoProvidejQuery()
+
+// uncomment if you use API Platform Admin (composer req api-admin)
+// .enableReactPreset()
+// .addEntry('admin', './assets/js/admin.js')
+// eslint-disable-next-line semi-style
 ;
 
 module.exports = Encore.getWebpackConfig();

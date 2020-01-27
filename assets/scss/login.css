@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#loginForm {
+  background-color: white;
+  width: 50%;
+  z-index: 2;
+  font-size: 32px;
+  text-align: center;
+  padding: 15px;
+  margin: 5% auto 0 auto;
+  -webkit-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+#loginForm form {
+  height: 80%;
+  width: 100%;
+}
+#loginForm form h1 {
+  padding: 10px;
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0 0 5% 0;
+  color: #FFAB40;
+}
+#loginForm form label {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 24px;
+}
+#loginForm form #input {
+  width: 60%;
+  margin: auto auto 3%;
+}
+#loginForm button {
+  width: 20%;
+  padding: 10px;
+  font-size: 2rem;
+  border: 3px solid #21215e;
+  color: #21215e;
+  background-color: white;
+  font-weight: bold;
+  position: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('register') }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Register{% endblock %}
+
+{% block main %}
+ <section>
+    <h1>Register</h1>
+      <div class="register">
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+      </div>
+   <br>
+        <button class="btn btn-lg btn-primary">Register</button>
+    {{ form_end(registrationForm) }}
+ </section>
+{% endblock %}

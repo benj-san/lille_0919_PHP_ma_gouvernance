@@ -3,7 +3,9 @@ includes:
     - vendor/phpstan/phpstan-doctrine/rules.neon
     - vendor/phpstan/phpstan-symfony/extension.neon
 parameters:
+    inferPrivatePropertyTypeFromConstructor: true
     autoload_directories:
-        - %rootDir%/../../../src/Migrations 
+        - %rootDir%/../../../src/Migrations
     excludes_analyse:
         - src/DataFixtures
+        - src/Controller/AdvisorController

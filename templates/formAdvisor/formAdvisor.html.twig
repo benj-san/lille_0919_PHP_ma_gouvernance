@@ -1,0 +1,304 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('advisorForm') }}
+{% endblock %}
+
+{% block header %}
+    <nav>
+        <a class="logoContainer" href="http://www.magouvernance.fr"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+        <div class="linksContainer">
+            <a class="links" href="http://www.magouvernance.fr">Accueil</a>
+            <a class="links" href="http://magouvernance.fr/index.php/entreprises/">Entreprises</a>
+            <a class="links" href="http://magouvernance.fr/index.php/blog/">Blog</a>
+            <a class="links" href="http://magouvernance.fr/index.php/435-2/">Nous contacter</a>
+            <a class="links" href="http://magouvernance.fr/index.php/faq/">FAQ</a>
+        </div>
+    </nav>
+{% endblock %}
+
+
+{% block main %}
+    <main>
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+
+        <section class="containerCandidature" >
+            <div class="question">
+                <div class="labels">Vous vous apprêter à remplir les informations nécessaires pour rejoindre la communauté des administrateurs et advisors de Magouvernance. Notre communauté s'adresse aux profils désireux de rejoindre des advisory boards et organes statutaires. En cliquant sur démarrer vous acceptez d'être recontacté pour valider votre profil.</div>
+                <div class="nextOne choices">Commencer</div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Avant de démarrer, nous vous remercions de certifier sur l'honneur que vous avez votre pleine capacité juridique.*</div>
+                    <div class="nextOne choices">Oui</div>
+                    <div id="secondButtonFirstQuestion" class = "choices">Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Nous allons prendre votre prénom *</div>
+                {{ form_widget(form.firstname) }}
+                <div>
+                    <div class="nextOne choices">Continuer</div>
+
+                </div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Et votre nom de famille *</div>
+                {{ form_widget(form.name) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quel est votre email ? *</div>
+                {{ form_widget(form.email) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Sur quel numéro pouvons nous vous joindre ? * </div>
+                {{ form_widget(form.phoneNumber) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Dans quelle ville proposez vous vos services ? * </div>
+                {{ form_widget(form.place) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Merci! Pour commencer, quel est votre "pitch" en une vingtaine de mots ? *</div>
+                {{ form_widget(form.presentation) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Avez-vous déjà eu une expérience dans un advisory board ou conseil d'administration/de surveillance ? *</div>
+                {{ form_widget(form.gouvernanceExperience) }}
+                <div id="experienceYes" class="nextOne choices" >Oui</div>
+                <div id="experienceNo" class="choices" >Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Dans quel type de structure exercez-vous ou avez-vous exercé un mandat ou plusieurs mandats ? *</div>
+                {{ form_widget(form.tags) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quel(s) statut(s) avez-vous occupé ? *</div>
+                {{ form_widget(form.tagsStatut) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Votre ou vos mandats sont ils toujours en cours ? *</div>
+                {{ form_widget(form.mandateState) }}
+                <div id="mandateYes" class="nextOne choices" >Oui</div>
+                <div id="mandateNo" class="choices" >Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Pourriez-vous préciser les organisations dans lesquelles vous avez ou vous exercez ce(s) mandat(s) et nous dire quelles contributions majeures vous avez apporté. *</div>
+                {{ form_widget(form.mandateContribution) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Méthode : comment avez-vous l'habitude de fonctionner en Conseil ou en advisory board ? *</div>
+                {{ form_widget(form.method) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Que retirez-vous personnellement de l'expérience d'administrateur / advisor ? * </div>
+                {{ form_widget(form.gain) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Etes-vous titulaire d'un certificat administrateur ou en cours de certification ?</div>
+                {{ form_widget(form.tagsCertificate) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelle fonction principale occupez-vous actuellement ? *</div>
+                {{ form_widget(form.tagsActualFunction) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelles sont les compétences principales que vous pouvez déployer rapidement ? *</div>
+                {{ form_widget(form.tagsCompetences) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelles sont vos expertises sectorielles ? *</div>
+                {{ form_widget(form.tagsExpertises) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quels contextes avez-vous expérimentés en entreprise ? *</div>
+                {{ form_widget(form.tagsContexts) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Pour chacun des contextes expérimentés en entreprise, pourriez-vous expliquer ce qu'ont été vos apports, vos réalisations. *</div>
+                {{ form_widget(form.realisation) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quels sont vos points forts ? *</div>
+                {{ form_widget(form.topSkill) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quels sont vos axes de progrès ? *</div>
+                {{ form_widget(form.progress) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelles autres particularités souhaitez-vous mentionner ? *</div>
+                {{ form_widget(form.otherSpec) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quel est votre taux journalier moyen ? *</div>
+                {{ form_widget(form.dailyRate) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelle est pour vous la mission idéale ? *</div>
+                {{ form_widget(form.idealMission) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Quelles sont vos disponibilités pour vous consacrer à une mission d'administrateur ? *</div>
+                {{ form_widget(form.avaibility) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="labels">Merci de nous indiquer le lien vers votre profil Linkedin *</div>
+                {{ form_widget(form.linkedin) }}
+                <div class="nextOne choices" >Continuer</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="hideIt1 hideIt2 question">
+                <div class="rgpd">Avez-vous avez entendu parler de la RGPD, la nouvelle loi sur les données ? Les informations recueillies via ce formulaire sont enregistrées dans notre base de données et ne seront pas revendues à des tiers. Elles nous permettent de communiquer avec vous et vous informer sur nos activités. Elles peuvent également être utilisées en interne afin de conduire des travaux de Recherche et Développement. Ces analyses sont non nominatives et leurs résultats pourront être communiqués. Elles sont conservées pendant trois ans dans nos bases de données Mailchimp, Google et Typeform. Conformément à la loi «informatique et libertés», vous pouvez exercer votre droit d’accès aux données vous concernant et les faire rectifier en contactant : contact@magouvernance.fr *</div>
+                {{ form_widget(form.rgpd) }}
+                <div id="rgpdYes" class="nextOne choices" >Oui</div>
+                <div id="rgpdNo" class="choices" >Non</div>
+                <div class="lastQuestion">
+                    <img src="https://image.flaticon.com/icons/png/512/120/120892.png" class="backArrow">
+                    Question précédente
+                </div>
+            </div>
+            <div class="question hideIt1 hideIt2">
+                <div class="labels">Valider votre canditure !</div>
+                <button class="choices" type="submit">Envoyer</button>
+            </div>
+            {{ form_end(form) }}
+
+        </section>
+
+    </main>
+{% endblock main %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('advisorForm') }}
+{% endblock %}
+
