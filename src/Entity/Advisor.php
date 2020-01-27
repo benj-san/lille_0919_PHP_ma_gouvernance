@@ -90,6 +90,12 @@ class Advisor
     private $tagsExpertises;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", mappedBy="advisors")
+     */
+    private $tagsStructures;
+
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Board", inversedBy="advisors")
      */
     private $boards;
@@ -192,6 +198,7 @@ class Advisor
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->tagsStructures = new ArrayCollection();
         $this->tagsStatut = new ArrayCollection();
         $this->tagsCertificate = new ArrayCollection();
         $this->tagsActualFunction = new ArrayCollection();
@@ -720,6 +727,24 @@ class Advisor
     public function setLinkedin($linkedin)
     {
         $this->linkedin = $linkedin;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTagsStructures()
+    {
+        return $this->tagsStructures;
+    }
+
+    /**
+     * @param ArrayCollection $tagsStructures
+     * @return Advisor
+     */
+    public function setTagsStructures(ArrayCollection $tagsStructures): Advisor
+    {
+        $this->tagsStructures = $tagsStructures;
         return $this;
     }
 }
