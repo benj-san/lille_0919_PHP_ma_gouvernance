@@ -77,8 +77,11 @@
             <div id="viewAllAdvisors">
                 {% for advisor in advisorsSorted %}
                     <div class="cardAdvisorJS">
-                        <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
-                        <div id="cardAdvisorInfos">
+                        {% if advisor.picture is null %}
+                            <img class="pp" src="{{ asset('build/pp.png') }}" alt=""/>
+                        {% else %}
+                            <img class="pp" src="{{ advisor.picture }}" alt=""/>
+                        {% endif %}                        <div id="cardAdvisorInfos">
                             <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
                             <p class="placeAdvisor">{{ advisor.place }}</p>
                             <p class="idAdvisor">{{ advisor.id }}</p>
@@ -99,7 +102,11 @@
             <input type="text" id="myInput" placeholder="Chercher un nom..">
             {% for advisor in advisorsRest %}
                 <div class="cardAdvisorJS advisorRest">
-                    <img class="pp" src="{{ asset('build/pp.png') }}" alt="">
+                    {% if advisor.picture is null %}
+                        <img class="pp" src="{{ asset('build/pp.png') }}" alt=""/>
+                    {% else %}
+                        <img class="pp" src="{{ advisor.picture }}" alt=""/>
+                    {% endif %}
                     <div id="cardAdvisorInfos">
                         <p class="nameAdvisor">{{ advisor.firstname }} {{ advisor.name }}</p>
                         <p class="placeAdvisor">{{ advisor.place }}</p>
