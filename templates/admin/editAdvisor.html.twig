@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <section id="editContainer">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <section id="personalInfo">
+            <div>Informations personelles</div>
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.place) }}
+            {{ form_row(form.phoneNumber) }}
+            {{ form_row(form.avaibility) }}
+            {{ form_row(form.linkedin) }}
+            {{ form_row(form.presentation) }}
+
+        </section>
+        <section id="tags">
+            <div>Tags & statut</div>
+            {{ form_row(form.status) }}
+            {{ form_row(form.tags) }}
+
+        </section>
+        <button type="submit" id="submit">Modifier</button>
+        {{ form_end(form) }}
+
+
+    </section>
+
+{% endblock %}
+
