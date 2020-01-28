@@ -21,8 +21,6 @@ const boardAdvisors = document.getElementById('boardAdvisors');
 const addAdvisors = document.getElementById('addAdvisors');
 const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
 
-
-
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
     for (let j = 0; j < checkboxAdvisor.length; j += 1) {
