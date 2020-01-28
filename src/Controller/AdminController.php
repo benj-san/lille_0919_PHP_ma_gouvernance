@@ -79,7 +79,7 @@ class AdminController extends AbstractController
         $form = $this->createForm(DemandType::class, $demand);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $demand->setStatus(1);
+            $demand->setStatus(0);
             $board = new Board();
             $board->setDemand($demand);
             $uuid = uuid_create(UUID_TYPE_RANDOM);
