@@ -7,15 +7,15 @@
 {% block title %}Ma Gouvernance{% endblock %}
  {% block header %}
      <nav>
-         <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+         <a class="logoContainer" href="/admin/demands" ><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
          <div class="linksContainer">
              <p><a href="{{ path('demands') }}" class="links">Demandes</a></p>
              <p id="linkAdvisor">Advisors</p>
          </div>
          {% if not app.user %}
          {% else %}
-             <a class="logout" href="{{ path('app_logout') }}">
-                 Sign out
+             <a class="logout" href="{{ path('app_logout') }}" title="logout">
+                 déconnexion
              </a>
          {% endif %}
      </nav>
