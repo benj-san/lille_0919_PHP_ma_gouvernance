@@ -123,14 +123,12 @@ rgpdNo.addEventListener('click', () => {
         questions[28].appendChild(errorMessage);
     }
 });
-const regex = new RegExp('[0-9 +-.]')
-let currentInput = telinput.value;
+const regex = new RegExp('[0-9 +-.]');
+
 telinput.addEventListener('keydown', (e) => {
+    // eslint-disable-next-line no-empty
     if (regex.test(e.key) === true || e.key === 'Backspace') {
-        currentInput = telinput.value;
     } else {
         e.preventDefault();
     }
 });
-
-
