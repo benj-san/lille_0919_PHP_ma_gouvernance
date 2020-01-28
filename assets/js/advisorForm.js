@@ -14,11 +14,13 @@ const checkboxExperienceYes = document.getElementById('advisor_gouvernanceExperi
 const checkboxMandateYes = document.getElementById('advisor_mandateExperience');
 const checkboxRgpdYes = document.getElementById('advisor_mandateExperience');
 const buttonsBack = document.querySelectorAll('div.lastQuestion');
+let backDirection = false;
 
 
 // eslint-disable-next-line no-undef
 
 for (let i = 0; i < buttonNext.length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     buttonNext[i].addEventListener('click', () => {
         if (document.querySelectorAll('div.error').length === 1) {
             document.querySelectorAll('div.error')[0].parentNode.removeChild(document.querySelectorAll('div.error')[0]);
@@ -45,6 +47,11 @@ for (let i = 0; i < buttonNext.length; i += 1) {
                 }, 200);
             }
         } else {
+            if (questions[i] === questions[8]) {
+                if (backDirection === true) {
+                    backDirection = false;
+                }
+            }
             questions[i].classList.add('hideIt1');
             setTimeout(() => {
                 questions[i + 1].classList.remove('hideIt2');
@@ -58,11 +65,19 @@ for (let i = 0; i < buttonNext.length; i += 1) {
 }
 
 for (let i = 0; i < buttonsBack.length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     buttonsBack[i].addEventListener('click', () => {
-        questions[i + 1].classList.add('hideIt1');
-        questions[i].classList.remove('hideIt2');
-        questions[i + 1].classList.add('hideIt2');
-        questions[i].classList.remove('hideIt1');
+        if (questions[i + 1] === questions[15] && backDirection === true) {
+            questions[i + 1].classList.add('hideIt1');
+            questions[8].classList.remove('hideIt2');
+            questions[i + 1].classList.add('hideIt2');
+            questions[8].classList.remove('hideIt1');
+        } else {
+            questions[i + 1].classList.add('hideIt1');
+            questions[i].classList.remove('hideIt2');
+            questions[i + 1].classList.add('hideIt2');
+            questions[i].classList.remove('hideIt1');
+        }
     });
 }
 
@@ -99,6 +114,7 @@ experienceNo.addEventListener('click', () => {
             questions[15].classList.remove('hideIt1');
         }, 200);
     }, 200);
+    backDirection = true;
 });
 
 mandateNo.addEventListener('click', () => {
