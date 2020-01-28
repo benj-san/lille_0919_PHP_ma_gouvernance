@@ -19,8 +19,7 @@
                             <h3>{{ advisor.place }}</h3>
                             <h3>{{ advisor.email }}</h3>
                             <h4>Date d'inscription : {{ advisor.submissionDate|date("d/m/Y")}}</h4>
-                            <p>Mobilité France</p>
-                            <p>Disponible 1 journée par mois</p>
+                            <p>{{advisor.avaibility}}</p>
                         </div>
                         <div class="blocInfo" id="competences">
                             <h2>Compétences clés</h2>
