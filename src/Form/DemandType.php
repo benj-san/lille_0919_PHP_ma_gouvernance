@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Demand;
 use App\Entity\Tag;
+use DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -14,6 +15,9 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DemandType extends AbstractType
 {
+
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -34,7 +38,13 @@ class DemandType extends AbstractType
                 'expanded' => false,
                 'by_reference' => false
             ])
-            ->add('deadline', DateType::class);
+            ->add(
+                'deadline',
+                DateType::class,
+                [
+                    'data' => new DateTime()
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
