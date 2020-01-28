@@ -10,9 +10,9 @@ const mandateYes = document.getElementById('mandateYes');
 const mandateNo = document.getElementById('mandateNo');
 const rgpdYes = document.getElementById('rgpdYes');
 const rgpdNo = document.getElementById('rgpdNo');
-const checkboxExperienceYes = document.getElementById('advisor_gouvernanceExperience');
-const checkboxMandateYes = document.getElementById('advisor_mandateExperience');
-const checkboxRgpdYes = document.getElementById('advisor_mandateExperience');
+const checkboxExperience = document.getElementById('advisor_gouvernanceExperience');
+const checkboxMandate = document.getElementById('advisor_mandateState');
+const checkboxRgpd = document.getElementById('advisor_rgpd');
 const buttonsBack = document.querySelectorAll('div.lastQuestion');
 
 
@@ -77,20 +77,20 @@ secondButtonFirstQuestion.addEventListener('click', () => {
 
 
 experienceYes.addEventListener('click', () => {
-    checkboxExperienceYes.checked = true;
+    checkboxExperience.checked = true;
 });
 
 
 mandateYes.addEventListener('click', () => {
-    checkboxMandateYes.checked = true;
+    checkboxMandate.checked = true;
 });
 
 rgpdYes.addEventListener('click', () => {
-    checkboxRgpdYes.checked = true;
+    checkboxRgpd.checked = true;
 });
 
 experienceNo.addEventListener('click', () => {
-    checkboxExperienceYes.checked = false;
+    checkboxExperience.checked = false;
     questions[8].classList.add('hideIt1');
     setTimeout(() => {
         questions[15].classList.remove('hideIt2');
@@ -102,13 +102,13 @@ experienceNo.addEventListener('click', () => {
 });
 
 mandateNo.addEventListener('click', () => {
-    checkboxMandateYes.checked = false;
-    questions[10].classList.add('hideIt1');
+    checkboxMandate.checked = false;
+    questions[11].classList.add('hideIt1');
     setTimeout(() => {
-        questions[11].classList.remove('hideIt2');
-        questions[10].classList.add('hideIt2');
+        questions[12].classList.remove('hideIt2');
+        questions[11].classList.add('hideIt2');
         setTimeout(() => {
-            questions[11].classList.remove('hideIt1');
+            questions[12].classList.remove('hideIt1');
         }, 200);
     }, 200);
 });
