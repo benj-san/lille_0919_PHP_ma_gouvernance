@@ -18,7 +18,7 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('advisorForm') }}
             {{ encore_entry_link_tags('advisor') }}
-
+            {{ encore_entry_link_tags('footer') }}
         {% endblock %}
 {% block main %}
     <div id="connectContainer">
@@ -26,5 +26,9 @@
             <img src="https://dryfta.com/wp-content/uploads/2017/04/Linkedin-customized-button.png"/>
         </a>
     </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html.twig' %}
 {% endblock %}
 

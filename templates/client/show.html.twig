@@ -3,6 +3,7 @@
     {% block stylesheets %}
         {{ parent() }}
         {{ encore_entry_link_tags('clientBoard') }}
+        {{ encore_entry_link_tags('footer') }}
     {% endblock %}
 
 {% block header %}
@@ -36,7 +37,8 @@
                              <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
                          {% else %}
                              <img class="advisorPic" src="{{ advisor.picture }}" alt="">
-                         {% endif %}                        <a href="" target="_blank"></a>
+                         {% endif %}
+                         <a href="" target="_blank"></a>
                      </div>
                      <div class="advisorInfo">
                          <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
@@ -50,4 +52,8 @@
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('clientBoard') }}
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html.twig' %}
 {% endblock %}
