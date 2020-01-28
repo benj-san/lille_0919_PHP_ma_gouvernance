@@ -17,7 +17,9 @@ const clientLink = document.getElementById('clientLink');
 const copy = document.getElementById('copy');
 const behindAllAdvisors = document.getElementById('behindAllAdvisors');
 const myInput = document.getElementById('myInput');
-
+const boardAdvisors = document.getElementById('boardAdvisors');
+const addAdvisors = document.getElementById('addAdvisors');
+const viewBoardAndIcon = document.getElementById('viewBoardAndIcon');
 
 for (let i = 0; i < cardAdvisorJS.length; i += 1) {
     // Advisors in DB
@@ -77,6 +79,12 @@ copy.addEventListener('click', () => {
         alert('Impossible de copier le lien');
     }
     window.getSelection().removeAllRanges();
+});
+
+addAdvisors.addEventListener('click', () => {
+    boardAdvisors.classList.add('display');
+    boardEdit.classList.add('hidden');
+    viewBoardAndIcon.classList.add('hidden');
 });
 
 myInput.addEventListener('keyup', () => {
