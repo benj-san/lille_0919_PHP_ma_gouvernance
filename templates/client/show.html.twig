@@ -15,8 +15,7 @@
 {% endblock %}
 
 {% block main %}
-    <div id="b    git push --set-upstream origin adding-footer
-ehind">
+    <div id="behind">
     </div>
     <div id="">
         {% include 'cvAdvisor.html.twig' %}
@@ -36,7 +35,8 @@ ehind">
                              <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
                          {% else %}
                              <img class="advisorPic" src="{{ advisor.picture }}" alt="">
-                         {% endif %}                        <a href="" target="_blank"></a>
+                         {% endif %}
+                         <a href="" target="_blank"></a>
                      </div>
                      <div class="advisorInfo">
                          <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
