@@ -68,6 +68,7 @@ body{
         height: 250px;
         align-items: center;
         cursor: pointer;
+        text-align: center;
 
 
         .filterTitle {
@@ -92,7 +93,7 @@ body{
             font-size: 16px;
 
             a{
-                margin: 5px 0 5px 15px;
+                margin: 5px 0 5px 0;
             }
         }
 
@@ -178,3 +179,64 @@ body{
     }
 }
 
+@media screen and (max-width: 1136px){
+    #advisors {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+
+
+        #allCardsContainer {
+            width:90%;
+            display:flex;
+            justify-content: space-evenly;
+        }
+
+        .filterAdvisors {
+            height:auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8%;
+            width: 80%;
+            align-items: center;
+            cursor: pointer;
+            text-align: center;
+
+
+            .filterTitle {
+                font-size: 28px;
+                font-weight: 500;
+                text-align: center;
+                margin-bottom: 20px;
+
+            }
+
+            #myInput {
+                width: 90%;
+                font-size: 22px;
+                margin-left: 15px;
+            }
+
+            .order {
+                width: 90%;
+                margin: 5px auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                font-size: 16px;
+
+                a{
+                    margin: 5px 0 5px 0;
+                }
+            }
+
+        }
+    }
+
+
+
+
+
+}
