@@ -98,8 +98,11 @@
     </div>
 
     <div id="allAdvisorsBoard">
-        <section id="allCardsContainer">
-            <input type="text" id="myInput" placeholder="Chercher un nom..">
+        <div class="deleteAdvisorButton">
+            <label for="myInput"></label><input type="text" id="myInput" placeholder="Chercher un nom..">
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
+        </div>
+        <div id="cardsAllAdvisors">
             {% for advisor in advisorsRest %}
                 <div class="cardAdvisorJS advisorRest">
                     {% if advisor.picture is null %}
@@ -119,10 +122,6 @@
                     </div>
                 </div>
             {% endfor %}
-        </section>
-
-        <div class="deleteAdvisorButton">
-            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
         </div>
     </div>
 
