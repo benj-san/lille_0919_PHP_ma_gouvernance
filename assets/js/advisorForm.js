@@ -14,6 +14,7 @@ const checkboxExperienceYes = document.getElementById('advisor_gouvernanceExperi
 const checkboxMandateYes = document.getElementById('advisor_mandateExperience');
 const checkboxRgpdYes = document.getElementById('advisor_mandateExperience');
 const buttonsBack = document.querySelectorAll('div.lastQuestion');
+const telinput = questions[5].children[1];
 
 
 // eslint-disable-next-line no-undef
@@ -122,3 +123,14 @@ rgpdNo.addEventListener('click', () => {
         questions[28].appendChild(errorMessage);
     }
 });
+const regex = new RegExp('[0-9 +-.]')
+let currentInput = telinput.value;
+telinput.addEventListener('keydown', (e) => {
+    if (regex.test(e.key) === true || e.key === 'Backspace') {
+        currentInput = telinput.value;
+    } else {
+        e.preventDefault();
+    }
+});
+
+
