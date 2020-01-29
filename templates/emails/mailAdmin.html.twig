@@ -42,7 +42,7 @@
 
     <tr>
         <td>Dans quel type de structure exercez-vous ou avez-vous exercé un mandat ou plusieurs mandats ? </td>
-        <td>{% if form.data.tags is defined %}{% for tags in form.data.tags %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
+        <td>{% if form.data.tagsStructures is defined %}{% for tags in form.data.tagsStructures %}{{ tags.name}} <br>{% endfor %} {% endif %}</td>
     </tr>
 
     <tr>

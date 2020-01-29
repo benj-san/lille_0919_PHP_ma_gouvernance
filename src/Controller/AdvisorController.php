@@ -104,6 +104,14 @@ class AdvisorController extends AbstractController
                 }
             }
 
+            if ($form['tagsStructures']->getData()) {
+                $total = count($form['tagsStructures']->getData());
+                for ($i = 0; $i < $total; $i++) {
+                    $tag = $form['tagsStructures']->getData()[$i];
+                    $advisor->addTag($tag);
+                }
+            }
+
             $email = (new TemplatedEmail())
                 ->from(Address::fromString('MaGouvernance <remimayeux@gmail.com>'))
                 ->to('remimayeux@gmail.com')
@@ -201,20 +209,19 @@ class AdvisorController extends AbstractController
                 $uuidAdvisor = $advisor->getUuid();
                 return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
             }
-
             $uuidAdvisor = $advisor->getUuid();
             if ($advisor->getStatus() !== 0) {
                 return $this->redirectToRoute('statut', [
                     'uuid' => $uuidAdvisor
                 ]);
             }
+
             return $this->redirectToRoute('candidature', ['uuid' => $uuidAdvisor]);
         }
         return $this->render('advisor/advisor.html.twig', [
             'login_url' => $loginUrl
         ]);
     }
-
 
     /**
      * @Route("/statut/{uuid}", name="statut")
