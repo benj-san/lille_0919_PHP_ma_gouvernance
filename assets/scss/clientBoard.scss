@@ -1,4 +1,12 @@
 @import "vars";
+@mixin transition {
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+            animation-delay:1s + $i * 0.6s;
+        }
+    }
+}
+
 
 *{
     padding: 0;
@@ -61,21 +69,7 @@ body{
     height:60vh;
 
 
-    .containerCards {
-        opacity: 0;
-        height:100%;
-        width:100%;
-        animation: ImageFadeIn 2.1s 2.7s forwards;
-        display:flex;
-        overflow:auto;
-        align-items: center;
-        justify-content: space-evenly;
-
-
-
-
-
-        .cardAdvisors {
+    .cardAdvisors {
         opacity:0;
         display: flex;
         flex-direction: column;
@@ -89,62 +83,72 @@ body{
         transition: 200ms ease-in-out;
         -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        animation: ImageFadeIn 1.2s 1.6s forwards;
+        animation: ContentFadeIn 1s 1.5s forwards;
+        @include transition;
+        margin:3rem auto;
 
+
+
+        .containerCards {
+                opacity: 0;
+                height:100%;
+                width:100%;
+                animation: ContentFadeIn 1.5s 1.8s forwards;
+                @include transition;
 
 
 
 
             .icon {
-                position: relative;
+                    position: relative;
 
-                .iconLinkedin {
-                    position: absolute;
-                    width: 40px;
-                    height: 40px;
-                    display: block;
-                    bottom: 5px;
-                    right: 5px;
-                    z-index: 50;
+                    .iconLinkedin {
+                        position: absolute;
+                        width: 40px;
+                        height: 40px;
+                        display: block;
+                        bottom: 5px;
+                        right: 5px;
+                        z-index: 50;
+                        cursor: pointer;
+                    }
+                }
+
+                .advisorPic {
+                    height: 270px;
+                    width: 250px;
+                    border-bottom: #3d4b80 solid 2px;
+                    -webkit-filter: grayscale(10%);
+                    filter: grayscale(30%);
+                }
+
+
+                .advisorInfo {
+                    width: 100%;
+                    padding-left: 0.5em;
+                    background: linear-gradient(to left, #ebebeb 50%, #21215e 50%);
+                    background-size: 200% 100%;
+                    background-position: right bottom;
                     cursor: pointer;
-                }
-            }
-
-            .advisorPic {
-                height: 270px;
-                width: 250px;
-                border-bottom: #3d4b80 solid 2px;
-                -webkit-filter: grayscale(10%);
-                filter: grayscale(30%);
-            }
+                    transition: all ease .4s;
+                    height: calc(100% - 270px);
 
 
-            .advisorInfo {
-                width: 100%;
-                padding-left: 0.5em;
-                background: linear-gradient(to left, #ebebeb 50%, #21215e 50%);
-                background-size: 200% 100%;
-                background-position: right bottom;
-                cursor: pointer;
-                transition: all ease .4s;
-                height: calc(100% - 270px);
+                    &:hover {
+                        background-position: left bottom;
+                        color: white;
+                        font-weight: bold;
+                    }
 
+                    .cardTitle {
+                        padding-top: 5px;
+                        font-size: 1.5rem;
+                    }
 
-                &:hover {
-                    background-position: left bottom;
-                    color: white;
-                    font-weight: bold;
-                }
-
-                .cardTitle {
-                    padding-top: 5px;
-                    font-size: 1.5rem;
-                }
-
-                p {
-                    font-size: 1.3rem;
-                    margin-bottom: 5px;
-                }
+                    p {
+                        font-size: 1.3rem;
+                        margin-bottom: 5px;
+                    }
             }
         }
     }

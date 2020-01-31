@@ -22,10 +22,11 @@
     </div>
     <h1 id="clientName">Proposition de board</h1>
         <div id="boardContent">
-            <div class="containerCards">
             {% for advisor in advisors  %}
                  <div class="cardAdvisors">
-                         <div class="icon">
+                     <div class="containerCards">
+
+                     <div class="icon">
                              {% if advisor.linkedin is null %}
                              {% else %}
                                  {% set linkedinCheck = advisor.linkedin|slice(0,24) %}
@@ -45,8 +46,9 @@
                              <p>{{ advisor.place }}</p>
                          </div>
                      </div>
-           {% endfor %}
-            </div>
+                 </div>
+
+            {% endfor %}
         </div>
 
 {% endblock %}
