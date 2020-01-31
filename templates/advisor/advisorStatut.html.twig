@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('statut') }}
+    {{ encore_entry_link_tags('footer') }}
 {% endblock %}
 
 {% block header %}
@@ -24,7 +25,7 @@
         <section class="containerStatut" >
             <div>
             {% if advisor.status == 2 %}
-                <p>Votre compte a était validé.
+                <p>Votre compte a été validé.
                     <br>Nous reviendrons vers vous lorsqu'une mission adaptée à votre profil est disponible.</p>
             {% else %}
                 <p>Votre compte est en cours de validation !</p>
@@ -35,4 +36,8 @@
 
     </main>
 {% endblock main %}
+
+{% block footer %}
+    {% include 'footer.html.twig' %}
+{% endblock %}
 

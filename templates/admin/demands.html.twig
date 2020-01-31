@@ -9,12 +9,11 @@
          <div class="linksContainer">
              <p id="linkAdvisor">Demandes</p>
              <p><a href="{{ path('advisors') }}" class="links">Advisors</a></p>
-
          </div>
          {% if not app.user %}
          {% else %}
-             <a class="logout" href="{{ path('app_logout') }}">
-                 Sign out
+             <a class="logout" href="{{ path('app_logout') }}" title="logout">
+                 Déconnexion
              </a>
          {% endif %}
      </nav>
@@ -51,15 +50,15 @@
                     <div class="modalTitles">Statut du board</div>
                     <div class="statuts">
                         <div class="proposé input-radio">
-                            <input type="radio" name="radio" value="0-{{ demand.id }}" id="0-{{ demand.id }}"/>
+                            <input type="radio" name="radio" value="0-{{ demand.id }}" id="0-{{ demand.id }}" {% if demand.status == 0 %} checked="checked"{% endif %}/>
                             <label for="0-{{ demand.id }}" class="radioModifié">Board à modifier</label>
                         </div>
                         <div class="accepté input-radio">
-                            <input type="radio" name="radio" value="1-{{ demand.id }}" id="1-{{ demand.id }}"/>
+                            <input type="radio" name="radio" value="1-{{ demand.id }}" id="1-{{ demand.id }}"{% if demand.status == 1 %} checked="checked"{% endif %}/>
                             <label for="1-{{ demand.id }}" class="radioProposé">Simulation proposé</label>
                         </div>
                         <div class="modifié input-radio">
-                            <input type="radio" name="radio" value="2-{{ demand.id }}" id="2-{{ demand.id }}"/>
+                            <input type="radio" name="radio" value="2-{{ demand.id }}" id="2-{{ demand.id }}"{% if demand.status == 2 %} checked="checked"{% endif %}/>
                             <label for="2-{{ demand.id }}" class="radioAccepté">Board accepté</label>
                         </div>
                     </div>
