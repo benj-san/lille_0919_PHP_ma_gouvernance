@@ -40,7 +40,7 @@
                 <div class="cardAdvisors">
                     <div class="cardImg">
                         {% if advisor.picture is null %}
-                            <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                            <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
                         {% else %}
                             <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
                         {% endif %}

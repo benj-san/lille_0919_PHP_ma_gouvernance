@@ -93,6 +93,15 @@ header {
 }
 
 #Boards {
+
+    animation: ContentFadeIn 0.4s forwards;
+    opacity: 0;
+
+    @keyframes ContentFadeIn {
+        0% { transform: translateY(-1rem); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
     display: flex;
     flex-wrap: wrap;
 
