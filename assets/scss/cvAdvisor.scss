@@ -3,7 +3,7 @@
 *{
     padding: 0;
     margin: 0;
-    font-family:'Montserrat', sans-serif;;
+    font-family:'Montserrat', sans-serif;
 }
 
 .cvAdvisor.display{
@@ -23,35 +23,91 @@
     border: 1px solid black;
     background-color: white;
 
-    #pitch {
+    #pitchContainer {
         width: 100%;
         background-color: $primary-color;
-        color: white;
-        font-size: 20px;
-        height: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: space-evenly;
 
-        h1 {
-            margin: 20px 3% 0 3%;
-        }
+        .pitch {
+            color: white;
+            min-height: 22Vh;
+            font-size: 1.2vw;
+            width:80%;
 
-        p {
-            width: 60%;
-            margin: 20px 3%;
-        }
 
-        .ppCv{
-            position: relative;
-            text-align: right;
-            bottom: 75px;
-            right: 200px;
 
-            img{
-                background-color: black;
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                position: absolute;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 1.8vw;
             }
+
+            @media screen and (max-width: 800px) {
+                width:95%;
+                text-align: center;
+
+            }
+
+            @media screen and (max-width: 600px) {
+                font-size: 2.4vw;
+            }
+
+            @media screen and (max-width: 400px) {
+                font-size: 3.5vw;
+            }
+
+            h1 {
+                margin: 20px 3% 0 3%;
+                font-size: 1.6vw;
+
+
+                @media screen and (max-width: 1200px) {
+                    font-size: 2.0vw;
+                }
+
+                @media screen and (max-width: 800px) {
+                    font-size: 2.8vw;
+                }
+
+                @media screen and (max-width: 600px) {
+                    font-size: 3.4vw;
+                }
+
+                @media screen and (max-width: 450px) {
+                    font-size: 4.4vw;
+                }
+            }
+
+            p {
+                margin: 20px 3%;
+                width: 60%;
+
+
+                @media screen and (max-width: 800px) {
+                    width: 90%;
+                    margin:20px auto;
+                }
+
+            }
+        }
+
+
+
+
+
+        img{
+            background-color: black;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            top:30px;
+            right:50px;
+
+            @media screen and (max-width: 800px) {
+                display:none;
+            }
+
         }
     }
 
@@ -59,10 +115,24 @@
         padding: 5em;
         display: flex;
 
+        @media screen and (max-width: 1200px){
+            padding:2em;
+        }
+
+        @media screen and (max-width: 750px){
+            flex-direction: column;
+
+        }
+
         #advisorEdit {
             display: flex;
             flex-direction: column;
-            margin: auto;
+            margin: 0 auto;
+            width:48%;
+            @media screen and (max-width: 750px){
+                width:100%;
+                margin-top:5vh;
+            }
 
             #advisorStatus {
                 position: relative;
@@ -74,30 +144,47 @@
                 border: #8b8b8b solid 1px;
 
                 .modalTitles {
-                    font-size: 20px;
+                    font-size: 1.25vw;
                 }
 
-                .changeStatus{
+                .changeStatus {
 
-                    label{
-                        font-size: 0.8em ;
+                    label {
+                        font-size: 0.8vw;
                     }
                 }
             }
 
             #commentary {
-                font-size: 16px;
+                margin:0 auto;
+                font-size: 1.20vw;
                 position: relative;
-                min-height: 20vh;
-                width: 25vw;
-                margin: 5% auto 2em;
+                width: 90%;
                 padding: 2em;
                 background-color: rgba(0, 0, 0, 0.05);
                 border: #8b8b8b solid 1px;
 
+
+
                 .commentaryTitle {
                     font-weight: bold;
                     text-align: center;
+
+                    @media screen and (max-width: 1200px) {
+                        font-size: 2.0vw;
+                    }
+
+                    @media screen and (max-width: 800px) {
+                        font-size: 2.8vw;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        font-size: 3.4vw;
+                    }
+
+                    @media screen and (max-width: 450px) {
+                        font-size: 5vw;
+                    }
                 }
 
                 .edit {
@@ -110,9 +197,25 @@
                 }
 
                 p {
-                    margin: 3% 5% 60% 5%;
+                    margin: 3% 5% 3% 5%;
                     text-align: justify;
-                    font-size: 20px;
+                    font-size: 1.25vw;
+
+                    @media screen and (max-width: 1200px) {
+                        font-size: 1.8vw;
+                    }
+
+                    @media screen and (max-width: 800px) {
+                        font-size: 2.6vw;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        font-size: 3vw;
+                    }
+
+                    @media screen and (max-width: 450px) {
+                        font-size: 4vw;
+                    }
                 }
 
                 form {
@@ -125,7 +228,23 @@
                         width: 92%;
                         min-height: 90%;
                         text-align: justify;
-                        font-size: 20px
+                        font-size: 1.25vw;
+
+                        @media screen and (max-width: 1200px) {
+                            font-size: 1.8vw;
+                        }
+
+                        @media screen and (max-width: 800px) {
+                            font-size: 2.6vw;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 3vw;
+                        }
+
+                        @media screen and (max-width: 450px) {
+                            font-size: 5vw;
+                        }
                     }
 
                     input {
@@ -134,52 +253,178 @@
                     }
                 }
             }
-
-            #infosAdvisor {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                width: calc(60% - 100px);
-
-                .blocInfo:first-child {
-                    margin-top: 0;
-                }
-
-                .blocInfo {
-                    margin-top: 50px;
-
-                    h2 {
-                        color: gray;
-                        margin: 0;
-                    }
-
-                    h3 {
-                        margin-top: 15px;
-                    }
-
-                    p {
-                        margin-top: 10px;
-                    }
-                }
-            }
-
-            #civilStatus {
-                h2 {
-                    color: $primary-color;
-                }
-            }
         }
 
-        .tags {
+        #infosAdvisor {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 48%;
+            margin-right:4%;
 
-            p {
-                margin-left: 10px;
-                border: 1px solid black;
-                border-radius: 7px;
-                padding: 10px;
+            @media screen and (max-width: 750px){
+                width:100%;
+                margin-right:0%;
+            }
+
+            .blocInfo:first-child {
+                margin-top: 0;
+            }
+
+            .blocInfo {
+                margin-top: 50px;
+
+                h2 {
+                    color: gray;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    font-size:1.6vw;
+
+                    @media screen and (max-width: 1200px) {
+                        font-size: 2.0vw;
+                    }
+
+                    @media screen and (max-width: 800px) {
+                        font-size: 2.8vw;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        font-size: 3.4vw;
+                    }
+
+                    @media screen and (max-width: 450px) {
+                        font-size: 6vw;
+                    }
+                }
+
+                h3 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    font-size:1.4vw;
+
+                    @media screen and (max-width: 1200px) {
+                    font-size: 1.8vw;
+                    }
+
+                    @media screen and (max-width: 800px) {
+                        font-size: 2.6vw;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        font-size: 3vw;
+                    }
+
+                    @media screen and (max-width: 450px) {
+                        font-size: 4.8vw;
+                    }
+
+                }
+
+                h4 {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    font-size:1.2vw;
+
+                    @media screen and (max-width: 1200px) {
+                        font-size: 1.6vw;
+                    }
+
+                    @media screen and (max-width: 800px) {
+                        font-size: 2.2vw;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        font-size: 2.6vw;
+                    }
+
+                    @media screen and (max-width: 450px) {
+                        font-size: 4.4vw;
+                    }
+
+                }
+
+                p {
+                    margin-top: 10px;
+                    font-size: 1vw;
+                    @media screen and (max-width: 1200px) {
+                        font-size: 1.8vw;
+                    }
+
+                    @media screen and (max-width: 600px) {
+                        font-size: 2.4vw;
+                    }
+
+                    @media screen and (max-width: 400px) {
+                        font-size: 2.9vw;
+                    }
+
+                }
             }
         }
+
+        #civilStatus {
+            h2 {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+
+        p {
+            margin-left: 10px;
+            border: 1px solid black;
+            border-radius: 7px;
+            padding: 10px;
+        }
+    }
+}
+
+.editProfil {
+    display: block;
+    padding: 10px;
+    font-size: 2vw;
+    border: 3px solid #21215e;
+    color: #21215e;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    max-width: 40%;
+    text-align: center;
+    margin: 0 auto 5%;
+
+    @media screen and (max-width: 1200px) {
+        font-size: 1.8vw;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 2.4vw;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 2.9vw;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .cvAdvisor {
+        width: 85%;
+    }
+
+    .cvAdvisor.display {
+        left: 7.5%;
+    }
+}
+
+
+
+@media screen and (max-width: 1000px){
+    .cvAdvisor {
+        width:90%;
+    }
+    .cvAdvisor.display {
+        left:5%;
     }
 }

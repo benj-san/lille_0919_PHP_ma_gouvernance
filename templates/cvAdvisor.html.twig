@@ -5,12 +5,12 @@
 
         {% for advisor in advisors %}
             <div class="cvAdvisor">
-                <div id="pitch">
-                    <h1>Son pitch en quelques mots</h1>
-                    <p>{{ advisor.presentation }}</p>
-                    <div class="ppCv">
-                        <img src="{{ advisor.picture }}" alt="">
+                <div id="pitchContainer">
+                    <div class="pitch">
+                        <h1>Son pitch en quelques mots</h1>
+                        <p>{{ advisor.presentation }}</p>
                     </div>
+                    <img src="{{ advisor.picture }}" alt="">
                 </div>
                 <div id="allInfosAdvisor">
                     <div id="infosAdvisor">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 {% if board is not defined %}
-                    <a href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
+                    <a class ="editProfil" href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
                 {% endif %}
             </div>
         {% endfor %}
