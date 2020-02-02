@@ -258,55 +258,71 @@ body{
 }
 
 @media screen and (max-width: 560px){
-    #advisors {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
+  #advisors {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
 
 
-        #allCardsContainer {
-            width:95%;
-            display:flex;
-            justify-content: space-evenly;
-        }
+      #allCardsContainer {
+          width:95%;
+          display:flex;
+          justify-content: space-evenly;
+      }
 
-        .filterAdvisors {
-            height:auto;
-            display: flex;
-            flex-direction: column;
-            border-radius: 8%;
-            width: 100%;
-            align-items: center;
-            cursor: pointer;
-            text-align: center;
+      .filterAdvisors {
+          height:auto;
+          display: flex;
+          flex-direction: column;
+          border-radius: 8%;
+          width: 100%;
+          align-items: center;
+          cursor: pointer;
+          text-align: center;
 
 
 
-            .filterTitle {
-                font-size: 28px;
-                font-weight: 500;
-                text-align: center;
-                margin-bottom: 20px;
+          .filterTitle {
+              font-size: 28px;
+              font-weight: 500;
+              text-align: center;
+              margin-bottom: 20px;
 
-            }
+          }
 
-            #myInput {
-                width: 40%;
-                font-size: 22px;
-                margin-left: 15px;
-            }
+          #myInput {
+              width: 40%;
+              font-size: 22px;
+              margin-left: 15px;
+          }
 
-            .order {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                flex-wrap: wrap;
-                font-size: 16px;
+          .order {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+              flex-wrap: wrap;
+              font-size: 16px;
 
-                a{
-                    margin: 5px 0 5px 0;
+              a{
+                  margin: 5px 0 5px 0;
+              }
+          }
+      }
+  }
+}
+
+    
+@media only screen and (max-device-width: 1000px) {
+    header {
+      
+        nav {
+          
+            subLinksContainer {
+              
+                .linksContainer {
+                    display: none;
                 }
             }
         }
