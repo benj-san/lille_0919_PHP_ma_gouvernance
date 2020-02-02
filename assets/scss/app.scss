@@ -92,6 +92,7 @@ header {
     opacity: 60%;
     top:0;
 }
+
 /************page Demand********************/
 #Boards {
     display: flex;
@@ -234,12 +235,14 @@ header {
                     margin: auto;
                 }
             }
+
             .logout{
                 margin:1rem;
                 font-size: 1.1em;
             }
         }
     }
+
     #Boards {
         display: flex;
         flex-direction: column-reverse;
@@ -251,6 +254,7 @@ header {
             .filters{
                 display: inline;
             }
+
             .order{
                 flex-direction: row;
                 font-size: 1.5rem;
@@ -268,6 +272,7 @@ header {
 
             }
         }
+
         .container {
             width:95%;
             height: 63vh;
@@ -282,6 +287,7 @@ header {
                     .cardTitle{
                         font-size:1.7em;
                     }
+
                     .deadline{
                         font-size:1em;
                     }
@@ -291,7 +297,6 @@ header {
     }
 
 }
-
 
 
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
