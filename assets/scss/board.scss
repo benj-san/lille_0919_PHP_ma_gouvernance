@@ -105,8 +105,6 @@
 }
 
 #allAdvisorsBoard {
-
-
     display: none;
     width: 70%;
     height: 60vh;
@@ -129,11 +127,15 @@
             background-color: #FFFFFF;
             display: flex;
             flex-direction: column;
-            outline: solid #21215e;
             position: relative;
             width: 250px;
             margin: 10px;
             color: black;
+            -webkit-transition: 200ms ease-in-out;
+            -o-transition: 200ms ease-in-out;
+            transition: 200ms ease-in-out;
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
             #researchBarAllAdvisors{
                 position: relative;
@@ -242,10 +244,10 @@
 }
 
 #takeAdvisors{
-    width: 250px;
+    width: 100%;
     padding: 5px;
+    margin-bottom: 15px;
     font-size: 18px;
-    margin: 2% auto auto auto;
     border-radius: 8px;
     border: 1px solid black;
     color: white;
@@ -264,7 +266,7 @@
     display: none;
     z-index: 11;
     background-color: black;
-    margin-top: -5%;
+    margin-top: -2%;
 }
 
 #behindAllAdvisors {
@@ -275,7 +277,7 @@
     display: none;
     z-index: 4;
     background-color: black;
-    margin-top: -5%;
+    margin-top: -2%;
 }
 
 #behind.display, #allAdvisorsBoard.display, #behindAllAdvisors.display {
@@ -288,7 +290,7 @@
     display: flex;
     position: fixed;
     width: 100vw;
-
+    margin-top: -2%;
     animation: ContentFadeIn 0.4s forwards;
     opacity: 0;
 
@@ -356,14 +358,18 @@
             justify-content: center;
 
             .cardAdvisorJS {
-                background-color: #FFFFFF;
+                background-color: white;
                 display: flex;
                 flex-direction: column;
-                outline: solid #21215e;
                 position: relative;
-                width: 250px;
+                width:250px;;
                 margin: 10px;
                 color: black;
+                -webkit-transition: 200ms ease-in-out;
+                -o-transition: 200ms ease-in-out;
+                transition: 200ms ease-in-out;
+                -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
                 .pp {
                     width: 100%;
@@ -375,14 +381,10 @@
                 #cardAdvisorInfos {
                     padding: 5px;
 
-                    .nameAdvisor {
+                    .nameAdvisor, .placeAdvisor {
                         font-weight: bold;
                         font-size: 1.3rem;
                         height: 10%;
-                    }
-
-                    .placeAdvisor {
-                        display: none;
                     }
 
                     .idAdvisor {
@@ -510,7 +512,11 @@
             margin: 10px auto;
             display: flex;
             position: relative;
-            outline: solid #21215e;
+            -webkit-transition: 200ms ease-in-out;
+            -o-transition: 200ms ease-in-out;
+            transition: 200ms ease-in-out;
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
             .pp {
                 height: 100%;
