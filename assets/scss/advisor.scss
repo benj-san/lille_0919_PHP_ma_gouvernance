@@ -204,4 +204,17 @@ body{
     }
 }
 
+@media only screen and (max-device-width: 1000px) {
 
+
+
+    header {
+        nav {
+            subLinksContainer {
+                .linksContainer {
+                    display: none;
+                }
+            }
+        }
+    }
+}
