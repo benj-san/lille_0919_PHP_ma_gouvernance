@@ -308,9 +308,6 @@ header nav .logout {
     margin: auto;
     padding-bottom: 1rem;
   }
-  #demandeFormulaire #demandeFormulaireContent form #demand_deadline #demand_deadline_month, #demandeFormulaire #demandeFormulaireContent form #demand_deadline #demand_deadline_day, #demandeFormulaire #demandeFormulaireContent form #demand_deadline #demand_deadline_year {
-    width: calc(100%/2);
-  }
 }
 /* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 .modalDescription {
@@ -318,11 +315,11 @@ header nav .logout {
   z-index: 1;
   height: 80%;
   left: 15%;
-  border-radius: 15px;
+  border-radius: 9px;
   background-color: #EDF1F4;
   bottom: 10%;
   position: absolute;
-  font-size: 38px;
+  font-size: 2em;
   text-align: center;
   font-weight: bold;
   padding: 15px;
@@ -333,23 +330,33 @@ header nav .logout {
   margin: auto;
   height: 100%;
 }
-.modalDescription .modalDescriptionContainer .modalParts {
-  display: flex;
-  margin: 6% 0 6% 5%;
-}
-.modalDescription .modalDescriptionContainer .modalParts .modalTitles {
-  font-size: 28px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  width: 35%;
+.modalDescription .modalDescriptionContainer .demandeFormulaireTitles {
+  font-size: 3rem;
+  margin: auto auto 1em auto;
+  font-weight: bold;
   color: #FFAB40;
 }
+.modalDescription .modalDescriptionContainer .demandeFormulaireTitles .modalDescription {
+  width: 85%;
+}
+.modalDescription .modalDescriptionContainer .demandeFormulaireTitles .modalDescription .redirectButton {
+  margin-right: 3px;
+}
+.modalDescription .modalDescriptionContainer .modalParts {
+  display: flex;
+  margin: auto auto 1.7em;
+  align-items: flex-start;
+}
+.modalDescription .modalDescriptionContainer .modalParts .modalTitles {
+  font-size: 2.5rem;
+  margin: 0;
+  display: flex;
+  font-weight: 600;
+  width: 38%;
+  color: #21215e;
+}
 .modalDescription .modalDescriptionContainer .modalParts p {
-  color: blue;
-  text-shadow: black 0.5px 0.5px 0.5px;
-  font-size: 25px;
+  font-size: 2rem;
   margin: 0 0 0 20px;
 }
 .modalDescription .modalDescriptionContainer .tagsModalDescription {
@@ -359,10 +366,10 @@ header nav .logout {
   text-align: center;
 }
 .modalDescription .modalDescriptionContainer .tagsModalDescription .tags {
-  border: 3px blue solid;
+  border: 2px #21215e solid;
   padding: 3px;
   margin: 15px 5%;
-  border-radius: 8px;
+  border-radius: 5px;
   background-color: white;
   font-size: 18px;
   font-weight: 500;
@@ -370,7 +377,6 @@ header nav .logout {
 .modalDescription .modalDescriptionContainer .statutsContainer .modalTitles {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
   width: 100%;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts {
@@ -383,7 +389,6 @@ header nav .logout {
   margin: 0 5px 0 0;
   position: relative;
   width: 200px;
-  height: 70px;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio] {
   opacity: 0.001;
@@ -391,58 +396,91 @@ header nav .logout {
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio] + label {
   display: block;
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts label {
   cursor: pointer;
   z-index: 90;
-  border-radius: 15px;
+  border-radius: 5px;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts label:hover {
+  background-color: rgba(223, 223, 223, 0.59);
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio]:checked + label {
-  border: 1px solid red;
+  background-color: #d9d9d9;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioProposé {
-  background-color: #FFAB40;
+  border: 2.2px solid #FFAB40;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioAccepté {
-  background-color: #00A84D;
+  border: 2.2px solid #00A84D;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioModifié {
-  background-color: #FF4040;
+  border: 2.2px solid #FF4040;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton {
-  margin: 80px auto 20px auto;
+  margin: 2em auto 20px auto;
   display: flex;
+  padding-top: 1em;
   justify-content: space-evenly;
   width: 100%;
+  border-top: #21215e 1px solid;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton {
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: blue;
-  color: white;
+  padding: 1em;
+  border-radius: 5px;
+  border: 3px solid #21215e;
+  color: black;
+  font-size: 20px;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton:hover {
   text-decoration: none;
-  color: black;
+  border: 4px solid #21215e;
+  color: rgba(99, 99, 99, 0.91);
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .delete {
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px;
-  border-radius: 10px;
-  background-color: red;
-  color: white;
+  border-radius: 5px;
+  border: 3px solid red;
+  color: black;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .delete:hover {
   text-decoration: none;
+  border: 3px solid red;
+  background-color: red;
   color: black;
 }
 
+@media screen and (max-width: 790px) {
+  .modalDescription {
+    width: 90%;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+  .modalDescription .statuts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modalDescription .statuts .input-radio {
+    margin-bottom: 3px;
+  }
+  .modalDescription .containerRedirectButton {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .modalDescription .containerRedirectButton .redirectButton {
+    margin: 5px;
+  }
+  .modalDescription .containerRedirectButton .delete {
+    margin-top: 5px;
+  }
+}
+/***********************/
 #editContainer {
   background-color: white;
   width: 90%;
