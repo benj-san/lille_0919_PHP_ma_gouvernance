@@ -254,7 +254,7 @@ header {
     border-radius: 9px;
     background-color: rgb(237, 241, 244);
     -webkit-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
-   -moz-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
     box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
     bottom: 10%;
     position: absolute;
@@ -315,6 +315,7 @@ header {
             legend{
                 border:0;
             }
+
             input {
                 height: 2em;
 
@@ -335,12 +336,12 @@ header {
                     margin: auto;
                 }
             }
+
             .bootstrap-select {
 
                 font-size: 16px;
                 background-color: #dfe3e6;
             }
-
 
             .dropdown-toggle {
                 font-size: 16px;
@@ -391,7 +392,8 @@ header {
         }
     }
 }
-    /* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
+
+/* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 
 .modalDescription {
     width: 70%;
@@ -606,77 +608,73 @@ header {
 }
 
 /***********************/
-    #editContainer {
-            background-color: white;
-            width: 90%;
-            z-index: 2;
-            font-size: 32px;
-            text-align: center;
-            padding: 15px;
-            margin: 5% auto 0 auto;
-            -webkit-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
-            -moz-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
-            box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
-            display: flex;
+#editContainer {
+    background-color: white;
+    width: 90%;
+    z-index: 2;
+    font-size: 32px;
+    text-align: center;
+    padding: 15px;
+    margin: 5% auto 0 auto;
+    -webkit-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    display: flex;
 
+    form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
 
-            form {
+        #personalInfo {
+            width: 45%;
 
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
+            label {
+                font-size: 18px;
+                font-weight: 500;
+            }
 
-                #personalInfo {
+            input, textarea {
+                width: 50%;
+                margin: auto;
+                display: block;
+            }
+        }
 
-                    width: 45%;
+        #tags {
+            width: 50%;
 
-                    label {
-                        font-size: 18px;
-                        font-weight: 500;
-                    }
+            label {
+                font-size: 18px;
+                font-weight: 500;
+            }
 
-                    input, textarea {
-                        width: 50%;
-                        margin: auto;
-                        display: block;
-                    }
-                }
+            input, textarea {
+                width: 50%;
+                margin: auto;
+                display: block;
+            }
 
-                #tags {
-                    width: 50%;
+            .form-group {
+                width: 70%;
+                margin: auto;
 
-                    label {
-                        font-size: 18px;
-                        font-weight: 500;
-                    }
-
-                    input, textarea {
-                        width: 50%;
-                        margin: auto;
-                        display: block;
-                    }
-
-                    .form-group {
-                        width: 70%;
-                        margin: auto;
-
-                        .form-control {
-                            width: 100%;
-                        }
-                    }
-                }
-
-                #submit {
-                    width: 20%;
-                    padding: 10px;
-                    font-size: 2rem;
-                    border: 3px solid $primary-color;
-                    color: $primary-color;
-                    background-color: white;
-                    font-weight: bold;
-                    position: center;
-                    margin: 2% auto 5% auto;
+                .form-control {
+                    width: 100%;
                 }
             }
-    }
+        }
 
+        #submit {
+            width: 20%;
+            padding: 10px;
+            font-size: 2rem;
+            border: 3px solid $primary-color;
+            color: $primary-color;
+            background-color: white;
+            font-weight: bold;
+            position: center;
+            margin: 2% auto 5% auto;
+        }
+    }
+}
