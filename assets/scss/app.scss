@@ -266,6 +266,8 @@ header {
     bottom: 10%;
     position: absolute;
     text-align: center;
+    z-index:4;
+
 
     .submitDemand {
         background-color: #0030cc;
@@ -349,6 +351,8 @@ header {
     text-align: center;
     font-weight: bold;
     padding: 15px;
+    z-index:4;
+
 
     .modalDescriptionContainer {
         overflow: auto;
