@@ -34,13 +34,19 @@
             {% include 'cvAdvisor.html.twig' %}
         </div>
 
-        <section id="advisors">
-            <section id="allCardsContainer">
-                {% for advisor in advisors %}
-                    <div class="cardAdvisors">
-                        <div class="cardImg">
-                            {% if advisor.picture is null %}
-                                <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+    <section id="advisors">
+        <section id="allCardsContainer">
+            {% for advisor in advisors %}
+                <div class="cardAdvisors">
+                    <div class="cardImg">
+                        {% if advisor.picture is null %}
+                            <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
+                        {% else %}
+                            <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
+                        {% endif %}
+                        <div class="icon">
+                            {% if advisor.linkedin is null %}
+                            <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
                             {% else %}
                                 <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
                             {% endif %}
@@ -69,16 +75,12 @@
                     </div>
                 {% endfor %}
             </section>
-
-
-        <section id="filterContainer" class="hidden">
-        </section>
-        <section class="filterAdvisors">
-            <div class="filterTitle">Filtres :</div>
-            <input type="text" id="myInput" placeholder="Chercher un nom..">
-
+            <section id="filterContainer" class="hidden">
+            </section>
+            <section class="filterAdvisors">
+                <div class="filterTitle">Filtres :</div>
+                <input type="text" id="myInput" placeholder="Chercher un nom..">
             <div class="order">
-
                 <a href="{{ path('advisors') }}">tous</a>
                 <a href="./advisors/?filter=inscription">en cours d'inscription</a>
                 <a href="./advisors/?filter=validation">en cours de validation</a>
@@ -91,7 +93,6 @@
 
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
-        {{ encore_entry_script_tags('board') }}
     {% endblock %}
 {% endblock %}
 
