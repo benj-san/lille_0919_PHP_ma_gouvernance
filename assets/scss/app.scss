@@ -251,23 +251,29 @@ header {
     z-index: 1;
     height: 80%;
     left: 15%;
-    border-radius: 15px;
-    background-color: #EDF1F4;
+    border-radius: 9px;
+    background-color: rgb(237, 241, 244);
+    -webkit-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+   -moz-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
     bottom: 10%;
     position: absolute;
     text-align: center;
 
-    .submitDemand {
-        background-color: #0030cc;
-        padding: .3em 1em;
-        border: 2px solid rgba(0, 0, 0, 0);
-        border-radius: 7px;
-        color: white;
-        text-decoration: none ;
-        font-size: 1.7rem ;
-        cursor:pointer;
-    }
 
+    .submitDemand {
+        display:inline-block;
+        padding: 1.2rem;
+        font-size: 2rem;
+        border: 3px solid $primary-color;
+        color: $primary-color;
+        background-color: rgb(255, 255, 255);
+        font-weight: bold;
+        position: center;
+        margin-top:2.5rem;
+
+
+    }
 
 
     #demandeFormulaireContent {
@@ -280,29 +286,57 @@ header {
             font-size: 38px;
             margin: 1% auto 2% auto;
             font-weight: bold;
+            color : #FFAB40;
         }
 
         .demandeFormulaireTitles2 {
             font-weight: 600;
             font-size: 28px;
             margin-bottom: 35px;
+            color : #FFAB40;
         }
 
 
         form {
+            label, legend{
+                display: block;
+                max-width: 100%;
+                margin-bottom: 0.3em;
+                font-size: 2.2rem;
+                font-weight: 700;
+                color:$primary-color;
+                padding-right: 1em;
+            }
+
+            div.dropdown-menu{
+                max-width: 80%;
+            }
+
+            legend{
+                border:0;
+            }
             input {
-                height: 30px;
-                font-size: 16px;
+                height: 2em;
+
             }
 
             input, textarea, .bootstrap-select {
-                width: 65%;
-                margin: 2% auto;
+                width: 60%;
+                margin: auto auto 1em;
                 font-size: 16px;
             }
 
-            .bootstrap-select {
+            #demand_deadline{
                 width: 80%;
+                margin: auto;
+
+                #demand_deadline_month, #demand_deadline_day, #demand_deadline_year{
+                    width: calc(100%/4);
+                    margin: auto;
+                }
+            }
+            .bootstrap-select {
+
                 font-size: 16px;
                 background-color: #dfe3e6;
             }
@@ -319,7 +353,41 @@ header {
 
             .form-control {
                 font-size: 16px;
+
             }
+        }
+    }
+}
+@media screen and (max-width: 790px) {
+
+    #demandeFormulaire {
+        height: 85%;
+
+        #demandeFormulaireContent {
+
+            .demandeFormulaireTitles {
+               margin-top: 1rem;
+                margin-bottom: 2rem;
+                font-size: 28px;
+            }
+
+           form
+           {
+               label, legend{
+                   font-size: 20px;
+               }
+
+
+               #demand_deadline{
+                   width: 80%;
+                   margin: auto;
+                   padding-bottom: 1rem;
+
+                   #demand_deadline_month, #demand_deadline_day, #demand_deadline_year{
+                       width: calc(100%/2);
+                   }
+               }
+           }
         }
     }
 }
@@ -357,6 +425,7 @@ header {
                 align-items: center;
                 font-weight: 600;
                 width: 35%;
+                color : #FFAB40;
             }
 
             p {
@@ -370,7 +439,7 @@ header {
         .tagsModalDescription {
             display: flex;
             flex-wrap: wrap;
-            width: 70%;
+            width: 60%;
             text-align: center;
 
             .tags {
@@ -491,9 +560,9 @@ header {
     text-align: center;
     padding: 15px;
     margin: 5% auto 0 auto;
-    -webkit-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-    -moz-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-    box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+    -webkit-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
     display: flex;
 
 
@@ -540,7 +609,6 @@ header {
                 .form-control {
                     width:100%;
                 }
-
             }
         }
 
