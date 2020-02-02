@@ -23,16 +23,14 @@
 
 {% block main %}
 
-    <section id="filterContainer" class="hidden">
-    </section>
-    <div class="displayAllAdvisor">
-
-
-        <div id="behind">
-        </div>
-        <div id="displayCvAdvisor">
-            {% include 'cvAdvisor.html.twig' %}
-        </div>
+<section id="filterContainer" class="hidden">
+</section>
+<div class="displayAllAdvisor">
+    <div id="behind">
+    </div>
+    <div id="displayCvAdvisor">
+        {% include 'cvAdvisor.html.twig' %}
+    </div>
 
     <section id="advisors">
         <section id="allCardsContainer">
@@ -46,41 +44,39 @@
                         {% endif %}
                         <div class="icon">
                             {% if advisor.linkedin is null %}
-                            <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
-                            {% else %}
-                                <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
-                            {% endif %}
-                            <div class="icon">
-                                {% if advisor.linkedin is null %}
                                 <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
-                                {% else %}
+                            {% else %}
                                 <a href="{{ advisor.linkedin }}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
-                               {% endif %}
-                                <img class="iconCv" src="{{ asset('build/cv.png') }}" alt=""/>
-                            </div>
-                        </div>
-                        <div class="advisorInfo">
-                            <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper}}</p>
-                            <p>{{ advisor.place|title }}</p>
-                            {% if advisor.status ==0 %}
-                                <p>en cours d'inscription</p>
-                            {% elseif advisor.status ==1 %}
-                                <p>en cours de validation</p>
-                            {% elseif advisor.status ==2 %}
-                                <p>validé</p>
-                            {% elseif advisor.status ==3 %}
-                                <p>suspendu</p>
                             {% endif %}
+                            <img class="iconCv" src="{{ asset('build/cv.png') }}" alt=""/>
                         </div>
                     </div>
-                {% endfor %}
-            </section>
-            <section id="filterContainer" class="hidden">
-            </section>
-            <section class="filterAdvisors">
-                <div class="filterTitle">Filtres :</div>
-                <input type="text" id="myInput" placeholder="Chercher un nom..">
+                    <div class="advisorInfo">
+                        <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper}}</p>
+                        <p>{{ advisor.place|title }}</p>
+                        {% if advisor.status ==0 %}
+                            <p>en cours d'inscription</p>
+                        {% elseif advisor.status ==1 %}
+                            <p>en cours de validation</p>
+                        {% elseif advisor.status ==2 %}
+                            <p>validé</p>
+                        {% elseif advisor.status ==3 %}
+                            <p>suspendu</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+
+
+        <section id="filterContainer" class="hidden">
+        </section>
+        <section class="filterAdvisors">
+            <div class="filterTitle">Filtres</div>
+            <input type="text" id="myInput" placeholder="Chercher un nom..">
+
             <div class="order">
+
                 <a href="{{ path('advisors') }}">tous</a>
                 <a href="./advisors/?filter=inscription">en cours d'inscription</a>
                 <a href="./advisors/?filter=validation">en cours de validation</a>
@@ -89,10 +85,10 @@
             </div>
         </section>
     </section>
-    </div>
+</div>
+{% endblock %}
 
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
     {% endblock %}
-{% endblock %}
 
