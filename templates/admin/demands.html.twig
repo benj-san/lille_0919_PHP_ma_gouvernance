@@ -77,8 +77,6 @@
 
     <section id="Boards">
 
-
-
         <div class="container">
             <div class="containerContent">
 
@@ -91,17 +89,17 @@
                             <div class="statut" style="background-color: orange;"></div>
                         {% elseif demand.status ==2 %}
                             <div class="statut" style="background-color: green;"></div>
+                        {% endif %}
 
-                    {% endif %}
-                        <div class="cardBody">
-                            <p class="cardTitle">{{demand.client}}</p>
-                            <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
-
-                        </div>
+                            <div class="cardBody">
+                                <p class="cardTitle">{{demand.client}}</p>
+                                <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
+                            </div>
                     </div>
-
                 {% endfor %}
-
+            </div>
+            <div class="new-demande">
+              <div id ="button-newdemand">+</div>
             </div>
         </div>
         <section class="filterBoards">
@@ -111,15 +109,12 @@
             </section>
             <div class="order">
                 Filtré par :
-                <a href="{{ path('demands') }}">En cours</a>
-                <a href="../demands/?filter=proposé">Board proposé</a>
-                <a href="../demands/?filter=modifier">Board à modifier</a>
-                <a href="../demands/?filter=accepté">Board accepté</a>
+                <a class="oneFilter" href="{{ path('demands') }}">En cours</a>
+                <a class="oneFilter" href="../demands/?filter=proposé">Board proposé</a>
+                <a class="oneFilter" href="../demands/?filter=modifier">Board à modifier</a>
+                <a class="oneFilter" href="../demands/?filter=accepté">Board accepté</a>
             </div>
-            <div id ="button-newdemand">+</div>
         </section>
-
-
 
         <section id="demandeFormulaire" class="hidden">
             <div id="demandeFormulaireContent">
