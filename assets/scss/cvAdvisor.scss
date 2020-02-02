@@ -161,17 +161,19 @@
                 position: relative;
                 width: 90%;
                 padding: 2em;
-                background-color: rgba(0, 0, 0, 0.05);
-                border: #8b8b8b solid 1px;
 
 
 
-                .commentaryTitle {
+
+                .commentaryTitle, .resumeTitle {
                     font-weight: bold;
                     text-align: center;
+                    color:$border;
+                    font-size: 1.4vw;
+
 
                     @media screen and (max-width: 1200px) {
-                        font-size: 2.0vw;
+                        font-size: 2.4vw;
                     }
 
                     @media screen and (max-width: 800px) {
@@ -196,6 +198,9 @@
                     cursor: pointer;
                 }
 
+                .commentaryP {
+                    margin-bottom: 10vh;
+                }
                 p {
                     margin: 3% 5% 3% 5%;
                     text-align: justify;
