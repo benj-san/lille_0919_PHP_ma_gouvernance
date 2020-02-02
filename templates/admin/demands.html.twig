@@ -28,13 +28,13 @@
 
         <section class="modalDescription hidden">
             <div class="modalDescriptionContainer">
-                Demande n° {{ demand.id }} :
+                <div class="demandeFormulaireTitles"> Demande n° {{ demand.id }}:</div>
                 <div class="modalParts">
-                    <div class="modalTitles">Nom entreprise :</div>
+                    <div class="modalTitles">Client:</div>
                     <p class="clientName">{{demand.client}}</p>
                 </div>
                 <div class="modalParts">
-                    <div class="modalTitles">Besoins :</div>
+                    <div class="modalTitles">Besoins:</div>
                     <p>{{ demand.clientRequest }}</p>
                 </div>
                 <div class="modalParts">
@@ -51,15 +51,15 @@
                     <div class="statuts">
                         <div class="proposé input-radio">
                             <input type="radio" name="radio" value="0-{{ demand.id }}" id="0-{{ demand.id }}" {% if demand.status == 0 %} checked="checked"{% endif %}/>
-                            <label for="0-{{ demand.id }}" class="radioModifié">Board à modifier</label>
+                            <label for="0-{{ demand.id }}" class="radioModifié">Proposition à modifier</label>
                         </div>
                         <div class="accepté input-radio">
                             <input type="radio" name="radio" value="1-{{ demand.id }}" id="1-{{ demand.id }}"{% if demand.status == 1 %} checked="checked"{% endif %}/>
-                            <label for="1-{{ demand.id }}" class="radioProposé">Simulation proposé</label>
+                            <label for="1-{{ demand.id }}" class="radioProposé">Simulation proposée</label>
                         </div>
                         <div class="modifié input-radio">
                             <input type="radio" name="radio" value="2-{{ demand.id }}" id="2-{{ demand.id }}"{% if demand.status == 2 %} checked="checked"{% endif %}/>
-                            <label for="2-{{ demand.id }}" class="radioAccepté">Board accepté</label>
+                            <label for="2-{{ demand.id }}" class="radioAccepté">Proposition acceptée</label>
                         </div>
                     </div>
                 </div>

@@ -42,6 +42,8 @@ class DemandType extends AbstractType
                 'deadline',
                 DateType::class,
                 [
+
+                    'format' => 'ddMMyyyy',
                     'data' => new DateTime()
                 ]
             );

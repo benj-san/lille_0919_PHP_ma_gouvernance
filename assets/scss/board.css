@@ -4,55 +4,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/*style for boardclient*/
-/*.displayclientAdvisor{
- display : flex;
-}*/
-#clientName {
-  margin-left: 1em;
-  margin-top: 1em;
-}
-
-h2 {
-  margin: 1.6em;
-}
-
-#boardContent {
-  display: flex;
-  width: 90%;
-  min-height: 50vh;
-  flex-wrap: wrap;
-  border: #3d4b80 2px solid;
-  margin: auto;
-  padding: 0.2em;
-  justify-content: center;
-}
-#boardContent .cardAdvisors {
-  display: flex;
-  flex-direction: column;
-  margin: 2.7rem 2rem 2.7rem;
-  min-width: 210px;
-  height: 320px;
-  align-items: center;
-  color: black;
-  cursor: pointer;
-  border: #3d4b80 1px solid;
-}
-#boardContent .cardAdvisors .cardTitle {
-  font-size: 1.2rem;
-  text-align: center;
-}
-#boardContent .cardAdvisors p {
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-#boardContent .cardAdvisors img {
-  height: 250px;
-  width: 210px;
-  background-color: lightgray;
-  border-bottom: #FFAB40 solid 3px;
-}
-
 #deadline {
   margin-top: 2em;
 }
@@ -149,7 +100,55 @@ h2 {
   width: 100%;
   padding: 5rem 2em;
 }
-#allAdvisorsBoard #allCardsContainer .cardAdvisors {
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  outline: solid #21215e;
+  position: relative;
+  margin: 10px;
+  width: calc(25% - 20px);
+  height: 70%;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS .pp {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border-bottom: 1px solid #21215e;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS #cardAdvisorInfos {
+  padding: 10px;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS #cardAdvisorInfos .nameAdvisor {
+  font-weight: bold;
+  font-size: 17px;
+  height: 10%;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS #cardAdvisorInfos .placeAdvisor {
+  display: none;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS #cardAdvisorInfos .idAdvisor {
+  display: none;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS .cardAdvisorIcons {
+  position: absolute;
+  display: block;
+  top: 5px;
+  right: 5px;
+  width: 100%;
+  z-index: 50;
+  text-align: right;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS .cardAdvisorIcons .iconAdd, #allAdvisorsBoard #allCardsContainer .cardAdvisorJS .cardAdvisorIcons .iconCv {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#allAdvisorsBoard #allCardsContainer .cardAdvisorJS .cardAdvisorIcons .iconDelete {
+  display: none;
+}
+
+.cardAdvisorsJS {
   display: flex;
   flex-direction: column;
   margin: 0.6em auto;
@@ -157,20 +156,20 @@ h2 {
   height: 320px;
   align-items: center;
   color: black;
-  cursor: pointer;
   border: #3d4b80 1px solid;
 }
-#allAdvisorsBoard #allCardsContainer .cardAdvisors #pp {
+.cardAdvisorsJS #pp {
   height: 250px;
   width: 200px;
   border-bottom: #FFAB40 solid 3px;
 }
-#allAdvisorsBoard #allCardsContainer .cardAdvisors .iconCv, #allAdvisorsBoard #allCardsContainer .cardAdvisors .iconAdd {
+.cardAdvisorsJS .iconCv, .cardAdvisorsJS .iconAdd {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
-#allAdvisorsBoard #allCardsContainer .cardAdvisorIcons {
+
+.cardAdvisorIcons {
   position: absolute;
   display: block;
   bottom: 5px;
@@ -179,15 +178,16 @@ h2 {
   z-index: 50;
   text-align: right;
 }
-#allAdvisorsBoard #allCardsContainer .cardTitle {
+
+.cardTitle {
   font-size: 2rem;
   text-align: center;
 }
-#allAdvisorsBoard #allCardsContainer .cardTitle p {
+.cardTitle p {
   font-size: 1.7rem;
   margin-bottom: 5px;
 }
-#allAdvisorsBoard #allCardsContainer .cardTitle p .allAdvisors {
+.cardTitle p .allAdvisors {
   height: 30px;
   width: 20px;
   padding: 15%;
@@ -222,9 +222,19 @@ h2 {
   margin-top: -5%;
 }
 
-#behind.display, #allAdvisorsBoard.display {
+#behindAllAdvisors {
+  position: fixed;
+  opacity: 60%;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  z-index: 4;
+  background-color: black;
+  margin-top: -5%;
+}
+
+#behind.display, #allAdvisorsBoard.display, #behindAllAdvisors.display {
   display: flex;
-  cursor: pointer;
 }
 
 /************************** BOARD + LISTE ADVISOR **************************/
