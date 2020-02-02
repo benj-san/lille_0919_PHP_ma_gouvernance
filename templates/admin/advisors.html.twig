@@ -40,7 +40,7 @@
                 <div class="cardAdvisors">
                     <div class="cardImg">
                         {% if advisor.picture is null %}
-                            <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                            <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
                         {% else %}
                             <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
                         {% endif %}
@@ -74,7 +74,7 @@
     <section id="filterContainer" class="hidden">
     </section>
     <section class="filterAdvisors">
-        <div class="filterTitle">Filtres :</div>
+        <div class="filterTitle">Filtres</div>
         <input type="text" id="myInput" placeholder="Chercher un nom..">
 
         <div class="order">
@@ -90,7 +90,6 @@
 
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
-        {{ encore_entry_script_tags('board') }}
     {% endblock %}
 {% endblock %}
 
