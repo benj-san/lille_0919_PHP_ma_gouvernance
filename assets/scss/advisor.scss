@@ -240,7 +240,6 @@ body{
 }
 
 @media screen and (max-width: 560px){
-
     #advisors {
         display: flex;
         flex-direction: column-reverse;
@@ -254,7 +253,7 @@ body{
         }
 
         .filterAdvisors {
-            height: auto;
+            height:auto;
             display: flex;
             flex-direction: column;
             border-radius: 8%;

@@ -23,11 +23,9 @@
 
 {% block main %}
 
-    <section id="filterContainer" class="hidden">
-    </section>
-    <div class="displayAllAdvisor">
-
-
+<section id="filterContainer" class="hidden">
+</section>
+<div class="displayAllAdvisor">
     <div id="behind">
     </div>
     <div id="displayCvAdvisor">
@@ -46,10 +44,10 @@
                         {% endif %}
                         <div class="icon">
                             {% if advisor.linkedin is null %}
-                            <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                                <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
                             {% else %}
-                            <a href="{{ advisor.linkedin }}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
-                           {% endif %}
+                                <a href="{{ advisor.linkedin }}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                            {% endif %}
                             <img class="iconCv" src="{{ asset('build/cv.png') }}" alt=""/>
                         </div>
                     </div>
@@ -71,25 +69,26 @@
         </section>
 
 
-    <section id="filterContainer" class="hidden">
-    </section>
-    <section class="filterAdvisors">
-        <div class="filterTitle">Filtres</div>
-        <input type="text" id="myInput" placeholder="Chercher un nom..">
+        <section id="filterContainer" class="hidden">
+        </section>
+        <section class="filterAdvisors">
+            <div class="filterTitle">Filtres</div>
+            <input type="text" id="myInput" placeholder="Chercher un nom..">
 
-        <div class="order">
+            <div class="order">
 
-            <a href="{{ path('advisors') }}">tous</a>
-            <a href="./advisors/?filter=inscription">en cours d'inscription</a>
-            <a href="./advisors/?filter=validation">en cours de validation</a>
-            <a href="./advisors/?filter=valide">validé</a>
-            <a href="./advisors/?filter=ensuspens">suspendu</a>
-        </div>
+                <a href="{{ path('advisors') }}">tous</a>
+                <a href="./advisors/?filter=inscription">en cours d'inscription</a>
+                <a href="./advisors/?filter=validation">en cours de validation</a>
+                <a href="./advisors/?filter=valide">validé</a>
+                <a href="./advisors/?filter=ensuspens">suspendu</a>
+            </div>
+        </section>
     </section>
-</section>
+</div>
+{% endblock %}
 
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
     {% endblock %}
-{% endblock %}
 
