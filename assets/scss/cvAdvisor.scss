@@ -424,12 +424,17 @@
     }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
+
     .cvAdvisor {
-        width:90%;
+
+        width: 90%;
+
     }
-    
+
+
     .cvAdvisor.display {
-        left:5%;
+
+        left: 5%;
     }
 }
