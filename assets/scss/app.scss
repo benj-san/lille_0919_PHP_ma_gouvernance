@@ -487,7 +487,6 @@ header {
     background-color: white;
     width:90%;
     z-index: 2;
-    font-size: 32px;
     text-align: center;
     padding: 15px;
     margin: 5% auto 0 auto;
@@ -502,18 +501,46 @@ header {
         width:100%;
         display:flex;
         flex-wrap: wrap;
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            align-items: center;
+        }
 
         #personalInfo {
-
             width:45%;
+
+            @media screen and (max-width: 800px) {
+                width:100%;
+            }
 
             label {
                 font-size:18px;
                 font-weight:500;
+
+                @media screen and (max-width: 1200px) {
+                    font-size: 1.8vw;
+                }
+
+                @media screen and (max-width: 800px) {
+                    font-size: 2.1vw;
+                }
+
+                @media screen and (max-width: 600px) {
+                    font-size: 2.4vw;
+                }
+
+                @media screen and (max-width: 400px) {
+                    font-size: 3.5vw;
+                }
+
+
             }
 
             input,textarea {
                 width:50%;
+                @media screen and (max-width: 800px) {
+                    width: 85%;
+                }
                 margin:auto;
                 display:block;
             }
@@ -521,31 +548,116 @@ header {
 
         #tags {
             width:50%;
+            @media screen and (max-width: 800px) {
+                width: 85%;
+            }
 
             label {
                 font-size:18px;
                 font-weight:500;
+
+                @media screen and (max-width: 1200px) {
+                    font-size: 1.8vw;
+                }
+
+                @media screen and (max-width: 800px) {
+                      width:95%;
+                    text-align: center;
+
+                }
+
+                @media screen and (max-width: 600px) {
+                    font-size: 2.4vw;
+                }
+
+                @media screen and (max-width: 400px) {
+                    font-size: 3.5vw;
+                }
             }
 
-            input,textarea {
-                width:50%;
-                margin:auto;
-                display:block;
-            }
+
 
             .form-group {
-                width:70%;
+                width:50%;
+                @media screen and (max-width: 800px) {
+                    width: 85%;
+                }
                 margin:auto;
+
+
+
+                .dropdown-menu {
+                    font-size:18px;
+
+                    .dropdown-menu {
+                        @media screen and (max-width: 1200px) {
+                            font-size: 1.8vw;
+                        }
+
+                        @media screen and (max-width: 800px) {
+                            font-size: 1.9vw;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 2.1vw;
+                        }
+
+                        @media screen and (max-width: 400px) {
+                            font-size: 2.4vw;
+                        }
+                    }
+                }
 
                 .form-control {
                     width:100%;
+
+                    .btn {
+                        font-size:18px;
+
+                        @media screen and (max-width: 1200px) {
+                            font-size: 1.8vw;
+                        }
+
+                        @media screen and (max-width: 800px) {
+                            font-size: 2.1vw;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 2.4vw;
+                        }
+
+                        @media screen and (max-width: 400px) {
+                            font-size: 3.5vw;
+                        }
+
+                        .filter-option {
+                            font-size:18px;
+                            @media screen and (max-width: 1200px) {
+                                font-size: 1.8vw;
+                            }
+
+                            @media screen and (max-width: 800px) {
+                                font-size: 2.1vw;
+                            }
+
+                            @media screen and (max-width: 600px) {
+                                font-size: 2.4vw;
+                            }
+
+                            @media screen and (max-width: 400px) {
+                                font-size: 3.5vw;
+                            }
+                        }
+
+                    }
+
+
                 }
 
             }
         }
 
         #submit {
-            width:20%;
             padding: 10px;
             font-size: 2rem;
             border: 3px solid $primary-color;
@@ -554,8 +666,27 @@ header {
             font-weight: bold;
             position: center;
             margin:2% auto 5% auto;
+            display:inline-block;
         }
     }
+}
 
+.title {
+    font-size:22px;
+    margin-bottom:2vh;
+    @media screen and (max-width: 1200px) {
+        font-size: 2.1vw;
+    }
 
+    @media screen and (max-width: 800px) {
+        font-size: 2.5vw;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 2.7vw;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 3.9vw;
+    }
 }
