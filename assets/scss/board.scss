@@ -240,10 +240,10 @@
 }
 
 #takeAdvisors{
-    width: 250px;
+    width: 100%;
     padding: 5px;
+    margin-bottom: 15px;
     font-size: 18px;
-    margin: 2% auto auto auto;
     border-radius: 8px;
     border: 1px solid black;
     color: white;
@@ -347,14 +347,18 @@
             justify-content: center;
 
             .cardAdvisorJS {
-                background-color: #FFFFFF;
+                background-color: white;
                 display: flex;
                 flex-direction: column;
-                outline: solid #21215e;
                 position: relative;
-                width: 250px;
+                width:250px;;
                 margin: 10px;
                 color: black;
+                -webkit-transition: 200ms ease-in-out;
+                -o-transition: 200ms ease-in-out;
+                transition: 200ms ease-in-out;
+                -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
                 .pp {
                     width: 100%;
@@ -366,14 +370,10 @@
                 #cardAdvisorInfos {
                     padding: 5px;
 
-                    .nameAdvisor {
+                    .nameAdvisor, .placeAdvisor {
                         font-weight: bold;
                         font-size: 1.3rem;
                         height: 10%;
-                    }
-
-                    .placeAdvisor {
-                        display: none;
                     }
 
                     .idAdvisor {
@@ -501,7 +501,11 @@
             margin: 10px auto;
             display: flex;
             position: relative;
-            outline: solid #21215e;
+            -webkit-transition: 200ms ease-in-out;
+            -o-transition: 200ms ease-in-out;
+            transition: 200ms ease-in-out;
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
             .pp {
                 height: 100%;
