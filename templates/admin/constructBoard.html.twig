@@ -63,7 +63,7 @@
                 <div id="iconAddAdvisor">
                     <img id="addAdvisors" src="{{ asset('build/add.png') }}" alt="">
                 </div>
-                <p id="clientLink" spellcheck="false">suggestion/{{ board.uuid }}</p>
+                <p id="clientLink" spellcheck="false">http://127.0.0.1:8001/suggestion/{{ board.uuid }}</p>
             </div>
         </div>
 
@@ -99,8 +99,11 @@
     </div>
 
     <div id="allAdvisorsBoard">
-        <section id="allCardsContainer">
-            <input type="text" id="myInput" placeholder="Chercher un nom..">
+        <div class="deleteAdvisorButton">
+            <label for="myInput"></label><input type="text" id="myInput" placeholder="Chercher un nom..">
+            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
+        </div>
+        <div id="cardsAllAdvisors">
             {% for advisor in advisorsRest %}
                 <div class="cardAdvisorJS advisorRest">
                     {% if advisor.picture is null %}
@@ -109,7 +112,7 @@
                         <img class="pp" src="{{ advisor.picture }}" alt=""/>
                     {% endif %}
                     <div id="cardAdvisorInfos">
-                        <p class="cardTitle nameAdvisor">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
+                        <p class="nameAdvisor">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
                         <p class="placeAdvisor">{{ advisor.place }}</p>
                         <p class="idAdvisor">{{ advisor.id }}</p>
                     </div>
@@ -120,8 +123,7 @@
                     </div>
                 </div>
             {% endfor %}
-        </section>
-
+        </div>
     </div>
 
 {% endblock %}

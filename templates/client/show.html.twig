@@ -23,31 +23,33 @@
     <h1 id="clientName">Proposition de board</h1>
         <div id="boardContent">
             {% for advisor in advisors  %}
-
                  <div class="cardAdvisors">
+                     <div class="containerCards">
+
                      <div class="icon">
-                         {% if advisor.linkedin is null %}
-                         {% else %}
-                             {% set linkedinCheck = advisor.linkedin|slice(0,24) %}
-                             {% if linkedinCheck == "https://www.linkedin.com" or linkedinCheck == "http://www.linkedin.com/" %}
-                             <a href="{{ advisor.linkedin}}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
-                                 {% endif %}
-                         {% endif %}
-                         {% if advisor.picture is null %}
-                             <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
-                         {% else %}
-                             <img class="advisorPic" src="{{ advisor.picture }}" alt="">
-                         {% endif %}
-                         <a href="" target="_blank"></a>
-                     </div>
-                     <div class="advisorInfo">
-                         <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
-                         <p>{{ advisor.place }}</p>
+                             {% if advisor.linkedin is null %}
+                             {% else %}
+                                 {% set linkedinCheck = advisor.linkedin|slice(0,24) %}
+                                 {% if linkedinCheck == "https://www.linkedin.com" or linkedinCheck == "http://www.linkedin.com/" %}
+                                 <a href="{{ advisor.linkedin}}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                                     {% endif %}
+                             {% endif %}
+                             {% if advisor.picture is null %}
+                                 <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
+                             {% else %}
+                                 <img class="advisorPic" src="{{ advisor.picture }}" alt="">
+                             {% endif %}
+                             <a href="" target="_blank"></a>
+                         </div>
+                         <div class="advisorInfo">
+                             <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
+                             <p>{{ advisor.place }}</p>
+                         </div>
                      </div>
                  </div>
 
-           {% endfor %}
-       </div>
+            {% endfor %}
+        </div>
 
 {% endblock %}
 {% block javascripts %}
