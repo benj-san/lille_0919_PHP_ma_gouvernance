@@ -16,7 +16,6 @@
 
 body{
     background: white;
-;
 }
 
 #headerClient{
@@ -90,65 +89,65 @@ body{
 
 
         .containerCards {
-                opacity: 0;
-                height:100%;
-                width:100%;
-                animation: ContentFadeIn 1.5s 1.8s forwards;
-                @include transition;
+            opacity: 0;
+            height:100%;
+            width:100%;
+            animation: ContentFadeIn 1.5s 1.8s forwards;
+            @include transition;
 
 
 
 
             .icon {
-                    position: relative;
+                position: relative;
 
-                    .iconLinkedin {
-                        position: absolute;
-                        width: 40px;
-                        height: 40px;
-                        display: block;
-                        bottom: 5px;
-                        right: 5px;
-                        z-index: 50;
-                        cursor: pointer;
-                    }
-                }
-
-                .advisorPic {
-                    height: 270px;
-                    width: 250px;
-                    border-bottom: #3d4b80 solid 2px;
-                    -webkit-filter: grayscale(10%);
-                    filter: grayscale(30%);
-                }
-
-
-                .advisorInfo {
-                    width: 100%;
-                    padding-left: 0.5em;
-                    background: linear-gradient(to left, #ebebeb 50%, #21215e 50%);
-                    background-size: 200% 100%;
-                    background-position: right bottom;
+                .iconLinkedin {
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    display: block;
+                    bottom: 5px;
+                    right: 5px;
+                    z-index: 50;
                     cursor: pointer;
-                    transition: all ease .4s;
-                    height: calc(100% - 270px);
+                }
+            }
+
+            .advisorPic {
+                height: 270px;
+                width: 250px;
+                border-bottom: #3d4b80 solid 2px;
+                -webkit-filter: grayscale(10%);
+                filter: grayscale(30%);
+            }
 
 
-                    &:hover {
-                        background-position: left bottom;
-                        color: white;
-                        font-weight: bold;
-                    }
+            .advisorInfo {
+                width: 100%;
+                padding-left: 0.5em;
+                background: linear-gradient(to left, #ebebeb 50%, #21215e 50%);
+                background-size: 200% 100%;
+                background-position: right bottom;
+                cursor: pointer;
+                transition: all ease .4s;
+                height: calc(100% - 270px);
 
-                    .cardTitle {
-                        padding-top: 5px;
-                        font-size: 1.5rem;
-                    }
 
-                    p {
-                        font-size: 1.3rem;
-                        margin-bottom: 5px;
-                    }
+                &:hover {
+                    background-position: left bottom;
+                    color: white;
+                    font-weight: bold;
+                }
+
+                .cardTitle {
+                    padding-top: 5px;
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 1.3rem;
+                    margin-bottom: 5px;
+                }
             }
         }
     }
