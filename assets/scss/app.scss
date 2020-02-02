@@ -24,6 +24,7 @@ header {
         align-items: center;
         background-color: white;
         position:relative;
+        padding: 0;
 
 
         .logoContainer {
@@ -35,7 +36,7 @@ header {
             margin-left:1%;
 
             img {
-                height: 55%;
+                height: 50%;
                 background-color: white;
             }
         }
@@ -45,48 +46,41 @@ header {
             display:flex;
             align-items: center;
             width:100%;
+            margin-bottom: 0;
+            margin-left: 2em;
 
             .links {
-                height:100%;
-                width:50%;
                 text-align: center;
-                font-size:1.5em;
+                font-size:2em;
                 text-decoration: none;
-                color:black;
-                padding: 1em;
-               }
+                color:rgba(0,0,0,0.6);
+                padding: 0;
+                margin-left: 3em;
+
+
+                &:hover{
+                    font-weight:600;
+                    margin-bottom: 0;
+                    padding: 0;
+                    border-bottom: 3px solid $primary-color;
+                }
+            }
 
             #linkAdvisor{
-                width:50%;
                 text-align: center;
                 font-size:2em;
                 color:rgba(0,0,0,0.6);
                 font-weight:600;
-                background-color: #21215e;
+                margin-left: 3em;
+                border-bottom: 3px solid $primary-color;
             }
         }
 
-        .sign-out{
-            margin-left: 70%;
-            width: 25%;
+        .logout {
+            font-size: 2rem;
+            margin-right: 2em ;
         }
-
-
     }
-
-    .logout {
-        width:7%;
-        padding: 5px;
-        font-size: 2rem;
-        border: 3px solid $primary-color;
-        color: $primary-color;
-        background-color: white;
-        font-weight: bold;
-        position:absolute;
-        right:15px;
-        text-align:center;
-    }
-
 }
 
 #filterContainer {
@@ -96,9 +90,7 @@ header {
     background-color: black;
     opacity: 60%;
     top:0;
-
 }
-
 
 #Boards {
     display: flex;
@@ -114,7 +106,6 @@ header {
             font-weight: 500;
             text-align: center;
             margin-bottom: 20px;
-
         }
 
         .filters {
