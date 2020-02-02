@@ -201,6 +201,7 @@
                 .commentaryP {
                     margin-bottom: 10vh;
                 }
+
                 p {
                     margin: 3% 5% 3% 5%;
                     text-align: justify;
@@ -308,7 +309,7 @@
                     font-size:1.4vw;
 
                     @media screen and (max-width: 1200px) {
-                    font-size: 1.8vw;
+                        font-size: 1.8vw;
                     }
 
                     @media screen and (max-width: 800px) {
@@ -423,12 +424,11 @@
     }
 }
 
-
-
 @media screen and (max-width: 1000px){
     .cvAdvisor {
         width:90%;
     }
+    
     .cvAdvisor.display {
         left:5%;
     }
