@@ -80,7 +80,9 @@
                     </div>
                 </div>
                 {% if board is not defined %}
-                    <a class ="editProfil" href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
+                    <div id="blockEditProfil">
+                        <a class ="editProfil" href="{{ path('editAdvisor', {'uuid' : advisor.uuid}) }}">Editer le profil</a>
+                    </div>
                 {% endif %}
             </div>
         {% endfor %}
