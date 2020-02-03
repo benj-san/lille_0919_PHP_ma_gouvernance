@@ -174,8 +174,7 @@ class AdminController extends AbstractController
 
         $demand = $board->getDemand();
         $resumes = $resumeRepository->findBy(['demand'=>$demand]);
-
-        $advisor = $advisorRepository->findAll();
+        $advisor = $advisorRepository->findBy(['status' => 2]);
         $demand = $demandRepository->findOneBy(['id' => $board->getDemand()]);
         $tags = $demand->getTags()->getValues();
 
