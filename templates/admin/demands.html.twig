@@ -77,8 +77,6 @@
 
     <section id="Boards">
 
-
-
         <div class="container">
             <div class="containerContent">
 
@@ -91,23 +89,23 @@
                             <div class="statut" style="background-color: orange;"></div>
                         {% elseif demand.status ==2 %}
                             <div class="statut" style="background-color: green;"></div>
+                        {% endif %}
 
-                    {% endif %}
-                        <div class="cardBody">
-                            <p class="cardTitle">{{demand.client}}</p>
-                            <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
-
-                        </div>
+                            <div class="cardBody">
+                                <p class="cardTitle">{{demand.client}}</p>
+                                <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
+                            </div>
                     </div>
-
                 {% endfor %}
-
+            </div>
+            <div class="new-demande">
+              <div id ="button-newdemand">+</div>
             </div>
         </div>
         <section class="filterBoards">
-            <div class="filterTitle">Filtres :</div>
+            <div class="filterTitle">Demandes:</div>
             <section class="filters">
-                <input type="text" id="myInput" placeholder="Chercher un nom..">
+                <input type="text" id="myInput" placeholder="Chercher un demande">
             </section>
             <div class="order">
                 Filtré par :
@@ -116,10 +114,7 @@
                 <a href="../demands/?filter=proposé">Simulation proposée</a>
                 <a href="../demands/?filter=accepté">Proposition acceptée</a>
             </div>
-            <div id ="button-newdemand">+</div>
         </section>
-
-
 
         <section id="demandeFormulaire" class="hidden">
             <div id="demandeFormulaireContent">

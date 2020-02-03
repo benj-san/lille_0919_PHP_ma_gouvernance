@@ -49,6 +49,7 @@ header nav .linksContainer .links {
   color: rgba(0, 0, 0, 0.6);
   padding: 0;
   margin-left: 3em;
+  margin-right: 1em;
 }
 header nav .linksContainer .links:hover {
   font-weight: 600;
@@ -79,6 +80,7 @@ header nav .logout {
   z-index: 3;
 }
 
+/************page Demand********************/
 #Boards {
   animation: ContentFadeIn 0.4s forwards;
   opacity: 0;
@@ -101,10 +103,7 @@ header nav .logout {
   width: 25%;
 }
 #Boards .filterBoards .filterTitle {
-  font-size: 28px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 20px;
+  display: none;
 }
 #Boards .filterBoards .filters {
   width: 90%;
@@ -125,53 +124,50 @@ header nav .logout {
   margin: 5px 0 5px 30px;
 }
 #Boards .container {
-  height: 65vh;
   justify-content: center;
-  width: 70%;
+  width: 75%;
   margin: 0 0 0 0;
 }
 #Boards .container .containerContent {
-  width: 98%;
-  margin: auto;
-  height: 100%;
+  height: 80%;
   overflow: auto;
+  margin: 1em auto;
+  padding-top: 1em;
+  background-color: rgba(225, 225, 225, 0.85);
 }
 #Boards .cardHorizontal {
   border: solid 2px #4e555b;
+  border-radius: 5px;
   display: flex;
   flex: 1 1 auto;
   margin: auto auto 2vh;
-  width: 85%;
+  width: 90%;
   cursor: pointer;
   background-color: white;
-  height: 120px;
+  height: 15vh;
 }
 #Boards .cardHorizontal .cardBody {
+  width: 80%;
+  padding: 1em;
   display: flex;
-  align-items: center;
-  margin-left: 2%;
 }
 #Boards .cardHorizontal .cardBody .cardTitle {
-  font-size: 44px;
-  width: 300px;
+  font-size: 2em;
+  width: 80%;
+  align-self: center;
 }
 #Boards .cardHorizontal .cardBody .deadline {
-  font-size: 32px;
-  align-self: flex-end;
-  margin-left: 300px;
+  font-size: 1.5em;
+  padding-right: 10px;
 }
 #Boards .cardHorizontal .statut {
   border-right: solid 2px #4e555b;
   align-content: center;
-  width: 12rem;
+  width: 20%;
 }
 
 .new-demande {
-  margin: 5vh auto 50px auto;
-  width: 10%;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #button-newdemand {
@@ -188,22 +184,9 @@ header nav .logout {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 200px auto 0 auto;
+  margin: auto;
 }
 #button-newdemand:hover {
-  text-decoration: none;
-  color: white;
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  font-size: 64px;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#button-newdemand:hover:hover {
   text-decoration: none;
   color: white;
 }
@@ -213,6 +196,71 @@ header nav .logout {
   transition: 2s ease;
 }
 
+@media screen and (max-width: 650px) {
+  header nav .logoContainer {
+    display: none;
+  }
+  header nav .linksContainer #linkAdvisor {
+    display: none;
+  }
+  header nav .linksContainer .links {
+    font-size: 2em;
+    margin-left: 2em;
+  }
+  header nav .logout {
+    margin: 1rem;
+    font-size: 1.1em;
+  }
+
+  #Boards {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #Boards .filterBoards {
+    width: 98%;
+    padding-bottom: 2em;
+  }
+  #Boards .filterBoards .filterTitle {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #Boards .filterBoards .filters {
+    display: inline;
+  }
+  #Boards .filterBoards .order {
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin: auto;
+  }
+  #Boards .filterBoards .order .oneFilter {
+    padding-right: 2px;
+  }
+  #Boards .filterBoards #button-newdemand {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+  #Boards .container {
+    width: 95%;
+    height: 63vh;
+  }
+  #Boards .container .cardHorizontal {
+    width: 92%;
+    height: 14vh;
+  }
+  #Boards .container .cardHorizontal .cardBody {
+    display: flex;
+  }
+  #Boards .container .cardHorizontal .cardBody .cardTitle {
+    font-size: 1.7em;
+  }
+  #Boards .container .cardHorizontal .cardBody .deadline {
+    font-size: 1em;
+  }
+}
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 #demandeFormulaire {
@@ -314,8 +362,8 @@ header nav .logout {
     margin-bottom: 2rem;
     font-size: 28px;
   }
-  #demandeFormulaire #demandeFormulaireContent form label, #demandeFormulaire #demandeFormulaireContent form legend {
-    font-size: 20px;
+  #demandeFormulaire #demandeFormulaireContent form label, #demandeFormulaire #demandeFormulaireContent form legend, #demandeFormulaire #demandeFormulaireContent form .tags {
+    font-size: 16px;
   }
   #demandeFormulaire #demandeFormulaireContent form #demand_deadline {
     width: 80%;
@@ -363,16 +411,15 @@ header nav .logout {
   align-items: flex-start;
 }
 .modalDescription .modalDescriptionContainer .modalParts .modalTitles {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
   display: flex;
   font-weight: 600;
-  width: 38%;
   color: #21215e;
 }
 .modalDescription .modalDescriptionContainer .modalParts p {
   font-size: 2rem;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 1em;
 }
 .modalDescription .modalDescriptionContainer .tagsModalDescription {
   display: flex;
