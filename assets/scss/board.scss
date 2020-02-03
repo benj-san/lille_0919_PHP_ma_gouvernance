@@ -102,6 +102,7 @@
 .deleteAdvisorButton{
     display: flex;
     margin: 10px;
+    justify-content: center;
 }
 
 #allAdvisorsBoard {
@@ -647,6 +648,21 @@
 
 /******************* MAX 1000PX *******************/
 @media screen and (max-width: 1000px) {
+    header nav {
+
+        img{
+            display: none;
+        }
+
+        #demandsNav{
+            margin: 0;
+        }
+
+        #logoutNav{
+            display: none;
+        }
+    }
+
     .deleteAdvisor{
         margin: calc(50vh - 1%) 0 0 25%;
         width: 50%;
@@ -753,6 +769,12 @@
 /******************* MAX 550PX *******************/
 
 @media screen and (max-width: 550px) {
+    header nav {
+        .linksContainer{
+            font-size: 10px;
+        }
+    }
+
     #boardAndBoardAdvisors {
 
         #board{

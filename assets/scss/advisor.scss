@@ -151,10 +151,9 @@ body{
             .advisorInfo {
                 width: 100%;
                 padding-left:0.5em;
-                background: linear-gradient( to left, #ffffff 50%,  #21215e  50% );
+                background: linear-gradient( to left, #ffffff 50%,  #21215e 50% );
                 background-size: 200% 100%;
                 background-position: right bottom;
-                cursor: pointer;
                 transition: all ease .4s;
 
                 &:hover{
