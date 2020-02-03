@@ -11,7 +11,7 @@ html {
 
 /* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
 header {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 header nav {
   height: 80px;
@@ -49,6 +49,7 @@ header nav .linksContainer .links {
   color: rgba(0, 0, 0, 0.6);
   padding: 0;
   margin-left: 3em;
+  margin-right: 1em;
 }
 header nav .linksContainer .links:hover {
   font-weight: 600;
@@ -76,11 +77,25 @@ header nav .logout {
   background-color: black;
   opacity: 60%;
   top: 0;
+  z-index: 1;
 }
 
+/************page Demand********************/
 #Boards {
+  animation: ContentFadeIn 0.4s forwards;
+  opacity: 0;
   display: flex;
   flex-wrap: wrap;
+}
+@keyframes ContentFadeIn {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 #Boards .filterBoards {
   display: flex;
@@ -88,10 +103,7 @@ header nav .logout {
   width: 25%;
 }
 #Boards .filterBoards .filterTitle {
-  font-size: 28px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 20px;
+  display: none;
 }
 #Boards .filterBoards .filters {
   width: 90%;
@@ -112,53 +124,50 @@ header nav .logout {
   margin: 5px 0 5px 30px;
 }
 #Boards .container {
-  height: 65vh;
   justify-content: center;
-  width: 70%;
+  width: 75%;
   margin: 0 0 0 0;
 }
 #Boards .container .containerContent {
-  width: 98%;
-  margin: auto;
-  height: 100%;
+  height: 80%;
   overflow: auto;
+  margin: 1em auto;
+  padding-top: 1em;
+  background-color: rgba(225, 225, 225, 0.85);
 }
 #Boards .cardHorizontal {
   border: solid 2px #4e555b;
+  border-radius: 5px;
   display: flex;
   flex: 1 1 auto;
   margin: auto auto 2vh;
-  width: 85%;
+  width: 90%;
   cursor: pointer;
   background-color: white;
-  height: 120px;
+  height: 15vh;
 }
 #Boards .cardHorizontal .cardBody {
+  width: 80%;
+  padding: 1em;
   display: flex;
-  align-items: center;
-  margin-left: 2%;
 }
 #Boards .cardHorizontal .cardBody .cardTitle {
-  font-size: 44px;
-  width: 300px;
+  font-size: 2em;
+  width: 80%;
+  align-self: center;
 }
 #Boards .cardHorizontal .cardBody .deadline {
-  font-size: 32px;
-  align-self: flex-end;
-  margin-left: 300px;
+  font-size: 1.5em;
+  padding-right: 10px;
 }
 #Boards .cardHorizontal .statut {
   border-right: solid 2px #4e555b;
   align-content: center;
-  width: 12rem;
+  width: 20%;
 }
 
 .new-demande {
-  margin: 5vh auto 50px auto;
-  width: 10%;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #button-newdemand {
@@ -175,22 +184,9 @@ header nav .logout {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 200px auto 0 auto;
+  margin: auto;
 }
 #button-newdemand:hover {
-  text-decoration: none;
-  color: white;
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  font-size: 64px;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#button-newdemand:hover:hover {
   text-decoration: none;
   color: white;
 }
@@ -200,11 +196,75 @@ header nav .logout {
   transition: 2s ease;
 }
 
+@media screen and (max-width: 650px) {
+  header nav .logoContainer {
+    display: none;
+  }
+  header nav .linksContainer #linkAdvisor {
+    display: none;
+  }
+  header nav .linksContainer .links {
+    font-size: 2em;
+    margin-left: 2em;
+  }
+  header nav .logout {
+    margin: 1rem;
+    font-size: 1.1em;
+  }
+
+  #Boards {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #Boards .filterBoards {
+    width: 98%;
+    padding-bottom: 2em;
+  }
+  #Boards .filterBoards .filterTitle {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #Boards .filterBoards .filters {
+    display: inline;
+  }
+  #Boards .filterBoards .order {
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin: auto;
+  }
+  #Boards .filterBoards .order .oneFilter {
+    padding-right: 2px;
+  }
+  #Boards .filterBoards #button-newdemand {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+  #Boards .container {
+    width: 95%;
+    height: 63vh;
+  }
+  #Boards .container .cardHorizontal {
+    width: 92%;
+    height: 14vh;
+  }
+  #Boards .container .cardHorizontal .cardBody {
+    display: flex;
+  }
+  #Boards .container .cardHorizontal .cardBody .cardTitle {
+    font-size: 1.7em;
+  }
+  #Boards .container .cardHorizontal .cardBody .deadline {
+    font-size: 1em;
+  }
+}
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 #demandeFormulaire {
   width: 70%;
-  z-index: 1;
   height: 80%;
   left: 15%;
   border-radius: 9px;
@@ -215,6 +275,7 @@ header nav .logout {
   bottom: 10%;
   position: absolute;
   text-align: center;
+  z-index: 4;
 }
 #demandeFormulaire .submitDemand {
   display: inline-block;
@@ -300,8 +361,8 @@ header nav .logout {
     margin-bottom: 2rem;
     font-size: 28px;
   }
-  #demandeFormulaire #demandeFormulaireContent form label, #demandeFormulaire #demandeFormulaireContent form legend {
-    font-size: 20px;
+  #demandeFormulaire #demandeFormulaireContent form label, #demandeFormulaire #demandeFormulaireContent form legend, #demandeFormulaire #demandeFormulaireContent form .tags {
+    font-size: 16px;
   }
   #demandeFormulaire #demandeFormulaireContent form #demand_deadline {
     width: 80%;
@@ -312,7 +373,6 @@ header nav .logout {
 /* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 .modalDescription {
   width: 70%;
-  z-index: 1;
   height: 80%;
   left: 15%;
   border-radius: 9px;
@@ -323,6 +383,7 @@ header nav .logout {
   text-align: center;
   font-weight: bold;
   padding: 15px;
+  z-index: 4;
 }
 .modalDescription .modalDescriptionContainer {
   overflow: auto;
@@ -348,16 +409,15 @@ header nav .logout {
   align-items: flex-start;
 }
 .modalDescription .modalDescriptionContainer .modalParts .modalTitles {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
   display: flex;
   font-weight: 600;
-  width: 38%;
   color: #21215e;
 }
 .modalDescription .modalDescriptionContainer .modalParts p {
   font-size: 2rem;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 1em;
 }
 .modalDescription .modalDescriptionContainer .tagsModalDescription {
   display: flex;
@@ -437,12 +497,12 @@ header nav .logout {
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton:hover {
   text-decoration: none;
-  border: 4px solid #21215e;
   color: rgba(99, 99, 99, 0.91);
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .delete {
+  margin: auto 0;
   font-size: 20px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   border: 3px solid red;
   color: black;
@@ -485,7 +545,6 @@ header nav .logout {
   background-color: white;
   width: 90%;
   z-index: 2;
-  font-size: 32px;
   text-align: center;
   padding: 15px;
   margin: 5% auto 0 auto;
@@ -499,39 +558,169 @@ header nav .logout {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 800px) {
+  #editContainer form {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 #editContainer form #personalInfo {
   width: 45%;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo {
+    width: 100%;
+  }
 }
 #editContainer form #personalInfo label {
   font-size: 18px;
   font-weight: 500;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #personalInfo label {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo label {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #personalInfo label {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #personalInfo label {
+    font-size: 3.5vw;
+  }
 }
 #editContainer form #personalInfo input, #editContainer form #personalInfo textarea {
   width: 50%;
   margin: auto;
   display: block;
 }
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo input, #editContainer form #personalInfo textarea {
+    width: 85%;
+  }
+}
 #editContainer form #tags {
   width: 50%;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags {
+    width: 85%;
+  }
 }
 #editContainer form #tags label {
   font-size: 18px;
   font-weight: 500;
 }
-#editContainer form #tags input, #editContainer form #tags textarea {
-  width: 50%;
-  margin: auto;
-  display: block;
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags label {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags label {
+    width: 95%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags label {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags label {
+    font-size: 3.5vw;
+  }
 }
 #editContainer form #tags .form-group {
-  width: 70%;
+  width: 50%;
   margin: auto;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group {
+    width: 85%;
+  }
+}
+#editContainer form #tags .form-group .dropdown-menu {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 1.9vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 2.4vw;
+  }
 }
 #editContainer form #tags .form-group .form-control {
   width: 100%;
 }
+#editContainer form #tags .form-group .form-control .btn {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 3.5vw;
+  }
+}
+#editContainer form #tags .form-group .form-control .btn .filter-option {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 3.5vw;
+  }
+}
 #editContainer form #submit {
-  width: 20%;
   padding: 10px;
   font-size: 2rem;
   border: 3px solid #21215e;
@@ -540,6 +729,32 @@ header nav .logout {
   font-weight: bold;
   position: center;
   margin: 2% auto 5% auto;
+  display: inline-block;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 2vh;
+}
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 2.7vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 3.9vw;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

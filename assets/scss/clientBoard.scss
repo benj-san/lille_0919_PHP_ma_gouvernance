@@ -86,16 +86,12 @@ body{
         @include transition;
         margin:3rem auto;
 
-
-
         .containerCards {
             opacity: 0;
             height:100%;
             width:100%;
             animation: ContentFadeIn 1.5s 1.8s forwards;
             @include transition;
-
-
 
 
             .icon {
@@ -121,7 +117,6 @@ body{
                 filter: grayscale(30%);
             }
 
-
             .advisorInfo {
                 width: 100%;
                 padding-left: 0.5em;
@@ -131,7 +126,8 @@ body{
                 cursor: pointer;
                 transition: all ease .4s;
                 height: calc(100% - 270px);
-
+                position: relative;
+                display: flex;
 
                 &:hover {
                     background-position: left bottom;
@@ -148,6 +144,21 @@ body{
                     font-size: 1.3rem;
                     margin-bottom: 5px;
                 }
+
+                #cvIcon {
+                    position: absolute;
+
+                    .iconCv {
+                        position: absolute;
+                        width: 40px;
+                        height: 40px;
+                        display: block;
+                        z-index: 50;
+                        cursor: pointer;
+                        margin-top: 1em;
+                        margin-left: 14em;
+                    }
+                }
             }
         }
     }
@@ -158,7 +169,6 @@ footer {
     background-color: #3d4b80;
     border-top: #21215e solid 2px;
 }
-
 
 
 @keyframes ContentFadeIn {

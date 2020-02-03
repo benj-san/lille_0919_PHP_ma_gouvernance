@@ -42,8 +42,13 @@
                              <a href="" target="_blank"></a>
                          </div>
                          <div class="advisorInfo">
-                             <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
-                             <p>{{ advisor.place }}</p>
+                             <div>
+                                 <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper }}</p>
+                                 <p>{{ advisor.place }}</p>
+                             </div>
+                             <div id="cvIcon">
+                                <img class="iconCv" src="{{ asset('build/cv.png') }}" alt=""/>
+                             </div>
                          </div>
                      </div>
                  </div>
