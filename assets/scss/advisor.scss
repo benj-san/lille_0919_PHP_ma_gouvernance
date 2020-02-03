@@ -35,9 +35,9 @@ body{
     text-align: center;
     padding: 15px;
     margin: 5% auto 0 auto;
-    -webkit-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-    -moz-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-    box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+    -webkit-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -71,33 +71,24 @@ body{
         width: 25%;
         height: 250px;
         align-items: center;
-        cursor: pointer;
-        text-align: center;
 
         .filterTitle {
             font-size: 28px;
-            font-weight: 500;
-            text-align: center;
             margin-bottom: 20px;
-
         }
 
         #myInput {
             width: 90%;
-            font-size: 22px;
-            margin-left: 15px;
+            font-size: 16px;
         }
 
         .order {
             width: 90%;
-            margin: 5px auto;
+            margin: 15px auto;
             display: flex;
             flex-direction: column;
             font-size: 16px;
-
-            a{
-                margin: 5px 0 5px 0;
-            }
+            text-align: left;
         }
 
     }

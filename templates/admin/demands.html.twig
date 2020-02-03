@@ -95,8 +95,9 @@
                     {% endif %}
                         <div class="cardBody">
                             <p class="cardTitle">{{demand.client}}</p>
-                            <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
-
+                            <div class="blockDeadline">
+                                <p class="deadline">{{ demand.deadline|date("d/m/Y") }}</p>
+                            </div>
                         </div>
                     </div>
 
