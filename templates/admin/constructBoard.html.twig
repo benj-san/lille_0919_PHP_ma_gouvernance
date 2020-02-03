@@ -68,10 +68,7 @@
         </div>
 
         <div id="boardAdvisors">
-            {#<label id="research">
-                <input placeholder="Rechercher">
-            </label>
-            #}
+
             <button id="takeAdvisors">Tous les advisors</button>
 
             <div id="viewAllAdvisors">
@@ -101,7 +98,6 @@
     <div id="allAdvisorsBoard">
         <div class="deleteAdvisorButton">
             <label for="myInput"></label><input type="text" id="myInput" placeholder="Chercher un nom..">
-            <img src="{{ asset('build/delete.png') }}" alt="" class="iconDeleteAllAdvisors">
         </div>
         <div id="cardsAllAdvisors">
             {% for advisor in advisorsRest %}
