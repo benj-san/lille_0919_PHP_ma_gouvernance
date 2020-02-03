@@ -171,7 +171,7 @@ class Advisor
     private $otherSpec;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $dailyRate;
 
@@ -574,12 +574,12 @@ class Advisor
         return $this;
     }
 
-    public function getDailyRate(): ?float
+    public function getDailyRate(): ?string
     {
         return $this->dailyRate;
     }
 
-    public function setDailyRate(?float $dailyRate): self
+    public function setDailyRate(?string $dailyRate): self
     {
         $this->dailyRate = $dailyRate;
 
@@ -731,9 +731,9 @@ class Advisor
     }
 
     /**
-     * @return mixed
+     * @return PersistentCollection
      */
-    public function getTagsStructures()
+    public function getTagsStructures():Collection
     {
         return $this->tagsStructures;
     }

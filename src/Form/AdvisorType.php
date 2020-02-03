@@ -111,7 +111,7 @@ class AdvisorType extends AbstractType
                     ->WHERE('t.category = 4');
             },
             'choice_label' => 'name',
-            'multiple' => false,
+            'multiple' => true,
             'expanded' => false,
             'by_reference' => false,
             'required'   => false,
@@ -203,7 +203,7 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
             ])
-            ->add('dailyRate', NumberType::class, [
+            ->add('dailyRate', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
                 ],

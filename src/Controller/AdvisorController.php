@@ -52,7 +52,6 @@ class AdvisorController extends AbstractController
 
         $form = $this->createForm(AdvisorType::class, $advisor);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             if ($advisor->getGouvernanceExperience() === true) {
                 if ($form['tagsStatut']->getData()) {
