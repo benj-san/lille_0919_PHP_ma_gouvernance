@@ -59,7 +59,7 @@ header {
     width: 90%;
     z-index: 2;
     height: 60vh;
-    font-size: 24px;
+    font-size: 1.5vw;
     text-align: center;
     padding:15px;
     margin:5% auto 5% auto;
@@ -70,6 +70,7 @@ header {
     align-items: center;
     flex-wrap:wrap;
     position:relative;
+    overflow:auto;
 
     .selectpicker {
         width:60%;
@@ -83,6 +84,11 @@ header {
         transition: all 0.2s ease-in;
         width:88%;
         margin: 0 auto;
+        text-align:center;
+
+        .labels {
+            margin:0 auto 20px auto
+        }
 
         .form-control {
 
@@ -93,7 +99,7 @@ header {
             -webkit-box-shadow:none;
             border-bottom:1px rgba(0,0,0,0.4) solid;
             border-radius:0;
-            font-size:31px;
+            font-size: 1.5vw;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -104,7 +110,6 @@ header {
 
         textarea {
             height:90px;
-            resize: none;
 
             ::-webkit-scrollbar {
                 display: none;
@@ -118,7 +123,7 @@ header {
             left:4%;
             bottom:8%;
             color:rgba(0,0,0,0.6);
-            font-size:20px;
+            font-size:1.5vw;
             display:flex;
             align-items: center;
             cursor:pointer;
@@ -136,7 +141,7 @@ header {
 
 
         .rgpd {
-            font-size:22px;
+            font-size:1.2vw;
         }
 
         .choices {
@@ -157,7 +162,7 @@ header {
             border-color: transparent;
             border-radius: 4px;
             margin:3% auto;
-            width:20%;
+            width:auto;
             display:inline-block;
         }
     }
@@ -192,7 +197,201 @@ label {
 
 .error {
     color:red;
-    font-size:20px;
+    font-size:1.2vw;
 }
 
+@media only screen and (max-device-width: 1000px) {
+
+
+
+    header {
+        nav {
+            .linksContainer {
+                display:none;
+            }
+        }
+    }
+
+
+}
+
+@media only screen and (max-device-width: 1200px) {
+
+
+
+    .containerCandidature {
+        font-size: 2.5vw;
+
+        .question {
+
+
+            .error {
+                font-size:2vw;
+            }
+
+            .form-control {
+                font-size: 2.5vw;
+
+
+            }
+
+            .lastQuestion  {
+                font-size:3vw;
+            }
+
+            .rgpd {
+                font-size:1.5vw;
+            }
+
+            .btn {
+                font-size: 2.5vw;
+
+                .dropdown-menu {
+                    font-size: 2.5vw;
+                }
+            }
+        }
+
+
+    }
+
+
+
+
+}
+
+@media only screen and (max-device-width: 700px) {
+
+
+    .containerCandidature {
+        font-size: 3vw;
+
+        .question {
+
+            .error {
+                font-size:2.5vw;
+            }
+
+            .btn {
+                font-size: 2.5vw;
+            }
+
+            .dropdown-menu {
+                font-size: 2.5vw;
+            }
+
+            .form-control {
+                font-size: 3vw;
+                width:90%;
+
+                textarea {
+                    width:90%;
+
+                }
+
+            }
+
+            .lastQuestion  {
+                font-size:3vw;
+            }
+
+            .rgpd {
+                font-size:2.4vw;
+            }
+
+            .choices {
+                padding: 4px 8px;
+                min-height: 36px;
+            }
+        }
+
+
+    }
+
+
+
+}
+
+@media only screen and (max-device-width: 540px) {
+
+
+    .containerCandidature {
+        font-size: 4vw;
+
+        .question {
+            word-spacing: 0.4vw;
+
+            .btn {
+                font-size: 3vw;
+            }
+
+            .dropdown-menu {
+                font-size: 2.2vw;
+            }
+
+            .error {
+                font-size:3vw;
+            }
+
+            .form-control {
+                font-size: 4vw;
+
+
+            }
+
+            .lastQuestion  {
+                font-size:4.5vw;
+            }
+
+            .rgpd {
+                font-size:2.9vw;
+            }
+        }
+
+
+    }
+
+}
+
+@media only screen and (max-device-width: 430px) {
+
+    .containerCandidature {
+        font-size: 5vw;
+
+        .question {
+
+            .btn {
+                font-size: 4vw;
+            }
+
+            .dropdown-menu {
+                font-size: 2.5vw;
+            }
+
+            .error {
+                font-size: 4vw;
+            }
+
+            .form-control {
+                font-size: 5vw;
+                width:90%;
+
+                textarea {
+                    width:90%;
+
+                }
+
+            }
+
+            .lastQuestion {
+                font-size: 4vw;
+            }
+
+            .rgpd {
+                font-size: 3.1vw;
+            }
+        }
+    }
+
+}
 

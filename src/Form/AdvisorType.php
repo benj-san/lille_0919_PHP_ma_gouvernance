@@ -111,7 +111,7 @@ class AdvisorType extends AbstractType
                     ->WHERE('t.category = 4');
             },
             'choice_label' => 'name',
-            'multiple' => true,
+            'multiple' => false,
             'expanded' => false,
             'by_reference' => false,
             'required'   => false,

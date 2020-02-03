@@ -11,7 +11,7 @@ html {
 
 /* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
 header {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 header nav {
   height: 80px;
@@ -77,12 +77,25 @@ header nav .logout {
   background-color: black;
   opacity: 60%;
   top: 0;
+  z-index: 3;
 }
 
 /************page Demand********************/
 #Boards {
+  animation: ContentFadeIn 0.4s forwards;
+  opacity: 0;
   display: flex;
   flex-wrap: wrap;
+}
+@keyframes ContentFadeIn {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 #Boards .filterBoards {
   display: flex;
@@ -256,6 +269,7 @@ header nav .logout {
   bottom: 10%;
   position: absolute;
   text-align: center;
+  z-index: 4;
 }
 #demandeFormulaire .submitDemand {
   display: inline-block;
@@ -364,6 +378,7 @@ header nav .logout {
   text-align: center;
   font-weight: bold;
   padding: 15px;
+  z-index: 4;
 }
 .modalDescription .modalDescriptionContainer {
   overflow: auto;
@@ -525,7 +540,6 @@ header nav .logout {
   background-color: white;
   width: 90%;
   z-index: 2;
-  font-size: 32px;
   text-align: center;
   padding: 15px;
   margin: 5% auto 0 auto;
@@ -539,39 +553,169 @@ header nav .logout {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 800px) {
+  #editContainer form {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 #editContainer form #personalInfo {
   width: 45%;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo {
+    width: 100%;
+  }
 }
 #editContainer form #personalInfo label {
   font-size: 18px;
   font-weight: 500;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #personalInfo label {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo label {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #personalInfo label {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #personalInfo label {
+    font-size: 3.5vw;
+  }
 }
 #editContainer form #personalInfo input, #editContainer form #personalInfo textarea {
   width: 50%;
   margin: auto;
   display: block;
 }
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo input, #editContainer form #personalInfo textarea {
+    width: 85%;
+  }
+}
 #editContainer form #tags {
   width: 50%;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags {
+    width: 85%;
+  }
 }
 #editContainer form #tags label {
   font-size: 18px;
   font-weight: 500;
 }
-#editContainer form #tags input, #editContainer form #tags textarea {
-  width: 50%;
-  margin: auto;
-  display: block;
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags label {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags label {
+    width: 95%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags label {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags label {
+    font-size: 3.5vw;
+  }
 }
 #editContainer form #tags .form-group {
-  width: 70%;
+  width: 50%;
   margin: auto;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group {
+    width: 85%;
+  }
+}
+#editContainer form #tags .form-group .dropdown-menu {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 1.9vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 2.4vw;
+  }
 }
 #editContainer form #tags .form-group .form-control {
   width: 100%;
 }
+#editContainer form #tags .form-group .form-control .btn {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 3.5vw;
+  }
+}
+#editContainer form #tags .form-group .form-control .btn .filter-option {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 3.5vw;
+  }
+}
 #editContainer form #submit {
-  width: 20%;
   padding: 10px;
   font-size: 2rem;
   border: 3px solid #21215e;
@@ -580,6 +724,32 @@ header nav .logout {
   font-weight: bold;
   position: center;
   margin: 2% auto 5% auto;
+  display: inline-block;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 2vh;
+}
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 2.7vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 3.9vw;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

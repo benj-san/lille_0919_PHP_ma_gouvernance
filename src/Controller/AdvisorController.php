@@ -152,7 +152,9 @@ class AdvisorController extends AbstractController
             }
 
             $em->flush();
-            return $this->redirect('http://www.magouvernance.com');
+            return $this->redirectToRoute('statut', [
+                'uuid' => $advisor->getUuid()
+            ]);
         }
         return $this->render('formAdvisor/formAdvisor.html.twig', [
             'form' => $form->createView()
