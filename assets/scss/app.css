@@ -11,7 +11,7 @@ html {
 
 /* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
 header {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 header nav {
   height: 80px;
@@ -49,6 +49,7 @@ header nav .linksContainer .links {
   color: rgba(0, 0, 0, 0.6);
   padding: 0;
   margin-left: 3em;
+  margin-right: 1em;
 }
 header nav .linksContainer .links:hover {
   font-weight: 600;
@@ -76,11 +77,25 @@ header nav .logout {
   background-color: black;
   opacity: 60%;
   top: 0;
+  z-index: 1;
 }
 
+/************page Demand********************/
 #Boards {
+  animation: ContentFadeIn 0.4s forwards;
+  opacity: 0;
   display: flex;
   flex-wrap: wrap;
+}
+@keyframes ContentFadeIn {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 #Boards .filterBoards {
   display: flex;
@@ -88,10 +103,7 @@ header nav .logout {
   width: 25%;
 }
 #Boards .filterBoards .filterTitle {
-  font-size: 28px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 20px;
+  display: none;
 }
 #Boards .filterBoards .filters {
   width: 90%;
@@ -112,53 +124,50 @@ header nav .logout {
   margin: 5px 0 5px 30px;
 }
 #Boards .container {
-  height: 65vh;
   justify-content: center;
-  width: 70%;
+  width: 75%;
   margin: 0 0 0 0;
 }
 #Boards .container .containerContent {
-  width: 98%;
-  margin: auto;
-  height: 100%;
+  height: 80%;
   overflow: auto;
+  margin: 1em auto;
+  padding-top: 1em;
+  background-color: rgba(225, 225, 225, 0.85);
 }
 #Boards .cardHorizontal {
   border: solid 2px #4e555b;
+  border-radius: 5px;
   display: flex;
   flex: 1 1 auto;
   margin: auto auto 2vh;
-  width: 85%;
+  width: 90%;
   cursor: pointer;
   background-color: white;
-  height: 120px;
+  height: 15vh;
 }
 #Boards .cardHorizontal .cardBody {
+  width: 80%;
+  padding: 1em;
   display: flex;
-  align-items: center;
-  margin-left: 2%;
 }
 #Boards .cardHorizontal .cardBody .cardTitle {
-  font-size: 44px;
-  width: 300px;
+  font-size: 2em;
+  width: 80%;
+  align-self: center;
 }
 #Boards .cardHorizontal .cardBody .deadline {
-  font-size: 32px;
-  align-self: flex-end;
-  margin-left: 300px;
+  font-size: 1.5em;
+  padding-right: 10px;
 }
 #Boards .cardHorizontal .statut {
   border-right: solid 2px #4e555b;
   align-content: center;
-  width: 12rem;
+  width: 20%;
 }
 
 .new-demande {
-  margin: 5vh auto 50px auto;
-  width: 10%;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #button-newdemand {
@@ -175,22 +184,9 @@ header nav .logout {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 200px auto 0 auto;
+  margin: auto;
 }
 #button-newdemand:hover {
-  text-decoration: none;
-  color: white;
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-  font-size: 64px;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#button-newdemand:hover:hover {
   text-decoration: none;
   color: white;
 }
@@ -200,28 +196,97 @@ header nav .logout {
   transition: 2s ease;
 }
 
+@media screen and (max-width: 650px) {
+  header nav .logoContainer {
+    display: none;
+  }
+  header nav .linksContainer #linkAdvisor {
+    display: none;
+  }
+  header nav .linksContainer .links {
+    font-size: 2em;
+    margin-left: 2em;
+  }
+  header nav .logout {
+    margin: 1rem;
+    font-size: 1.1em;
+  }
+
+  #Boards {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #Boards .filterBoards {
+    width: 98%;
+    padding-bottom: 2em;
+  }
+  #Boards .filterBoards .filterTitle {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #Boards .filterBoards .filters {
+    display: inline;
+  }
+  #Boards .filterBoards .order {
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin: auto;
+  }
+  #Boards .filterBoards .order .oneFilter {
+    padding-right: 2px;
+  }
+  #Boards .filterBoards #button-newdemand {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+  #Boards .container {
+    width: 95%;
+    height: 63vh;
+  }
+  #Boards .container .cardHorizontal {
+    width: 92%;
+    height: 14vh;
+  }
+  #Boards .container .cardHorizontal .cardBody {
+    display: flex;
+  }
+  #Boards .container .cardHorizontal .cardBody .cardTitle {
+    font-size: 1.7em;
+  }
+  #Boards .container .cardHorizontal .cardBody .deadline {
+    font-size: 1em;
+  }
+}
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
 /* ----------------------------------------------------------------- FORM DEMANDS  ---------------------------------------------------------*/
 #demandeFormulaire {
   width: 70%;
-  z-index: 1;
   height: 80%;
   left: 15%;
-  border-radius: 15px;
-  background-color: #EDF1F4;
+  border-radius: 9px;
+  background-color: #edf1f4;
+  -webkit-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+  box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
   bottom: 10%;
   position: absolute;
   text-align: center;
+  z-index: 4;
 }
 #demandeFormulaire .submitDemand {
-  background-color: #0030cc;
-  padding: 0.3em 1em;
-  border: 2px solid rgba(0, 0, 0, 0);
-  border-radius: 7px;
-  color: white;
-  text-decoration: none;
-  font-size: 1.7rem;
-  cursor: pointer;
+  display: inline-block;
+  padding: 1.2rem;
+  font-size: 2rem;
+  border: 3px solid #21215e;
+  color: #21215e;
+  background-color: white;
+  font-weight: bold;
+  position: center;
+  margin-top: 2.5rem;
 }
 #demandeFormulaire #demandeFormulaireContent {
   overflow-y: auto;
@@ -233,23 +298,46 @@ header nav .logout {
   font-size: 38px;
   margin: 1% auto 2% auto;
   font-weight: bold;
+  color: #FFAB40;
 }
 #demandeFormulaire #demandeFormulaireContent .demandeFormulaireTitles2 {
   font-weight: 600;
   font-size: 28px;
   margin-bottom: 35px;
+  color: #FFAB40;
+}
+#demandeFormulaire #demandeFormulaireContent form label, #demandeFormulaire #demandeFormulaireContent form legend {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 0.3em;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #21215e;
+  padding-right: 1em;
+}
+#demandeFormulaire #demandeFormulaireContent form div.dropdown-menu {
+  max-width: 80%;
+}
+#demandeFormulaire #demandeFormulaireContent form legend {
+  border: 0;
 }
 #demandeFormulaire #demandeFormulaireContent form input {
-  height: 30px;
-  font-size: 16px;
+  height: 2em;
 }
 #demandeFormulaire #demandeFormulaireContent form input, #demandeFormulaire #demandeFormulaireContent form textarea, #demandeFormulaire #demandeFormulaireContent form .bootstrap-select {
-  width: 65%;
-  margin: 2% auto;
+  width: 60%;
+  margin: auto auto 1em;
   font-size: 16px;
 }
-#demandeFormulaire #demandeFormulaireContent form .bootstrap-select {
+#demandeFormulaire #demandeFormulaireContent form #demand_deadline {
   width: 80%;
+  margin: auto;
+}
+#demandeFormulaire #demandeFormulaireContent form #demand_deadline #demand_deadline_month, #demandeFormulaire #demandeFormulaireContent form #demand_deadline #demand_deadline_day, #demandeFormulaire #demandeFormulaireContent form #demand_deadline #demand_deadline_year {
+  width: calc(100%/4);
+  margin: auto;
+}
+#demandeFormulaire #demandeFormulaireContent form .bootstrap-select {
   font-size: 16px;
   background-color: #dfe3e6;
 }
@@ -264,20 +352,38 @@ header nav .logout {
   font-size: 16px;
 }
 
+@media screen and (max-width: 790px) {
+  #demandeFormulaire {
+    height: 85%;
+  }
+  #demandeFormulaire #demandeFormulaireContent .demandeFormulaireTitles {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 28px;
+  }
+  #demandeFormulaire #demandeFormulaireContent form label, #demandeFormulaire #demandeFormulaireContent form legend, #demandeFormulaire #demandeFormulaireContent form .tags {
+    font-size: 16px;
+  }
+  #demandeFormulaire #demandeFormulaireContent form #demand_deadline {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 1rem;
+  }
+}
 /* ----------------------------------------------------------------- DESCRIPTION DEMANDS  ---------------------------------------------------------*/
 .modalDescription {
   width: 70%;
-  z-index: 1;
   height: 80%;
   left: 15%;
-  border-radius: 15px;
+  border-radius: 9px;
   background-color: #EDF1F4;
   bottom: 10%;
   position: absolute;
-  font-size: 38px;
+  font-size: 2em;
   text-align: center;
   font-weight: bold;
   padding: 15px;
+  z-index: 4;
 }
 .modalDescription .modalDescriptionContainer {
   overflow: auto;
@@ -285,35 +391,45 @@ header nav .logout {
   margin: auto;
   height: 100%;
 }
+.modalDescription .modalDescriptionContainer .demandeFormulaireTitles {
+  font-size: 3rem;
+  margin: auto auto 1em auto;
+  font-weight: bold;
+  color: #FFAB40;
+}
+.modalDescription .modalDescriptionContainer .demandeFormulaireTitles .modalDescription {
+  width: 85%;
+}
+.modalDescription .modalDescriptionContainer .demandeFormulaireTitles .modalDescription .redirectButton {
+  margin-right: 3px;
+}
 .modalDescription .modalDescriptionContainer .modalParts {
   display: flex;
-  margin: 6% 0 6% 5%;
+  margin: auto auto 1.7em;
+  align-items: flex-start;
 }
 .modalDescription .modalDescriptionContainer .modalParts .modalTitles {
-  font-size: 28px;
+  font-size: 2rem;
   margin: 0;
   display: flex;
-  align-items: center;
   font-weight: 600;
-  width: 35%;
+  color: #21215e;
 }
 .modalDescription .modalDescriptionContainer .modalParts p {
-  color: blue;
-  text-shadow: black 0.5px 0.5px 0.5px;
-  font-size: 25px;
-  margin: 0 0 0 20px;
+  font-size: 2rem;
+  margin: 0 0 0 1em;
 }
 .modalDescription .modalDescriptionContainer .tagsModalDescription {
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
+  width: 60%;
   text-align: center;
 }
 .modalDescription .modalDescriptionContainer .tagsModalDescription .tags {
-  border: 3px blue solid;
+  border: 2px #21215e solid;
   padding: 3px;
   margin: 15px 5%;
-  border-radius: 8px;
+  border-radius: 5px;
   background-color: white;
   font-size: 18px;
   font-weight: 500;
@@ -321,7 +437,6 @@ header nav .logout {
 .modalDescription .modalDescriptionContainer .statutsContainer .modalTitles {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
   width: 100%;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts {
@@ -334,7 +449,6 @@ header nav .logout {
   margin: 0 5px 0 0;
   position: relative;
   width: 200px;
-  height: 70px;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio] {
   opacity: 0.001;
@@ -342,69 +456,101 @@ header nav .logout {
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio] + label {
   display: block;
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts label {
   cursor: pointer;
   z-index: 90;
-  border-radius: 15px;
+  border-radius: 5px;
+}
+.modalDescription .modalDescriptionContainer .statutsContainer .statuts label:hover {
+  background-color: rgba(223, 223, 223, 0.59);
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts input[type=radio]:checked + label {
-  border: 1px solid red;
+  background-color: #d9d9d9;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioProposé {
-  background-color: #FFAB40;
+  border: 2.2px solid #FFAB40;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioAccepté {
-  background-color: #00A84D;
+  border: 2.2px solid #00A84D;
 }
 .modalDescription .modalDescriptionContainer .statutsContainer .statuts .radioModifié {
-  background-color: #FF4040;
+  border: 2.2px solid #FF4040;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton {
-  margin: 80px auto 20px auto;
+  margin: 2em auto 20px auto;
   display: flex;
+  padding-top: 1em;
   justify-content: space-evenly;
   width: 100%;
+  border-top: #21215e 1px solid;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton {
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: blue;
-  color: white;
+  padding: 1em;
+  border-radius: 5px;
+  border: 3px solid #21215e;
+  color: black;
+  font-size: 20px;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .redirectButton:hover {
   text-decoration: none;
-  color: black;
+  color: rgba(99, 99, 99, 0.91);
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .delete {
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: red;
-  color: white;
+  margin: auto 0;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 3px solid red;
+  color: black;
 }
 .modalDescription .modalDescriptionContainer .containerRedirectButton .delete:hover {
   text-decoration: none;
+  border: 3px solid red;
+  background-color: red;
   color: black;
 }
 
+@media screen and (max-width: 790px) {
+  .modalDescription {
+    width: 90%;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+  .modalDescription .statuts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modalDescription .statuts .input-radio {
+    margin-bottom: 3px;
+  }
+  .modalDescription .containerRedirectButton {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .modalDescription .containerRedirectButton .redirectButton {
+    margin: 5px;
+  }
+  .modalDescription .containerRedirectButton .delete {
+    margin-top: 5px;
+  }
+}
+/***********************/
 #editContainer {
   background-color: white;
   width: 90%;
   z-index: 2;
-  font-size: 32px;
   text-align: center;
   padding: 15px;
   margin: 5% auto 0 auto;
-  -webkit-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-  -moz-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-  box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+  -webkit-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
   display: flex;
 }
 #editContainer form {
@@ -412,39 +558,169 @@ header nav .logout {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 800px) {
+  #editContainer form {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 #editContainer form #personalInfo {
   width: 45%;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo {
+    width: 100%;
+  }
 }
 #editContainer form #personalInfo label {
   font-size: 18px;
   font-weight: 500;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #personalInfo label {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo label {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #personalInfo label {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #personalInfo label {
+    font-size: 3.5vw;
+  }
 }
 #editContainer form #personalInfo input, #editContainer form #personalInfo textarea {
   width: 50%;
   margin: auto;
   display: block;
 }
+@media screen and (max-width: 800px) {
+  #editContainer form #personalInfo input, #editContainer form #personalInfo textarea {
+    width: 85%;
+  }
+}
 #editContainer form #tags {
   width: 50%;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags {
+    width: 85%;
+  }
 }
 #editContainer form #tags label {
   font-size: 18px;
   font-weight: 500;
 }
-#editContainer form #tags input, #editContainer form #tags textarea {
-  width: 50%;
-  margin: auto;
-  display: block;
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags label {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags label {
+    width: 95%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags label {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags label {
+    font-size: 3.5vw;
+  }
 }
 #editContainer form #tags .form-group {
-  width: 70%;
+  width: 50%;
   margin: auto;
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group {
+    width: 85%;
+  }
+}
+#editContainer form #tags .form-group .dropdown-menu {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 1.9vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .dropdown-menu .dropdown-menu {
+    font-size: 2.4vw;
+  }
 }
 #editContainer form #tags .form-group .form-control {
   width: 100%;
 }
+#editContainer form #tags .form-group .form-control .btn {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .form-control .btn {
+    font-size: 3.5vw;
+  }
+}
+#editContainer form #tags .form-group .form-control .btn .filter-option {
+  font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  #editContainer form #tags .form-group .form-control .btn .filter-option {
+    font-size: 3.5vw;
+  }
+}
 #editContainer form #submit {
-  width: 20%;
   padding: 10px;
   font-size: 2rem;
   border: 3px solid #21215e;
@@ -453,6 +729,32 @@ header nav .logout {
   font-weight: bold;
   position: center;
   margin: 2% auto 5% auto;
+  display: inline-block;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 2vh;
+}
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 2.1vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 2.7vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 3.9vw;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -203,7 +203,7 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
             ])
-            ->add('dailyRate', NumberType::class, [
+            ->add('dailyRate', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Répondez ici...'
                 ],

@@ -32,7 +32,8 @@
 
         textarea{
             padding: 10px;
-            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
         }
 
         input{
@@ -63,11 +64,11 @@
 
     p {
         text-align: center;
-        font-size: 30px;
+        font-size: 3rem;
     }
 
     #ddAdvisor {
-        width: 70%;
+        width: 85%;
         margin: auto;
 
         a {
@@ -98,6 +99,11 @@
 }
 
 /************************** POP-IN TOUS LES ADVISORS **************************/
+.deleteAdvisorButton{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
 
 #allAdvisorsBoard {
     display: none;
@@ -106,24 +112,35 @@
     background-color: white;
     position: absolute;
     z-index: 10;
-    margin: 2rem 15%;
     overflow: auto;
+    margin: 0 15%;
+    flex-direction: column;
 
-    #allCardsContainer {
-        display: flex;
-        flex-flow: row wrap;
+    #cardsAllAdvisors{
         width: 100%;
-        padding: 5rem 2em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
 
         .cardAdvisorJS {
+            background-color: #FFFFFF;
             display: flex;
             flex-direction: column;
-            text-align: center;
-            outline: solid #21215e;
             position: relative;
+            width: 250px;
             margin: 10px;
-            width: calc(25% - 20px);
-            height: 70%;
+            color: black;
+            -webkit-transition: 200ms ease-in-out;
+            -o-transition: 200ms ease-in-out;
+            transition: 200ms ease-in-out;
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+            #researchBarAllAdvisors{
+                position: relative;
+            }
 
             .pp {
                 width: 100%;
@@ -170,7 +187,6 @@
                 }
             }
         }
-
     }
 }
 
@@ -225,13 +241,14 @@
 
 .iconDeleteAllAdvisors {
     width: 30px;
+    margin-left: auto;
 }
 
 #takeAdvisors{
-    width: 250px;
+    width: 100%;
     padding: 5px;
+    margin-bottom: 15px;
     font-size: 18px;
-    margin: 2% auto auto auto;
     border-radius: 8px;
     border: 1px solid black;
     color: white;
@@ -248,9 +265,9 @@
     width: 100%;
     height: 100vh;
     display: none;
-    z-index: 5;
+    z-index: 11;
     background-color: black;
-    margin-top: -5%;
+    margin-top: -2%;
 }
 
 #behindAllAdvisors {
@@ -261,7 +278,7 @@
     display: none;
     z-index: 4;
     background-color: black;
-    margin-top: -5%;
+    margin-top: -2%;
 }
 
 #behind.display, #allAdvisorsBoard.display, #behindAllAdvisors.display {
@@ -274,7 +291,14 @@
     display: flex;
     position: fixed;
     width: 100vw;
-    margin-top: -4%;
+    margin-top: -2%;
+    animation: ContentFadeIn 0.4s forwards;
+    opacity: 0;
+
+    @keyframes ContentFadeIn {
+        0% { transform: translateY(-1rem); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
 
     /************************** BOARD **************************/
 
@@ -331,17 +355,22 @@
             padding: 10px;
             box-shadow: 0 0 15px gray;
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: wrap;
+            justify-content: center;
 
             .cardAdvisorJS {
+                background-color: white;
                 display: flex;
                 flex-direction: column;
-                text-align: center;
-                outline: solid #21215e;
                 position: relative;
+                width:250px;;
                 margin: 10px;
-                width: calc(25% - 20px);
-                height: 70%;
+                color: black;
+                -webkit-transition: 200ms ease-in-out;
+                -o-transition: 200ms ease-in-out;
+                transition: 200ms ease-in-out;
+                -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
                 .pp {
                     width: 100%;
@@ -351,16 +380,12 @@
                 }
 
                 #cardAdvisorInfos {
-                    padding: 10px;
+                    padding: 5px;
 
-                    .nameAdvisor {
+                    .nameAdvisor, .placeAdvisor {
                         font-weight: bold;
-                        font-size: 17px;
+                        font-size: 1.3rem;
                         height: 10%;
-                    }
-
-                    .placeAdvisor {
-                        display: none;
                     }
 
                     .idAdvisor {
@@ -426,7 +451,8 @@
             display: flex;
             justify-content: space-around;
 
-            a {
+            #copy, a {
+                background-color: white;
                 width: 20%;
 
                 button{
@@ -437,11 +463,12 @@
                     color: $primary-color;
                     font-weight: bold;
                     cursor: pointer;
+                    background-color: white;
                 }
             }
 
-            a:hover{
-                text-decoration: none;
+            #copy:hover, button:hover{
+                text-decoration: underline 2px $primary-color;
             }
 
             #copy{
@@ -486,7 +513,11 @@
             margin: 10px auto;
             display: flex;
             position: relative;
-            outline: solid #21215e;
+            -webkit-transition: 200ms ease-in-out;
+            -o-transition: 200ms ease-in-out;
+            transition: 200ms ease-in-out;
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
             .pp {
                 height: 100%;
@@ -552,6 +583,13 @@
 /******************* MAX 1300PX *******************/
 
 @media screen and (max-width: 1300px){
+    .deleteAdvisor{
+
+        p{
+            font-size: 2.3rem;
+        }
+    }
+
     #boardAndBoardAdvisors{
 
         #boardAdvisors{
@@ -585,7 +623,7 @@
 
             #viewBoard{
 
-                a{
+                #copy, a{
                     width: 30%;
 
                     button{
@@ -609,8 +647,27 @@
 }
 
 /******************* MAX 1000PX *******************/
-
 @media screen and (max-width: 1000px) {
+    header nav {
+
+        img{
+            display: none;
+        }
+
+        #demandsNav{
+            margin: 0;
+        }
+
+        #logoutNav{
+            display: none;
+        }
+    }
+
+    .deleteAdvisor{
+        margin: calc(50vh - 1%) 0 0 25%;
+        width: 50%;
+    }
+
     #boardAndBoardAdvisors {
 
         #boardAdvisors {
@@ -623,7 +680,7 @@
             #viewBoard{
                 position: absolute;
 
-                a{
+                #copy, a{
                     width: 30%;
 
                     button{
@@ -664,6 +721,19 @@
 /******************* MAX 800PX *******************/
 
 @media screen and (max-width: 800px) {
+    .deleteAdvisor{
+
+        #ddAdvisor{
+
+            a {
+
+                button{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
     #boardAndBoardAdvisors {
 
         #board{
@@ -675,6 +745,23 @@
                     height: auto;
                 }
             }
+
+            #viewBoardAndIcon{
+
+                #viewBoard{
+                    flex-direction: column;
+
+                    #copy, a{
+                        margin: 0 auto;
+                    }
+
+                    #copy{
+                        padding: 10px;
+                        margin-bottom: 10px;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
         }
     }
 }
@@ -682,6 +769,12 @@
 /******************* MAX 550PX *******************/
 
 @media screen and (max-width: 550px) {
+    header nav {
+        .linksContainer{
+            font-size: 10px;
+        }
+    }
+
     #boardAndBoardAdvisors {
 
         #board{
@@ -695,7 +788,7 @@
 
             #viewBoard{
 
-                a{
+                #copy, a{
                     width: 40%;
                 }
             }
@@ -722,7 +815,7 @@
         #board{
 
             #viewBoard{
-                a{
+                #copy, a{
                     width: 50%;
                 }
             }

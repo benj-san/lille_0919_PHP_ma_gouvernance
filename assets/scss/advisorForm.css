@@ -4,11 +4,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body {
-  height: 100vh;
-  overflow: hidden;
-}
-
 header nav {
   height: 100px;
   border-bottom: #FFAB40 solid 1px;
@@ -47,11 +42,11 @@ header nav .linksContainer .links {
   background-color: white;
   width: 90%;
   z-index: 2;
-  height: 70vh;
-  font-size: 32px;
+  height: 60vh;
+  font-size: 1.5vw;
   text-align: center;
   padding: 15px;
-  margin: 5% auto 0 auto;
+  margin: 5% auto 5% auto;
   -webkit-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
   -moz-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
   box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
@@ -59,6 +54,7 @@ header nav .linksContainer .links {
   align-items: center;
   flex-wrap: wrap;
   position: relative;
+  overflow: auto;
 }
 .containerCandidature .selectpicker {
   width: 60%;
@@ -71,6 +67,10 @@ header nav .linksContainer .links {
   transition: all 0.2s ease-in;
   width: 88%;
   margin: 0 auto;
+  text-align: center;
+}
+.containerCandidature .question .labels {
+  margin: 0 auto 20px auto;
 }
 .containerCandidature .question .form-control {
   width: 60%;
@@ -80,7 +80,7 @@ header nav .linksContainer .links {
   -webkit-box-shadow: none;
   border-bottom: 1px rgba(0, 0, 0, 0.4) solid;
   border-radius: 0;
-  font-size: 31px;
+  font-size: 1.5vw;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -89,7 +89,6 @@ header nav .linksContainer .links {
 }
 .containerCandidature .question textarea {
   height: 90px;
-  resize: none;
 }
 .containerCandidature .question textarea ::-webkit-scrollbar {
   display: none;
@@ -99,7 +98,7 @@ header nav .linksContainer .links {
   left: 4%;
   bottom: 8%;
   color: rgba(0, 0, 0, 0.6);
-  font-size: 20px;
+  font-size: 1.5vw;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -110,7 +109,7 @@ header nav .linksContainer .links {
   opacity: 0.7;
 }
 .containerCandidature .question .rgpd {
-  font-size: 22px;
+  font-size: 1.2vw;
 }
 .containerCandidature .question .choices {
   z-index: 2;
@@ -130,7 +129,7 @@ header nav .linksContainer .links {
   border-color: transparent;
   border-radius: 4px;
   margin: 3% auto;
-  width: 20%;
+  width: auto;
   display: inline-block;
 }
 
@@ -153,6 +152,124 @@ label {
 
 .hideIt2 {
   display: none;
+}
+
+.error {
+  color: red;
+  font-size: 1.2vw;
+}
+
+@media only screen and (max-device-width: 1000px) {
+  header nav .linksContainer {
+    display: none;
+  }
+}
+@media only screen and (max-device-width: 1200px) {
+  .containerCandidature {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .error {
+    font-size: 2vw;
+  }
+  .containerCandidature .question .form-control {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .lastQuestion {
+    font-size: 3vw;
+  }
+  .containerCandidature .question .rgpd {
+    font-size: 1.5vw;
+  }
+  .containerCandidature .question .btn {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .btn .dropdown-menu {
+    font-size: 2.5vw;
+  }
+}
+@media only screen and (max-device-width: 700px) {
+  .containerCandidature {
+    font-size: 3vw;
+  }
+  .containerCandidature .question .error {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .btn {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .dropdown-menu {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .form-control {
+    font-size: 3vw;
+    width: 90%;
+  }
+  .containerCandidature .question .form-control textarea {
+    width: 90%;
+  }
+  .containerCandidature .question .lastQuestion {
+    font-size: 3vw;
+  }
+  .containerCandidature .question .rgpd {
+    font-size: 2.4vw;
+  }
+  .containerCandidature .question .choices {
+    padding: 4px 8px;
+    min-height: 36px;
+  }
+}
+@media only screen and (max-device-width: 540px) {
+  .containerCandidature {
+    font-size: 4vw;
+  }
+  .containerCandidature .question {
+    word-spacing: 0.4vw;
+  }
+  .containerCandidature .question .btn {
+    font-size: 3vw;
+  }
+  .containerCandidature .question .dropdown-menu {
+    font-size: 2.2vw;
+  }
+  .containerCandidature .question .error {
+    font-size: 3vw;
+  }
+  .containerCandidature .question .form-control {
+    font-size: 4vw;
+  }
+  .containerCandidature .question .lastQuestion {
+    font-size: 4.5vw;
+  }
+  .containerCandidature .question .rgpd {
+    font-size: 2.9vw;
+  }
+}
+@media only screen and (max-device-width: 430px) {
+  .containerCandidature {
+    font-size: 5vw;
+  }
+  .containerCandidature .question .btn {
+    font-size: 4vw;
+  }
+  .containerCandidature .question .dropdown-menu {
+    font-size: 2.5vw;
+  }
+  .containerCandidature .question .error {
+    font-size: 4vw;
+  }
+  .containerCandidature .question .form-control {
+    font-size: 5vw;
+    width: 90%;
+  }
+  .containerCandidature .question .form-control textarea {
+    width: 90%;
+  }
+  .containerCandidature .question .lastQuestion {
+    font-size: 4vw;
+  }
+  .containerCandidature .question .rgpd {
+    font-size: 3.1vw;
+  }
 }
 
 /*# sourceMappingURL=advisorForm.css.map */

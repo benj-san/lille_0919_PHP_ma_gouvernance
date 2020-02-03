@@ -18,16 +18,14 @@
 
         {% block header %}
             <nav>
-                <a class="logoContainer" href="/admin/demands"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
+                <a class="logoContainer" href="/admin/demands" id="logoContainerNav"><img src="http://magouvernance.fr/wp-content/uploads/2019/05/LOGO-TRANSPARENT.png"  alt="logo"/></a>
                 <div class="linksContainer">
-                    <a href="{{ path('demands') }}" class="links">Demandes</a>
-                    <a href="{{ path('advisors') }}" class="links">Advisors</a>
+                    <a href="{{ path('demands') }}" class="links" id="demandsNav">Demandes</a>
+                    <a href="{{ path('advisors') }}" class="links" id="advisorsNav">Advisors</a>
                 </div>
                     {% if not app.user %}
                     {% else %}
-                        <a class="logout" href="{{ path('app_logout') }}">
-                            Sign out
-                        </a>
+                        <a class="logout" href="{{ path('app_logout') }}" id="logoutNav">Déconnexion</a>
                     {% endif %}
             </nav>
         {% endblock %}

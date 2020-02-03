@@ -52,7 +52,6 @@ class AdvisorController extends AbstractController
 
         $form = $this->createForm(AdvisorType::class, $advisor);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             if ($advisor->getGouvernanceExperience() === true) {
                 if ($form['tagsStatut']->getData()) {
@@ -152,7 +151,9 @@ class AdvisorController extends AbstractController
             }
 
             $em->flush();
-            return $this->redirect('http://www.magouvernance.com');
+            return $this->redirectToRoute('statut', [
+                'uuid' => $advisor->getUuid()
+            ]);
         }
         return $this->render('formAdvisor/formAdvisor.html.twig', [
             'form' => $form->createView()

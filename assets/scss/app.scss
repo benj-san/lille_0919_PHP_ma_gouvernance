@@ -15,7 +15,7 @@ html {
 /* ----------------------------------------------------------------- NAVBAR ---------------------------------------------------------*/
 
 header {
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 
     nav {
         height:80px;
@@ -56,6 +56,7 @@ header {
                 color:rgba(0,0,0,0.6);
                 padding: 0;
                 margin-left: 3em;
+                margin-right: 1em;
 
 
                 &:hover{
@@ -90,9 +91,20 @@ header {
     background-color: black;
     opacity: 60%;
     top:0;
+    z-index: 1;
 }
 
+/************page Demand********************/
 #Boards {
+
+    animation: ContentFadeIn 0.4s forwards;
+    opacity: 0;
+
+    @keyframes ContentFadeIn {
+        0% { transform: translateY(-1rem); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
     display: flex;
     flex-wrap: wrap;
 
@@ -102,10 +114,7 @@ header {
         width: 25%;
 
         .filterTitle {
-            font-size: 28px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 20px;
+            display: none
         }
 
         .filters {
@@ -133,64 +142,60 @@ header {
 
 
     .container {
-        height: 65vh;
         justify-content: center;
-        width: 70%;
+        width: 75%;
         margin: 0 0 0 0;
 
 
         .containerContent {
-            width: 98%;
-            margin: auto;
-            height: 100%;
+            height: 80%;
             overflow: auto;
+            margin: 1em auto;
+            padding-top: 1em;
+            background-color: rgba(225, 225, 225, 0.85);
+
         }
     }
 
-
     .cardHorizontal {
         border: solid 2px #4e555b;
+        border-radius: 5px;
         display: flex;
         flex: 1 1 auto;
         margin: auto auto 2vh;
-        width: 85%;
+        width: 90%;
         cursor: pointer;
         background-color: white;
-        height: 120px;
+        height:15vh;
 
         .cardBody {
+            width: 80%;
+            padding: 1em;
             display: flex;
-            align-items: center;
-            margin-left: 2%;
 
             .cardTitle {
-                font-size: 44px;
-                width: 300px;
+                font-size: 2em;
+                width: 80%;
+                align-self: center;
             }
-
 
             .deadline {
-                font-size: 32px;
-                align-self: flex-end;
-                margin-left: 300px;
+                font-size: 1.5em;
+                padding-right: 10px;
             }
         }
-
 
         .statut {
             border-right: solid 2px #4e555b;
             align-content: center;
-            width: 12rem;
+            width: 20%;
         }
     }
 }
 
 .new-demande {
-    margin: 5vh auto 50px auto;
-    width: 10%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
 #button-newdemand {
@@ -207,39 +212,111 @@ header {
     display:flex;
     justify-content: center;
     align-items: center;
-    margin:200px auto 0 auto;
-
+    margin:auto;
 
     &:hover {
         text-decoration: none;
         color: white;
-        border-radius:50%;
-        height:80px;
-        width:80px;
-        font-size:64px;
-        font-weight:bold;
-        text-align: center;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-
-
-
-        &:hover {
-            text-decoration: none;
-            color: white;
-        }
     }
+
 }
 
-
 .hidden {
-
     display:none !important;
     transition:2s ease;
 
 }
 
+
+@media screen and (max-width: 650px) {
+    header {
+        nav {
+            .logoContainer{
+                display:none;
+            }
+
+            .linksContainer {
+                #linkAdvisor {
+
+                    display: none;
+                }
+
+                .links {
+                    font-size: 2em;
+                    margin-left:2em;
+                }
+            }
+
+            .logout{
+                margin:1rem;
+                font-size: 1.1em;
+            }
+        }
+    }
+
+    #Boards {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .filterBoards{
+            width: 98%;
+            padding-bottom:2em;
+
+            .filterTitle{
+                display: block;
+                font-size: 28px;
+                font-weight: 500;
+                text-align: center;
+                margin-bottom: 20px;
+
+            }
+
+            .filters{
+                display: inline;
+            }
+
+            .order{
+                flex-direction: row;
+                font-size: 1.5rem;
+                margin: auto;
+
+                .oneFilter{
+                    padding-right:2px;
+                }
+            }
+
+            #button-newdemand{
+                border-radius:50%;
+                height:80px;
+                width:80px;
+
+            }
+        }
+
+        .container {
+            width:95%;
+            height: 63vh;
+
+            .cardHorizontal {
+                width: 92%;
+                height: 14vh;
+
+                .cardBody{
+                    display: flex;
+
+                    .cardTitle{
+                        font-size:1.7em;
+                    }
+
+                    .deadline{
+                        font-size:1em;
+                    }
+                }
+            }
+        }
+    }
+
+}
 
 
 /* ----------------------------------------------------------------- CARDS ADVISORS  ---------------------------------------------------------*/
@@ -248,26 +325,33 @@ header {
 
 #demandeFormulaire {
     width: 70%;
-    z-index: 1;
     height: 80%;
     left: 15%;
-    border-radius: 15px;
-    background-color: #EDF1F4;
+    border-radius: 9px;
+    background-color: rgb(237, 241, 244);
+    -webkit-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 5px 0 23px 1px rgba(0, 0, 0, 0.38);
     bottom: 10%;
     position: absolute;
     text-align: center;
+    z-index:4;
+
+
 
     .submitDemand {
-        background-color: #0030cc;
-        padding: .3em 1em;
-        border: 2px solid rgba(0, 0, 0, 0);
-        border-radius: 7px;
-        color: white;
-        text-decoration: none ;
-        font-size: 1.7rem ;
-        cursor:pointer;
-    }
+        display:inline-block;
+        padding: 1.2rem;
+        font-size: 2rem;
+        border: 3px solid $primary-color;
+        color: $primary-color;
+        background-color: rgb(255, 255, 255);
+        font-weight: bold;
+        position: center;
+        margin-top:2.5rem;
 
+
+    }
 
 
     #demandeFormulaireContent {
@@ -280,33 +364,62 @@ header {
             font-size: 38px;
             margin: 1% auto 2% auto;
             font-weight: bold;
+            color : #FFAB40;
         }
 
         .demandeFormulaireTitles2 {
             font-weight: 600;
             font-size: 28px;
             margin-bottom: 35px;
+            color : #FFAB40;
         }
 
 
         form {
+            label, legend{
+                display: block;
+                max-width: 100%;
+                margin-bottom: 0.3em;
+                font-size: 2.2rem;
+                font-weight: 700;
+                color:$primary-color;
+                padding-right: 1em;
+            }
+
+            div.dropdown-menu{
+                max-width: 80%;
+            }
+
+            legend{
+                border:0;
+            }
+
             input {
-                height: 30px;
-                font-size: 16px;
+                height: 2em;
+
             }
 
             input, textarea, .bootstrap-select {
-                width: 65%;
-                margin: 2% auto;
+                width: 60%;
+                margin: auto auto 1em;
                 font-size: 16px;
+            }
+
+            #demand_deadline{
+                width: 80%;
+                margin: auto;
+
+                #demand_deadline_month, #demand_deadline_day, #demand_deadline_year{
+                    width: calc(100%/4);
+                    margin: auto;
+                }
             }
 
             .bootstrap-select {
-                width: 80%;
+
                 font-size: 16px;
                 background-color: #dfe3e6;
             }
-
 
             .dropdown-toggle {
                 font-size: 16px;
@@ -319,6 +432,40 @@ header {
 
             .form-control {
                 font-size: 16px;
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+
+    #demandeFormulaire {
+        height: 85%;
+
+        #demandeFormulaireContent {
+
+            .demandeFormulaireTitles {
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                font-size: 28px;
+            }
+
+            form {
+                label, legend, .tags{
+                    font-size: 16px;
+                }
+
+
+                #demand_deadline {
+                    width: 80%;
+                    margin: auto;
+                    padding-bottom: 1rem;
+
+                    #demand_deadline_month, #demand_deadline_day, #demand_deadline_year {
+
+                    }
+                }
             }
         }
     }
@@ -328,17 +475,18 @@ header {
 
 .modalDescription {
     width: 70%;
-    z-index: 1;
     height: 80%;
     left: 15%;
-    border-radius: 15px;
+    border-radius: 9px;
     background-color: #EDF1F4;
     bottom: 10%;
     position: absolute;
-    font-size: 38px;
+    font-size: 2em;
     text-align: center;
     font-weight: bold;
     padding: 15px;
+    z-index:4;
+
 
     .modalDescriptionContainer {
         overflow: auto;
@@ -346,38 +494,51 @@ header {
         margin: auto;
         height: 100%;
 
+        .demandeFormulaireTitles {
+            font-size: 3rem;
+            margin: auto auto 1em auto;
+            font-weight: bold;
+            color:#FFAB40;
+
+            .modalDescription {
+                width: 85%;
+
+                .redirectButton {
+                    margin-right: 3px;
+                }
+            }
+        }
+
         .modalParts {
             display: flex;
-            margin: 6% 0 6% 5%;
+            margin: auto auto 1.7em;
+            align-items: flex-start;
 
             .modalTitles {
-                font-size: 28px;
+                font-size: 2rem;
                 margin: 0;
                 display: flex;
-                align-items: center;
                 font-weight: 600;
-                width: 35%;
+                color: $primary-color;
             }
 
             p {
-                color: blue;
-                text-shadow: black 0.5px 0.5px 0.5px;
-                font-size: 25px;
-                margin: 0 0 0 20px;
+                font-size: 2rem;
+                margin: 0 0 0 1em;
             }
         }
 
         .tagsModalDescription {
             display: flex;
             flex-wrap: wrap;
-            width: 70%;
+            width: 60%;
             text-align: center;
 
             .tags {
-                border: 3px blue solid;
+                border: 2px $primary-color solid;
                 padding: 3px;
                 margin: 15px 5%;
-                border-radius: 8px;
+                border-radius: 5px;
                 background-color: white;
                 font-size: 18px;
                 font-weight: 500;
@@ -389,7 +550,6 @@ header {
             .modalTitles {
                 display: flex;
                 justify-content: center;
-                margin-bottom: 50px;
                 width: 100%;
             }
 
@@ -403,7 +563,6 @@ header {
                     margin: 0 5px 0 0;
                     position: relative;
                     width: 200px;
-                    height: 70px;
                 }
 
                 input[type=radio] {
@@ -413,107 +572,172 @@ header {
 
                 input[type=radio] + label {
                     display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
+                    padding: 20px;
                 }
 
                 label {
                     cursor: pointer;
                     z-index: 90;
-                    border-radius: 15px;
+                    border-radius: 5px;
+
+                    &:hover {
+                        background-color: rgba(223, 223, 223, 0.59);
+                    }
+
                 }
 
                 input[type=radio]:checked + label {
-                    border: 1px solid red;
+                    background-color: #d9d9d9;
+
                 }
 
                 .radioProposé {
-                    background-color: #FFAB40;
+                    border: 2.2px solid #FFAB40;
 
                 }
 
                 .radioAccepté {
-                    background-color: #00A84D;
+                    border: 2.2px solid #00A84D;
                 }
 
                 .radioModifié {
-                    background-color: #FF4040;
+                    border: 2.2px solid #FF4040;
                 }
             }
         }
 
         .containerRedirectButton {
-            margin: 80px auto 20px auto;
+            margin: 2em auto 20px auto;
             display: flex;
+            padding-top: 1em;
             justify-content: space-evenly;
             width: 100%;
+            border-top: $primary-color 1px solid;
 
             .redirectButton {
-                font-size: 18px;
-                padding: 10px;
-                border-radius: 10px;
-                background-color: blue;
-                color: white;
+                padding: 1em;
+                border-radius: 5px;
+                border: 3px solid $primary-color;
+                color: black;
+                font-size: 20px;
 
                 &:hover {
                     text-decoration: none;
-                    color: black;
+                    color: rgba(99, 99, 99, 0.91);
                 }
             }
 
             .delete {
-                font-size: 18px;
-                padding: 10px;
-                border-radius: 10px;
-                background-color: red;
-                color: white;
+                margin: auto 0;
+                font-size: 20px;
+                padding: 20px;
+                border-radius: 5px;
+                border: 3px solid red;
+                color: black;
 
                 &:hover {
                     text-decoration: none;
+                    border: 3px solid red;
+                    background-color: red;
                     color: black;
                 }
             }
         }
+    }
+}
 
+@media screen and (max-width: 790px) {
+    .modalDescription{
+        width: 90%;
+        right:0;
+        left: 0;
+        margin: auto;
+
+        .statuts {
+            display: flex;
+            flex-wrap: wrap;
+
+            .input-radio{
+                margin-bottom: 3px;
+            }
+
+        }
+
+        .containerRedirectButton {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom:3px;
+
+            .redirectButton{
+                margin: 5px ;
+            }
+
+            .delete{
+                margin-top: 5px;
+            }
+        }
 
     }
 }
 
-
+/***********************/
 #editContainer {
     background-color: white;
-    width:90%;
+    width: 90%;
     z-index: 2;
-    font-size: 32px;
     text-align: center;
     padding: 15px;
     margin: 5% auto 0 auto;
-    -webkit-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-    -moz-box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
-    box-shadow: 1px 0px 23px 1px rgba(0, 0, 0, 0.38);
+    -webkit-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 1px 0 23px 1px rgba(0, 0, 0, 0.38);
     display: flex;
 
-
     form {
-
-        width:100%;
-        display:flex;
+        width: 100%;
+        display: flex;
         flex-wrap: wrap;
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            align-items: center;
+        }
 
         #personalInfo {
+            width: 45%;
 
-            width:45%;
+
+            @media screen and (max-width: 800px) {
+                width:100%;
+            }
 
             label {
                 font-size:18px;
                 font-weight:500;
+
+                @media screen and (max-width: 1200px) {
+                    font-size: 1.8vw;
+                }
+
+                @media screen and (max-width: 800px) {
+                    font-size: 2.1vw;
+                }
+
+                @media screen and (max-width: 600px) {
+                    font-size: 2.4vw;
+                }
+
+                @media screen and (max-width: 400px) {
+                    font-size: 3.5vw;
+                }
+
+
             }
 
             input,textarea {
                 width:50%;
+                @media screen and (max-width: 800px) {
+                    width: 85%;
+                }
                 margin:auto;
                 display:block;
             }
@@ -521,31 +745,114 @@ header {
 
         #tags {
             width:50%;
+            @media screen and (max-width: 800px) {
+                width: 85%;
+            }
 
             label {
                 font-size:18px;
                 font-weight:500;
-            }
 
-            input,textarea {
-                width:50%;
-                margin:auto;
-                display:block;
-            }
-
-            .form-group {
-                width:70%;
-                margin:auto;
-
-                .form-control {
-                    width:100%;
+                @media screen and (max-width: 1200px) {
+                    font-size: 1.8vw;
                 }
 
+                @media screen and (max-width: 800px) {
+                    width:95%;
+                    text-align: center;
+
+                }
+
+                @media screen and (max-width: 600px) {
+                    font-size: 2.4vw;
+                }
+
+                @media screen and (max-width: 400px) {
+                    font-size: 3.5vw;
+                }
+            }
+
+
+
+            .form-group {
+                width:50%;
+                @media screen and (max-width: 800px) {
+                    width: 85%;
+                }
+                margin:auto;
+
+
+
+                .dropdown-menu {
+                    font-size:18px;
+
+                    .dropdown-menu {
+                        @media screen and (max-width: 1200px) {
+                            font-size: 1.8vw;
+                        }
+
+                        @media screen and (max-width: 800px) {
+                            font-size: 1.9vw;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 2.1vw;
+                        }
+
+                        @media screen and (max-width: 400px) {
+                            font-size: 2.4vw;
+                        }
+                    }
+                }
+
+                .form-control {
+
+                    width:100%;
+
+                    .btn {
+                        font-size:18px;
+
+                        @media screen and (max-width: 1200px) {
+                            font-size: 1.8vw;
+                        }
+
+                        @media screen and (max-width: 800px) {
+                            font-size: 2.1vw;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 2.4vw;
+                        }
+
+                        @media screen and (max-width: 400px) {
+                            font-size: 3.5vw;
+                        }
+
+                        .filter-option {
+                            font-size:18px;
+                            @media screen and (max-width: 1200px) {
+                                font-size: 1.8vw;
+                            }
+
+                            @media screen and (max-width: 800px) {
+                                font-size: 2.1vw;
+                            }
+
+                            @media screen and (max-width: 600px) {
+                                font-size: 2.4vw;
+                            }
+
+                            @media screen and (max-width: 400px) {
+                                font-size: 3.5vw;
+                            }
+                        }
+
+                    }
+                }
             }
         }
 
         #submit {
-            width:20%;
             padding: 10px;
             font-size: 2rem;
             border: 3px solid $primary-color;
@@ -554,8 +861,27 @@ header {
             font-weight: bold;
             position: center;
             margin:2% auto 5% auto;
+            display:inline-block;
         }
     }
+}
 
+.title {
+    font-size:22px;
+    margin-bottom:2vh;
+    @media screen and (max-width: 1200px) {
+        font-size: 2.1vw;
+    }
 
+    @media screen and (max-width: 800px) {
+        font-size: 2.5vw;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 2.7vw;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 3.9vw;
+    }
 }

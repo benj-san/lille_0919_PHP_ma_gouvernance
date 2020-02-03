@@ -23,11 +23,9 @@
 
 {% block main %}
 
-    <section id="filterContainer" class="hidden">
-    </section>
-    <div class="displayAllAdvisor">
-
-
+<section id="filterContainer" class="hidden">
+</section>
+<div class="displayAllAdvisor">
     <div id="behind">
     </div>
     <div id="displayCvAdvisor">
@@ -40,16 +38,18 @@
                 <div class="cardAdvisors">
                     <div class="cardImg">
                         {% if advisor.picture is null %}
-                            <img class="advisorPic" src="https://www.laravoire.immo/wp-content/uploads/2017/06/Business-Woman-papers.jpg" alt=""/>
+                            <img class="advisorPic" src="{{ asset('build/pp.png') }}" alt=""/>
                         {% else %}
                             <img class="advisorPic" src="{{ advisor.picture }}" alt=""/>
                         {% endif %}
                         <div class="icon">
                             {% if advisor.linkedin is null %}
-                            <a href=""><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
                             {% else %}
-                            <a href="{{ advisor.linkedin }}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
-                           {% endif %}
+                                {% set linkedinCheck = advisor.linkedin|slice(0,24) %}
+                                {% if linkedinCheck == "https://www.linkedin.com" or linkedinCheck == "http://www.linkedin.com/" %}
+                                    <a href="{{ advisor.linkedin}}" target="_blank"><img  class="iconLinkedin" src="https://welmo.fr/blog/wp-content/uploads/2019/01/linkedin-icon.png" alt=""/></a>
+                                {% endif %}
+                            {% endif %}
                             <img class="iconCv" src="{{ asset('build/cv.png') }}" alt=""/>
                         </div>
                     </div>
@@ -57,13 +57,13 @@
                         <p class="cardTitle">{{ advisor.firstname|title }} {{ advisor.name|upper}}</p>
                         <p>{{ advisor.place|title }}</p>
                         {% if advisor.status ==0 %}
-                            <p>en cours d'inscription</p>
+                            <p>En cours d'inscription</p>
                         {% elseif advisor.status ==1 %}
-                            <p>en cours de validation</p>
+                            <p>En cours de validation</p>
                         {% elseif advisor.status ==2 %}
-                            <p>validé</p>
+                            <p>Validé</p>
                         {% elseif advisor.status ==3 %}
-                            <p>suspendu</p>
+                            <p>Suspendu</p>
                         {% endif %}
                     </div>
                 </div>
@@ -71,26 +71,26 @@
         </section>
 
 
-    <section id="filterContainer" class="hidden">
-    </section>
-    <section class="filterAdvisors">
-        <div class="filterTitle">Filtres :</div>
-        <input type="text" id="myInput" placeholder="Chercher un nom..">
+        <section id="filterContainer" class="hidden">
+        </section>
+        <section class="filterAdvisors">
+            <div class="filterTitle">Filtres</div>
+            <input type="text" id="myInput" placeholder="Chercher un nom..">
 
-        <div class="order">
+            <div class="order">
 
-            <a href="{{ path('advisors') }}">tous</a>
-            <a href="./advisors/?filter=inscription">en cours d'inscription</a>
-            <a href="./advisors/?filter=validation">en cours de validation</a>
-            <a href="./advisors/?filter=valide">validé</a>
-            <a href="./advisors/?filter=ensuspens">suspendu</a>
-        </div>
+                <a href="{{ path('advisors') }}">Tous</a>
+                <a href="./advisors/?filter=inscription">En cours d'inscription</a>
+                <a href="./advisors/?filter=validation">En cours de validation</a>
+                <a href="./advisors/?filter=valide">Validé</a>
+                <a href="./advisors/?filter=ensuspens">Suspendu</a>
+            </div>
+        </section>
     </section>
-</section>
+</div>
+{% endblock %}
 
     {% block javascripts %}
         {{ encore_entry_script_tags('advisors') }}
-        {{ encore_entry_script_tags('board') }}
     {% endblock %}
-{% endblock %}
 
