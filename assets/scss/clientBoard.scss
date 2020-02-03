@@ -131,7 +131,8 @@ body{
                 cursor: pointer;
                 transition: all ease .4s;
                 height: calc(100% - 270px);
-
+                position: relative;
+                display: flex;
 
                 &:hover {
                     background-position: left bottom;
@@ -147,6 +148,20 @@ body{
                 p {
                     font-size: 1.3rem;
                     margin-bottom: 5px;
+                }
+                #cvIcon {
+                    position: absolute;
+
+                    .iconCv {
+                        position: absolute;
+                        width: 40px;
+                        height: 40px;
+                        display: block;
+                        z-index: 50;
+                        cursor: pointer;
+                        margin-top: 1em;
+                        margin-left: 14em;
+                    }
                 }
             }
         }
