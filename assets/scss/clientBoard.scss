@@ -86,16 +86,12 @@ body{
         @include transition;
         margin:3rem auto;
 
-
-
         .containerCards {
             opacity: 0;
             height:100%;
             width:100%;
             animation: ContentFadeIn 1.5s 1.8s forwards;
             @include transition;
-
-
 
 
             .icon {
@@ -120,7 +116,6 @@ body{
                 -webkit-filter: grayscale(10%);
                 filter: grayscale(30%);
             }
-
 
             .advisorInfo {
                 width: 100%;
@@ -149,9 +144,8 @@ body{
                     font-size: 1.3rem;
                     margin-bottom: 5px;
                 }
-                
+
                 #cvIcon {
-                    
                     position: absolute;
 
                     .iconCv {
@@ -175,7 +169,6 @@ footer {
     background-color: #3d4b80;
     border-top: #21215e solid 2px;
 }
-
 
 
 @keyframes ContentFadeIn {
