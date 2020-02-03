@@ -39,10 +39,10 @@ Encore
     .addEntry('register', './assets/scss/register.scss')
     .addEntry('statut', './assets/scss/statut.scss')
     .addEntry('footer', './assets/scss/footer.scss')
+    .addEntry('linkedin', './assets/scss/linkedin.scss')
 
 
-
-    // .addEntry('page2', './assets/js/page2.js')
+// .addEntry('page2', './assets/js/page2.js')
 
 // .addEntry('page2', './assets/js/page2.js')
 
