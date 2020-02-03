@@ -114,17 +114,15 @@
                 <a href="../demands/?filter=accepté">Proposition acceptée</a>
             </div>
         </section>
-
-        <section id="demandeFormulaire" class="hidden">
-            <div id="demandeFormulaireContent">
-                <div class="demandeFormulaireTitles">Créer une demande</div>
-                {{ form_start(formDemand, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_widget(formDemand) }}
-                <button class="submitDemand">{{ button_label|default('Créer') }}</button>
-                {{ form_end(formDemand) }}
-            </div>
-        </section>
-
+    </section>
+    <section id="demandeFormulaire" class="hidden">
+        <div id="demandeFormulaireContent">
+            <div class="demandeFormulaireTitles">Créer une demande</div>
+            {{ form_start(formDemand, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_widget(formDemand) }}
+            <button class="submitDemand">{{ button_label|default('Créer') }}</button>
+            {{ form_end(formDemand) }}
+        </div>
     </section>
 
 
