@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use LinkedIn\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Profiler\Profiler;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
@@ -33,11 +34,12 @@ class AdvisorController extends AbstractController
     /**
      * @Route("/candidature/{uuid}", name="candidature")
      * @ParamConverter("advisor", options={"mapping": {"uuid" : "uuid"}})
+     * @param Advisor $advisor
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param TagRepository $tagRepository
      * @param MailerInterface $mailer
-     * @param Advisor $advisor
+     * @param Profiler $profiler
      * @return Response
      * @throws TransportExceptionInterface
      */
@@ -47,9 +49,12 @@ class AdvisorController extends AbstractController
         EntityManagerInterface $em,
         Request $request,
         TagRepository $tagRepository,
-        MailerInterface $mailer
+        MailerInterface $mailer,
+        Profiler $profiler
     ): Response {
-
+        if (null !== $profiler) {
+            $profiler->disable();
+        }
         $form = $this->createForm(AdvisorType::class, $advisor);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -165,11 +170,18 @@ class AdvisorController extends AbstractController
      * @Route("/linkedin", name="linkedin_connect")
      * @param EntityManagerInterface $em
      * @param AdvisorRepository $advisorRepository
+     * @param Profiler $profiler
      * @return Response
      * @throws Exception
      */
-    public function index(EntityManagerInterface $em, AdvisorRepository $advisorRepository): Response
-    {
+    public function index(
+        EntityManagerInterface $em,
+        AdvisorRepository $advisorRepository,
+        Profiler $profiler
+    ): Response {
+        if (null !== $profiler) {
+            $profiler->disable();
+        }
         $client = new Client(
             $_ENV['OAUTH_LINKEDIN_ID'],
             $_ENV['OAUTH_LINKEDIN_SECRET']
@@ -227,10 +239,14 @@ class AdvisorController extends AbstractController
     /**
      * @Route("/statut/{uuid}", name="statut")
      * @param Advisor $advisor
+     * @param Profiler $profiler
      * @return Response
      */
-    public function advisorStatut(Advisor $advisor)
+    public function advisorStatut(Advisor $advisor, Profiler $profiler)
     {
+        if (null !== $profiler) {
+            $profiler->disable();
+        }
         return $this->render('advisor/advisorStatut.html.twig', [
             'advisor' => $advisor]);
     }

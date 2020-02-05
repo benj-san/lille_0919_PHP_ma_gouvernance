@@ -23,6 +23,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Profiler\Profiler;
 
 /**
  * @IsGranted("ROLE_ADMIN")
@@ -36,15 +37,19 @@ class AdminController extends AbstractController
      * @param TagRepository $tagRepository
      * @param Request $request
      * @param EntityManagerInterface $entityManager
+     * @param Profiler|null $profiler
      * @return Response
      */
     public function index(
         DemandRepository $demandRepository,
         TagRepository $tagRepository,
         Request $request,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        ?Profiler $profiler
     ): Response {
-        /* Changement de statut de la demande */
+        if (null !== $profiler) {
+            $profiler->disable();
+        }        /* Changement de statut de la demande */
         if (isset($_POST['statutSubmitted'])) {
             $values = explode('-', $_POST['radio']);
             $demand = $demandRepository->findOneBy(['id' => $values[1]]);
@@ -103,10 +108,17 @@ class AdminController extends AbstractController
      * @Route("/admin/advisors", name="advisors")
      * @param AdvisorRepository $advisorRepository
      * @param EntityManagerInterface $entityManager
+     * @param Profiler|null $profiler
      * @return Response
      */
-    public function advisor(AdvisorRepository $advisorRepository, EntityManagerInterface $entityManager): Response
-    {
+    public function advisor(
+        AdvisorRepository $advisorRepository,
+        EntityManagerInterface $entityManager,
+        ?Profiler $profiler
+    ): Response {
+        if (null !== $profiler) {
+            $profiler->disable();
+        }
         if (isset($_POST['commentChanged'])) {
             $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
             $advisor->setCommentary($_POST['commentaryAdvisor']);
@@ -155,7 +167,8 @@ class AdminController extends AbstractController
      * @param ResumeRepository $resumeRepository
      * @param EntityManagerInterface $entityManager
      * @param DemandRepository $demandRepository
-      * @return Response
+     * @param Profiler|null $profiler
+     * @return Response
      */
     public function board(
         AdvisorRepository $advisorRepository,
@@ -163,10 +176,12 @@ class AdminController extends AbstractController
         Request $request,
         ResumeRepository $resumeRepository,
         EntityManagerInterface $entityManager,
-        DemandRepository $demandRepository
+        DemandRepository $demandRepository,
+        ?Profiler $profiler
     ): Response {
-
-        if (isset($_POST['commentChanged'])) {
+        if (null !== $profiler) {
+            $profiler->disable();
+        }        if (isset($_POST['commentChanged'])) {
             $advisor = $advisorRepository->findOneBy(['id' => $_POST['advisorId']]);
             $advisor->setCommentary($_POST['commentaryAdvisor']);
             $entityManager->flush();
@@ -309,10 +324,18 @@ class AdminController extends AbstractController
      * @param Advisor $advisor
      * @param Request $request
      * @param EntityManagerInterface $em
+     * @param Profiler|null $profiler
      * @return Response
      */
-    public function editAdvisor(Advisor $advisor, Request $request, EntityManagerInterface $em)
-    {
+    public function editAdvisor(
+        Advisor $advisor,
+        Request $request,
+        EntityManagerInterface $em,
+        ?Profiler $profiler
+    ) {
+        if (null !== $profiler) {
+            $profiler->disable();
+        }
         $form = $this->createForm(AdvisorEditType::class, $advisor);
         $form->handleRequest($request);
 
