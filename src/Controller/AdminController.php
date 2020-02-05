@@ -317,28 +317,28 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $tagsCompetencesform = $form->getData()->getTagsCompetences();
+            $tagsForm = $form->getData()->getTags()->getValues();
             $tagsAdvisor = $advisor->getTags();
-            $totalForm = count($tagsCompetencesform);
+            $totalForm = count($tagsForm);
             $totalAdvisor = count($tagsAdvisor);
 
             for ($i = 0; $i < $totalForm; $i++) {
                 $tagsAdvisor = $advisor->getTags();
                 $state = false;
                 for ($j = 0; $j < $totalAdvisor; $j++) {
-                    if ($tagsCompetencesform[$i] === $tagsAdvisor[$j]) {
+                    if ($tagsForm[$i] === $tagsAdvisor[$j]) {
                         $state = true;
                     }
                 }
                 if ($state === false) {
-                    $advisor->addTag($tagsCompetencesform[$i]);
+                    $advisor->addTag($tagsForm[$i]);
                 }
             }
 
             for ($i = 0; $i < $totalAdvisor; $i++) {
                 $state = true;
                 for ($j = 0; $j < $totalForm; $j++) {
-                    if ($tagsCompetencesform[$j] === $tagsAdvisor[$i]) {
+                    if ($tagsForm[$j] === $tagsAdvisor[$i]) {
                         $state = false;
                     }
                 }
