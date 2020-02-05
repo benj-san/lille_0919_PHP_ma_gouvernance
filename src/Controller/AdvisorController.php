@@ -103,14 +103,6 @@ class AdvisorController extends AbstractController
                 }
             }
 
-            if ($form['tagsStructures']->getData()) {
-                $total = count($form['tagsStructures']->getData());
-                for ($i = 0; $i < $total; $i++) {
-                    $tag = $form['tagsStructures']->getData()[$i];
-                    $advisor->addTag($tag);
-                }
-            }
-
             $email = (new TemplatedEmail())
                 ->from(Address::fromString('MaGouvernance <remimayeux@gmail.com>'))
                 ->to('remimayeux@gmail.com')
