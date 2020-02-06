@@ -64,19 +64,6 @@ class AdvisorType extends AbstractType
                 ],
                 'required'   => false,
                 ])
-            ->add('tagsStructures', EntityType::class, [
-                    'attr' => ['class' => 'selectpicker'],
-                    'class' => Tag::class,
-                    'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('t')
-                            ->WHERE('t.category = 6');
-                    },
-                    'choice_label' => 'name',
-                    'multiple' => true,
-                    'expanded' => false,
-                    'by_reference' => false,
-                    'required'   => false,
-                ])
             ->add('tagsStatut', EntityType::class, [
                 'attr' => ['class' => 'selectpicker'],
                 'class' => Tag::class,
